@@ -132,8 +132,8 @@ const PROJECTS: Project[] = [
 const EXPERTISE: { label: string; weight: 1 | 2 | 3 | 4 }[] = [
   { label: "Enterprise SaaS", weight: 4 },
   { label: "Data Management", weight: 4 },
-  { label: "Agentic Experiences", weight: 4 },
   { label: "Enterprise Workflows", weight: 4 },
+  { label: "Agentic Experiences", weight: 3 },
   { label: "Design Systems", weight: 3 },
   { label: "Information Architecture", weight: 3 },
   { label: "Systems Thinking", weight: 3 },
@@ -348,20 +348,8 @@ function Expertise() {
       1: "text-lg sm:text-xl font-light text-muted-foreground",
       2: "text-2xl sm:text-3xl font-normal text-foreground/70",
       3: "text-3xl sm:text-4xl font-medium text-foreground",
-      4: "text-4xl sm:text-6xl font-semibold tracking-[-0.03em] text-foreground",
+      4: "text-4xl sm:text-6xl font-semibold tracking-[-0.03em] text-foreground font-serif",
     })[w];
-
-  // Dynamic, non-uniform layout: varied vertical offsets and alignment
-  // per item so the cloud reads as an organic arrangement, not a list.
-  const offsets = [
-    "translate-y-0",
-    "translate-y-2",
-    "-translate-y-1",
-    "translate-y-3",
-    "-translate-y-2",
-    "translate-y-1",
-  ];
-  const justify = ["justify-start", "justify-center", "justify-end"];
 
   return (
     <section id="expertise" className="border-t border-border/70 bg-secondary/40">
@@ -379,14 +367,11 @@ function Expertise() {
             </p>
           </div>
           <div className="lg:col-span-8">
-            <ul className="flex flex-wrap items-center gap-x-8 gap-y-6">
-              {EXPERTISE.map((item, i) => (
-                <li
-                  key={item.label}
-                  className={`flex w-full sm:w-auto ${justify[i % justify.length]} ${offsets[i % offsets.length]}`}
-                >
+            <ul className="flex flex-wrap items-baseline gap-x-8 gap-y-6">
+              {EXPERTISE.map((item) => (
+                <li key={item.label}>
                   <span
-                    className={`${sizeFor(item.weight)} leading-none font-sans transition-colors duration-200 hover:text-primary`}
+                    className={`${sizeFor(item.weight)} leading-none transition-colors duration-200 hover:text-primary`}
                   >
                     {item.label}
                   </span>
