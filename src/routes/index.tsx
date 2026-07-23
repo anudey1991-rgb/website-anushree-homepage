@@ -16,6 +16,51 @@ export const Route = createFileRoute("/")({
         content:
           "Enterprise SaaS · Data Platforms · Intelligent Workflows.",
       },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { property: "og:image", content: PORTRAIT },
+      { property: "og:image:alt", content: "Portrait of Anushree Dey" },
+      { property: "og:site_name", content: "Anushree Dey" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Anushree Dey — Lead Product & UX Designer" },
+      {
+        name: "twitter:description",
+        content:
+          "Lead Product Designer specialising in enterprise SaaS, data platforms and agentic workflows.",
+      },
+      { name: "twitter:image", content: PORTRAIT },
+      {
+        name: "keywords",
+        content:
+          "Product Designer, UX Designer, Enterprise SaaS, Data Management, Agentic Experiences, Design Systems, Cloud Transformation, UK, Europe",
+      },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Anushree Dey",
+          jobTitle: "Lead Product & UX Designer",
+          image: PORTRAIT,
+          url: "/",
+          description:
+            "Lead Product Designer specialising in enterprise SaaS, data platforms and intelligent, agentic workflows.",
+          knowsAbout: EXPERTISE_TOPICS,
+          sameAs: ["https://www.linkedin.com/"],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Anushree Dey — Portfolio",
+          url: "/",
+        }),
+      },
     ],
   }),
   component: Index,
@@ -44,6 +89,7 @@ type Project = {
   role: string;
   industry: string;
   duration: string;
+  responsibilities: string[];
 };
 
 const PROJECTS: Project[] = [
@@ -57,6 +103,12 @@ const PROJECTS: Project[] = [
     role: "Lead Product Designer",
     industry: "Enterprise SaaS",
     duration: "2024 — 2025",
+    responsibilities: [
+      "Agentic workflow design",
+      "Discovery & research",
+      "Interaction design",
+      "Design system contributions",
+    ],
   },
   {
     title: "Tabular Edit of Records",
@@ -68,21 +120,29 @@ const PROJECTS: Project[] = [
     role: "Lead Product Designer",
     industry: "Enterprise SaaS",
     duration: "2024",
+    responsibilities: [
+      "Information architecture",
+      "Interaction design",
+      "Usability testing",
+      "Engineering partnership",
+    ],
   },
 ];
 
 const EXPERTISE: { label: string; weight: 1 | 2 | 3 | 4 }[] = [
   { label: "Enterprise SaaS", weight: 4 },
   { label: "Data Management", weight: 4 },
+  { label: "Agentic Experiences", weight: 4 },
   { label: "Enterprise Workflows", weight: 4 },
   { label: "Design Systems", weight: 3 },
   { label: "Information Architecture", weight: 3 },
   { label: "Systems Thinking", weight: 3 },
   { label: "Cloud Transformation", weight: 3 },
-  { label: "Agentic Experiences", weight: 3 },
   { label: "Accessibility", weight: 2 },
   { label: "Cross-functional Collaboration", weight: 2 },
 ];
+
+const EXPERTISE_TOPICS = EXPERTISE.map((e) => e.label);
 
 const NAV = [
   { label: "Home", href: "#home" },
@@ -288,8 +348,20 @@ function Expertise() {
       1: "text-lg sm:text-xl font-light text-muted-foreground",
       2: "text-2xl sm:text-3xl font-normal text-foreground/70",
       3: "text-3xl sm:text-4xl font-medium text-foreground",
-      4: "text-4xl sm:text-6xl font-serif font-semibold tracking-[-0.02em] text-foreground",
+      4: "text-4xl sm:text-6xl font-semibold tracking-[-0.03em] text-foreground",
     })[w];
+
+  // Dynamic, non-uniform layout: varied vertical offsets and alignment
+  // per item so the cloud reads as an organic arrangement, not a list.
+  const offsets = [
+    "translate-y-0",
+    "translate-y-2",
+    "-translate-y-1",
+    "translate-y-3",
+    "-translate-y-2",
+    "translate-y-1",
+  ];
+  const justify = ["justify-start", "justify-center", "justify-end"];
 
   return (
     <section id="expertise" className="border-t border-border/70 bg-secondary/40">
@@ -307,13 +379,17 @@ function Expertise() {
             </p>
           </div>
           <div className="lg:col-span-8">
-            <ul className="flex flex-wrap items-baseline gap-x-8 gap-y-4">
-              {EXPERTISE.map((item) => (
+            <ul className="flex flex-wrap items-center gap-x-8 gap-y-6">
+              {EXPERTISE.map((item, i) => (
                 <li
                   key={item.label}
-                  className={`${sizeFor(item.weight)} leading-none transition-colors duration-200 hover:text-primary`}
+                  className={`flex w-full sm:w-auto ${justify[i % justify.length]} ${offsets[i % offsets.length]}`}
                 >
-                  {item.label}
+                  <span
+                    className={`${sizeFor(item.weight)} leading-none font-sans transition-colors duration-200 hover:text-primary`}
+                  >
+                    {item.label}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -404,17 +480,11 @@ function ProjectCard({ project }: { project: Project }) {
       <div className="flex flex-1 flex-col p-7">
         <div className="flex flex-wrap items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
           <span className="rounded-full border border-border px-2.5 py-1">{project.category}</span>
-          <span>{project.industry}</span>
-          <span aria-hidden>·</span>
-          <span>{project.duration}</span>
         </div>
         <h3 className="mt-5 font-serif text-2xl leading-tight tracking-[-0.01em] text-foreground">
           {project.title}
         </h3>
-        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-          {project.description}
-        </p>
-        <dl className="mt-6 grid grid-cols-2 gap-4 border-t border-border/70 pt-5 text-xs">
+        <dl className="mt-5 grid grid-cols-2 gap-x-6 gap-y-4 rounded-lg border border-border/70 bg-secondary/40 p-5 text-xs sm:grid-cols-4">
           <div>
             <dt className="uppercase tracking-widest text-muted-foreground">Role</dt>
             <dd className="mt-1 text-foreground">{project.role}</dd>
@@ -423,7 +493,31 @@ function ProjectCard({ project }: { project: Project }) {
             <dt className="uppercase tracking-widest text-muted-foreground">Industry</dt>
             <dd className="mt-1 text-foreground">{project.industry}</dd>
           </div>
+          <div>
+            <dt className="uppercase tracking-widest text-muted-foreground">Duration</dt>
+            <dd className="mt-1 text-foreground">{project.duration}</dd>
+          </div>
+          <div className="col-span-2 sm:col-span-1">
+            <dt className="uppercase tracking-widest text-muted-foreground">Responsibilities</dt>
+            <dd className="mt-1 text-foreground">{project.responsibilities.length} areas</dd>
+          </div>
+          <div className="col-span-2 sm:col-span-4">
+            <dt className="sr-only">Responsibilities</dt>
+            <dd className="flex flex-wrap gap-1.5">
+              {project.responsibilities.map((r) => (
+                <span
+                  key={r}
+                  className="rounded-full border border-border bg-background px-2.5 py-1 text-[11px] font-normal normal-case tracking-normal text-foreground/80"
+                >
+                  {r}
+                </span>
+              ))}
+            </dd>
+          </div>
         </dl>
+        <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
+          {project.description}
+        </p>
         <a
           href="#"
           className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground"
