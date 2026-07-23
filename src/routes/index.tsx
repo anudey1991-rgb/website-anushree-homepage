@@ -16,6 +16,51 @@ export const Route = createFileRoute("/")({
         content:
           "Enterprise SaaS · Data Platforms · Intelligent Workflows.",
       },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { property: "og:image", content: PORTRAIT },
+      { property: "og:image:alt", content: "Portrait of Anushree Dey" },
+      { property: "og:site_name", content: "Anushree Dey" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Anushree Dey — Lead Product & UX Designer" },
+      {
+        name: "twitter:description",
+        content:
+          "Lead Product Designer specialising in enterprise SaaS, data platforms and agentic workflows.",
+      },
+      { name: "twitter:image", content: PORTRAIT },
+      {
+        name: "keywords",
+        content:
+          "Product Designer, UX Designer, Enterprise SaaS, Data Management, Agentic Experiences, Design Systems, Cloud Transformation, UK, Europe",
+      },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Anushree Dey",
+          jobTitle: "Lead Product & UX Designer",
+          image: PORTRAIT,
+          url: "/",
+          description:
+            "Lead Product Designer specialising in enterprise SaaS, data platforms and intelligent, agentic workflows.",
+          knowsAbout: EXPERTISE_TOPICS,
+          sameAs: ["https://www.linkedin.com/"],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Anushree Dey — Portfolio",
+          url: "/",
+        }),
+      },
     ],
   }),
   component: Index,
@@ -44,6 +89,7 @@ type Project = {
   role: string;
   industry: string;
   duration: string;
+  responsibilities: string[];
 };
 
 const PROJECTS: Project[] = [
@@ -57,6 +103,12 @@ const PROJECTS: Project[] = [
     role: "Lead Product Designer",
     industry: "Enterprise SaaS",
     duration: "2024 — 2025",
+    responsibilities: [
+      "Agentic workflow design",
+      "Discovery & research",
+      "Interaction design",
+      "Design system contributions",
+    ],
   },
   {
     title: "Tabular Edit of Records",
@@ -68,21 +120,29 @@ const PROJECTS: Project[] = [
     role: "Lead Product Designer",
     industry: "Enterprise SaaS",
     duration: "2024",
+    responsibilities: [
+      "Information architecture",
+      "Interaction design",
+      "Usability testing",
+      "Engineering partnership",
+    ],
   },
 ];
 
 const EXPERTISE: { label: string; weight: 1 | 2 | 3 | 4 }[] = [
   { label: "Enterprise SaaS", weight: 4 },
   { label: "Data Management", weight: 4 },
+  { label: "Agentic Experiences", weight: 4 },
   { label: "Enterprise Workflows", weight: 4 },
   { label: "Design Systems", weight: 3 },
   { label: "Information Architecture", weight: 3 },
   { label: "Systems Thinking", weight: 3 },
   { label: "Cloud Transformation", weight: 3 },
-  { label: "Agentic Experiences", weight: 3 },
   { label: "Accessibility", weight: 2 },
   { label: "Cross-functional Collaboration", weight: 2 },
 ];
+
+const EXPERTISE_TOPICS = EXPERTISE.map((e) => e.label);
 
 const NAV = [
   { label: "Home", href: "#home" },
