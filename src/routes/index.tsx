@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
+import logoMark from "@/assets/anushree-a-mark.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -90,6 +91,7 @@ type Project = {
   industry: string;
   duration: string;
   responsibilities: string[];
+  caseStudyUrl: string;
 };
 
 const PROJECTS: Project[] = [
@@ -109,6 +111,7 @@ const PROJECTS: Project[] = [
       "Interaction design",
       "Design system contributions",
     ],
+    caseStudyUrl: "https://www.anushreedey.com/agent-verified-survivorship-experience",
   },
   {
     title: "Tabular Edit of Records",
@@ -126,6 +129,7 @@ const PROJECTS: Project[] = [
       "Usability testing",
       "Engineering partnership",
     ],
+    caseStudyUrl: "https://www.anushreedey.com/tabular-edit-workspace-for-records",
   },
   {
     title: "Master Data Management",
@@ -143,6 +147,7 @@ const PROJECTS: Project[] = [
       "Design system contributions",
       "Cross-functional collaboration",
     ],
+    caseStudyUrl: "https://www.anushreedey.com/master-data-management",
   },
   {
     title: "SwiftAccess",
@@ -160,6 +165,7 @@ const PROJECTS: Project[] = [
       "Interaction design",
       "Usability testing",
     ],
+    caseStudyUrl: "https://www.anushreedey.com/swiftaccess",
   },
   {
     title: "Data Visualization Creation Tool & Dashboard",
@@ -177,6 +183,7 @@ const PROJECTS: Project[] = [
       "Dashboard interaction design",
       "Prototyping",
     ],
+    caseStudyUrl: "https://www.anushreedey.com/projects-1",
   },
   {
     title: "Blockchain Based Platform",
@@ -194,6 +201,7 @@ const PROJECTS: Project[] = [
       "Interaction design",
       "Stakeholder alignment",
     ],
+    caseStudyUrl: "https://www.anushreedey.com/blockchain-platform",
   },
   {
     title: "Flight Connectivity Simulation System",
@@ -211,6 +219,7 @@ const PROJECTS: Project[] = [
       "Interaction design",
       "Engineering partnership",
     ],
+    caseStudyUrl: "https://www.anushreedey.com/projects-1",
   },
   {
     title: "Diagnostic Imaging (MRI)",
@@ -228,6 +237,7 @@ const PROJECTS: Project[] = [
       "Extensibility framework",
       "Usability with clinicians",
     ],
+    caseStudyUrl: "https://www.anushreedey.com/mri",
   },
   {
     title: "Clove",
@@ -245,6 +255,7 @@ const PROJECTS: Project[] = [
       "Interaction design",
       "Visual design",
     ],
+    caseStudyUrl: "https://www.anushreedey.com/clove",
   },
   {
     title: "Connecting the Dots",
@@ -262,6 +273,7 @@ const PROJECTS: Project[] = [
       "Service prototyping",
       "Speculative design",
     ],
+    caseStudyUrl: "https://www.anushreedey.com/connecting-the-dots",
   },
   {
     title: "Autism Friendly Environment",
@@ -279,6 +291,7 @@ const PROJECTS: Project[] = [
       "Spatial interventions",
       "Prototyping",
     ],
+    caseStudyUrl: "https://www.anushreedey.com/autism-friendly-environment",
   },
 ];
 
@@ -354,21 +367,7 @@ function Index() {
 function Logo() {
   return (
     <a href="#home" className="flex items-center gap-3 group" aria-label="Anushree Dey — home">
-      <svg width="28" height="28" viewBox="0 0 40 40" fill="none" aria-hidden>
-        <path
-          d="M8 34 L20 6 L32 34 M13 26 H27"
-          stroke="url(#a-grad)"
-          strokeWidth="2.4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <defs>
-          <linearGradient id="a-grad" x1="0" y1="0" x2="40" y2="40">
-            <stop offset="0" stopColor="oklch(0.32 0.09 255)" />
-            <stop offset="1" stopColor="oklch(0.55 0.14 250)" />
-          </linearGradient>
-        </defs>
-      </svg>
+      <img src={logoMark} alt="" aria-hidden className="h-9 w-9 object-contain" />
       <span className="text-sm font-medium tracking-[-0.01em] text-foreground">
         Anushree Dey
       </span>
@@ -485,7 +484,7 @@ function Hero() {
               src={PORTRAIT}
               alt="Portrait of Anushree Dey"
               loading="eager"
-              className="h-full w-full object-cover"
+              className="h-full w-full scale-x-[-1] object-cover"
             />
             <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-foreground/5" />
           </div>
@@ -498,11 +497,14 @@ function Hero() {
 function Expertise() {
   const sizeFor = (w: 1 | 2 | 3 | 4) =>
     ({
-      1: "text-lg sm:text-xl font-light text-muted-foreground",
-      2: "text-2xl sm:text-3xl font-normal text-foreground/70",
-      3: "text-3xl sm:text-4xl font-medium text-foreground",
-      4: "text-4xl sm:text-6xl font-semibold tracking-[-0.03em] text-foreground font-serif",
+      1: "text-lg sm:text-xl",
+      2: "text-2xl sm:text-3xl",
+      3: "text-3xl sm:text-4xl",
+      4: "text-4xl sm:text-6xl",
     })[w];
+
+  const colorFor = (index: number) =>
+    ["text-cloud-blue", "text-cloud-coral", "text-cloud-green", "text-cloud-gold", "text-cloud-ink"][index % 5];
 
   return (
     <section id="expertise" className="border-t border-border/70 bg-secondary/40">
@@ -521,10 +523,10 @@ function Expertise() {
           </div>
           <div className="lg:col-span-8">
             <ul className="flex flex-wrap items-baseline gap-x-8 gap-y-6">
-              {EXPERTISE.map((item) => (
+              {EXPERTISE.map((item, index) => (
                 <li key={item.label}>
                   <span
-                    className={`${sizeFor(item.weight)} leading-none transition-colors duration-200 hover:text-primary`}
+                    className={`${sizeFor(item.weight)} ${colorFor(index)} font-cloud font-bold leading-none transition-opacity duration-200 hover:opacity-70`}
                   >
                     {item.label}
                   </span>
@@ -622,43 +624,12 @@ function ProjectCard({ project }: { project: Project }) {
         <h3 className="mt-5 font-serif text-2xl leading-tight tracking-[-0.01em] text-foreground">
           {project.title}
         </h3>
-        <dl className="mt-5 grid grid-cols-2 gap-x-6 gap-y-4 rounded-lg border border-border/70 bg-secondary/40 p-5 text-xs sm:grid-cols-4">
-          <div>
-            <dt className="uppercase tracking-widest text-muted-foreground">Role</dt>
-            <dd className="mt-1 text-foreground">{project.role}</dd>
-          </div>
-          <div>
-            <dt className="uppercase tracking-widest text-muted-foreground">Industry</dt>
-            <dd className="mt-1 text-foreground">{project.industry}</dd>
-          </div>
-          <div>
-            <dt className="uppercase tracking-widest text-muted-foreground">Duration</dt>
-            <dd className="mt-1 text-foreground">{project.duration}</dd>
-          </div>
-          <div className="col-span-2 sm:col-span-1">
-            <dt className="uppercase tracking-widest text-muted-foreground">Responsibilities</dt>
-            <dd className="mt-1 text-foreground">{project.responsibilities.length} areas</dd>
-          </div>
-          <div className="col-span-2 sm:col-span-4">
-            <dt className="sr-only">Responsibilities</dt>
-            <dd className="flex flex-wrap gap-1.5">
-              {project.responsibilities.map((r) => (
-                <span
-                  key={r}
-                  className="rounded-full border border-border bg-background px-2.5 py-1 text-[11px] font-normal normal-case tracking-normal text-foreground/80"
-                >
-                  {r}
-                </span>
-              ))}
-            </dd>
-          </div>
-        </dl>
         <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
           {project.description}
         </p>
         <a
-          href="#"
-          className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground"
+          href={project.caseStudyUrl}
+          className="mt-auto inline-flex items-center gap-2 pt-7 text-sm font-medium text-foreground"
         >
           <span className="border-b border-foreground/30 pb-0.5 transition-colors group-hover:border-foreground">
             View case study
