@@ -499,8 +499,8 @@ function Expertise() {
     ({
       1: "text-lg sm:text-xl",
       2: "text-2xl sm:text-3xl",
-      3: "text-3xl sm:text-4xl",
-      4: "text-4xl sm:text-6xl",
+      3: "text-2xl sm:text-4xl",
+      4: "text-3xl sm:text-6xl",
     })[w];
 
   const colorFor = (index: number) =>
