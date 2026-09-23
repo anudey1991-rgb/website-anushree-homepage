@@ -547,6 +547,8 @@ function Portfolio({
   filter: Category;
   setFilter: (c: Category) => void;
 }) {
+  const [showAll, setShowAll] = useState(false);
+  useEffect(() => setShowAll(false), [filter]);
   return (
     <section id="portfolio" className="border-t border-border/70">
       <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
@@ -589,8 +591,8 @@ function Portfolio({
           })}
         </div>
 
-        <div className="mt-12 grid gap-8 sm:grid-cols-2">
-          {projects.map((p) => (
+        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {(showAll ? projects : projects.slice(0, 3)).map((p) => (
             <ProjectCard key={p.title} project={p} />
           ))}
           {projects.length === 0 && (
@@ -599,6 +601,16 @@ function Portfolio({
             </div>
           )}
         </div>
+        {projects.length > 3 && (
+          <div className="mt-12 flex justify-center">
+            <button
+              onClick={() => setShowAll((v) => !v)}
+              className="inline-flex h-11 items-center rounded-full border border-foreground/20 px-6 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
+            >
+              {showAll ? "Show less" : `Show more (${projects.length - 3})`}
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
