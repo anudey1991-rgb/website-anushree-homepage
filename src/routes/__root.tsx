@@ -77,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Anushree Dey — Lead Product & UX Designer" },
+      { title: "Anushree Dey | Lead Product & UX Designer" },
       {
         name: "description",
         content:
           "Anushree Dey is a Lead Product Designer specialising in enterprise SaaS, data platforms and intelligent workflows.",
       },
       { name: "author", content: "Anushree Dey" },
-      { property: "og:title", content: "Anushree Dey — Lead Product & UX Designer" },
+      { property: "og:title", content: "Anushree Dey | Lead Product & UX Designer" },
       {
         property: "og:description",
         content:

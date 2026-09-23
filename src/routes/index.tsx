@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import logoMark from "@/assets/anushree-a-mark.png";
+import logoMark from "@/assets/anushree-logo.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Anushree Dey — Lead Product & UX Designer" },
+      { title: "Anushree Dey | Lead Product & UX Designer" },
       {
         name: "description",
         content:
-          "Portfolio of Anushree Dey, Lead Product Designer for enterprise SaaS, data platforms and intelligent workflows.",
+          "Portfolio of Anushree Dey | Lead Product Designer for enterprise SaaS, data platforms and intelligent workflows.",
       },
-      { property: "og:title", content: "Anushree Dey — Lead Product & UX Designer" },
+      { property: "og:title", content: "Anushree Dey | Lead Product & UX Designer" },
       {
         property: "og:description",
         content:
@@ -23,7 +23,7 @@ export const Route = createFileRoute("/")({
       { property: "og:image:alt", content: "Portrait of Anushree Dey" },
       { property: "og:site_name", content: "Anushree Dey" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Anushree Dey — Lead Product & UX Designer" },
+      { name: "twitter:title", content: "Anushree Dey | Lead Product & UX Designer" },
       {
         name: "twitter:description",
         content:
@@ -58,7 +58,7 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebSite",
-          name: "Anushree Dey — Portfolio",
+          name: "Anushree Dey | Portfolio",
           url: "/",
         }),
       },
@@ -104,7 +104,7 @@ const PROJECTS: Project[] = [
     category: "Data Management",
     role: "Lead Product Designer",
     industry: "Enterprise SaaS",
-    duration: "2024 — 2025",
+    duration: "2024, 2025",
     responsibilities: [
       "Agentic workflow design",
       "Discovery & research",
@@ -140,7 +140,7 @@ const PROJECTS: Project[] = [
     category: "Data Management",
     role: "Senior Product Designer",
     industry: "Enterprise SaaS",
-    duration: "2022 — 2024",
+    duration: "2022, 2024",
     responsibilities: [
       "End-to-end product design",
       "Data governance workflows",
@@ -230,7 +230,7 @@ const PROJECTS: Project[] = [
     category: "Healthcare",
     role: "Product Designer",
     industry: "Medical Imaging",
-    duration: "2017 — 2018",
+    duration: "2017, 2018",
     responsibilities: [
       "Clinical workflow design",
       "Interaction design",
@@ -314,7 +314,6 @@ const NAV = [
   { label: "Home", href: "#home" },
   { label: "Portfolio", href: "#portfolio" },
   { label: "About", href: "#about" },
-  { label: "Resume", href: "#resume" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -328,7 +327,7 @@ function Index() {
   );
 
   useEffect(() => {
-    const ids = ["home", "portfolio", "about", "resume", "contact"];
+    const ids = ["home", "portfolio", "about", "contact"];
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -356,7 +355,6 @@ function Index() {
           setFilter={setFilter}
         />
         <About />
-        <Resume />
         <Contact />
       </main>
       <Footer />
@@ -366,7 +364,7 @@ function Index() {
 
 function Logo() {
   return (
-    <a href="#home" className="flex items-center gap-3 group" aria-label="Anushree Dey — home">
+    <a href="#home" className="flex items-center gap-3 group" aria-label="Anushree Dey home">
       <img src={logoMark} alt="" aria-hidden className="h-9 w-9 object-contain" />
       <span className="text-sm font-medium tracking-[-0.01em] text-foreground">
         Anushree Dey
@@ -455,10 +453,10 @@ function Hero() {
               View Portfolio
             </a>
             <a
-              href="#resume"
+              href="#contact"
               className="inline-flex h-11 items-center rounded-full border border-foreground/20 px-6 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
             >
-              Download Resume
+              Get in touch
             </a>
           </div>
 
@@ -504,7 +502,7 @@ function Expertise() {
     })[w];
 
   const colorFor = (index: number) =>
-    ["text-cloud-blue", "text-cloud-coral", "text-cloud-green", "text-cloud-gold", "text-cloud-ink"][index % 5];
+    ["text-foreground", "text-foreground/75", "text-muted-foreground", "text-foreground/60", "text-foreground/90"][index % 5];
 
   return (
     <section id="expertise" className="border-t border-border/70 bg-secondary/40">
@@ -526,7 +524,7 @@ function Expertise() {
               {EXPERTISE.map((item, index) => (
                 <li key={item.label}>
                   <span
-                    className={`${sizeFor(item.weight)} ${colorFor(index)} font-cloud font-bold leading-none transition-opacity duration-200 hover:opacity-70`}
+                    className={`${sizeFor(item.weight)} ${colorFor(index)} font-sans font-semibold tracking-[-0.02em] leading-none transition-opacity duration-200 hover:opacity-70`}
                   >
                     {item.label}
                   </span>
@@ -549,6 +547,8 @@ function Portfolio({
   filter: Category;
   setFilter: (c: Category) => void;
 }) {
+  const [showAll, setShowAll] = useState(false);
+  useEffect(() => setShowAll(false), [filter]);
   return (
     <section id="portfolio" className="border-t border-border/70">
       <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
@@ -591,8 +591,8 @@ function Portfolio({
           })}
         </div>
 
-        <div className="mt-12 grid gap-8 sm:grid-cols-2">
-          {projects.map((p) => (
+        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {(showAll ? projects : projects.slice(0, 3)).map((p) => (
             <ProjectCard key={p.title} project={p} />
           ))}
           {projects.length === 0 && (
@@ -601,6 +601,16 @@ function Portfolio({
             </div>
           )}
         </div>
+        {projects.length > 3 && (
+          <div className="mt-12 flex justify-center">
+            <button
+              onClick={() => setShowAll((v) => !v)}
+              className="inline-flex h-11 items-center rounded-full border border-foreground/20 px-6 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
+            >
+              {showAll ? "Show less" : `Show more (${projects.length - 3})`}
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
@@ -647,7 +657,7 @@ function About() {
       <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
-            <div className="sticky top-24">
+            <div>
               <div className="relative aspect-[4/5] max-w-sm overflow-hidden rounded-sm bg-background">
                 <img
                   src={PORTRAIT}
@@ -657,7 +667,7 @@ function About() {
                 />
               </div>
               <p className="mt-6 max-w-sm text-xs uppercase tracking-[0.22em] text-muted-foreground">
-                Anushree Dey — Lead Product Designer
+                Anushree Dey | Lead Product Designer
               </p>
             </div>
           </div>
@@ -678,7 +688,7 @@ function About() {
               />
               <AboutBlock
                 label="Core Expertise"
-                body="Over the past decade, I've designed products across enterprise data management, healthcare, aerospace and education. My work spans cloud transformation, enterprise workflows, design systems and data-intensive experiences — including data onboarding, governance, configuration, security and business process management."
+                body="Over the past decade, I've designed products across enterprise data management, healthcare, aerospace and education. My work spans cloud transformation, enterprise workflows, design systems and data-intensive experiences, including data onboarding, governance, configuration, security and business process management."
               />
               <AboutBlock
                 label="Approach"
@@ -701,33 +711,11 @@ function AboutBlock({ label, body }: { label: string; body: string }) {
   );
 }
 
-function Resume() {
-  return (
-    <section id="resume" className="border-t border-border/70">
-      <div className="mx-auto flex max-w-7xl flex-col items-start gap-8 px-6 py-20 lg:flex-row lg:items-center lg:justify-between lg:px-10 lg:py-24">
-        <div>
-          <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Resume</p>
-          <h2 className="mt-3 font-serif text-3xl leading-tight tracking-[-0.01em] text-foreground sm:text-4xl">
-            The long-form version — roles, teams, outcomes.
-          </h2>
-        </div>
-        <a
-          href="#"
-          className="inline-flex h-12 items-center rounded-full bg-foreground px-7 text-sm font-medium text-background transition-transform duration-200 hover:-translate-y-0.5"
-        >
-          Download Resume (PDF)
-        </a>
-      </div>
-    </section>
-  );
-}
-
 function Contact() {
   const items = [
-    { label: "Email", value: "hello@anushreedey.com", href: "mailto:hello@anushreedey.com" },
+    { label: "Email", value: "anushree.d@hotmail.com", href: "mailto:anushree.d@hotmail.com" },
     { label: "LinkedIn", value: "linkedin.com/in/anushreedey", href: "https://www.linkedin.com/" },
-    { label: "Phone", value: "On request", href: "#" },
-    { label: "Resume", value: "Download PDF", href: "#resume" },
+    { label: "Phone", value: "+91 8627064649", href: "tel:+918627064649" },
   ];
   return (
     <section id="contact" className="border-t border-border/70 bg-foreground text-background">
@@ -736,10 +724,10 @@ function Contact() {
           <div className="lg:col-span-6">
             <p className="text-xs uppercase tracking-[0.22em] text-background/60">Contact</p>
             <h2 className="mt-4 font-serif text-4xl leading-[1.05] tracking-[-0.02em] sm:text-6xl">
-              Let's design something that scales.
+              Let's work together.
             </h2>
             <p className="mt-6 max-w-md text-base leading-relaxed text-background/70">
-              Open to Senior, Lead and Staff Product Design roles across the UK and Europe. I reply to every enquiry personally.
+              Open to Senior, Lead and Staff Product Design roles across the UK and Europe.
             </p>
           </div>
           <div className="lg:col-span-6 lg:pl-12">
@@ -775,8 +763,7 @@ function Footer() {
         <p>© {new Date().getFullYear()} Anushree Dey. All rights reserved.</p>
         <ul className="flex items-center gap-6">
           <li><a href="https://www.linkedin.com/" className="hover:text-background">LinkedIn</a></li>
-          <li><a href="#resume" className="hover:text-background">Resume</a></li>
-          <li><a href="mailto:hello@anushreedey.com" className="hover:text-background">Email</a></li>
+          <li><a href="mailto:anushree.d@hotmail.com" className="hover:text-background">Email</a></li>
         </ul>
       </div>
     </footer>
