@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import logoMark from "@/assets/anushree-logo.png";
+import { CATEGORIES, PROJECTS, type Category, type Project } from "@/data/projects";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -70,231 +71,6 @@ export const Route = createFileRoute("/")({
 const PORTRAIT =
   "https://static.wixstatic.com/media/55b247_73a8ce9adb854673bc820652486c9db3~mv2.jpg/v1/crop/x_0,y_15,w_674,h_821/fill/w_860,h_1060,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Gemini_Generated_Image_6wsagi6wsagi6wsa_edited.jpg";
 
-const CATEGORIES = [
-  "All",
-  "Data Management",
-  "Healthcare",
-  "Aerospace",
-  "Innovation",
-  "Research",
-  "Architecture",
-] as const;
-
-type Category = (typeof CATEGORIES)[number];
-
-type Project = {
-  title: string;
-  description: string;
-  image: string;
-  category: Exclude<Category, "All">;
-  role: string;
-  industry: string;
-  duration: string;
-  responsibilities: string[];
-  caseStudyUrl: string;
-};
-
-const PROJECTS: Project[] = [
-  {
-    title: "Agent-Verified Data Survivorship",
-    description:
-      "An agentic copilot that cross-checks MDM survivorship decisions against real-world sources, right inside Slack, before bad data ever gets published.",
-    image:
-      "https://static.wixstatic.com/media/55b247_6a623ccd20d24bc1b48184110f48cb50~mv2.png/v1/fit/w_960,h_720,q_85,enc_avif,quality_auto/55b247_6a623ccd20d24bc1b48184110f48cb50~mv2.png",
-    category: "Data Management",
-    role: "Lead Product Designer",
-    industry: "Enterprise SaaS",
-    duration: "2024, 2025",
-    responsibilities: [
-      "Agentic workflow design",
-      "Discovery & research",
-      "Interaction design",
-      "Design system contributions",
-    ],
-    caseStudyUrl: "https://www.anushreedey.com/agent-verified-survivorship-experience",
-  },
-  {
-    title: "Tabular Edit of Records",
-    description:
-      "A persistent table workspace for inline-editing, validating, and bulk-publishing up to 10,000 MDM records at once.",
-    image:
-      "https://static.wixstatic.com/media/55b247_1ff9699456fe48baa9a994e92872629d~mv2.png/v1/fit/w_960,h_720,q_85,enc_avif,quality_auto/55b247_1ff9699456fe48baa9a994e92872629d~mv2.png",
-    category: "Data Management",
-    role: "Lead Product Designer",
-    industry: "Enterprise SaaS",
-    duration: "2024",
-    responsibilities: [
-      "Information architecture",
-      "Interaction design",
-      "Usability testing",
-      "Engineering partnership",
-    ],
-    caseStudyUrl: "https://www.anushreedey.com/tabular-edit-workspace-for-records",
-  },
-  {
-    title: "Master Data Management",
-    description:
-      "Designed a SaaS cloud enterprise product for Master Data Management, covering onboarding, governance and stewardship workflows.",
-    image:
-      "https://static.wixstatic.com/media/55b247_50d82fa65e10446cab0c71ad741b82ab~mv2.jpg/v1/fit/w_960,h_720,q_85,enc_avif,quality_auto/55b247_50d82fa65e10446cab0c71ad741b82ab~mv2.jpg",
-    category: "Data Management",
-    role: "Senior Product Designer",
-    industry: "Enterprise SaaS",
-    duration: "2022, 2024",
-    responsibilities: [
-      "End-to-end product design",
-      "Data governance workflows",
-      "Design system contributions",
-      "Cross-functional collaboration",
-    ],
-    caseStudyUrl: "https://www.anushreedey.com/master-data-management",
-  },
-  {
-    title: "SwiftAccess",
-    description:
-      "A personalised access page that helps enterprise users quickly reach their assets and artefacts and prioritise the actions that matter most.",
-    image:
-      "https://static.wixstatic.com/media/55b247_f58f1c4c328142b381b35edd5821e7e5~mv2.png/v1/fill/w_960,h_720,fp_0.48_0.48,q_85,enc_avif,quality_auto/55b247_f58f1c4c328142b381b35edd5821e7e5~mv2.png",
-    category: "Data Management",
-    role: "Product Designer",
-    industry: "Enterprise SaaS",
-    duration: "2021",
-    responsibilities: [
-      "Discovery & research",
-      "Information architecture",
-      "Interaction design",
-      "Usability testing",
-    ],
-    caseStudyUrl: "https://www.anushreedey.com/swiftaccess",
-  },
-  {
-    title: "Data Visualization Creation Tool & Dashboard",
-    description:
-      "A first-generation MVP that authors data reports and graphical visualisation components, paired with a dashboard for consuming and acting on insights.",
-    image:
-      "https://static.wixstatic.com/media/55b247_66fffa72b8414a52aeda924b23afe3be~mv2.jpg/v1/fit/w_960,h_720,q_85,enc_avif,quality_auto/55b247_66fffa72b8414a52aeda924b23afe3be~mv2.jpg",
-    category: "Data Management",
-    role: "Product Designer",
-    industry: "Enterprise Analytics",
-    duration: "2020",
-    responsibilities: [
-      "MVP definition",
-      "Data visualization design",
-      "Dashboard interaction design",
-      "Prototyping",
-    ],
-    caseStudyUrl: "https://www.anushreedey.com/projects-1",
-  },
-  {
-    title: "Blockchain Based Platform",
-    description:
-      "A blockchain-based platform service to manage transactions and supply chain for products used in the aviation industry.",
-    image:
-      "https://static.wixstatic.com/media/55b247_c2dd01c0f48741a9b98f86a1a20b9519~mv2.jpg/v1/fit/w_960,h_720,q_85,enc_avif,quality_auto/55b247_c2dd01c0f48741a9b98f86a1a20b9519~mv2.jpg",
-    category: "Aerospace",
-    role: "Product Designer",
-    industry: "Aviation",
-    duration: "2019",
-    responsibilities: [
-      "Domain research",
-      "Workflow modeling",
-      "Interaction design",
-      "Stakeholder alignment",
-    ],
-    caseStudyUrl: "https://www.anushreedey.com/blockchain-platform",
-  },
-  {
-    title: "Flight Connectivity Simulation System",
-    description:
-      "Designed multiple Line Replaceable Units in a simulation environment and planned their connectivity for aircraft systems.",
-    image:
-      "https://static.wixstatic.com/media/55b247_c43ab13e0f9249e1aa073da57dc00157~mv2.jpg/v1/fit/w_960,h_720,q_85,enc_avif,quality_auto/55b247_c43ab13e0f9249e1aa073da57dc00157~mv2.jpg",
-    category: "Aerospace",
-    role: "Product Designer",
-    industry: "Aviation",
-    duration: "2018",
-    responsibilities: [
-      "Simulation UX",
-      "Systems thinking",
-      "Interaction design",
-      "Engineering partnership",
-    ],
-    caseStudyUrl: "https://www.anushreedey.com/projects-1",
-  },
-  {
-    title: "Diagnostic Imaging (MRI)",
-    description:
-      "A working software product capable of performing a majority of clinical tasks and workflows, allowing extensions and plug-ins for modality-specific tasks.",
-    image:
-      "https://static.wixstatic.com/media/55b247_9314b0140bf44907b8bd78ab8a899afd~mv2.jpg/v1/fit/w_960,h_720,q_85,enc_avif,quality_auto/55b247_9314b0140bf44907b8bd78ab8a899afd~mv2.jpg",
-    category: "Healthcare",
-    role: "Product Designer",
-    industry: "Medical Imaging",
-    duration: "2017, 2018",
-    responsibilities: [
-      "Clinical workflow design",
-      "Interaction design",
-      "Extensibility framework",
-      "Usability with clinicians",
-    ],
-    caseStudyUrl: "https://www.anushreedey.com/mri",
-  },
-  {
-    title: "Clove",
-    description:
-      "An online medical service offering free consultation and discounted products and services, addressing the need for a seamless and inclusive healthcare experience.",
-    image:
-      "https://static.wixstatic.com/media/55b247_6b09b0bae18c41f9a108aceaaf6a0e97~mv2.jpg/v1/fit/w_960,h_720,q_85,enc_avif,quality_auto/55b247_6b09b0bae18c41f9a108aceaaf6a0e97~mv2.jpg",
-    category: "Healthcare",
-    role: "Product Designer",
-    industry: "Consumer Healthcare",
-    duration: "2017",
-    responsibilities: [
-      "Service design",
-      "User research",
-      "Interaction design",
-      "Visual design",
-    ],
-    caseStudyUrl: "https://www.anushreedey.com/clove",
-  },
-  {
-    title: "Connecting the Dots",
-    description:
-      "Redefining collaboration methods for freelance workers to leverage each other's skills and communicate in a co-working space.",
-    image:
-      "https://static.wixstatic.com/media/55b247_195ac59e71f945fb8c3c7f9ae8c5fb81~mv2.jpg/v1/fit/w_960,h_720,q_85,enc_avif,quality_auto/55b247_195ac59e71f945fb8c3c7f9ae8c5fb81~mv2.jpg",
-    category: "Innovation",
-    role: "Designer & Researcher",
-    industry: "Future of Work",
-    duration: "2016",
-    responsibilities: [
-      "Ethnographic research",
-      "Concept design",
-      "Service prototyping",
-      "Speculative design",
-    ],
-    caseStudyUrl: "https://www.anushreedey.com/connecting-the-dots",
-  },
-  {
-    title: "Autism Friendly Environment",
-    description:
-      "Redesigning urban spaces with technological and minimal architectural interventions to make them friendlier for people living with autism.",
-    image:
-      "https://static.wixstatic.com/media/55b247_3269f588475941988e5a877c56681f43~mv2.jpg/v1/fit/w_960,h_720,q_85,enc_avif,quality_auto/55b247_3269f588475941988e5a877c56681f43~mv2.jpg",
-    category: "Architecture",
-    role: "Designer & Researcher",
-    industry: "Inclusive Design",
-    duration: "2015",
-    responsibilities: [
-      "Field research",
-      "Inclusive design",
-      "Spatial interventions",
-      "Prototyping",
-    ],
-    caseStudyUrl: "https://www.anushreedey.com/autism-friendly-environment",
-  },
-];
-
 const EXPERTISE: { label: string; weight: 1 | 2 | 3 | 4 }[] = [
   { label: "Enterprise SaaS", weight: 4 },
   { label: "Data Management", weight: 4 },
@@ -344,7 +120,7 @@ function Index() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans antialiased scroll-smooth">
+    <div className="min-h-screen overflow-x-hidden bg-background text-foreground font-sans antialiased scroll-smooth">
       <Nav active={active} />
       <main>
         <Hero />
@@ -460,18 +236,14 @@ function Hero() {
             </a>
           </div>
 
-          <dl className="mt-16 grid max-w-lg grid-cols-3 gap-8 border-t border-border pt-8">
+          <dl className="mt-16 grid max-w-lg grid-cols-2 gap-8 border-t border-border pt-8">
             <div>
               <dt className="text-xs uppercase tracking-widest text-muted-foreground">Experience</dt>
               <dd className="mt-2 font-serif text-2xl text-foreground">10+ yrs</dd>
             </div>
             <div>
               <dt className="text-xs uppercase tracking-widest text-muted-foreground">Focus</dt>
-              <dd className="mt-2 font-serif text-2xl text-foreground">Enterprise</dd>
-            </div>
-            <div>
-              <dt className="text-xs uppercase tracking-widest text-muted-foreground">Based</dt>
-              <dd className="mt-2 font-serif text-2xl text-foreground">UK / EU</dd>
+              <dd className="mt-2 font-serif text-2xl text-foreground">Enterprise · AI Agent</dd>
             </div>
           </dl>
         </div>
@@ -618,7 +390,13 @@ function Portfolio({
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_-25px_oklch(0.22_0.02_260/0.25)]">
+    <Link
+      to="/portfolio/$slug"
+      params={{ slug: project.slug }}
+      preload="intent"
+      aria-label={`View case study: ${project.title}`}
+      className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_-25px_oklch(0.22_0.02_260/0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+    >
       <div className="aspect-[4/3] overflow-hidden bg-secondary">
         <img
           src={project.image}
@@ -637,17 +415,14 @@ function ProjectCard({ project }: { project: Project }) {
         <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
           {project.description}
         </p>
-        <a
-          href={project.caseStudyUrl}
-          className="mt-auto inline-flex items-center gap-2 pt-7 text-sm font-medium text-foreground"
-        >
+        <span className="mt-auto inline-flex items-center gap-2 pt-7 text-sm font-medium text-foreground">
           <span className="border-b border-foreground/30 pb-0.5 transition-colors group-hover:border-foreground">
             View case study
           </span>
           <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-1">→</span>
-        </a>
+        </span>
       </div>
-    </article>
+    </Link>
   );
 }
 
@@ -714,8 +489,7 @@ function AboutBlock({ label, body }: { label: string; body: string }) {
 function Contact() {
   const items = [
     { label: "Email", value: "anushree.d@hotmail.com", href: "mailto:anushree.d@hotmail.com" },
-    { label: "LinkedIn", value: "linkedin.com/in/anushreedey", href: "https://www.linkedin.com/" },
-    { label: "Phone", value: "+91 8627064649", href: "tel:+918627064649" },
+    { label: "LinkedIn", value: "linkedin.com/in/anushreedey", href: "https://www.linkedin.com/in/anushreedey" },
   ];
   return (
     <section id="contact" className="border-t border-border/70 bg-foreground text-background">
