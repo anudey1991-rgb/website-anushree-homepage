@@ -71,20 +71,18 @@ export const Route = createFileRoute("/")({
 const PORTRAIT =
   "https://static.wixstatic.com/media/55b247_73a8ce9adb854673bc820652486c9db3~mv2.jpg/v1/crop/x_0,y_15,w_674,h_821/fill/w_860,h_1060,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Gemini_Generated_Image_6wsagi6wsagi6wsa_edited.jpg";
 
-const EXPERTISE: { label: string; weight: 1 | 2 | 3 | 4 }[] = [
-  { label: "Enterprise SaaS", weight: 4 },
-  { label: "Data Management", weight: 4 },
-  { label: "Enterprise Workflows", weight: 4 },
-  { label: "Agentic Experiences", weight: 3 },
-  { label: "Design Systems", weight: 3 },
-  { label: "Information Architecture", weight: 3 },
-  { label: "Systems Thinking", weight: 3 },
-  { label: "Cloud Transformation", weight: 3 },
-  { label: "Accessibility", weight: 2 },
-  { label: "Cross-functional Collaboration", weight: 2 },
+const EXPERTISE_TOPICS = [
+  "Enterprise SaaS",
+  "Data Management",
+  "Enterprise Workflows",
+  "Agentic Experiences",
+  "Design Systems",
+  "Information Architecture",
+  "Systems Thinking",
+  "Cloud Transformation",
+  "Accessibility",
+  "Cross-functional Collaboration",
 ];
-
-const EXPERTISE_TOPICS = EXPERTISE.map((e) => e.label);
 
 const NAV = [
   { label: "Home", href: "#home" },
@@ -124,7 +122,6 @@ function Index() {
       <Nav active={active} />
       <main>
         <Hero />
-        <Expertise />
         <Portfolio
           projects={projects}
           filter={filter}
@@ -257,52 +254,6 @@ function Hero() {
               className="h-full w-full scale-x-[-1] object-cover"
             />
             <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-foreground/5" />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Expertise() {
-  const sizeFor = (w: 1 | 2 | 3 | 4) =>
-    ({
-      1: "text-lg sm:text-xl",
-      2: "text-2xl sm:text-3xl",
-      3: "text-2xl sm:text-4xl",
-      4: "text-3xl sm:text-6xl",
-    })[w];
-
-  const colorFor = (index: number) =>
-    ["text-foreground", "text-foreground/75", "text-muted-foreground", "text-foreground/60", "text-foreground/90"][index % 5];
-
-  return (
-    <section id="expertise" className="border-t border-border/70 bg-secondary/40">
-      <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
-        <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-4">
-            <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
-              Expertise
-            </p>
-            <h2 className="mt-4 font-serif text-3xl leading-tight tracking-[-0.01em] text-foreground sm:text-4xl">
-              A decade shaped by enterprise systems and data-intensive products.
-            </h2>
-            <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Larger words signal deeper specialisation. Narrower niches sit alongside as complementary strengths.
-            </p>
-          </div>
-          <div className="lg:col-span-8">
-            <ul className="flex flex-wrap items-baseline gap-x-8 gap-y-6">
-              {EXPERTISE.map((item, index) => (
-                <li key={item.label}>
-                  <span
-                    className={`${sizeFor(item.weight)} ${colorFor(index)} font-sans font-semibold tracking-[-0.02em] leading-none transition-opacity duration-200 hover:opacity-70`}
-                  >
-                    {item.label}
-                  </span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>
@@ -449,7 +400,7 @@ function About() {
           <div className="lg:col-span-7">
             <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">About</p>
             <h2 className="mt-4 font-serif text-4xl leading-[1.1] tracking-[-0.02em] text-foreground sm:text-5xl">
-              Enterprise product design, grounded in systems thinking.
+              A decade of enterprise product design, grounded in systems thinking.
             </h2>
 
             <div className="mt-12 grid gap-12">
