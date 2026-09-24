@@ -120,7 +120,7 @@ function Index() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans antialiased scroll-smooth">
+    <div className="min-h-screen overflow-x-hidden bg-background text-foreground font-sans antialiased scroll-smooth">
       <Nav active={active} />
       <main>
         <Hero />
