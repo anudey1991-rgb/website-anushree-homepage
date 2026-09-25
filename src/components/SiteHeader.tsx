@@ -63,7 +63,7 @@ export function SiteHeader({ active, onHome = false }: { active?: string; onHome
               <a
                 href="https://www.linkedin.com/in/anushreedey"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="rounded-sm transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               >
                 LinkedIn

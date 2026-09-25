@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { CATEGORIES, PROJECTS, type Category, type Project } from "@/data/projects";
 import { ProjectCard } from "@/components/ProjectCard";
 import { SiteHeader } from "@/components/SiteHeader";
+import resumeAsset from "@/assets/anushree-dey-resume.pdf.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -52,7 +53,7 @@ export const Route = createFileRoute("/")({
           description:
             "Lead Product Designer specialising in enterprise SaaS, data platforms and intelligent, agentic workflows.",
           knowsAbout: EXPERTISE_TOPICS,
-          sameAs: ["https://www.linkedin.com/"],
+          sameAs: ["https://www.linkedin.com/in/anushreedey"],
         }),
       },
       {
@@ -85,7 +86,7 @@ const EXPERTISE_TOPICS = [
   "Cross-functional Collaboration",
 ];
 
-const RESUME_URL = "/anushree-dey-resume.pdf";
+const RESUME_URL = resumeAsset.url;
 
 function Index() {
   const [filter, setFilter] = useState<Category>("All");
@@ -114,7 +115,7 @@ function Index() {
   }, []);
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-background text-foreground font-sans antialiased scroll-smooth">
+    <div className="min-h-screen overflow-x-clip bg-background text-foreground font-sans antialiased scroll-smooth">
       <SiteHeader active={active} onHome />
       <main>
         <Hero />
@@ -133,7 +134,7 @@ function Index() {
 
 function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden">
+    <section id="home" className="relative overflow-x-clip">
       <div className="mx-auto grid max-w-7xl gap-16 px-6 pt-20 pb-24 lg:grid-cols-12 lg:gap-12 lg:px-10 lg:pt-28 lg:pb-32">
         <div className="lg:col-span-7 xl:col-span-8 flex flex-col justify-center">
           <p className="mb-6 flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-muted-foreground">
@@ -360,6 +361,9 @@ function Contact() {
                 <li key={i.label}>
                   <a
                     href={i.href}
+                    {...(i.href.startsWith("http")
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
                     className="group flex items-center justify-between gap-6 py-5 transition-colors hover:text-background"
                   >
                     <span className="text-xs uppercase tracking-[0.22em] text-background/60">
@@ -386,7 +390,7 @@ function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col gap-4 border-t border-background/10 px-6 py-8 text-xs sm:flex-row sm:items-center sm:justify-between lg:px-10">
         <p>© {new Date().getFullYear()} Anushree Dey. All rights reserved.</p>
         <ul className="flex items-center gap-6">
-          <li><a href="https://www.linkedin.com/" className="hover:text-background">LinkedIn</a></li>
+          <li><a href="https://www.linkedin.com/in/anushreedey" target="_blank" rel="noopener noreferrer" className="hover:text-background">LinkedIn</a></li>
           <li><a href="mailto:anushree.d@hotmail.com" className="hover:text-background">Email</a></li>
         </ul>
       </div>
