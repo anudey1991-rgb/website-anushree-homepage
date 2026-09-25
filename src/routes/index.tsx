@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import logoMark from "@/assets/anushree-logo.png";
 import { CATEGORIES, PROJECTS, type Category, type Project } from "@/data/projects";
 import { ProjectCard } from "@/components/ProjectCard";
+import { SiteHeader } from "@/components/SiteHeader";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -85,6 +86,8 @@ const EXPERTISE_TOPICS = [
   "Cross-functional Collaboration",
 ];
 
+const RESUME_URL = "/anushree-dey-resume.pdf";
+
 const NAV = [
   { label: "Home", href: "#home" },
   { label: "Portfolio", href: "#portfolio" },
@@ -120,7 +123,7 @@ function Index() {
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-background text-foreground font-sans antialiased scroll-smooth">
-      <Nav active={active} />
+      <SiteHeader active={active} onHome />
       <main>
         <Hero />
         <Portfolio
@@ -133,68 +136,6 @@ function Index() {
       </main>
       <Footer />
     </div>
-  );
-}
-
-function Logo() {
-  return (
-    <a href="#home" className="flex items-center gap-3 group" aria-label="Anushree Dey home">
-      <img src={logoMark} alt="" aria-hidden className="h-9 w-9 object-contain" />
-      <span className="text-sm font-medium tracking-[-0.01em] text-foreground">
-        Anushree Dey
-      </span>
-    </a>
-  );
-}
-
-function Nav({ active }: { active: string }) {
-  return (
-    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-10">
-        <Logo />
-        <nav aria-label="Primary" className="hidden md:block">
-          <ul className="flex items-center gap-8 text-sm text-muted-foreground">
-            {NAV.map((item) => {
-              const id = item.href.slice(1);
-              const isActive = active === id;
-              return (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    className={`relative py-1 transition-colors hover:text-foreground ${
-                      isActive ? "text-foreground" : ""
-                    }`}
-                  >
-                    {item.label}
-                    <span
-                      className={`absolute -bottom-[3px] left-0 h-px bg-foreground transition-all duration-300 ${
-                        isActive ? "w-full" : "w-0"
-                      }`}
-                    />
-                  </a>
-                </li>
-              );
-            })}
-            <li>
-              <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-                rel="noreferrer"
-                className="text-muted-foreground transition-colors hover:text-foreground"
-              >
-                LinkedIn
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <a
-          href="#contact"
-          className="hidden md:inline-flex h-9 items-center rounded-full border border-foreground/15 px-4 text-xs font-medium tracking-wide text-foreground transition-colors hover:bg-foreground hover:text-background"
-        >
-          Get in touch
-        </a>
-      </div>
-    </header>
   );
 }
 
@@ -227,10 +168,13 @@ function Hero() {
               View Portfolio
             </a>
             <a
-              href="#contact"
-              className="inline-flex h-11 items-center rounded-full border border-foreground/20 px-6 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
+              href={RESUME_URL}
+              download
+              aria-label="Download the resume of Anushree Dey as a PDF"
+              className="inline-flex h-11 items-center gap-2 rounded-full border border-foreground/20 px-6 text-sm font-medium text-foreground transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
-              Get in touch
+              Download Resume
+              <span aria-hidden>&#8595;</span>
             </a>
           </div>
 
