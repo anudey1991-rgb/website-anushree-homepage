@@ -21,7 +21,10 @@ export type Project = {
   duration: string;
   responsibilities: string[];
   originalUrl?: string;
+  /** Optional per-project override of the NDA protection rule below. */
+  isProtected?: boolean;
 };
+
 
 export const PROJECTS: Project[] = [
   {
@@ -157,3 +160,14 @@ export const PROJECTS: Project[] = [
 ];
 
 export const getProject = (slug: string) => PROJECTS.find((project) => project.slug === slug);
+
+/** Every project in these categories is covered by an NDA. */
+const PROTECTED_CATEGORIES: Array<Exclude<Category, "All">> = ["Data Management", "Aerospace"];
+
+/** Individual projects outside those categories that are also under NDA. */
+const PROTECTED_SLUGS = ["diagnostic-imaging-mri"];
+
+export const isProtectedProject = (project: Project) =>
+  project.isProtected ??
+  (PROTECTED_CATEGORIES.includes(project.category) || PROTECTED_SLUGS.includes(project.slug));
+

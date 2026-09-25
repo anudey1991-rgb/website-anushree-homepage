@@ -1,5 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import type { Project } from "@/data/projects";
+import { LockIcon } from "@/components/ProjectGate";
+import { isProtectedProject, type Project } from "@/data/projects";
+
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
