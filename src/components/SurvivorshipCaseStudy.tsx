@@ -30,7 +30,7 @@ const sections = [
 
 export function SurvivorshipCaseStudy({ project, recommendations }: { project: Project; recommendations: Project[] }) {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-background text-foreground font-sans antialiased">
+    <div className="min-h-screen overflow-x-clip bg-background text-foreground font-sans antialiased">
       <SiteHeader />
 
       <main>
@@ -202,7 +202,7 @@ export function SurvivorshipCaseStudy({ project, recommendations }: { project: P
               <div><p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">More in Data Management</p><h2 className="mt-4 font-serif text-4xl sm:text-5xl">Continue exploring</h2></div>
               <Link to="/" hash="portfolio" className="hidden text-sm text-muted-foreground hover:text-foreground sm:block">View all projects →</Link>
             </div>
-            <div className="mt-10 grid gap-8 sm:grid-cols-2">
+            <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {recommendations.map((item) => <ProjectCard key={item.slug} project={item} />)}
             </div>
           </div>
@@ -212,7 +212,7 @@ export function SurvivorshipCaseStudy({ project, recommendations }: { project: P
       <footer className="bg-foreground text-background/70">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 text-xs sm:flex-row sm:items-center sm:justify-between lg:px-10">
           <p>© {new Date().getFullYear()} Anushree Dey. All rights reserved.</p>
-          <div className="flex gap-6"><a href="mailto:anushree.d@hotmail.com" className="hover:text-background">Email</a><a href="https://www.linkedin.com/in/anushreedey" target="_blank" rel="noreferrer" className="hover:text-background">LinkedIn</a></div>
+          <div className="flex gap-6"><a href="mailto:anushree.d@hotmail.com" className="hover:text-background">Email</a><a href="https://www.linkedin.com/in/anushreedey" target="_blank" rel="noopener noreferrer" className="hover:text-background">LinkedIn</a></div>
         </div>
       </footer>
     </div>

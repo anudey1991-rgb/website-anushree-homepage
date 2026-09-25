@@ -5,8 +5,22 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { BackToProjects } from "@/components/BackToProjects";
 import { ProjectGate } from "@/components/ProjectGate";
 import { getGateStatus } from "@/lib/portfolio-gate.functions";
+import { useLocalUnlock } from "@/hooks/useLocalUnlock";
+import { useState } from "react";
+import type { Project } from "@/data/projects";
 
 const SITE_URL = "https://www.anushreedey.com";
+
+/** Three related projects: same category first, then other work. */
+function getRecommendations(project: Project): Project[] {
+  const sameCategory = PROJECTS.filter(
+    (item) => item.category === project.category && item.slug !== project.slug,
+  );
+  const others = PROJECTS.filter(
+    (item) => item.category !== project.category && item.slug !== project.slug,
+  );
+  return [...sameCategory, ...others].slice(0, 3);
+}
 
 export const Route = createFileRoute("/portfolio/$slug")({
   loader: async ({ params }) => {
@@ -76,24 +90,24 @@ export const Route = createFileRoute("/portfolio/$slug")({
 function ProjectPage() {
   const { slug } = Route.useParams();
   const loaderData = Route.useLoaderData();
+  const localUnlocked = useLocalUnlock();
+  const [justUnlocked, setJustUnlocked] = useState(false);
   const project = loaderData?.project ?? getProject(slug);
   if (!project) return <ProjectNotFound />;
-  const locked = loaderData?.locked ?? isProtectedProject(project);
+  const serverLocked = loaderData?.locked ?? isProtectedProject(project);
+  const locked = serverLocked && !localUnlocked && !justUnlocked;
   const currentIndex = PROJECTS.findIndex((item) => item.slug === project.slug);
   const nextProject = PROJECTS[(currentIndex + 1) % PROJECTS.length];
 
-  if (locked) return <ProjectGate project={project} />;
-
+  if (locked) return <ProjectGate project={project} onUnlocked={() => setJustUnlocked(true)} />;
 
   if (project.slug === "agent-verified-data-survivorship") {
-    const recommendations = PROJECTS.filter(
-      (item) => item.category === project.category && item.slug !== project.slug,
-    ).slice(0, 2);
+    const recommendations = getRecommendations(project);
     return <SurvivorshipCaseStudy project={project} recommendations={recommendations} />;
   }
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-background text-foreground font-sans antialiased">
+    <div className="min-h-screen overflow-x-clip bg-background text-foreground font-sans antialiased">
       <SiteHeader />
 
       <main>

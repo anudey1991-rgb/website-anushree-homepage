@@ -5,9 +5,10 @@ import { BackToProjects } from "@/components/BackToProjects";
 import { LockIcon } from "@/components/LockIcon";
 import { SiteHeader } from "@/components/SiteHeader";
 import { unlockProjects } from "@/lib/portfolio-gate.functions";
+import { setLocalUnlock } from "@/lib/gate-local";
 import type { Project } from "@/data/projects";
 
-export function ProjectGate({ project }: { project: Project }) {
+export function ProjectGate({ project, onUnlocked }: { project: Project; onUnlocked?: () => void }) {
   const router = useRouter();
   const unlock = useServerFn(unlockProjects);
   const [error, setError] = useState<string | null>(null);
@@ -25,6 +26,8 @@ export function ProjectGate({ project }: { project: Project }) {
     try {
       const result = await unlock({ data: { password } });
       if (result.ok) {
+        setLocalUnlock();
+        onUnlocked?.();
         await router.invalidate();
       } else {
         setError("That password is not correct. Please try again or request access.");
@@ -37,7 +40,7 @@ export function ProjectGate({ project }: { project: Project }) {
   }
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-background text-foreground font-sans antialiased">
+    <div className="min-h-screen overflow-x-clip bg-background text-foreground font-sans antialiased">
       <SiteHeader />
       <main className="mx-auto max-w-7xl px-6 pb-24 pt-14 lg:px-10 lg:pt-20">
         <BackToProjects />
