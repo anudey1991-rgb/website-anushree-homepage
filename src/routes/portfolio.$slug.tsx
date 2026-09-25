@@ -5,8 +5,22 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { BackToProjects } from "@/components/BackToProjects";
 import { ProjectGate } from "@/components/ProjectGate";
 import { getGateStatus } from "@/lib/portfolio-gate.functions";
+import { useLocalUnlock } from "@/hooks/useLocalUnlock";
+import { useState } from "react";
+import type { Project } from "@/data/projects";
 
 const SITE_URL = "https://www.anushreedey.com";
+
+/** Three related projects: same category first, then other work. */
+function getRecommendations(project: Project): Project[] {
+  const sameCategory = PROJECTS.filter(
+    (item) => item.category === project.category && item.slug !== project.slug,
+  );
+  const others = PROJECTS.filter(
+    (item) => item.category !== project.category && item.slug !== project.slug,
+  );
+  return [...sameCategory, ...others].slice(0, 3);
+}
 
 export const Route = createFileRoute("/portfolio/$slug")({
   loader: async ({ params }) => {
