@@ -74,11 +74,16 @@ export const Route = createFileRoute("/portfolio/$slug")({
 });
 
 function ProjectPage() {
-  const { project, locked } = Route.useLoaderData();
+  const { slug } = Route.useParams();
+  const loaderData = Route.useLoaderData();
+  const project = loaderData?.project ?? getProject(slug);
+  if (!project) return <ProjectNotFound />;
+  const locked = loaderData?.locked ?? isProtectedProject(project);
   const currentIndex = PROJECTS.findIndex((item) => item.slug === project.slug);
   const nextProject = PROJECTS[(currentIndex + 1) % PROJECTS.length];
 
   if (locked) return <ProjectGate project={project} />;
+
 
   if (project.slug === "agent-verified-data-survivorship") {
     const recommendations = PROJECTS.filter(
