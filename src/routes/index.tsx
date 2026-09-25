@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import logoMark from "@/assets/anushree-logo.png";
 import { CATEGORIES, PROJECTS, type Category, type Project } from "@/data/projects";
 import { ProjectCard } from "@/components/ProjectCard";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -87,13 +86,6 @@ const EXPERTISE_TOPICS = [
 ];
 
 const RESUME_URL = "/anushree-dey-resume.pdf";
-
-const NAV = [
-  { label: "Home", href: "#home" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
-];
 
 function Index() {
   const [filter, setFilter] = useState<Category>("All");
