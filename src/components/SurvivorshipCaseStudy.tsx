@@ -12,15 +12,19 @@ import popoverAsset from "@/assets/survivorship/09-field-popover.png.asset.json"
 import evidenceAsset from "@/assets/survivorship/10-evidence-trail.png.asset.json";
 import confirmationAsset from "@/assets/survivorship/11-post-decision-confirmation.png.asset.json";
 import resolutionAsset from "@/assets/survivorship/12-post-resolution-record.png.asset.json";
+import walkthroughAsset from "@/assets/survivorship/tour-video-music.mp4.asset.json";
 import type { Project } from "@/data/projects";
+import { ProjectCard } from "@/components/ProjectCard";
 
 const sections = [
   ["overview", "Overview"],
   ["problem", "The problem"],
-  ["strategy", "Experience strategy"],
+  ["architecture", "Architecture"],
+  ["modes", "Agent modes"],
   ["journey", "The experience"],
-  ["system", "System thinking"],
+  ["principles", "Design principles"],
   ["outcome", "Outcome"],
+  ["walkthrough", "Walkthrough"],
 ] as const;
 
 export function SurvivorshipCaseStudy({ project, recommendations }: { project: Project; recommendations: Project[] }) {
@@ -48,10 +52,10 @@ export function SurvivorshipCaseStudy({ project, recommendations }: { project: P
             A Slack-first copilot that stress-tests master data decisions against external evidence before incorrect data reaches downstream systems.
           </p>
           <dl className="mt-14 grid gap-6 border-y border-border py-7 sm:grid-cols-2 lg:grid-cols-4">
-            <Fact label="Role" value="Lead Product Designer" />
-            <Fact label="Domain" value="Enterprise MDM" />
-            <Fact label="Timeline" value="2024, 2025" />
-            <Fact label="Deliverable" value="End-to-end prototype" />
+            <Fact label="Role" value="UX Designer" />
+            <Fact label="Platform" value="Informatica MDM Customer 360" />
+            <Fact label="Surfaces" value="Slack · MDM Console" />
+            <Fact label="Context" value="Agentic MDM Workshop · Dublin · July 2026" />
           </dl>
         </section>
 
@@ -73,32 +77,64 @@ export function SurvivorshipCaseStudy({ project, recommendations }: { project: P
 
           <div className="min-w-0 lg:col-span-9">
             <CaseSection id="overview" eyebrow="Overview" title="Making invisible data decisions visible at the right moment">
-              <p>Master data decisions happen across CRM, ERP, collaboration tools and partner surfaces, not only inside an MDM console. Existing survivorship rules select a winning value, but they cannot always recognise when that value conflicts with current external reality.</p>
-              <p>I designed a copilot that adds an evidence-backed verification gate without replacing deterministic rules or taking accountability away from the data steward. It remains silent when the data is sound and intervenes only when there is a material contradiction.</p>
+              <p>Master data decisions happen across CRM, ERP, collaboration tools and partner surfaces, not only inside an MDM console. I designed a Slack-first, agent-assisted stewardship experience on top of Informatica MDM survivorship.</p>
+              <p>The brief was explicit: assume the MDM console still exists, but make the solution work for someone who never opens it. The copilot adds an evidence-backed verification gate without replacing deterministic rules or taking accountability away from the data steward.</p>
               <Quote>The agent presents evidence. The steward makes the call.</Quote>
             </CaseSection>
 
-            <CaseSection id="problem" eyebrow="The problem" title="Clean at ingest does not mean correct forever">
-              <p>A company can change legal status, a certification can expire and a medical device can be reclassified. These changes happen outside the MDM system, leaving records apparently valid while their real-world truth has moved on.</p>
+            <CaseSection id="problem" eyebrow="01 · Brief and problem" title="The golden record stays wrong: confidently, silently, indefinitely">
+              <p>Survivorship resolves disagreements between source systems using trust scores, recency and source hierarchy. It handles roughly 95% of records without human involvement. Two gaps remain.</p>
               <div className="mt-10 grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-3">
-                <Insight number="01" title="Rules have limits" body="Survivorship can select the trusted source and still choose a stale value." />
-                <Insight number="02" title="Attention is scarce" body="Most records need no intervention, so the agent must earn every interruption." />
-                <Insight number="03" title="Trust needs evidence" body="High-impact changes require provenance, consequences and a human decision." />
+                <Insight number="01" title="External reality moves" body="Certifications expire, companies change legal status and products are reclassified without triggering MDM." />
+                <Insight number="02" title="Corrections cost time" body="A manual console journey takes about 12 minutes because every verification and edit is a separate act." />
+                <Insight number="03" title="Rules have limits" body="A trusted source can still hold a stale value, so deterministic survivorship needs an open-world check." />
               </div>
+              <dl className="mt-10 grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-3">
+                <Metric value="~0%" label="Baseline contradictions caught before publish" />
+                <Metric value="~12 min" label="Baseline manual correction journey" />
+                <Metric value="~95%" label="Records handled correctly by survivorship" />
+              </dl>
             </CaseSection>
 
-            <CaseSection id="strategy" eyebrow="Experience strategy" title="Restrained first touch, rich second layer">
-              <p>The experience uses progressive disclosure to protect the steward’s attention. The first touch communicates what changed, its severity and one clear action. Deeper reasoning appears only when the steward asks for it.</p>
-              <div className="mt-10 grid gap-8 sm:grid-cols-2">
-                <Principle label="01" title="Silent by default">When no contradiction exists, the agent disappears. Automation is felt as less work, not more interface.</Principle>
-                <Principle label="02" title="Evidence before action">Every proposal pairs the current value with an authoritative source, confidence and recency.</Principle>
-                <Principle label="03" title="Resolve where work happens">Slack supports rapid decisions. The MDM console remains available for deeper investigation.</Principle>
-                <Principle label="04" title="Accountability stays human">The system explains consequences before a steward accepts, modifies or rejects a change.</Principle>
+            <CaseSection id="architecture" eyebrow="02 · Architecture" title="After survivorship. Before publish.">
+              <p>The agent stress-tests the draft golden record against authoritative external sources before it goes live. The deterministic skill layer still handles matching, merging, validation and lifecycle management for every record. The reasoning layer focuses only on meaningful contradictions.</p>
+              <div className="mt-10 overflow-x-auto border-y border-border">
+                <table className="w-full min-w-[620px] text-left text-sm">
+                  <thead className="text-xs uppercase tracking-[0.16em] text-muted-foreground"><tr><th className="py-4 pr-6">Layer</th><th className="py-4 pr-6">What it does</th><th className="py-4">Coverage</th></tr></thead>
+                  <tbody className="divide-y divide-border text-foreground"><tr><td className="py-5 pr-6 font-medium">Skill layer</td><td className="py-5 pr-6">Match, merge, survivorship, validation, lifecycle</td><td className="py-5">100% · Deterministic</td></tr><tr><td className="py-5 pr-6 font-medium">Agent layer</td><td className="py-5 pr-6">External cross-reference, contradiction detection, notification</td><td className="py-5">~5% · Reasoning</td></tr></tbody>
+                </table>
               </div>
-              <Figure src={experienceAsset.url} alt="Event-based experience flow from record batch to resolution" caption="In the prototype scenario, 174 of 180 records publish silently while six are held for focused review." />
+              <h3 className="mt-12 font-serif text-3xl text-foreground">Three sources of external truth</h3>
+              <div className="mt-6 divide-y divide-border border-y border-border">
+                <SystemRow title="Public registries" value="Legal entities" body="Companies House, D&B, GLEIF LEI and VAT databases expose legal and financial risk." />
+                <SystemRow title="Regulators" value="Compliance" body="FDA, EU MDR, EUDAMED, ISO and EUR-Lex reveal invalid classifications and certifications." />
+                <SystemRow title="Ecosystem data" value="Operations" body="Data Cloud, Industry Clouds and AppExchange surface downstream inconsistencies." />
+              </div>
+              <Figure src={architectureAsset.url} alt="Architecture showing the copilot between survivorship and publishing" caption="The agent sits after deterministic survivorship and before publish, checking only for meaningful contradictions." />
+            </CaseSection>
+
+            <CaseSection id="modes" eyebrow="03 · Agent modes" title="Three modes cover every scenario">
+              <p>The product deliberately distinguishes acting, escalating and disappearing. That separation protects attention while making the exceptional decisions faster and more trustworthy.</p>
+              <div className="mt-10 grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-3">
+                <Insight number="01 · Autonomous" title="Act when evidence agrees" body="The agent verifies, finds no contradiction and publishes without human involvement. A digest confirms the totals." />
+                <Insight number="02 · Escalation" title="Recommend with context" body="Both values, source, confidence, consequence and one decision are handed to the steward together." />
+                <Insight number="03 · Invisible" title="Hold the interruption" body="Notifications wait during calls, presentations or focused work and return through the steward queue later." />
+              </div>
+              <h3 className="mt-14 font-serif text-3xl text-foreground">Active and dormant records</h3>
+              <div className="mt-6 divide-y divide-border border-y border-border">
+                <SystemRow title="Event-driven" value="Real time" body="Checks records during ingest, merge, edit and publish. This is the lowest-cost default." />
+                <SystemRow title="Feed-driven" value="Targeted" body="Responds when a registry or regulation changes, checking only affected record groups." />
+                <SystemRow title="Scheduled sweep" value="Safety net" body="Reviews dormant, risk-sensitive records on a configurable cadence." />
+                <SystemRow title="Always-on" value="Premium" body="Continuous verification for zero-gap compliance environments, not the default recommendation." />
+              </div>
             </CaseSection>
 
             <CaseSection id="journey" eyebrow="The experience" title="One connected journey across Slack and the MDM console">
+              <p>The Orion MedTech prototype follows 180 medical-device records affected by an EU MDR reclassification. The scenario demonstrates the intended workflow rather than production performance.</p>
+              <dl className="mt-10 grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-5">
+                <Metric value="180" label="Records processed" /><Metric value="174" label="Published silently" /><Metric value="6" label="Held for review" /><Metric value="18 min" label="Scenario total" /><Metric value="1×" label="Console opened" />
+              </dl>
+              <Figure src={experienceAsset.url} alt="Event-based experience flow from record batch to resolution" caption="The scenario moves from a 180-record batch to six focused decisions, with five resolved in Slack and one escalated." />
               <JourneyStep number="01" title="Start with the shape of the work" body="A morning digest summarises the processed batch, what was resolved automatically and what needs a human decision. Estimated review time makes the queue predictable.">
                 <Figure src={digestAsset.url} alt="Slack morning digest summarising the survivorship review queue" caption="One message, three numbers and one action keep the first touch deliberately restrained." />
               </JourneyStep>
@@ -127,28 +163,43 @@ export function SurvivorshipCaseStudy({ project, recommendations }: { project: P
               </JourneyStep>
             </CaseSection>
 
-            <CaseSection id="system" eyebrow="System thinking" title="Two modes cover both active and dormant records">
-              <p>The design separates deterministic processing from agent reasoning. An Ingress Sentinel verifies records when lifecycle events occur. A Temporal Watchdog responds to external feeds and scheduled checks so dormant records do not remain wrong indefinitely.</p>
-              <div className="mt-10 divide-y divide-border border-y border-border">
-                <SystemRow title="Event-driven" value="Real time" body="Checks records during ingest, merge, edit and publish. This is the lowest-cost default." />
-                <SystemRow title="Feed-driven" value="Targeted" body="Responds when a registry or regulation changes, checking only affected record groups." />
-                <SystemRow title="Scheduled sweep" value="Safety net" body="Reviews dormant, risk-sensitive records on a configurable cadence." />
+            <CaseSection id="principles" eyebrow="05 · Design principles" title="Seven principles govern every surface and decision">
+              <div className="mt-10 grid gap-8 sm:grid-cols-2">
+                <Principle label="01" title="Silent by default">The agent earns the right to interrupt by disappearing for records it resolves correctly.</Principle>
+                <Principle label="02" title="Evidence first">Source, reference, confidence and effective date precede every recommendation.</Principle>
+                <Principle label="03" title="The steward decides">Human accountability remains for governance, compliance and commercial consequences.</Principle>
+                <Principle label="04" title="Consequence is visible">Every finding explains what changes downstream if the recommendation is accepted.</Principle>
+                <Principle label="05" title="Depth on demand">The first touch stays restrained while CLAIRE provides investigation depth when requested.</Principle>
+                <Principle label="06" title="Severity sets interruption">Critical findings interrupt, medium findings enter the digest and low findings log silently.</Principle>
+                <Principle label="07" title="One interaction language">Confidence, provenance, severity, state, attribution and notification patterns travel across surfaces.</Principle>
               </div>
-              <h3 className="mt-14 font-serif text-3xl text-foreground">A portable interaction language</h3>
-              <p className="mt-5">Six reusable patterns keep agent behaviour consistent across Slack, CRM and the MDM console: confidence, provenance, severity, draft state, agent attribution and the notification card.</p>
             </CaseSection>
 
-            <CaseSection id="outcome" eyebrow="Prototype outcome" title="Fewer interruptions, faster evidence-backed decisions">
-              <p>The prototype demonstrates how the system could preserve high automation while introducing a safety gate for consequential exceptions. Targets are design hypotheses for validation, not production results.</p>
-              <dl className="mt-10 grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-3">
-                <Metric value="174 / 180" label="Scenario records published silently" />
-                <Metric value="6" label="Scenario records held for review" />
-                <Metric value="< 60 sec" label="Target resolution time per field" />
+            <CaseSection id="outcome" eyebrow="06 · Success measures" title="From 12 minutes to a 60-second target">
+              <p>These are baseline comparisons and design targets for future validation, not measured production outcomes.</p>
+              <dl className="mt-10 grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-2">
+                <Metric value="~12 min → < 60 sec" label="Target field contradiction resolution" />
+                <Metric value="~0% → > 95%" label="Target contradictions caught before publish" />
+                <Metric value="Partial → 100%" label="Target agent-assisted decision audit coverage" />
+                <Metric value="Untracked → Detectable" label="Target dormant record drift visibility" />
               </dl>
               <div className="mt-12 border-l-2 border-foreground pl-7">
                 <h3 className="font-serif text-2xl">What I would validate next</h3>
                 <p className="mt-4">I would test whether stewards understand why the agent interrupted them, can compare competing evidence without anchoring bias, and can distinguish a completed decision from a queued system update. I would also measure false-positive tolerance before tuning severity and notification thresholds.</p>
               </div>
+            </CaseSection>
+
+            <CaseSection id="walkthrough" eyebrow="07 · Walkthrough" title="The full flow, end to end">
+              <p>This 2:21 walkthrough covers all 36 steps of the Orion MedTech scenario, from the Slack morning digest through inline decisions and the final MDM console resolution.</p>
+              <figure className="mt-10">
+                <div className="overflow-hidden rounded-sm border border-border bg-foreground">
+                  <video controls preload="metadata" playsInline className="block aspect-video w-full" aria-label="Agent-Verified Data Survivorship product walkthrough">
+                    <source src={walkthroughAsset.url} type="video/mp4" />
+                  </video>
+                </div>
+                <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">CLAIRE survivorship agent · Orion MedTech scenario · 36 steps · 2:21 · Slack and MDM Console</figcaption>
+              </figure>
+              <Quote>Done well, this experience is nearly invisible. The 174 records handled correctly and silently are the product.</Quote>
             </CaseSection>
           </div>
         </div>
@@ -160,7 +211,7 @@ export function SurvivorshipCaseStudy({ project, recommendations }: { project: P
               <Link to="/" hash="portfolio" className="hidden text-sm text-muted-foreground hover:text-foreground sm:block">View all projects →</Link>
             </div>
             <div className="mt-10 grid gap-8 sm:grid-cols-2">
-              {recommendations.map((item) => <Recommendation key={item.slug} project={item} />)}
+              {recommendations.map((item) => <ProjectCard key={item.slug} project={item} />)}
             </div>
           </div>
         </section>
@@ -195,5 +246,3 @@ function Figure({ src, alt, caption, contain = false, priority = false }: { src:
 function SystemRow({ title, value, body }: { title: string; value: string; body: string }) { return <div className="grid gap-3 py-6 sm:grid-cols-[140px_110px_1fr] sm:gap-6"><h3 className="font-medium text-foreground">{title}</h3><p className="text-sm text-foreground">{value}</p><p className="text-sm leading-relaxed">{body}</p></div>; }
 
 function Metric({ value, label }: { value: string; label: string }) { return <div className="bg-card p-6"><dt className="font-serif text-3xl text-foreground">{value}</dt><dd className="mt-3 text-sm leading-relaxed text-muted-foreground">{label}</dd></div>; }
-
-function Recommendation({ project }: { project: Project }) { return <Link to="/portfolio/$slug" params={{ slug: project.slug }} className="group grid overflow-hidden rounded-sm border border-border bg-card sm:grid-cols-[42%_1fr]"><div className="aspect-[4/3] overflow-hidden bg-secondary sm:aspect-auto"><img src={project.image} alt="" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" /></div><div className="flex flex-col p-6"><p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">{project.category}</p><h3 className="mt-4 font-serif text-2xl leading-tight">{project.title}</h3><span className="mt-auto pt-8 text-sm font-medium">View case study <span aria-hidden>→</span></span></div></Link>; }
