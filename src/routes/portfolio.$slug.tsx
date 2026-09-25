@@ -41,17 +41,17 @@ export const Route = createFileRoute("/portfolio/$slug")({
 
     return {
       meta: [
-        { title: `${loaderData.title} | Anushree Dey` },
-        { name: "description", content: loaderData.description },
-        { property: "og:title", content: `${loaderData.title} | Anushree Dey` },
-        { property: "og:description", content: loaderData.description },
+        { title: `${project.title} | Anushree Dey` },
+        { name: "description", content: project.description },
+        { property: "og:title", content: `${project.title} | Anushree Dey` },
+        { property: "og:description", content: project.description },
         { property: "og:type", content: "article" },
         { property: "og:url", content: url },
-        { property: "og:image", content: loaderData.image },
+        { property: "og:image", content: project.image },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: `${loaderData.title} | Anushree Dey` },
-        { name: "twitter:description", content: loaderData.description },
-        { name: "twitter:image", content: loaderData.image },
+        { name: "twitter:title", content: `${project.title} | Anushree Dey` },
+        { name: "twitter:description", content: project.description },
+        { name: "twitter:image", content: project.image },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [{
@@ -59,12 +59,12 @@ export const Route = createFileRoute("/portfolio/$slug")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CreativeWork",
-          name: loaderData.title,
-          description: loaderData.description,
-          image: loaderData.image,
+          name: project.title,
+          description: project.description,
+          image: project.image,
           url,
           creator: { "@type": "Person", name: "Anushree Dey" },
-          keywords: [loaderData.category, loaderData.industry, ...loaderData.responsibilities].join(", "),
+          keywords: [project.category, project.industry, ...project.responsibilities].join(", "),
         }),
       }],
     };
@@ -74,9 +74,11 @@ export const Route = createFileRoute("/portfolio/$slug")({
 });
 
 function ProjectPage() {
-  const project = Route.useLoaderData();
+  const { project, locked } = Route.useLoaderData();
   const currentIndex = PROJECTS.findIndex((item) => item.slug === project.slug);
   const nextProject = PROJECTS[(currentIndex + 1) % PROJECTS.length];
+
+  if (locked) return <ProjectGate project={project} />;
 
   if (project.slug === "agent-verified-data-survivorship") {
     const recommendations = PROJECTS.filter(
@@ -86,25 +88,13 @@ function ProjectPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans antialiased">
-      <header className="border-b border-border/70 bg-background">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-10">
-          <Link to="/" className="flex items-center gap-3" aria-label="Anushree Dey home">
-            <img src={logoMark} alt="" aria-hidden className="h-9 w-9 object-contain" />
-            <span className="text-sm font-medium">Anushree Dey</span>
-          </Link>
-          <Link to="/" hash="portfolio" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-            All projects
-          </Link>
-        </div>
-      </header>
+    <div className="min-h-screen overflow-x-hidden bg-background text-foreground font-sans antialiased">
+      <SiteHeader />
 
       <main>
         <section className="mx-auto max-w-7xl px-6 pb-16 pt-16 lg:px-10 lg:pb-24 lg:pt-24">
-          <Link to="/" hash="portfolio" className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground">
-            <span aria-hidden>←</span> Back to portfolio
-          </Link>
-          <div className="mt-14 grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <BackToProjects />
+          <div className="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-8">
               <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">{project.category}</p>
               <h1 className="mt-5 max-w-4xl font-serif text-[clamp(2.75rem,6vw,5rem)] leading-[1.03] text-foreground">
