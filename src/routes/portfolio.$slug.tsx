@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import logoMark from "@/assets/anushree-logo.png";
 import { getProject, PROJECTS } from "@/data/projects";
+import { SurvivorshipCaseStudy } from "@/components/SurvivorshipCaseStudy";
 
 const SITE_URL = "https://www.anushreedey.com";
 
@@ -58,6 +59,13 @@ function ProjectPage() {
   const project = Route.useLoaderData();
   const currentIndex = PROJECTS.findIndex((item) => item.slug === project.slug);
   const nextProject = PROJECTS[(currentIndex + 1) % PROJECTS.length];
+
+  if (project.slug === "agent-verified-data-survivorship") {
+    const recommendations = PROJECTS.filter(
+      (item) => item.category === project.category && item.slug !== project.slug,
+    ).slice(0, 2);
+    return <SurvivorshipCaseStudy project={project} recommendations={recommendations} />;
+  }
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans antialiased">
