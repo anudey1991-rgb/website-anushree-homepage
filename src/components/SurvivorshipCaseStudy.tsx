@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import logoMark from "@/assets/anushree-logo.png";
+import { SiteHeader } from "@/components/SiteHeader";
+import { BackToProjects } from "@/components/BackToProjects";
 import architectureAsset from "@/assets/survivorship/01-agent-architecture-flow.png.asset.json";
 import experienceAsset from "@/assets/survivorship/02-event-based-experience-flow.png.asset.json";
 import digestAsset from "@/assets/survivorship/03-slack-batch-digest.png.asset.json";
@@ -30,21 +31,12 @@ const sections = [
 export function SurvivorshipCaseStudy({ project, recommendations }: { project: Project; recommendations: Project[] }) {
   return (
     <div className="min-h-screen overflow-x-hidden bg-background text-foreground font-sans antialiased">
-      <header className="sticky top-0 z-40 border-b border-border/60 bg-background/90 backdrop-blur-md">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-10">
-          <Link to="/" className="flex items-center gap-3" aria-label="Anushree Dey home">
-            <img src={logoMark} alt="" aria-hidden className="h-9 w-9 object-contain" />
-            <span className="text-sm font-medium">Anushree Dey</span>
-          </Link>
-          <Link to="/" hash="portfolio" className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground">
-            <span aria-hidden>←</span> All projects
-          </Link>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main>
         <section className="mx-auto max-w-7xl px-6 pb-16 pt-14 lg:px-10 lg:pb-24 lg:pt-20">
-          <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">{project.category} · Agentic experience</p>
+          <BackToProjects />
+          <p className="mt-12 text-xs uppercase tracking-[0.22em] text-muted-foreground">{project.category} · Agentic experience</p>
           <h1 className="mt-6 max-w-5xl font-serif text-[clamp(2.8rem,7vw,6.5rem)] leading-[0.98] text-foreground">
             Agent-Verified<br />Data Survivorship
           </h1>

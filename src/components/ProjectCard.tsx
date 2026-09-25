@@ -1,5 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import type { Project } from "@/data/projects";
+import { LockIcon } from "@/components/LockIcon";
+import { isProtectedProject, type Project } from "@/data/projects";
+
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
@@ -21,7 +23,13 @@ export function ProjectCard({ project }: { project: Project }) {
       <div className="flex flex-1 flex-col p-7">
         <div className="flex flex-wrap items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
           <span className="rounded-full border border-border px-2.5 py-1">{project.category}</span>
+          {isProtectedProject(project) && (
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary/70 px-2.5 py-1">
+              <LockIcon /> Protected by NDA
+            </span>
+          )}
         </div>
+
         <h3 className="mt-5 font-serif text-2xl leading-tight text-foreground">{project.title}</h3>
         <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{project.description}</p>
         <span className="mt-auto inline-flex items-center gap-2 pt-7 text-sm font-medium text-foreground">

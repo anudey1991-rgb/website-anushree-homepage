@@ -1,6 +1,10 @@
 # Roadmap
 
-- [x] Restore the full Agent-Verified Data Survivorship case-study detail, excluding Open Questions.
-- [x] Add the 2:21 product walkthrough video.
-- [x] Reuse one shared project card on the homepage and recommendation area.
-- [x] Verify the case study and cards on desktop and mobile.
+- [x] Shared project card component used on homepage and case study pages
+- [x] Survivorship case study content, images and walkthrough video
+- [x] NDA password gate on Data Management, Aerospace and Diagnostic Imaging projects
+- [x] Lock badge with "Protected by NDA" on protected cards
+- [x] Same header and tabs on project pages as the homepage
+- [x] Accessible "Back to all projects" button in the content area
+- [x] Homepage hero button changed to Download Resume
+- [ ] Blocked: add the real resume PDF at public/anushree-dey-resume.pdf (waiting on the file from Anushree)
