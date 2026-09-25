@@ -1,16 +1,22 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import logoMark from "@/assets/anushree-logo.png";
-import { getProject, PROJECTS } from "@/data/projects";
+import { getProject, isProtectedProject, PROJECTS } from "@/data/projects";
 import { SurvivorshipCaseStudy } from "@/components/SurvivorshipCaseStudy";
+import { SiteHeader } from "@/components/SiteHeader";
+import { BackToProjects } from "@/components/BackToProjects";
+import { ProjectGate } from "@/components/ProjectGate";
+import { getGateStatus } from "@/lib/portfolio-gate.functions";
 
 const SITE_URL = "https://www.anushreedey.com";
 
 export const Route = createFileRoute("/portfolio/$slug")({
-  loader: ({ params }) => {
+  loader: async ({ params }) => {
     const project = getProject(params.slug);
     if (!project) throw notFound();
-    return project;
+    const locked = isProtectedProject(project);
+    const { unlocked } = locked ? await getGateStatus() : { unlocked: true };
+    return { project, locked: locked && !unlocked };
   },
+
   head: ({ loaderData }) => {
     if (!loaderData) {
       return {
