@@ -26,7 +26,19 @@ export const Route = createFileRoute("/portfolio/$slug")({
         ],
       };
     }
-    const url = `${SITE_URL}/portfolio/${loaderData.slug}`;
+    const project = loaderData.project;
+    const url = `${SITE_URL}/portfolio/${project.slug}`;
+    if (loaderData.locked) {
+      return {
+        meta: [
+          { title: `${project.title} | Protected case study | Anushree Dey` },
+          { name: "description", content: "This case study is protected by a non-disclosure agreement." },
+          { name: "robots", content: "noindex" },
+        ],
+        links: [{ rel: "canonical", href: url }],
+      };
+    }
+
     return {
       meta: [
         { title: `${loaderData.title} | Anushree Dey` },
