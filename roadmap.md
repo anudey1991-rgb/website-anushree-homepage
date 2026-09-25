@@ -7,4 +7,4 @@
 - [x] Same header and tabs on project pages as the homepage
 - [x] Accessible "Back to all projects" button in the content area
 - [x] Homepage hero button changed to Download Resume
-- [ ] Blocked: add the real resume PDF at public/anushree-dey-resume.pdf (waiting on the file from Anushree)
+- [x] Real CV PDF wired to the Download Resume button
