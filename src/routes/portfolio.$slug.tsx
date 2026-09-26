@@ -1,6 +1,8 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { getProject, isProtectedProject, PROJECTS } from "@/data/projects";
 import { SurvivorshipCaseStudy } from "@/components/SurvivorshipCaseStudy";
+import { TabularEditCaseStudy } from "@/components/TabularEditCaseStudy";
+
 import { SiteHeader } from "@/components/SiteHeader";
 import { BackToProjects } from "@/components/BackToProjects";
 import { ProjectGate } from "@/components/ProjectGate";
