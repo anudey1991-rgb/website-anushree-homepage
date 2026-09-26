@@ -16,6 +16,8 @@ import resolutionAsset from "@/assets/survivorship/12-post-resolution-record.png
 import walkthroughAsset from "@/assets/survivorship/tour-video-music.mp4.asset.json";
 import type { Project } from "@/data/projects";
 import { ProjectCard } from "@/components/ProjectCard";
+import { CaseStudyToc, CaseStudyJumpBar, useSectionNav } from "@/components/CaseStudyToc";
+
 
 const sections = [
   ["overview", "Overview"],
@@ -29,6 +31,8 @@ const sections = [
 ] as const;
 
 export function SurvivorshipCaseStudy({ project, recommendations }: { project: Project; recommendations: Project[] }) {
+  const { active, goTo } = useSectionNav(sections);
+
   return (
     <div className="min-h-screen overflow-x-clip bg-background text-foreground font-sans antialiased">
       <SiteHeader />
@@ -57,18 +61,16 @@ export function SurvivorshipCaseStudy({ project, recommendations }: { project: P
 
         <div className="mx-auto grid max-w-7xl gap-14 px-6 py-20 lg:grid-cols-12 lg:px-10 lg:py-28">
           <aside className="hidden lg:col-span-3 lg:block">
-            <nav aria-label="Case study contents" className="sticky top-28 border-l border-border pl-5">
-              <p className="mb-5 text-xs uppercase tracking-[0.2em] text-muted-foreground">In this case study</p>
-              <ol className="space-y-3">
-                {sections.map(([id, label], index) => (
-                  <li key={id}><a href={`#${id}`} className="text-sm text-muted-foreground transition-colors hover:text-foreground"><span className="mr-3 tabular-nums">0{index + 1}</span>{label}</a></li>
-                ))}
-              </ol>
-            </nav>
+            <CaseStudyToc sections={sections} active={active} onSelect={goTo} />
           </aside>
 
           <div className="min-w-0 lg:col-span-9">
+            <div className="lg:hidden">
+              <CaseStudyJumpBar sections={sections} active={active} onSelect={goTo} />
+            </div>
+
             <CaseSection id="overview" eyebrow="Overview" title="Making invisible data decisions visible at the right moment">
+
               <p>Master data decisions happen across CRM, ERP, collaboration tools and partner surfaces, not only inside an MDM console. I designed a Slack-first, agent-assisted stewardship experience on top of Informatica MDM survivorship.</p>
               <p>The brief was explicit: assume the MDM console still exists, but make the solution work for someone who never opens it. The copilot adds an evidence-backed verification gate without replacing deterministic rules or taking accountability away from the data steward.</p>
               <Quote>The agent presents evidence. The steward makes the call.</Quote>

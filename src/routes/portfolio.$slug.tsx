@@ -1,6 +1,8 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { getProject, isProtectedProject, PROJECTS } from "@/data/projects";
 import { SurvivorshipCaseStudy } from "@/components/SurvivorshipCaseStudy";
+import { TabularEditCaseStudy } from "@/components/TabularEditCaseStudy";
+
 import { SiteHeader } from "@/components/SiteHeader";
 import { BackToProjects } from "@/components/BackToProjects";
 import { ProjectGate } from "@/components/ProjectGate";
@@ -105,6 +107,12 @@ function ProjectPage() {
     const recommendations = getRecommendations(project);
     return <SurvivorshipCaseStudy project={project} recommendations={recommendations} />;
   }
+
+  if (project.slug === "tabular-edit-of-records") {
+    const recommendations = getRecommendations(project);
+    return <TabularEditCaseStudy project={project} recommendations={recommendations} />;
+  }
+
 
   return (
     <div className="min-h-screen overflow-x-clip bg-background text-foreground font-sans antialiased">

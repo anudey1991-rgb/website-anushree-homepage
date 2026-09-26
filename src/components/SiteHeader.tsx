@@ -72,22 +72,8 @@ export function SiteHeader({ active, onHome = false }: { active?: string; onHome
           </ul>
         </nav>
 
-        {onHome ? (
-          <a
-            href="#contact"
-            className="hidden h-9 items-center rounded-full border border-foreground/15 px-4 text-xs font-medium tracking-wide text-foreground transition-colors hover:bg-foreground hover:text-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 md:inline-flex"
-          >
-            Get in touch
-          </a>
-        ) : (
-          <Link
-            to="/"
-            hash="contact"
-            className="hidden h-9 items-center rounded-full border border-foreground/15 px-4 text-xs font-medium tracking-wide text-foreground transition-colors hover:bg-foreground hover:text-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 md:inline-flex"
-          >
-            Get in touch
-          </Link>
-        )}
+        <span className="w-9 md:hidden" aria-hidden />
+
       </div>
     </header>
   );
