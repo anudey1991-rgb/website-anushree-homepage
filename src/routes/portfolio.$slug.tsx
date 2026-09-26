@@ -106,6 +106,12 @@ function ProjectPage() {
     return <SurvivorshipCaseStudy project={project} recommendations={recommendations} />;
   }
 
+  if (project.slug === "tabular-edit-of-records") {
+    const recommendations = getRecommendations(project);
+    return <TabularEditCaseStudy project={project} recommendations={recommendations} />;
+  }
+
+
   return (
     <div className="min-h-screen overflow-x-clip bg-background text-foreground font-sans antialiased">
       <SiteHeader />
