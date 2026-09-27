@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { LockIcon } from "@/components/LockIcon";
+import { OrgMark } from "@/components/OrgMark";
 import { isProtectedProject, type Project } from "@/data/projects";
+
 
 export function ProjectCard({ project }: { project: Project }) {
   const locked = isProtectedProject(project);
@@ -47,7 +49,9 @@ export function ProjectCard({ project }: { project: Project }) {
       <div className="flex flex-1 flex-col px-4 pb-5 pt-6">
         <div className="flex flex-wrap items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
           <span className="rounded-full border border-border px-2.5 py-1">{project.category}</span>
+          {project.organization && <OrgMark organization={project.organization} />}
         </div>
+
 
         <h3 className="mt-5 font-serif text-2xl leading-tight text-foreground">{project.title}</h3>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{project.description}</p>

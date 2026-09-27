@@ -51,7 +51,7 @@ export function SurvivorshipCaseStudy({ project, recommendations }: { project: P
             <Fact label="Role" value="UX Designer" />
             <Fact label="Platform" value="Informatica MDM Customer 360" />
             <Fact label="Surfaces" value="Slack · MDM Console" />
-            <Fact label="Context" value="Agentic MDM Workshop · Dublin · July 2026" />
+            <Fact label="Organization" value="Salesforce" />
           </dl>
         </section>
 
@@ -76,12 +76,12 @@ export function SurvivorshipCaseStudy({ project, recommendations }: { project: P
               <Quote>The agent presents evidence. The steward makes the call.</Quote>
             </CaseSection>
 
-            <CaseSection id="problem" eyebrow="01 · Brief and problem" title="The golden record stays wrong: confidently, silently, indefinitely">
+            <CaseSection id="problem" eyebrow="Brief and problem" title="The golden record stays wrong: confidently, silently, indefinitely">
               <p>Survivorship resolves disagreements between source systems using trust scores, recency and source hierarchy. It handles roughly 95% of records without human involvement. Two gaps remain.</p>
               <div className="mt-10 grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-3">
-                <Insight number="01" title="External reality moves" body="Certifications expire, companies change legal status and products are reclassified without triggering MDM." />
-                <Insight number="02" title="Corrections cost time" body="A manual console journey takes about 12 minutes because every verification and edit is a separate act." />
-                <Insight number="03" title="Rules have limits" body="A trusted source can still hold a stale value, so deterministic survivorship needs an open-world check." />
+                <Insight title="External reality moves" body="Certifications expire, companies change legal status and products are reclassified without triggering MDM." />
+                <Insight title="Corrections cost time" body="A manual console journey takes about 12 minutes because every verification and edit is a separate act." />
+                <Insight title="Rules have limits" body="A trusted source can still hold a stale value, so deterministic survivorship needs an open-world check." />
               </div>
               <dl className="mt-10 grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-3">
                 <Metric value="~0%" label="Baseline contradictions caught before publish" />
@@ -90,7 +90,7 @@ export function SurvivorshipCaseStudy({ project, recommendations }: { project: P
               </dl>
             </CaseSection>
 
-            <CaseSection id="architecture" eyebrow="02 · Architecture" title="After survivorship. Before publish.">
+            <CaseSection id="architecture" eyebrow="Architecture" title="After survivorship. Before publish.">
               <p>The agent stress-tests the draft golden record against authoritative external sources before it goes live. The deterministic skill layer still handles matching, merging, validation and lifecycle management for every record. The reasoning layer focuses only on meaningful contradictions.</p>
               <div className="mt-10 overflow-x-auto border-y border-border">
                 <table className="w-full min-w-[620px] text-left text-sm">
@@ -107,12 +107,12 @@ export function SurvivorshipCaseStudy({ project, recommendations }: { project: P
               <Figure src={architectureAsset.url} alt="Architecture showing the copilot between survivorship and publishing" caption="The agent sits after deterministic survivorship and before publish, checking only for meaningful contradictions." />
             </CaseSection>
 
-            <CaseSection id="modes" eyebrow="03 · Agent modes" title="Three modes cover every scenario">
+            <CaseSection id="modes" eyebrow="Agent modes" title="Three modes cover every scenario">
               <p>The product deliberately distinguishes acting, escalating and disappearing. That separation protects attention while making the exceptional decisions faster and more trustworthy.</p>
               <div className="mt-10 grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-3">
-                <Insight number="01 · Autonomous" title="Act when evidence agrees" body="The agent verifies, finds no contradiction and publishes without human involvement. A digest confirms the totals." />
-                <Insight number="02 · Escalation" title="Recommend with context" body="Both values, source, confidence, consequence and one decision are handed to the steward together." />
-                <Insight number="03 · Invisible" title="Hold the interruption" body="Notifications wait during calls, presentations or focused work and return through the steward queue later." />
+                <Insight kicker="Autonomous" title="Act when evidence agrees" body="The agent verifies, finds no contradiction and publishes without human involvement. A digest confirms the totals." />
+                <Insight kicker="Escalation" title="Recommend with context" body="Both values, source, confidence, consequence and one decision are handed to the steward together." />
+                <Insight kicker="Invisible" title="Hold the interruption" body="Notifications wait during calls, presentations or focused work and return through the steward queue later." />
               </div>
               <h3 className="mt-14 font-serif text-3xl text-foreground">Active and dormant records</h3>
               <div className="mt-6 divide-y divide-border border-y border-border">
@@ -129,26 +129,26 @@ export function SurvivorshipCaseStudy({ project, recommendations }: { project: P
                 <Metric value="180" label="Records processed" /><Metric value="174" label="Published silently" /><Metric value="6" label="Held for review" /><Metric value="18 min" label="Scenario total" /><Metric value="1×" label="Console opened" />
               </dl>
               <Figure src={experienceAsset.url} alt="Event-based experience flow from record batch to resolution" caption="The scenario moves from a 180-record batch to six focused decisions, with five resolved in Slack and one escalated." />
-              <JourneyStep number="01" title="Start with the shape of the work" body="A morning digest summarises the processed batch, what was resolved automatically and what needs a human decision. Estimated review time makes the queue predictable.">
+              <JourneyStep title="Start with the shape of the work" body="A morning digest summarises the processed batch, what was resolved automatically and what needs a human decision. Estimated review time makes the queue predictable.">
                 <Figure src={digestAsset.url} alt="Slack morning digest summarising the survivorship review queue" caption="One message, three numbers and one action keep the first touch deliberately restrained." />
               </JourneyStep>
-              <JourneyStep number="02" title="Turn a warning into an informed choice" body="Each finding compares the survivorship result and agent evidence side by side. Provenance, confidence and downstream impact appear before the decision controls.">
+              <JourneyStep title="Turn a warning into an informed choice" body="Each finding compares the survivorship result and agent evidence side by side. Provenance, confidence and downstream impact appear before the decision controls.">
                 <div className="grid gap-6 sm:grid-cols-2">
                   <Figure src={criticalAsset.url} alt="Critical Slack finding with survivorship and external evidence" caption="The critical finding state." contain />
                   <Figure src={selectionAsset.url} alt="Slack finding after the steward selects an action" caption="An explicit receipt confirms the selected value and audit state." contain />
                 </div>
               </JourneyStep>
-              <JourneyStep number="03" title="Make system handoffs legible" body="When deeper investigation is needed, a transition state explains the move from Slack to Customer 360 and shows which external sources are being checked.">
+              <JourneyStep title="Make system handoffs legible" body="When deeper investigation is needed, a transition state explains the move from Slack to Customer 360 and shows which external sources are being checked.">
                 <Figure src={transitionAsset.url} alt="Transition screen between Slack and Customer 360" caption="The wait is grounded in actual verification work rather than a generic loading indicator." />
               </JourneyStep>
-              <JourneyStep number="04" title="Preserve context during investigation" body="The record remains visible while the copilot presents findings in a right-hand panel. A field-level popover reuses the same evidence model for direct editing.">
+              <JourneyStep title="Preserve context during investigation" body="The record remains visible while the copilot presents findings in a right-hand panel. A field-level popover reuses the same evidence model for direct editing.">
                 <Figure src={consoleAsset.url} alt="Customer 360 record with the copilot panel open" caption="The copilot is additive: the core record view remains undisturbed." />
                 <div className="grid gap-6 sm:grid-cols-2">
                   <Figure src={findingsAsset.url} alt="Stacked finding cards in the copilot panel" caption="Related contradictions can be reviewed together." contain />
                   <Figure src={popoverAsset.url} alt="Field-level copilot recommendation popover" caption="The same decision model adapts to field-level editing." contain />
                 </div>
               </JourneyStep>
-              <JourneyStep number="05" title="Close the accountability loop" body="The evidence trail is expandable on demand. After the decision, the interface confirms the update and leaves a persistent provenance signal on the record.">
+              <JourneyStep title="Close the accountability loop" body="The evidence trail is expandable on demand. After the decision, the interface confirms the update and leaves a persistent provenance signal on the record.">
                 <div className="grid gap-6 sm:grid-cols-2">
                   <Figure src={evidenceAsset.url} alt="Expanded external evidence trail" caption="Full provenance is available without permanent density." contain />
                   <Figure src={confirmationAsset.url} alt="Confirmation after a steward decision" caption="The receipt separates the decision from asynchronous system updates." contain />
@@ -157,19 +157,19 @@ export function SurvivorshipCaseStudy({ project, recommendations }: { project: P
               </JourneyStep>
             </CaseSection>
 
-            <CaseSection id="principles" eyebrow="05 · Design principles" title="Seven principles govern every surface and decision">
+            <CaseSection id="principles" eyebrow="Design principles" title="Seven principles govern every surface and decision">
               <div className="mt-10 grid gap-8 sm:grid-cols-2">
-                <Principle label="01" title="Silent by default">The agent earns the right to interrupt by disappearing for records it resolves correctly.</Principle>
-                <Principle label="02" title="Evidence first">Source, reference, confidence and effective date precede every recommendation.</Principle>
-                <Principle label="03" title="The steward decides">Human accountability remains for governance, compliance and commercial consequences.</Principle>
-                <Principle label="04" title="Consequence is visible">Every finding explains what changes downstream if the recommendation is accepted.</Principle>
-                <Principle label="05" title="Depth on demand">The first touch stays restrained while CLAIRE provides investigation depth when requested.</Principle>
-                <Principle label="06" title="Severity sets interruption">Critical findings interrupt, medium findings enter the digest and low findings log silently.</Principle>
-                <Principle label="07" title="One interaction language">Confidence, provenance, severity, state, attribution and notification patterns travel across surfaces.</Principle>
+                <Principle label="Silence" title="Silent by default">The agent earns the right to interrupt by disappearing for records it resolves correctly.</Principle>
+                <Principle label="Evidence" title="Evidence first">Source, reference, confidence and effective date precede every recommendation.</Principle>
+                <Principle label="Accountability" title="The steward decides">Human accountability remains for governance, compliance and commercial consequences.</Principle>
+                <Principle label="Consequence" title="Consequence is visible">Every finding explains what changes downstream if the recommendation is accepted.</Principle>
+                <Principle label="Depth" title="Depth on demand">The first touch stays restrained while CLAIRE provides investigation depth when requested.</Principle>
+                <Principle label="Severity" title="Severity sets interruption">Critical findings interrupt, medium findings enter the digest and low findings log silently.</Principle>
+                <Principle label="Consistency" title="One interaction language">Confidence, provenance, severity, state, attribution and notification patterns travel across surfaces.</Principle>
               </div>
             </CaseSection>
 
-            <CaseSection id="outcome" eyebrow="06 · Success measures" title="From 12 minutes to a 60-second target">
+            <CaseSection id="outcome" eyebrow="Success measures" title="From 12 minutes to a 60-second target">
               <p>These are baseline comparisons and design targets for future validation, not measured production outcomes.</p>
               <dl className="mt-10 grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-2">
                 <Metric value="~12 min → < 60 sec" label="Target field contradiction resolution" />
@@ -183,7 +183,7 @@ export function SurvivorshipCaseStudy({ project, recommendations }: { project: P
               </div>
             </CaseSection>
 
-            <CaseSection id="walkthrough" eyebrow="07 · Walkthrough" title="The full flow, end to end">
+            <CaseSection id="walkthrough" eyebrow="Walkthrough" title="The full flow, end to end">
               <p>This 2:21 walkthrough covers all 36 steps of the Orion MedTech scenario, from the Slack morning digest through inline decisions and the final MDM console resolution.</p>
               <figure className="mt-10">
                 <div className="overflow-hidden rounded-sm border border-border bg-foreground">
@@ -229,11 +229,11 @@ function CaseSection({ id, eyebrow, title, children }: { id: string; eyebrow: st
 
 function Quote({ children }: { children: React.ReactNode }) { return <blockquote className="my-10 border-l-2 border-foreground pl-7 font-serif text-2xl leading-snug text-foreground sm:text-3xl">“{children}”</blockquote>; }
 
-function Insight({ number, title, body }: { number: string; title: string; body: string }) { return <div className="bg-card p-6"><p className="text-xs text-muted-foreground">{number}</p><h3 className="mt-8 font-serif text-xl text-foreground">{title}</h3><p className="mt-3 text-sm leading-relaxed">{body}</p></div>; }
+function Insight({ kicker, title, body }: { kicker?: string; title: string; body: string }) { return <div className="bg-card p-6">{kicker && <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground">{kicker}</p>}<h3 className={`${kicker ? "mt-4" : ""} font-serif text-xl text-foreground`}>{title}</h3><p className="mt-3 text-sm leading-relaxed">{body}</p></div>; }
 
 function Principle({ label, title, children }: { label: string; title: string; children: React.ReactNode }) { return <div className="border-t border-border pt-5"><p className="text-xs text-muted-foreground">{label}</p><h3 className="mt-4 font-serif text-2xl text-foreground">{title}</h3><p className="mt-3 text-sm leading-relaxed">{children}</p></div>; }
 
-function JourneyStep({ number, title, body, children }: { number: string; title: string; body: string; children: React.ReactNode }) { return <article className="mt-16 border-t border-border pt-8 first:mt-12"><div className="grid gap-4 sm:grid-cols-[48px_1fr]"><p className="text-xs tabular-nums text-muted-foreground">{number}</p><div><h3 className="font-serif text-3xl text-foreground">{title}</h3><p className="mt-4">{body}</p></div></div><div className="mt-8 space-y-6">{children}</div></article>; }
+function JourneyStep({ title, body, children }: { title: string; body: string; children: React.ReactNode }) { return <article className="mt-16 border-t border-border pt-8 first:mt-12"><h3 className="font-serif text-3xl text-foreground">{title}</h3><p className="mt-4">{body}</p><div className="mt-8 space-y-6">{children}</div></article>; }
 
 function Figure({ src, alt, caption, contain = false, priority = false }: { src: string; alt: string; caption: string; contain?: boolean; priority?: boolean }) { return <figure className="my-10"><div className="overflow-hidden rounded-sm border border-border bg-secondary"><img src={src} alt={alt} loading={priority ? "eager" : "lazy"} className={`h-auto w-full ${contain ? "object-contain" : "object-cover"}`} /></div><figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">{caption}</figcaption></figure>; }
 

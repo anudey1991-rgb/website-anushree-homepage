@@ -1,4 +1,7 @@
+import clusterCover from "@/assets/cluster-agent/workspace-dynamic-panel.jpg.asset.json";
+
 export const CATEGORIES = [
+
   "All",
   "Data Management",
   "Healthcare",
@@ -10,6 +13,10 @@ export const CATEGORIES = [
 
 export type Category = (typeof CATEGORIES)[number];
 
+/** Client or employer the work was designed for. */
+export const ORGANIZATIONS = ["Salesforce", "Honeywell", "Philips Healthcare"] as const;
+export type Organization = (typeof ORGANIZATIONS)[number];
+
 export type Project = {
   slug: string;
   title: string;
@@ -19,6 +26,7 @@ export type Project = {
   role: string;
   industry: string;
   duration: string;
+  organization?: Organization;
   responsibilities: string[];
   originalUrl?: string;
   /** Optional per-project override of the NDA protection rule below. */
@@ -28,6 +36,24 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
+    slug: "cluster-detection-and-bulk-edit",
+    title: "Cluster Detection & Bulk Edit Agent",
+    description: "An agent that finds clusters of broken records across master data before anyone goes looking, then hands the steward a workspace already scoped to fix them.",
+    image: clusterCover.url,
+    category: "Data Management",
+    role: "Design Lead, 0→1",
+    industry: "Enterprise SaaS",
+    duration: "2026",
+    organization: "Salesforce",
+    responsibilities: [
+      "Agent role and detection model",
+      "End-to-end journey design",
+      "Interactive prototype and walkthrough films",
+      "Product strategy and scoping",
+    ],
+  },
+  {
+
     slug: "agent-verified-data-survivorship",
     title: "Agent-Verified Data Survivorship",
     description: "An agentic copilot that cross-checks MDM survivorship decisions against real-world sources, right inside Slack, before bad data ever gets published.",
@@ -36,18 +62,20 @@ export const PROJECTS: Project[] = [
     role: "Lead Product Designer",
     industry: "Enterprise SaaS",
     duration: "2024, 2025",
+    organization: "Salesforce",
     responsibilities: ["Agentic workflow design", "Discovery and research", "Interaction design", "Design system contributions"],
     originalUrl: "https://www.anushreedey.com/agent-verified-survivorship-experience",
   },
   {
     slug: "tabular-edit-of-records",
     title: "Tabular Edit of Records",
-    description: "A persistent table workspace for inline editing, validating and bulk publishing up to 10,000 MDM records at once.",
+    description: "A persistent table workspace for unstructured inline editing, validation and bulk publishing up to 10,000 MDM records without rigid rule-based workflows.",
     image: "https://static.wixstatic.com/media/55b247_1ff9699456fe48baa9a994e92872629d~mv2.png/v1/fit/w_960,h_720,q_85,enc_avif,quality_auto/55b247_1ff9699456fe48baa9a994e92872629d~mv2.png",
     category: "Data Management",
     role: "Lead Product Designer",
     industry: "Enterprise SaaS",
     duration: "2024",
+    organization: "Salesforce",
     responsibilities: ["Information architecture", "Interaction design", "Usability testing", "Engineering partnership"],
     originalUrl: "https://www.anushreedey.com/tabular-edit-workspace-for-records",
   },
@@ -60,6 +88,7 @@ export const PROJECTS: Project[] = [
     role: "Senior Product Designer",
     industry: "Enterprise SaaS",
     duration: "2022, 2024",
+    organization: "Salesforce",
     responsibilities: ["End-to-end product design", "Data governance workflows", "Design system contributions", "Cross-functional collaboration"],
     originalUrl: "https://www.anushreedey.com/master-data-management",
   },
@@ -72,6 +101,7 @@ export const PROJECTS: Project[] = [
     role: "Product Designer",
     industry: "Enterprise SaaS",
     duration: "2021",
+    organization: "Salesforce",
     responsibilities: ["Discovery and research", "Information architecture", "Interaction design", "Usability testing"],
     originalUrl: "https://www.anushreedey.com/swiftaccess",
   },
@@ -84,6 +114,7 @@ export const PROJECTS: Project[] = [
     role: "Product Designer",
     industry: "Enterprise Analytics",
     duration: "2020",
+    organization: "Salesforce",
     responsibilities: ["MVP definition", "Data visualization design", "Dashboard interaction design", "Prototyping"],
   },
   {
@@ -95,6 +126,7 @@ export const PROJECTS: Project[] = [
     role: "Product Designer",
     industry: "Aviation",
     duration: "2019",
+    organization: "Honeywell",
     responsibilities: ["Domain research", "Workflow modeling", "Interaction design", "Stakeholder alignment"],
     originalUrl: "https://www.anushreedey.com/blockchain-platform",
   },
@@ -107,6 +139,7 @@ export const PROJECTS: Project[] = [
     role: "Product Designer",
     industry: "Aviation",
     duration: "2018",
+    organization: "Honeywell",
     responsibilities: ["Simulation UX", "Systems thinking", "Interaction design", "Engineering partnership"],
   },
   {
@@ -118,6 +151,7 @@ export const PROJECTS: Project[] = [
     role: "Product Designer",
     industry: "Medical Imaging",
     duration: "2017, 2018",
+    organization: "Philips Healthcare",
     responsibilities: ["Clinical workflow design", "Interaction design", "Extensibility framework", "Usability with clinicians"],
     originalUrl: "https://www.anushreedey.com/mri",
   },

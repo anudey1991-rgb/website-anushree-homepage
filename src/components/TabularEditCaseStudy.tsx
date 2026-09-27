@@ -65,7 +65,7 @@ export function TabularEditCaseStudy({
             <Fact label="Role" value="UX Owner, Customer 360" />
             <Fact label="Platform" value="Informatica MDM BUI" />
             <Fact label="Timeline" value="2024 – present" />
-            <Fact label="Release" value="October 2026 GA" />
+            <Fact label="Organization" value="Salesforce" />
           </dl>
           <ul className="mt-8 flex flex-wrap gap-2">
             {[
@@ -107,9 +107,10 @@ export function TabularEditCaseStudy({
 
             <CaseSection id="overview" eyebrow="Overview" title="One workspace that became two product-wide features">
               <p>
-                Informatica MDM BUI had no way to edit multiple records at once. I designed a persistent table
-                workspace where stewards edit inline across rows, hold work as drafts, resolve conflicts and publish
-                in bulk, at up to 10,000 records.
+                Informatica MDM BUI had no way to edit multiple records at once with unstructured changes, without
+                leaning on the rule-based editing experience. I designed a persistent table workspace where stewards
+                edit inline across rows, hold work as drafts, resolve conflicts and publish in bulk, at up to 10,000
+                records.
               </p>
               <p>
                 Two capabilities that began inside this workspace, Draft Records and Conflict Resolution, have since
@@ -128,55 +129,51 @@ export function TabularEditCaseStudy({
               </Quote>
             </CaseSection>
 
-            <CaseSection id="problem" eyebrow="01 · The problem" title="No efficient path to bulk inline editing">
+            <CaseSection id="problem" eyebrow="The problem" title="No efficient path to bulk inline editing">
               <p>
                 For stewards managing tens of thousands of records, the existing experience was not usability friction.
                 It was a workflow blocker.
               </p>
               <div className="mt-10 grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
                 <Insight
-                  number="01"
                   title="Fragmented view"
                   body="Records were edited across separate pages, with no way to scan and compare them side by side."
                 />
                 <Insight
-                  number="02"
                   title="No draft state"
                   body="Every saved edit was committed immediately and went live. There was no space to work in progress."
                 />
                 <Insight
-                  number="03"
                   title="No selective publish"
                   body="Records published one at a time. Stewards could not stage a set and submit it together."
                 />
                 <Insight
-                  number="04"
                   title="Silent overwrites"
                   body="With no conflict detection, two stewards editing the same record overwrote each other invisibly."
                 />
                 <Insight
-                  number="05"
-                  title="Not inline"
-                  body="A rules-based bulk edit existed, but it was neither fluid nor inline to the data itself."
+                  title="Rigid rule-based edits"
+                  body="While a rule-based bulk edit existed for uniform operations, stewards had no way to make unstructured, ad-hoc changes across multiple records simultaneously."
                 />
                 <Insight
-                  number="06"
                   title="No power tools"
                   body="No inline copy and paste, no undo and redo, no free-form editing across a set of rows."
                 />
               </div>
             </CaseSection>
 
-            <CaseSection id="role" eyebrow="02 · My role" title="End-to-end ownership as sole designer">
+            <CaseSection id="role" eyebrow="My role" title="End-to-end ownership as sole designer">
               <p>
                 I am the UX Owner of Customer 360 within Informatica MDM BUI. Over six years I have designed the
                 majority of core BUI features: record details, history, related records, bulk edit, my jobs and the
                 surrounding steward workflows.
               </p>
               <p>
-                Tabular Edit is the largest feature I have owned end to end, from discovery through delivery, as the
-                only designer on it. After designing the scope of Draft Records and Conflict Resolution inside this
-                workspace, I handed each to a dedicated designer to carry forward as an independent product feature.
+                Tabular Edit is one of the most significant additions to the Customer 360 product line, substantially
+                improving efficiency and ease of use in master data management. I led it end to end, from discovery
+                through delivery, as the sole designer on it. After designing the initial scope of Draft Records and
+                Conflict Resolution inside this workspace, I handed each to a dedicated designer to carry forward as an
+                independent product feature.
               </p>
               <div className="mt-10 grid gap-8 sm:grid-cols-2">
                 <Principle label="Product management" title="Scoping & strategy">
@@ -197,24 +194,20 @@ export function TabularEditCaseStudy({
               </div>
             </CaseSection>
 
-            <CaseSection id="challenge" eyebrow="03 · The design call" title="A structural call, made early">
+            <CaseSection id="challenge" eyebrow="The design call" title="A structural call, made early">
               <JourneyStep
-                number="01"
                 title="The original proposal: Search as the single route in"
                 body="Stewards would find records by attribute in Search and open them in the table. Bounded, clear and straightforward to scope. Search is already how stewards navigate BUI, so routing tabular access through it felt like continuity rather than constraint."
               />
               <JourneyStep
-                number="02"
                 title="The flaw, and what I proposed instead"
                 body="Search retrieves records matching a field value. Stewards frequently need to work across clusters defined by relational or contextual logic: hierarchy, geography, workflow stage. Restricting access through Search restricted what could be edited together, and made no sense for creation, since you cannot search for a record that does not yet exist. I proposed a standalone records space clustered by Business Entity, where any filter logic could scope both bulk editing and record creation from one surface."
               />
               <JourneyStep
-                number="03"
                 title="Customers raised the same limitation, unprompted"
                 body="In design reviews, key customers asked for entry points from BE Records lists and Hierarchy tables. Neither had been presented as an option. They also raised record creation inside the workspace, naming the same mismatch I had identified. BE Records list access is scoped for October 2026."
               />
               <JourneyStep
-                number="04"
                 title="What was parked is now the direction"
                 body="As MDM moves toward agentic experiences, I am working with the research team on agentic bulk editing: dynamic, logic-defined clusters of records assembled and handed to the workspace without navigating fixed entry points. The access model I proposed is exactly what the agentic architecture enables."
               />
@@ -227,9 +220,21 @@ export function TabularEditCaseStudy({
                 Three years apart, the same conclusion. The proposal parked for being too large is now the architecture
                 the product is building toward; the constraint analysis held, and the only variable was time.
               </p>
+              <p className="mt-6">
+                That agentic direction is now its own project, which I am designing:{" "}
+                <Link
+                  to="/portfolio/$slug"
+                  params={{ slug: "cluster-detection-and-bulk-edit" }}
+                  className="border-b border-foreground/30 pb-0.5 font-medium text-foreground transition-colors hover:border-foreground"
+                >
+                  Cluster Detection &amp; Bulk Edit Agent
+                </Link>
+                .
+              </p>
+
             </CaseSection>
 
-            <CaseSection id="timeline" eyebrow="04 · Timeline" title="From discovery to general availability">
+            <CaseSection id="timeline" eyebrow="Timeline" title="From discovery to general availability">
               <div className="mt-8 divide-y divide-border border-y border-border">
                 <TimelineRow
                   when="Early 2024"
@@ -258,8 +263,8 @@ export function TabularEditCaseStudy({
                 />
                 <TimelineRow
                   when="July 2026"
-                  title="Preview: clipboard, ABAC and rules-based operations"
-                  body="Shipped as Preview with the toggle off by default, and announced publicly as an upcoming roadmap item."
+                  title="Preview: cloning, record creation, clipboard, ABAC and rules-based operations"
+                  body="Cloning and the in-workspace record creation flow shipped alongside clipboard operations and ABAC support, as Preview with the toggle off by default, and announced publicly as an upcoming roadmap item."
                 />
                 <TimelineRow
                   when="October 2026"
@@ -269,14 +274,13 @@ export function TabularEditCaseStudy({
               </div>
             </CaseSection>
 
-            <CaseSection id="walkthrough" eyebrow="05 · Walkthrough" title="Ten capabilities, one workspace">
+            <CaseSection id="walkthrough" eyebrow="Walkthrough" title="Ten capabilities, one workspace">
               <p>
                 Each capability below answers a specific part of the steward's day. Together they form a single coherent
                 loop: scope the set, edit inline, hold as draft, resolve what conflicts, publish what is valid.
               </p>
 
               <Feature
-                number="01"
                 title="Entry points"
                 goal="Meet stewards where they already are"
                 body="Stewards reach the workspace through existing workflows rather than a separate tool. Search is the original route; the BE Records list arrives in October 2026, with hierarchies and agentic access in exploration."
@@ -299,7 +303,6 @@ export function TabularEditCaseStudy({
               </Feature>
 
               <Feature
-                number="02"
                 title="Inline editing"
                 goal="Edit any field without leaving the table"
                 body="Clicking a cell renders the control for its field type: free text, picklist, date/time or lookup. RBAC and ABAC rules apply throughout, and data quality validation fires on field-level rules. Edits save as drafts immediately, and a blue dot marks the cell as both changed and unpublished."
@@ -312,7 +315,6 @@ export function TabularEditCaseStudy({
               </Feature>
 
               <Feature
-                number="03"
                 title="Draft records"
                 goal="Work at your own pace, publish when ready"
                 body="Drafts persist per steward and stay private until submitted. The same blue dot that marks a change marks it as unpublished, and a Show Edited Records toggle filters the table to unpublished work for pre-submit review."
@@ -326,7 +328,6 @@ export function TabularEditCaseStudy({
               </Feature>
 
               <Feature
-                number="04"
                 title="Field group views"
                 goal="Reach nested data without leaving the workspace"
                 body="Field groups such as Address used to require a separate record view. Expanding a field group cell now reveals a sub-table of every instance for that record, editable in place, with new instances added without losing scroll position."
@@ -345,7 +346,6 @@ export function TabularEditCaseStudy({
               </Feature>
 
               <Feature
-                number="05"
                 title="Multi-value fields"
                 goal="View and edit multi-value fields inline"
                 body="Values read as pills; entering edit mode opens a popover directly below the cell for adding, removing and changing values without disturbing the table layout. Text, integer, decimal, double and picklist types are supported."
@@ -359,7 +359,6 @@ export function TabularEditCaseStudy({
               </Feature>
 
               <Feature
-                number="06"
                 title="Clone records"
                 goal="Accelerate creation where records share structure"
                 body="Where records are structurally similar, cloning lets stewards duplicate an existing record and change only what differs. Clones carry a distinct new-draft indicator, RBAC-restricted fields are omitted rather than blocking the action, and ABAC-blocked records fail outright instead of cloning partially."
@@ -378,7 +377,6 @@ export function TabularEditCaseStudy({
               </Feature>
 
               <Feature
-                number="07"
                 title="Create record"
                 goal="Create new records without leaving the workspace"
                 body="A new empty row appears on trigger, and a draft is created only once a value is entered. If the current view could hide mandatory fields, a recommendation dialog prompts the steward to switch before they attempt to submit."
@@ -397,7 +395,6 @@ export function TabularEditCaseStudy({
               </Feature>
 
               <Feature
-                number="08"
                 title="Conflict resolution"
                 goal="Protect data integrity in a multi-user environment"
                 body="A conflict arises when a draft's master record has been updated by someone else. Known conflicts surface immediately at record level; a full check runs at Submit in parallel batches of roughly 2,500 records, up to about twenty seconds for 10,000. Stewards resolve per record inline or use the View Conflicts flow for bulk resolution."
@@ -415,7 +412,6 @@ export function TabularEditCaseStudy({
               </Feature>
 
               <Feature
-                number="09"
                 title="Undo / redo"
                 goal="Edit freely, knowing mistakes are reversible"
                 body="The stack holds ten operations, and a bulk action counts as one: a paste across fifty cells takes a single undo step. Undoing inside a field group auto-opens it to show the affected fields, and edited cells flash as confirmation."
@@ -429,7 +425,6 @@ export function TabularEditCaseStudy({
               </Feature>
 
               <Feature
-                number="10"
                 title="Submit records"
                 goal="Controlled publishing, where valid work always moves forward"
                 body="Submit All publishes every draft; Submit Selected scopes the publish to checked rows. Error reporting is admin-controlled: with it off, errored records stay in draft behind an explanatory banner; with it on, non-blocking errors publish with validation indicators after a confirmation breakdown."
@@ -448,7 +443,7 @@ export function TabularEditCaseStudy({
               </Feature>
             </CaseSection>
 
-            <CaseSection id="research" eyebrow="06 · Research" title="Validated with key customers">
+            <CaseSection id="research" eyebrow="Research" title="Validated with key customers">
               <h3 className="font-serif text-2xl text-foreground">What customers confirmed</h3>
               <ul className="mt-5 space-y-4">
                 <Bullet>The record-by-record workflow was untenable at scale; the need for inline bulk editing was unambiguous.</Bullet>
@@ -468,7 +463,7 @@ export function TabularEditCaseStudy({
               </ul>
             </CaseSection>
 
-            <CaseSection id="metrics" eyebrow="07 · Success metrics" title="Measuring against the core goals">
+            <CaseSection id="metrics" eyebrow="Success metrics" title="Measuring against the core goals">
               <p>These are the measures the workspace is being assessed against, not yet reported production outcomes.</p>
               <div className="mt-10 grid gap-8 sm:grid-cols-2">
                 <Principle label="Efficiency" title="Time and volume">
@@ -490,29 +485,29 @@ export function TabularEditCaseStudy({
               </div>
             </CaseSection>
 
-            <CaseSection id="principles" eyebrow="08 · Design principles" title="The thinking behind every decision">
+            <CaseSection id="principles" eyebrow="Design principles" title="The thinking behind every decision">
               <div className="mt-10 grid gap-8 sm:grid-cols-2">
-                <Principle label="01" title="Systems design, not screen design">
+                <Principle label="Systems thinking" title="Systems design, not screen design">
                   Save model, validation model, conflict model and field type model each run on separate backend
                   mechanisms, and all of them must feel coherent to the steward.
                 </Principle>
-                <Principle label="02" title="The unit of work is the dataset">
+                <Principle label="Unit of work" title="The unit of work is the dataset">
                   This reframe drove dirty state, bulk scoping and the draft lifecycle. A surface designed around one
                   record fails the steward managing thousands.
                 </Principle>
-                <Principle label="03" title="Map what cannot be built first">
+                <Principle label="Constraints" title="Map what cannot be built first">
                   Grid limits, conflict detection gaps and lifecycle edge cases shape direction early. Ignored
                   constraints become surprises at build time.
                 </Principle>
-                <Principle label="04" title="Translate in both directions">
+                <Principle label="Translation" title="Translate in both directions">
                   Edits translate back into MDM, and backend outcomes translate forward into visible, actionable states.
                   The work is closing that loop, not just surfacing it.
                 </Principle>
-                <Principle label="05" title="Never block the full picture">
+                <Principle label="Transparency" title="Never block the full picture">
                   Surface conflicts at the right granularity with a clear action path. Even where the backend cannot
                   guarantee completeness, the steward sees what is known and what is not.
                 </Principle>
-                <Principle label="06" title="Reduce decisions, not just clicks">
+                <Principle label="Flow" title="Reduce decisions, not just clicks">
                   Auto-persist on click-out instead of an explicit save. One mental model, submit when ready, keeps
                   stewards in flow through long bulk sessions.
                 </Principle>
@@ -606,11 +601,10 @@ function Quote({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Insight({ number, title, body }: { number: string; title: string; body: string }) {
+function Insight({ title, body }: { title: string; body: string }) {
   return (
     <div className="bg-card p-6">
-      <p className="text-xs text-muted-foreground">{number}</p>
-      <h3 className="mt-8 font-serif text-xl text-foreground">{title}</h3>
+      <h3 className="font-serif text-xl text-foreground">{title}</h3>
       <p className="mt-3 text-sm leading-relaxed">{body}</p>
     </div>
   );
@@ -655,29 +649,22 @@ function Bullet({ children }: { children: React.ReactNode }) {
   );
 }
 
-function JourneyStep({ number, title, body }: { number: string; title: string; body: string }) {
+function JourneyStep({ title, body }: { title: string; body: string }) {
   return (
     <article className="mt-12 border-t border-border pt-8">
-      <div className="grid gap-4 sm:grid-cols-[48px_1fr]">
-        <p className="text-xs tabular-nums text-muted-foreground">{number}</p>
-        <div>
-          <h3 className="font-serif text-2xl text-foreground sm:text-3xl">{title}</h3>
-          <p className="mt-4">{body}</p>
-        </div>
-      </div>
+      <h3 className="font-serif text-2xl text-foreground sm:text-3xl">{title}</h3>
+      <p className="mt-4">{body}</p>
     </article>
   );
 }
 
 function Feature({
-  number,
   title,
   goal,
   body,
   limitation,
   children,
 }: {
-  number: string;
   title: string;
   goal: string;
   body: string;
@@ -686,20 +673,15 @@ function Feature({
 }) {
   return (
     <article className="mt-16 border-t border-border pt-8">
-      <div className="grid gap-4 sm:grid-cols-[48px_1fr]">
-        <p className="text-xs tabular-nums text-muted-foreground">{number}</p>
-        <div>
-          <h3 className="font-serif text-2xl text-foreground sm:text-3xl">{title}</h3>
-          <p className="mt-2 text-sm uppercase tracking-[0.14em] text-muted-foreground">{goal}</p>
-          <p className="mt-5">{body}</p>
-          {limitation && (
-            <p className="mt-6 border-l-2 border-foreground/30 pl-5 text-sm leading-relaxed">
-              <span className="font-medium text-foreground">Current limitation. </span>
-              {limitation}
-            </p>
-          )}
-        </div>
-      </div>
+      <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">{goal}</p>
+      <h3 className="mt-3 font-serif text-2xl text-foreground sm:text-3xl">{title}</h3>
+      <p className="mt-5">{body}</p>
+      {limitation && (
+        <p className="mt-6 border-l-2 border-foreground/30 pl-5 text-sm leading-relaxed">
+          <span className="font-medium text-foreground">Current limitation. </span>
+          {limitation}
+        </p>
+      )}
       <div className="mt-8 space-y-10">{children}</div>
     </article>
   );
