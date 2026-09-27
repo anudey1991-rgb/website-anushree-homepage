@@ -86,7 +86,7 @@ const EXPERTISE_TOPICS = [
   "Cross-functional Collaboration",
 ];
 
-const RESUME_URL = resumeAsset.url;
+const RESUME_URL = assetUrl(resumeAsset);
 
 function Index() {
   const [filter, setFilter] = useState<Category>("All");

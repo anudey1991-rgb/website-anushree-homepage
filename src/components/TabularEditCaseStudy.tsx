@@ -88,7 +88,7 @@ export function TabularEditCaseStudy({
 
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Shot
-            src={inlineShot.url}
+            src={assetUrl(inlineShot)}
             alt="The Tabular Edit workspace with a lookup field in edit mode and drafted cells marked"
             caption="The workspace: a persistent table where stewards scan, compare and edit across records without opening a single record page."
             priority
@@ -286,17 +286,17 @@ export function TabularEditCaseStudy({
                 body="Stewards reach the workspace through existing workflows rather than a separate tool. Search is the original route; the BE Records list arrives in October 2026, with hierarchies and agentic access in exploration."
               >
                 <Shot
-                  src={searchShot.url}
+                  src={assetUrl(searchShot)}
                   alt="Search screen with filters applied and an action menu open on a selected record set"
                   caption="Search. Stewards filter by attribute, select a record set and open the action menu. The workspace is one of several actions available."
                 />
                 <Shot
-                  src={dialogShot.url}
+                  src={assetUrl(dialogShot)}
                   alt="Dialog asking the steward to choose an editing medium"
                   caption="Editing medium dialog. Choosing “Edit in a Table” makes the editing mode a deliberate decision rather than a default."
                 />
                 <Shot
-                  src={beRecordsShot.url}
+                  src={assetUrl(beRecordsShot)}
                   alt="Business Entity records list with the option to launch the table workspace"
                   caption="BE Records list (October 2026). Scoping begins from an entity view rather than an attribute search, closing part of the cluster-by-context gap."
                 />
@@ -308,7 +308,7 @@ export function TabularEditCaseStudy({
                 body="Clicking a cell renders the control for its field type: free text, picklist, date/time or lookup. RBAC and ABAC rules apply throughout, and data quality validation fires on field-level rules. Edits save as drafts immediately, and a blue dot marks the cell as both changed and unpublished."
               >
                 <Shot
-                  src={inlineShot.url}
+                  src={assetUrl(inlineShot)}
                   alt="Lookup field in edit mode with dirty state dots and a validation error indicator"
                   caption="A lookup field in edit mode, blue dirty-state dots on drafted values, and an error indicator on a cell that breaks a data quality rule. Hovering reveals exactly which rules the value fails."
                 />
@@ -321,7 +321,7 @@ export function TabularEditCaseStudy({
                 limitation="Drafts here do not yet sync in real time with the My Drafts workspace, a known architecture constraint planned for a later release."
               >
                 <Shot
-                  src={draftsShot.url}
+                  src={assetUrl(draftsShot)}
                   alt="Table filtered to only records with unpublished edits"
                   caption="Show Edited Records. The pre-submit review view: only records carrying unpublished edits, immediately before committing."
                 />
@@ -334,12 +334,12 @@ export function TabularEditCaseStudy({
                 limitation="A flat view, surfacing one nested field as a direct column, remains exploratory: without the full instance in view, editing and deleting carry real risk."
               >
                 <Shot
-                  src={nestedShot.url}
+                  src={assetUrl(nestedShot)}
                   alt="Field group cell expanded inline into a sub-table of instances"
                   caption="Nested field group view. The sub-table opens inside the workspace instead of routing the steward to a separate record page."
                 />
                 <Shot
-                  src={flatShot.url}
+                  src={assetUrl(flatShot)}
                   alt="Nested field surfaced as a direct column with blank cells where no instance matches"
                   caption="Flat view, under exploration. Blank cell behaviour and edit risk are still open questions, so the pattern ships only if they can be answered confidently."
                 />
@@ -352,7 +352,7 @@ export function TabularEditCaseStudy({
                 limitation="Because of the underlying component architecture, validation errors cannot yet be attributed to an individual value; they surface at field level."
               >
                 <Shot
-                  src={mvfShot.url}
+                  src={assetUrl(mvfShot)}
                   alt="Multi-value field in edit mode with a popover open below the cell"
                   caption="The popover opens below the cell so stewards manage values without losing their position in the table."
                 />
@@ -365,12 +365,12 @@ export function TabularEditCaseStudy({
                 limitation="Ten records maximum per clone, for performance: ten data-heavy records currently take around twenty seconds."
               >
                 <Shot
-                  src={cloneSuccessShot.url}
+                  src={assetUrl(cloneSuccessShot)}
                   alt="Cloned rows at the top of the table marked with a new record indicator"
                   caption="Success state. Cloned rows sit at the top of the table, each marked “N” to distinguish new records from edited existing ones."
                 />
                 <Shot
-                  src={cloneFailureShot.url}
+                  src={assetUrl(cloneFailureShot)}
                   alt="Failure dialog listing records that could not be cloned with reasons"
                   caption="Failure dialog. Failed records are listed with reasons; the “Other Issues” group reflects current backend granularity and will expand as more detail becomes available."
                 />
@@ -383,12 +383,12 @@ export function TabularEditCaseStudy({
                 limitation="The workspace is reached through Search, which does not map to creation. The BE Records entry point and the agentic access model both resolve this tension."
               >
                 <Shot
-                  src={createDialogShot.url}
+                  src={assetUrl(createDialogShot)}
                   alt="Dialog recommending a different view because mandatory fields may be missing"
                   caption="Default view recommendation. The steward is warned that the current view may be missing mandatory fields before they start."
                 />
                 <Shot
-                  src={createDraftShot.url}
+                  src={assetUrl(createDraftShot)}
                   alt="New draft row with the new record indicator and inline mandatory field errors"
                   caption="Draft created. The new-record indicator activates as values are entered; mandatory field errors appear inline and clear the way to submission."
                 />
@@ -400,12 +400,12 @@ export function TabularEditCaseStudy({
                 body="A conflict arises when a draft's master record has been updated by someone else. Known conflicts surface immediately at record level; a full check runs at Submit in parallel batches of roughly 2,500 records, up to about twenty seconds for 10,000. Stewards resolve per record inline or use the View Conflicts flow for bulk resolution."
               >
                 <Shot
-                  src={conflictInlineShot.url}
+                  src={assetUrl(conflictInlineShot)}
                   alt="Inline conflict notice offering to resolve or skip conflicts and submit the rest"
                   caption="Per-record resolution. Stewards can resolve, or skip conflicts and submit everything else: valid work is never blocked by problems elsewhere."
                 />
                 <Shot
-                  src={conflictDialogShot.url}
+                  src={assetUrl(conflictDialogShot)}
                   alt="Conflict resolution dialog comparing draft values against published values field by field"
                   caption="Bulk resolution. Every conflicting record together, with a field-by-field choice: keep the draft value, or accept the value the other steward published."
                 />
@@ -418,7 +418,7 @@ export function TabularEditCaseStudy({
                 limitation="Applying or clearing a filter currently resets the undo stack; the right interaction for this is still to be defined."
               >
                 <Shot
-                  src={undoShot.url}
+                  src={assetUrl(undoShot)}
                   alt="Toast message explaining the ten step undo limit has been reached"
                   caption="Undo limit reached. The boundary of the safety net is communicated in the moment rather than discovered by surprise."
                 />
@@ -431,12 +431,12 @@ export function TabularEditCaseStudy({
                 limitation="Records entering a workflow process stay visible as greyed-out rows until a manual refresh, a known constraint we surface rather than hide."
               >
                 <Shot
-                  src={submitShot.url}
+                  src={assetUrl(submitShot)}
                   alt="Submit confirmation dialog showing a breakdown of valid and errored records"
                   caption="Submit confirmation. A breakdown of valid against errored records precedes the commit."
                 />
                 <Shot
-                  src={postSubmitShot.url}
+                  src={assetUrl(postSubmitShot)}
                   alt="Published rows greyed out and non-editable while the publish process runs"
                   caption="Post-submit state. Publishing rows are greyed and non-editable until refresh, a tradeoff communicated to the steward rather than concealed."
                 />

@@ -84,7 +84,7 @@ export function ClusterDetectionCaseStudy({
 
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Shot
-            src={workspacePanel.url}
+            src={assetUrl(workspacePanel)}
             alt="The cluster resolution workspace with an editable table and a dynamic inspector panel open on the right"
             caption="The workspace the agent hands over: a table already containing only the affected records, with an inspector panel explaining why each one was flagged."
             priority
@@ -292,7 +292,7 @@ export function ClusterDetectionCaseStudy({
               </ol>
 
               <Shot
-                src={flowDiagram.url}
+                src={assetUrl(flowDiagram)}
                 alt="Architecture diagram showing detection, clustering, Slack notification, CLAIRE GPT workspace and the MDM publish pipeline"
                 caption="The architecture. Slack notifies and tracks state; the scoped workspace is delivered over MCP; every write lands through MDM's existing publish and survivorship rules."
               />
@@ -322,16 +322,16 @@ export function ClusterDetectionCaseStudy({
                 label="Path 1"
                 title="Manual cluster review"
                 body="A data quality rule change invalidates 34 Tax ID records overnight. The agent detects the cluster and notifies the steward, who opens a workspace already scoped to just those records, corrects values with drag-fill in batches, and submits to the MDM pipeline."
-                src={path1Video.url}
-                poster={workspacePanel.url}
+                src={assetUrl(path1Video)}
+                poster={assetUrl(workspacePanel)}
               />
 
               <Film
                 label="Path 2"
                 title="Agent-suggested bulk update"
                 body="An acquisition triggers two conditional updates: a cost centre reassignment across 47 records and a region code change across 31. The steward reviews current against proposed values in a read-only list, overrides or excludes specific rows, and approves in batches rather than editing manually."
-                src={path2Video.url}
-                poster={workspaceResolved.url}
+                src={assetUrl(path2Video)}
+                poster={assetUrl(workspaceResolved)}
               />
 
               <h3 className="mt-20 font-serif text-3xl text-foreground">Path 1, step by step</h3>
@@ -342,7 +342,7 @@ export function ClusterDetectionCaseStudy({
                 body="The agent posts one card per cluster: what broke, how many records, what caused it, and what it means downstream. The card carries metadata only, because Slack is an unauthenticated surface as far as MDM is concerned."
               >
                 <Shot
-                  src={slackActive.url}
+                  src={assetUrl(slackActive)}
                   alt="Slack card announcing a detected cluster with record count, root cause and a call to action"
                   caption="The active card. One notification for the whole cluster, with the downstream consequence stated before the steward decides to act."
                 />
@@ -354,7 +354,7 @@ export function ClusterDetectionCaseStudy({
                 body="CLAIRE GPT surfaces the same cluster conversationally, with a deep link straight into the workspace. Because the copilot is already signed in, it can show record-level detail the Slack card deliberately withholds."
               >
                 <Shot
-                  src={claireThread.url}
+                  src={assetUrl(claireThread)}
                   alt="CLAIRE GPT conversation thread describing the cluster with a link into the workspace"
                   caption="The same cluster, at a different trust tier. What a surface shows depends on whether it is authenticated, not on which product is rendering it."
                 />
@@ -366,7 +366,7 @@ export function ClusterDetectionCaseStudy({
                 body="The table contains only the affected records. A dynamic inspector panel explains why each one was flagged, which rule it failed and which connected entities depend on it, so the steward can judge the correction rather than research it."
               >
                 <Shot
-                  src={workspacePanel.url}
+                  src={assetUrl(workspacePanel)}
                   alt="Cluster workspace with the inspector panel open alongside the editable table"
                   caption="The inspector panel is where downstream impact lives: which inventory item or customer commitment this record actually affects."
                 />
@@ -378,12 +378,12 @@ export function ClusterDetectionCaseStudy({
                 body="Drag-fill carries over unchanged from the tabular editing workspace stewards already use, so there was nothing to teach. Corrections apply per batch; rows resolve visibly as the steward works, and partially corrected clusters keep their progress."
               >
                 <Shot
-                  src={workspacePartial.url}
+                  src={assetUrl(workspacePartial)}
                   alt="Workspace mid-correction with some rows resolved and others still flagged"
                   caption="Partial state. A cluster does not have to be finished in one sitting, and progress is never lost between sessions."
                 />
                 <Shot
-                  src={workspaceResolved.url}
+                  src={assetUrl(workspaceResolved)}
                   alt="Workspace with every row in the cluster resolved"
                   caption="All records resolved, ready to submit as one governed batch."
                 />
@@ -395,12 +395,12 @@ export function ClusterDetectionCaseStudy({
                 body="Submission states exactly what is about to enter the publish pipeline, including what is being left behind. A partially resolved cluster is a legitimate outcome, so the dialog reports it plainly rather than treating it as an error."
               >
                 <Shot
-                  src={submitPartial.url}
+                  src={assetUrl(submitPartial)}
                   alt="Submit dialog for a partially resolved cluster showing corrected and remaining record counts"
                   caption="Partial submit. Valid work moves forward; unresolved records stay as drafts instead of blocking the batch."
                 />
                 <Shot
-                  src={submitFull.url}
+                  src={assetUrl(submitFull)}
                   alt="Submit dialog for a fully resolved cluster"
                   caption="Full submit. The same dialog, the same governed pipeline, no separate path for the happy case."
                 />
@@ -412,12 +412,12 @@ export function ClusterDetectionCaseStudy({
                 body="MDM emits an event at each workflow milestone, and the agent updates the original Slack message rather than posting a new one. The card moves through active, in progress and resolved, so there is never ambiguity about what is current."
               >
                 <Shot
-                  src={slackPartial.url}
+                  src={assetUrl(slackPartial)}
                   alt="Slack card updated in place showing partial progress with record counts"
                   caption="In progress. The steward started but has not finished; the card reflects it without a second notification."
                 />
                 <Shot
-                  src={slackResolved.url}
+                  src={assetUrl(slackResolved)}
                   alt="Slack card in its resolved state with an audit summary of who resolved it and how many records"
                   caption="Resolved. Who resolved it, how many records and when, in the same message the cluster arrived in."
                 />
