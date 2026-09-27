@@ -1,5 +1,5 @@
 import { assetUrl } from "@/lib/asset-url";
-import clusterCover from "@/assets/cluster-agent/workspace-dynamic-panel.jpg.asset.json";
+import clusterCardCover from "@/assets/cluster-agent/card-illustration.png.asset.json";
 
 export const CATEGORIES = [
 
@@ -40,7 +40,7 @@ export const PROJECTS: Project[] = [
     slug: "cluster-detection-and-bulk-edit",
     title: "Cluster Detection & Bulk Edit Agent",
     description: "An agent that finds clusters of broken records across master data before anyone goes looking, then hands the steward a workspace already scoped to fix them.",
-    image: assetUrl(clusterCover),
+    image: assetUrl(clusterCardCover),
     category: "Data Management",
     role: "Design Lead, 0→1",
     industry: "Enterprise SaaS",
