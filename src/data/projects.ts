@@ -1,3 +1,4 @@
+import { assetUrl } from "@/lib/asset-url";
 import clusterCover from "@/assets/cluster-agent/workspace-dynamic-panel.jpg.asset.json";
 
 export const CATEGORIES = [
