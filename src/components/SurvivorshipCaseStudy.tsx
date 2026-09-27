@@ -1,3 +1,4 @@
+import { assetUrl } from "@/lib/asset-url";
 import { Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { BackToProjects } from "@/components/BackToProjects";
@@ -56,7 +57,7 @@ export function SurvivorshipCaseStudy({ project, recommendations }: { project: P
         </section>
 
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <Figure src={architectureAsset.url} alt="Architecture showing the copilot between survivorship and publishing" caption="The agent sits after deterministic survivorship and before publish, checking only for meaningful contradictions." priority />
+          <Figure src={assetUrl(architectureAsset)} alt="Architecture showing the copilot between survivorship and publishing" caption="The agent sits after deterministic survivorship and before publish, checking only for meaningful contradictions." priority />
         </div>
 
         <div className="mx-auto grid max-w-7xl gap-14 px-6 py-20 lg:grid-cols-12 lg:px-10 lg:py-28">
@@ -104,7 +105,7 @@ export function SurvivorshipCaseStudy({ project, recommendations }: { project: P
                 <SystemRow title="Regulators" value="Compliance" body="FDA, EU MDR, EUDAMED, ISO and EUR-Lex reveal invalid classifications and certifications." />
                 <SystemRow title="Ecosystem data" value="Operations" body="Data Cloud, Industry Clouds and AppExchange surface downstream inconsistencies." />
               </div>
-              <Figure src={architectureAsset.url} alt="Architecture showing the copilot between survivorship and publishing" caption="The agent sits after deterministic survivorship and before publish, checking only for meaningful contradictions." />
+              <Figure src={assetUrl(architectureAsset)} alt="Architecture showing the copilot between survivorship and publishing" caption="The agent sits after deterministic survivorship and before publish, checking only for meaningful contradictions." />
             </CaseSection>
 
             <CaseSection id="modes" eyebrow="Agent modes" title="Three modes cover every scenario">
@@ -128,32 +129,32 @@ export function SurvivorshipCaseStudy({ project, recommendations }: { project: P
               <dl className="mt-10 grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-5">
                 <Metric value="180" label="Records processed" /><Metric value="174" label="Published silently" /><Metric value="6" label="Held for review" /><Metric value="18 min" label="Scenario total" /><Metric value="1×" label="Console opened" />
               </dl>
-              <Figure src={experienceAsset.url} alt="Event-based experience flow from record batch to resolution" caption="The scenario moves from a 180-record batch to six focused decisions, with five resolved in Slack and one escalated." />
+              <Figure src={assetUrl(experienceAsset)} alt="Event-based experience flow from record batch to resolution" caption="The scenario moves from a 180-record batch to six focused decisions, with five resolved in Slack and one escalated." />
               <JourneyStep title="Start with the shape of the work" body="A morning digest summarises the processed batch, what was resolved automatically and what needs a human decision. Estimated review time makes the queue predictable.">
-                <Figure src={digestAsset.url} alt="Slack morning digest summarising the survivorship review queue" caption="One message, three numbers and one action keep the first touch deliberately restrained." />
+                <Figure src={assetUrl(digestAsset)} alt="Slack morning digest summarising the survivorship review queue" caption="One message, three numbers and one action keep the first touch deliberately restrained." />
               </JourneyStep>
               <JourneyStep title="Turn a warning into an informed choice" body="Each finding compares the survivorship result and agent evidence side by side. Provenance, confidence and downstream impact appear before the decision controls.">
                 <div className="grid gap-6 sm:grid-cols-2">
-                  <Figure src={criticalAsset.url} alt="Critical Slack finding with survivorship and external evidence" caption="The critical finding state." contain />
-                  <Figure src={selectionAsset.url} alt="Slack finding after the steward selects an action" caption="An explicit receipt confirms the selected value and audit state." contain />
+                  <Figure src={assetUrl(criticalAsset)} alt="Critical Slack finding with survivorship and external evidence" caption="The critical finding state." contain />
+                  <Figure src={assetUrl(selectionAsset)} alt="Slack finding after the steward selects an action" caption="An explicit receipt confirms the selected value and audit state." contain />
                 </div>
               </JourneyStep>
               <JourneyStep title="Make system handoffs legible" body="When deeper investigation is needed, a transition state explains the move from Slack to Customer 360 and shows which external sources are being checked.">
-                <Figure src={transitionAsset.url} alt="Transition screen between Slack and Customer 360" caption="The wait is grounded in actual verification work rather than a generic loading indicator." />
+                <Figure src={assetUrl(transitionAsset)} alt="Transition screen between Slack and Customer 360" caption="The wait is grounded in actual verification work rather than a generic loading indicator." />
               </JourneyStep>
               <JourneyStep title="Preserve context during investigation" body="The record remains visible while the copilot presents findings in a right-hand panel. A field-level popover reuses the same evidence model for direct editing.">
-                <Figure src={consoleAsset.url} alt="Customer 360 record with the copilot panel open" caption="The copilot is additive: the core record view remains undisturbed." />
+                <Figure src={assetUrl(consoleAsset)} alt="Customer 360 record with the copilot panel open" caption="The copilot is additive: the core record view remains undisturbed." />
                 <div className="grid gap-6 sm:grid-cols-2">
-                  <Figure src={findingsAsset.url} alt="Stacked finding cards in the copilot panel" caption="Related contradictions can be reviewed together." contain />
-                  <Figure src={popoverAsset.url} alt="Field-level copilot recommendation popover" caption="The same decision model adapts to field-level editing." contain />
+                  <Figure src={assetUrl(findingsAsset)} alt="Stacked finding cards in the copilot panel" caption="Related contradictions can be reviewed together." contain />
+                  <Figure src={assetUrl(popoverAsset)} alt="Field-level copilot recommendation popover" caption="The same decision model adapts to field-level editing." contain />
                 </div>
               </JourneyStep>
               <JourneyStep title="Close the accountability loop" body="The evidence trail is expandable on demand. After the decision, the interface confirms the update and leaves a persistent provenance signal on the record.">
                 <div className="grid gap-6 sm:grid-cols-2">
-                  <Figure src={evidenceAsset.url} alt="Expanded external evidence trail" caption="Full provenance is available without permanent density." contain />
-                  <Figure src={confirmationAsset.url} alt="Confirmation after a steward decision" caption="The receipt separates the decision from asynchronous system updates." contain />
+                  <Figure src={assetUrl(evidenceAsset)} alt="Expanded external evidence trail" caption="Full provenance is available without permanent density." contain />
+                  <Figure src={assetUrl(confirmationAsset)} alt="Confirmation after a steward decision" caption="The receipt separates the decision from asynchronous system updates." contain />
                 </div>
-                <Figure src={resolutionAsset.url} alt="Updated record showing persistent agent provenance" caption="The corrected value remains visibly attributable to an agent proposal and steward approval." />
+                <Figure src={assetUrl(resolutionAsset)} alt="Updated record showing persistent agent provenance" caption="The corrected value remains visibly attributable to an agent proposal and steward approval." />
               </JourneyStep>
             </CaseSection>
 
@@ -188,7 +189,7 @@ export function SurvivorshipCaseStudy({ project, recommendations }: { project: P
               <figure className="mt-10">
                 <div className="overflow-hidden rounded-sm border border-border bg-foreground">
                   <video controls preload="metadata" playsInline className="block aspect-video w-full" aria-label="Agent-Verified Data Survivorship product walkthrough">
-                    <source src={walkthroughAsset.url} type="video/mp4" />
+                    <source src={assetUrl(walkthroughAsset)} type="video/mp4" />
                   </video>
                 </div>
                 <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">CLAIRE survivorship agent · Orion MedTech scenario · 36 steps · 2:21 · Slack and MDM Console</figcaption>
