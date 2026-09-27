@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { getProject, isProtectedProject, PROJECTS } from "@/data/projects";
 import { SurvivorshipCaseStudy } from "@/components/SurvivorshipCaseStudy";
 import { TabularEditCaseStudy } from "@/components/TabularEditCaseStudy";
+import { ClusterDetectionCaseStudy } from "@/components/ClusterDetectionCaseStudy";
 
 import { SiteHeader } from "@/components/SiteHeader";
 import { BackToProjects } from "@/components/BackToProjects";
@@ -113,6 +114,12 @@ function ProjectPage() {
     return <TabularEditCaseStudy project={project} recommendations={recommendations} />;
   }
 
+  if (project.slug === "cluster-detection-and-bulk-edit") {
+    const recommendations = getRecommendations(project);
+    return <ClusterDetectionCaseStudy project={project} recommendations={recommendations} />;
+  }
+
+
 
   return (
     <div className="min-h-screen overflow-x-clip bg-background text-foreground font-sans antialiased">
@@ -135,7 +142,11 @@ function ProjectPage() {
               <ProjectFact label="Role" value={project.role} />
               <ProjectFact label="Industry" value={project.industry} />
               <ProjectFact label="Duration" value={project.duration} />
+              {project.organization && (
+                <ProjectFact label="Organization" value={project.organization} />
+              )}
             </dl>
+
           </div>
         </section>
 

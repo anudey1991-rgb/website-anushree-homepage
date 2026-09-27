@@ -4,9 +4,24 @@ import { createHash, timingSafeEqual } from "node:crypto";
 
 type GateSession = { unlocked?: boolean };
 
+/**
+ * Cookie signing key. A dedicated PORTFOLIO_SESSION_SECRET is preferred, but if
+ * only PORTFOLIO_PASSWORD is configured we derive a stable 64-char key from it,
+ * so a single environment variable is enough to run the gate in production.
+ */
+function getSessionSecret() {
+  const explicit = process.env["PORTFOLIO_SESSION_SECRET"];
+  if (explicit && explicit.length >= 32) return explicit;
+
+  const password = process.env["PORTFOLIO_PASSWORD"];
+  if (!password) throw new Error("PORTFOLIO_PASSWORD is not configured");
+
+  return createHash("sha256").update(`portfolio-gate:${password}`, "utf8").digest("hex");
+}
+
 function getSessionConfig() {
   return {
-    password: process.env["PORTFOLIO_SESSION_SECRET"]!,
+    password: getSessionSecret(),
     name: "portfolio-gate",
     maxAge: 60 * 60 * 24 * 7, // 7 days
     cookie: {
@@ -17,6 +32,7 @@ function getSessionConfig() {
     },
   };
 }
+
 
 function passwordMatches(input: string, expected: string) {
   const a = createHash("sha256").update(input, "utf8").digest();
