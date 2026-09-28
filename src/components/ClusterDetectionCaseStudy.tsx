@@ -509,7 +509,32 @@ export function ClusterDetectionCaseStudy({
                 ships, and they follow directly from the business problem: datasets outgrowing record-by-record
                 resolution, and stewardship burnout.
               </p>
-              <div className="mt-10 grid gap-8 sm:grid-cols-2">
+              <div className="mt-10 divide-y divide-border border-y border-border">
+                <Systemic
+                  figure="1 : N"
+                  label="One action, N records"
+                  body="Stewardship moves from linear record-by-record triage to a single root-cause decision applied across the whole cluster. The unit of work becomes the cause, not the row."
+                  emphasis
+                />
+                <Systemic
+                  figure="2"
+                  label="Resolution pathways"
+                  body="Path 1 keeps low-overhead decisions inside Slack and CLAIRE GPT. Path 2 opens an auto-scoped workspace for multi-attribute clusters. The steward chooses by the shape of the problem, not by tool."
+                />
+                <Systemic
+                  figure="0"
+                  label="Parallel write paths"
+                  body="Every agent proposal funnels through MDM's existing draft, ABAC and survivorship engines. No compliance bypass, no second source of truth."
+                />
+                <Systemic
+                  figure="3"
+                  label="Severity interruption tiers"
+                  body="High severity interrupts in Slack, medium batches into the digest, low logs silently to the audit trail. Attention is rationed by consequence."
+                />
+              </div>
+
+              <h3 className="mt-14 font-serif text-3xl text-foreground">What research would validate</h3>
+              <div className="mt-8 grid gap-8 sm:grid-cols-2">
                 <Principle label="Efficiency" title="Detection to resolution">
                   Time from a cluster being detected to being resolved, down. Records resolved per steward session, up.
                 </Principle>
@@ -769,5 +794,34 @@ function Shot({
       </div>
       <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">{caption}</figcaption>
     </figure>
+  );
+}
+
+/** Systemic impact row: a single figure carrying an architectural claim. */
+function Systemic({
+  figure,
+  label,
+  body,
+  emphasis = false,
+}: {
+  figure: string;
+  label: string;
+  body: string;
+  emphasis?: boolean;
+}) {
+  return (
+    <div className="grid gap-4 py-7 lg:grid-cols-[minmax(0,16rem)_1fr] lg:gap-10">
+      <div>
+        <p
+          className={`font-serif leading-none ${
+            emphasis ? "text-[clamp(2.6rem,5vw,3.6rem)]" : "text-[clamp(2.1rem,4vw,2.8rem)]"
+          } text-foreground`}
+        >
+          {figure}
+        </p>
+        <p className="mt-3 text-xs uppercase tracking-[0.16em] text-muted-foreground">{label}</p>
+      </div>
+      <p className="text-sm leading-relaxed text-muted-foreground lg:pt-2">{body}</p>
+    </div>
   );
 }

@@ -126,9 +126,17 @@ export function SurvivorshipCaseStudy({ project, recommendations }: { project: P
 
             <CaseSection id="journey" eyebrow="The experience" title="One connected journey across Slack and the MDM console">
               <p>The Orion MedTech prototype follows 180 medical-device records affected by an EU MDR reclassification. The scenario demonstrates the intended workflow rather than production performance.</p>
-              <dl className="mt-10 grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-5">
-                <Metric value="180" label="Records processed" /><Metric value="174" label="Published silently" /><Metric value="6" label="Held for review" /><Metric value="18 min" label="Scenario total" /><Metric value="1×" label="Console opened" />
-              </dl>
+              <div className="mt-10 border-y border-border">
+                <dl className="grid gap-px bg-border sm:grid-cols-3">
+                  <Throughput value="180" unit="records" label="Ingested and evaluated" note="One EU MDR reclassification batch, checked field by field against external registries." />
+                  <Throughput value="96.7%" unit="autonomous" label="Resolved without a human touch" note="174 records verified and published silently. The silent records are the product." emphasis />
+                  <Throughput value="3.3%" unit="escalated" label="Held for steward review" note="6 high-severity contradictions surfaced: 5 decided in Slack, 1 escalated to the console." />
+                </dl>
+                <p className="border-t border-border bg-card px-6 py-4 text-xs leading-relaxed text-muted-foreground">
+                  Progressive disclosure in one line: 180 records in, 6 decisions out, 1 console visit. The interruption
+                  budget is spent only where a human judgement call carries commercial or regulatory consequence.
+                </p>
+              </div>
               <Figure src={assetUrl(experienceAsset)} alt="Event-based experience flow from record batch to resolution" caption="The scenario moves from a 180-record batch to six focused decisions, with five resolved in Slack and one escalated." />
               <JourneyStep title="Start with the shape of the work" body="A morning digest summarises the processed batch, what was resolved automatically and what needs a human decision. Estimated review time makes the queue predictable.">
                 <Figure src={assetUrl(digestAsset)} alt="Slack morning digest summarising the survivorship review queue" caption="One message, three numbers and one action keep the first touch deliberately restrained." />
@@ -172,12 +180,12 @@ export function SurvivorshipCaseStudy({ project, recommendations }: { project: P
 
             <CaseSection id="outcome" eyebrow="Success measures" title="From 12 minutes to a 60-second target">
               <p>These are baseline comparisons and design targets for future validation, not measured production outcomes.</p>
-              <dl className="mt-10 grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-2">
-                <Metric value="~12 min → < 60 sec" label="Target field contradiction resolution" />
-                <Metric value="~0% → > 95%" label="Target contradictions caught before publish" />
-                <Metric value="Partial → 100%" label="Target agent-assisted decision audit coverage" />
-                <Metric value="Untracked → Detectable" label="Target dormant record drift visibility" />
-              </dl>
+              <div className="mt-10 divide-y divide-border border-y border-border">
+                <Delta before="~12 min" after="< 60 sec" title="Field contradiction resolution" body="Removes the manual cross-referencing loop between the record, the registry and the source system." />
+                <Delta before="~0%" after="> 95%" title="Contradictions caught before publish" body="Shifts the work from post-incident cleanup to pre-commit prevention." />
+                <Delta before="Partial" after="100%" title="Decision audit coverage" body="Every accepted proposal is permanently stamped with its evidence, confidence and approver." />
+                <Delta before="Untracked" after="Detectable" title="Dormant record drift" body="Records nobody edits stop silently decaying out of compliance." />
+              </div>
               <div className="mt-12 border-l-2 border-foreground pl-7">
                 <h3 className="font-serif text-2xl">What I would validate next</h3>
                 <p className="mt-4">I would test whether stewards understand why the agent interrupted them, can compare competing evidence without anchoring bias, and can distinguish a completed decision from a queued system update. I would also measure false-positive tolerance before tuning severity and notification thresholds.</p>
@@ -241,3 +249,75 @@ function Figure({ src, alt, caption, contain = false, priority = false }: { src:
 function SystemRow({ title, value, body }: { title: string; value: string; body: string }) { return <div className="grid gap-3 py-6 sm:grid-cols-[140px_110px_1fr] sm:gap-6"><h3 className="font-medium text-foreground">{title}</h3><p className="text-sm text-foreground">{value}</p><p className="text-sm leading-relaxed">{body}</p></div>; }
 
 function Metric({ value, label }: { value: string; label: string }) { return <div className="bg-card p-6"><dt className="font-serif text-3xl text-foreground">{value}</dt><dd className="mt-3 text-sm leading-relaxed text-muted-foreground">{label}</dd></div>; }
+
+/**
+ * Throughput cell for the autonomous resolution funnel. `emphasis` marks the
+ * headline ratio the case study is arguing for.
+ */
+function Throughput({
+  value,
+  unit,
+  label,
+  note,
+  emphasis = false,
+}: {
+  value: string;
+  unit: string;
+  label: string;
+  note: string;
+  emphasis?: boolean;
+}) {
+  return (
+    <div className={`p-6 sm:p-7 ${emphasis ? "bg-foreground text-background" : "bg-card"}`}>
+      <dt className="flex items-baseline gap-2">
+        <span className="font-serif text-[clamp(2.4rem,5vw,3.4rem)] leading-none">{value}</span>
+        <span
+          className={`text-xs uppercase tracking-[0.16em] ${
+            emphasis ? "text-background/70" : "text-muted-foreground"
+          }`}
+        >
+          {unit}
+        </span>
+      </dt>
+      <dd className="mt-4">
+        <span className="block text-sm font-medium">{label}</span>
+        <span
+          className={`mt-2 block text-sm leading-relaxed ${
+            emphasis ? "text-background/75" : "text-muted-foreground"
+          }`}
+        >
+          {note}
+        </span>
+      </dd>
+    </div>
+  );
+}
+
+/** Before/after target row: a baseline on the left, the design target on the right. */
+function Delta({
+  before,
+  after,
+  title,
+  body,
+}: {
+  before: string;
+  after: string;
+  title: string;
+  body: string;
+}) {
+  return (
+    <div className="grid gap-4 py-7 lg:grid-cols-[minmax(0,22rem)_1fr] lg:gap-10">
+      <p className="flex flex-wrap items-baseline gap-3 font-serif text-2xl leading-none sm:text-3xl">
+        <span className="text-muted-foreground line-through decoration-1">{before}</span>
+        <span aria-hidden className="text-sm text-muted-foreground">
+          &#8594;
+        </span>
+        <span className="text-foreground">{after}</span>
+      </p>
+      <div>
+        <h3 className="text-sm font-medium text-foreground">{title}</h3>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
+      </div>
+    </div>
+  );
+}

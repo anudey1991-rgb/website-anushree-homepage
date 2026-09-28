@@ -464,9 +464,22 @@ export function TabularEditCaseStudy({
               </ul>
             </CaseSection>
 
-            <CaseSection id="metrics" eyebrow="Success metrics" title="Measuring against the core goals">
-              <p>These are the measures the workspace is being assessed against, not yet reported production outcomes.</p>
-              <div className="mt-10 grid gap-8 sm:grid-cols-2">
+            <CaseSection id="metrics" eyebrow="Scale and measures" title="What the workspace had to hold, and how it is judged">
+              <p>
+                The architectural parameters below are the real constraints the interaction model was designed against.
+                The qualitative measures that follow are what the workspace is being assessed on, not yet reported
+                production outcomes.
+              </p>
+
+              <dl className="mt-10 grid gap-px border-y border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+                <Scale value="10,000" unit="records" label="Continuous dataset capacity" note="One workspace holds the full set without pagination breaks or lost dirty state between edits." />
+                <Scale value="10" unit="steps" label="Bounded undo and redo" note="A deterministic safety net sized for high-consequence database work rather than infinite history." />
+                <Scale value="7" unit="months" label="Discovery to general availability" note="January to July 2026, sole designer across the entire interaction model." />
+                <Scale value="2" unit="spin-offs" label="Features graduated to their own track" note="Draft Records and Conflict Resolution were incubated here, then handed to dedicated designers." />
+              </dl>
+
+              <h3 className="mt-14 font-serif text-3xl text-foreground">How success is assessed</h3>
+              <div className="mt-8 grid gap-8 sm:grid-cols-2">
                 <Principle label="Efficiency" title="Time and volume">
                   Average time to complete a bulk edit and publish, records edited per session, and the share of bulk
                   operations against single-record actions.
@@ -715,5 +728,31 @@ function Shot({
       </div>
       <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">{caption}</figcaption>
     </figure>
+  );
+}
+
+/** Architectural scale figure: the real parameter the design had to hold. */
+function Scale({
+  value,
+  unit,
+  label,
+  note,
+}: {
+  value: string;
+  unit: string;
+  label: string;
+  note: string;
+}) {
+  return (
+    <div className="bg-card p-6">
+      <dt className="flex items-baseline gap-2">
+        <span className="font-serif text-[clamp(2.1rem,4vw,2.9rem)] leading-none text-foreground">{value}</span>
+        <span className="text-xs uppercase tracking-[0.16em] text-muted-foreground">{unit}</span>
+      </dt>
+      <dd className="mt-4">
+        <span className="block text-sm font-medium text-foreground">{label}</span>
+        <span className="mt-2 block text-sm leading-relaxed text-muted-foreground">{note}</span>
+      </dd>
+    </div>
   );
 }
