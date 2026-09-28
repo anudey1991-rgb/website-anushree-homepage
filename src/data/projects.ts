@@ -1,5 +1,7 @@
 import { assetUrl } from "@/lib/asset-url";
 import clusterCardCover from "@/assets/cluster-agent/card-illustration.png.asset.json";
+import mdmCardCover from "@/assets/master-data-management/00-card-cover.webp.asset.json";
+import swiftCardCover from "@/assets/swiftaccess/00-card-cover.png.asset.json";
 
 export const CATEGORIES = [
 
@@ -84,7 +86,7 @@ export const PROJECTS: Project[] = [
     slug: "master-data-management",
     title: "Master Data Management",
     description: "A SaaS cloud enterprise product for Master Data Management, covering onboarding, governance and stewardship workflows.",
-    image: "https://static.wixstatic.com/media/55b247_50d82fa65e10446cab0c71ad741b82ab~mv2.jpg/v1/fit/w_960,h_720,q_85,enc_avif,quality_auto/55b247_50d82fa65e10446cab0c71ad741b82ab~mv2.jpg",
+    image: assetUrl(mdmCardCover),
     category: "Data Management",
     role: "Senior Product Designer",
     industry: "Enterprise SaaS",
@@ -97,7 +99,7 @@ export const PROJECTS: Project[] = [
     slug: "swiftaccess",
     title: "SwiftAccess",
     description: "A personalised access page that helps enterprise users quickly reach their assets and artefacts and prioritise the actions that matter most.",
-    image: "https://static.wixstatic.com/media/55b247_f58f1c4c328142b381b35edd5821e7e5~mv2.png/v1/fill/w_960,h_720,fp_0.48_0.48,q_85,enc_avif,quality_auto/55b247_f58f1c4c328142b381b35edd5821e7e5~mv2.png",
+    image: assetUrl(swiftCardCover),
     category: "Data Management",
     role: "Product Designer",
     industry: "Enterprise SaaS",
