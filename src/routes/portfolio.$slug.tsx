@@ -3,6 +3,8 @@ import { getProject, isProtectedProject, PROJECTS } from "@/data/projects";
 import { SurvivorshipCaseStudy } from "@/components/SurvivorshipCaseStudy";
 import { TabularEditCaseStudy } from "@/components/TabularEditCaseStudy";
 import { ClusterDetectionCaseStudy } from "@/components/ClusterDetectionCaseStudy";
+import { MasterDataManagementCaseStudy } from "@/components/MasterDataManagementCaseStudy";
+import { SwiftAccessCaseStudy } from "@/components/SwiftAccessCaseStudy";
 
 import { SiteHeader } from "@/components/SiteHeader";
 import { BackToProjects } from "@/components/BackToProjects";
@@ -119,7 +121,15 @@ function ProjectPage() {
     return <ClusterDetectionCaseStudy project={project} recommendations={recommendations} />;
   }
 
+  if (project.slug === "master-data-management") {
+    const recommendations = getRecommendations(project);
+    return <MasterDataManagementCaseStudy project={project} recommendations={recommendations} />;
+  }
 
+  if (project.slug === "swiftaccess") {
+    const recommendations = getRecommendations(project);
+    return <SwiftAccessCaseStudy project={project} recommendations={recommendations} />;
+  }
 
   return (
     <div className="min-h-screen overflow-x-clip bg-background text-foreground font-sans antialiased">
