@@ -164,6 +164,8 @@ function Hero() {
             <a
               href={RESUME_URL}
               download
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Download the resume of Anushree Dey as a PDF"
               className="inline-flex h-11 items-center gap-2 rounded-full border border-foreground/20 px-6 text-sm font-medium text-foreground transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
