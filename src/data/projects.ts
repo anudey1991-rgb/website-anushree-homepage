@@ -85,15 +85,14 @@ export const PROJECTS: Project[] = [
   {
     slug: "master-data-management",
     title: "Master Data Management",
-    description: "A SaaS cloud enterprise product for Master Data Management, covering onboarding, governance and stewardship workflows.",
+    description: "The Customer 360 product line: taking enterprise master data management from legacy on-premise to cloud, a new visual language, and the first generation of AI inside the stewardship workflow.",
     image: assetUrl(mdmCardCover),
     category: "Data Management",
-    role: "Senior Product Designer",
+    role: "Lead Designer",
     industry: "Enterprise SaaS",
-    duration: "2022, 2024",
+    duration: "2020 – present",
     organization: "Salesforce",
-    responsibilities: ["End-to-end product design", "Data governance workflows", "Design system contributions", "Cross-functional collaboration"],
-    originalUrl: "https://www.anushreedey.com/master-data-management",
+    responsibilities: ["End-to-end product design", "Data governance workflows", "Design system SME", "Cross-functional collaboration"],
   },
   {
     slug: "swiftaccess",
@@ -106,7 +105,6 @@ export const PROJECTS: Project[] = [
     duration: "2021",
     organization: "Salesforce",
     responsibilities: ["Discovery and research", "Information architecture", "Interaction design", "Usability testing"],
-    originalUrl: "https://www.anushreedey.com/swiftaccess",
   },
   {
     slug: "data-visualization-creation-tool",
