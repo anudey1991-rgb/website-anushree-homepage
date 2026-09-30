@@ -357,22 +357,28 @@ export function DataVisualizationCaseStudy({
               />
             </CaseSection>
 
-            <CaseSection id="reflection" eyebrow="What it set up" title="The first argument for working inside the platform">
+            <CaseSection id="reflection" eyebrow="Reflection" title="What I took from this project">
               <p>
-                This was the earliest piece of the Customer 360 work where the question was not how to steward a record
-                but what to do with the data once it was clean. It established a few things the later projects leaned
-                on: that a governed dataset boundary is a better foundation than open-ended freedom, that preview at a
-                sample beats completeness while a user is still composing, and that dual-persona products should split
-                by permission rather than by product.
+                This was the first piece of Customer 360 work where the question was not how to steward a record, but what
+                to do with the data once it was clean. A few things from it carried into later projects:
               </p>
-              <p>
-                It also gave me the first real evidence that the platform's component system could not carry enterprise
-                data density, which is a thread I picked up properly a few years later with the design systems team.
-              </p>
-              <Quote>
-                Reporting was where the product stopped being a place data goes and started being a place decisions get
-                made.
-              </Quote>
+              <ul className="mt-6 space-y-0">
+                <Bullet>
+                  A governed dataset boundary works better than open-ended freedom. The technical user defines the
+                  boundary, and the business user composes inside it.
+                </Bullet>
+                <Bullet>
+                  Previewing against a sample keeps an author moving. A complete result they have to wait for does not.
+                </Bullet>
+                <Bullet>
+                  In a product with two very different users, the split is best handled through permissions rather than
+                  through two separate products.
+                </Bullet>
+                <Bullet>
+                  This is also where I first saw that our component system could not carry enterprise data density, which
+                  I picked up properly a few years later with the design systems team.
+                </Bullet>
+              </ul>
             </CaseSection>
           </div>
         </div>
