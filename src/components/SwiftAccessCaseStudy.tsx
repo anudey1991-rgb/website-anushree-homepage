@@ -219,7 +219,7 @@ export function SwiftAccessCaseStudy({
                 <Shot
                   src={assetUrl(widget2x2)}
                   alt="The two-by-two widget variant"
-                  caption="2 × 2 — the full block, for monitored activities where a user needs status at a glance rather than a link."
+                  caption="2 × 2: the full block, for monitored activities where a user needs status and not just a link."
                 />
               </div>
             </CaseSection>
