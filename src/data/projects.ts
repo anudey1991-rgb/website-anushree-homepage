@@ -1,7 +1,7 @@
 import { assetUrl } from "@/lib/asset-url";
 import clusterCardCover from "@/assets/cluster-agent/card-illustration.png.asset.json";
-import mdmCardCover from "@/assets/master-data-management/00-card-cover.webp.asset.json";
-import swiftCardCover from "@/assets/swiftaccess/00-card-cover.png.asset.json";
+import mdmCardCover from "@/assets/master-data-management/00-card-illustration.jpg.asset.json";
+import swiftCardCover from "@/assets/swiftaccess/00-card-illustration.jpg.asset.json";
 import dataVizCardCover from "@/assets/data-visualization/00-card-cover.jpg.asset.json";
 
 export const CATEGORIES = [

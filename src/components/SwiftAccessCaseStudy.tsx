@@ -233,65 +233,58 @@ export function SwiftAccessCaseStudy({
               </div>
             </CaseSection>
 
-            <CaseSection id="craft" eyebrow="Crafting a page" title="The onboarding conversation, end to end">
+            <CaseSection id="craft" eyebrow="Crafting a page" title="Craft a SwiftAccess page using GenAI">
               <p>
-                The full flow of a first-time user crafting their SwiftAccess page. The page is visible throughout and
-                fills in as the conversation proceeds, which is what makes the value obvious before the user has finished
-                answering.
+                The full flow for a first-time user. The page stays visible throughout and fills in as the conversation
+                proceeds, so the user can see what their answers are producing.
               </p>
-              <Shot src={assetUrl(craft01)} alt="Step one of crafting a SwiftAccess page" caption="The conversation opens with the empty page already on screen, so the user can see where their answers are going." />
+              <Shot src={assetUrl(craft01)} alt="Step one of crafting a SwiftAccess page" caption="The conversation opens with the empty page on screen." />
               <Shot src={assetUrl(craft02)} alt="Step two of crafting a SwiftAccess page" caption="The first question establishes which assets this user works with." />
-              <Shot src={assetUrl(craft03)} alt="Step three of crafting a SwiftAccess page" caption="Each answer pins immediately rather than waiting for the end of the flow." />
-              <Shot src={assetUrl(craft04)} alt="Step four of crafting a SwiftAccess page" caption="Applications follow assets, keeping one decision per question." />
-              <Shot src={assetUrl(craft05)} alt="Step five of crafting a SwiftAccess page" caption="The grid reflows as widgets arrive, filling logically instead of leaving gaps." />
-              <Shot src={assetUrl(craft06)} alt="Step six of crafting a SwiftAccess page" caption="Activities are the third question: the things this user needs to keep monitoring." />
+              <Shot src={assetUrl(craft03)} alt="Step three of crafting a SwiftAccess page" caption="Each answer pins its widgets immediately, without waiting for the end of the flow." />
+              <Shot src={assetUrl(craft04)} alt="Step four of crafting a SwiftAccess page" caption="The second question covers applications, keeping one decision per question." />
+              <Shot src={assetUrl(craft05)} alt="Step five of crafting a SwiftAccess page" caption="The grid reflows as widgets arrive, filling logically instead of leaving empty pockets." />
+              <Shot src={assetUrl(craft06)} alt="Step six of crafting a SwiftAccess page" caption="The third question covers activities: the things this user needs to keep monitoring." />
               <Shot src={assetUrl(craft07)} alt="Step seven of crafting a SwiftAccess page" caption="Monitored activities take the larger widget footprint, because status needs more room than a link." />
-              <Shot src={assetUrl(craft08)} alt="Step eight of crafting a SwiftAccess page" caption="The optional resources question, framed as a choice rather than a default." />
+              <Shot src={assetUrl(craft08)} alt="Step eight of crafting a SwiftAccess page" caption="The resources question, asked as an opt-in rather than applied by default." />
               <Shot src={assetUrl(craft09)} alt="Step nine of crafting a SwiftAccess page" caption="The page approaching its final composition." />
-              <Shot src={assetUrl(craft10)} alt="The completed SwiftAccess page" caption="The finished page. Three questions in, the user has a landing surface that belongs to them." />
+              <Shot src={assetUrl(craft10)} alt="The completed SwiftAccess page" caption="The finished page: the user's own assets, applications and monitored activities on the first screen they land on." />
             </CaseSection>
 
-            <CaseSection id="pin" eyebrow="Pinning from anywhere" title="Personalisation has to keep working after day one">
+            <CaseSection id="pin" eyebrow="Pinning from anywhere" title="Pin My Jobs to a SwiftAccess page">
               <p>
-                A page built once and never changed decays fast. So pinning is available from within the products
-                themselves: a user working in a jobs list can pin it to SwiftAccess in place, without navigating away or
-                opening a settings screen. This is the mechanism that keeps the page relevant as someone's
-                responsibilities change.
+                A page built once and never updated stops being useful. Pinning is available from inside the products
+                themselves, so a user working in a jobs list can pin it to SwiftAccess in place, without navigating away
+                or opening a settings screen. This is how the page keeps up as someone's responsibilities change.
               </p>
-              <Shot src={assetUrl(pin01)} alt="Starting to pin a jobs view to SwiftAccess" caption="Pinning starts where the work is, inside the product the user is already using." />
+              <Shot src={assetUrl(pin01)} alt="Starting to pin a jobs view to SwiftAccess" caption="Pinning starts inside the product the user is already working in." />
               <Shot src={assetUrl(pin02)} alt="Choosing what to pin from the jobs view" caption="The user chooses what to pin without leaving their current context." />
-              <Shot src={assetUrl(pin03)} alt="Confirming the pin action" caption="An explicit confirmation, because pinning changes a surface the user will see every day." />
+              <Shot src={assetUrl(pin03)} alt="Confirming the pin action" caption="The pin is confirmed explicitly, because it changes a page the user sees every day." />
               <Shot src={assetUrl(pin04)} alt="The pinned widget appearing on the SwiftAccess page" caption="The new widget takes its place in the grid, sized by what it needs to display." />
-              <Shot src={assetUrl(pin05)} alt="The updated SwiftAccess page including the newly pinned jobs widget" caption="The updated page. Personalisation is now something the user maintains by working, not by configuring." />
+              <Shot src={assetUrl(pin05)} alt="The updated SwiftAccess page including the newly pinned jobs widget" caption="The updated page, maintained through normal work rather than through a configuration screen." />
             </CaseSection>
 
-            <CaseSection id="impact" eyebrow="Business impact" title="Why this was worth building as a platform capability">
+            <CaseSection id="impact" eyebrow="Business impact" title="Business impact">
               <p>
-                The argument for SwiftAccess was never only about experience quality. It was about the commercial
-                consequences of an unpersonalised platform.
+                The case for SwiftAccess was made on four points, and only the first one is about experience quality.
               </p>
               <div className="mt-10 grid gap-px border-y border-border bg-border sm:grid-cols-2">
                 <Insight
                   title="Competitive advantage"
-                  body="Operations that are faster to reach and easier to prioritise translate directly into the performance and experience customers compare vendors on."
+                  body="Faster access to assets and activities, and the ability to prioritise them, improves the performance and the experience that customers compare vendors on."
                 />
                 <Insight
                   title="Reduced development effort"
-                  body="Because widgets are tokenised and composition is generated, adopting the capability costs a product team tokenisation rather than a new surface. Maintenance cost falls with it."
+                  body="Because assets are tokenised into widget variations and the composition is generated, a product team does not build a custom front end to adopt the capability. Development and maintenance effort both drop."
                 />
                 <Insight
                   title="Customer retention"
-                  body="A platform that adapts as the enterprise evolves stays relevant, and monitored activities make anomalies visible early enough to resolve proactively."
+                  body="A platform that adapts as the enterprise changes stays relevant to the people using it, and monitored activities surface problems early enough to act on."
                 />
                 <Insight
-                  title="Cross-sell surface"
-                  body="The opt-in resources widget surfaces other products in the suite in context, creating cross-sell and upsell opportunities and driving consumption."
+                  title="IPU consumption"
+                  body="Informatica Processing Units are how consumption is measured and billed. Surfacing the right assets and the opt-in resources for other products in the suite drives usage across the platform, which drives IPU consumption."
                 />
               </div>
-              <Quote>
-                The flexibility is the point. A configuration that has to be redesigned every time the business changes is
-                not a platform capability.
-              </Quote>
             </CaseSection>
           </div>
         </div>
@@ -371,13 +364,6 @@ function CaseSection({
   );
 }
 
-function Quote({ children }: { children: React.ReactNode }) {
-  return (
-    <blockquote className="my-10 border-l-2 border-foreground pl-7 font-serif text-2xl leading-snug text-foreground sm:text-3xl">
-      “{children}”
-    </blockquote>
-  );
-}
 
 function Insight({ title, body }: { title: string; body: string }) {
   return (
