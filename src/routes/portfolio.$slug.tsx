@@ -5,6 +5,7 @@ import { TabularEditCaseStudy } from "@/components/TabularEditCaseStudy";
 import { ClusterDetectionCaseStudy } from "@/components/ClusterDetectionCaseStudy";
 import { MasterDataManagementCaseStudy } from "@/components/MasterDataManagementCaseStudy";
 import { SwiftAccessCaseStudy } from "@/components/SwiftAccessCaseStudy";
+import { DataVisualizationCaseStudy } from "@/components/DataVisualizationCaseStudy";
 
 import { SiteHeader } from "@/components/SiteHeader";
 import { BackToProjects } from "@/components/BackToProjects";
@@ -129,6 +130,11 @@ function ProjectPage() {
   if (project.slug === "swiftaccess") {
     const recommendations = getRecommendations(project);
     return <SwiftAccessCaseStudy project={project} recommendations={recommendations} />;
+  }
+
+  if (project.slug === "data-visualization-creation-tool") {
+    const recommendations = getRecommendations(project);
+    return <DataVisualizationCaseStudy project={project} recommendations={recommendations} />;
   }
 
   return (

@@ -69,7 +69,7 @@ export function SwiftAccessCaseStudy({
           <dl className="mt-14 grid gap-6 border-y border-border py-7 sm:grid-cols-2 lg:grid-cols-4">
             <Fact label="Role" value="Product Designer" />
             <Fact label="Platform" value="Informatica IDMC" />
-            <Fact label="Timeline" value="2021" />
+            <Fact label="Timeline" value="2024" />
             <Fact label="Organization" value="Salesforce" />
           </dl>
           <ul className="mt-8 flex flex-wrap gap-2">
