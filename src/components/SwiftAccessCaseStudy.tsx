@@ -214,7 +214,7 @@ export function SwiftAccessCaseStudy({
                 <Shot
                   src={assetUrl(widget1x2b)}
                   alt="The second one-by-two widget variant"
-                  caption="1 × 2b — the same footprint arranged differently, for list-shaped rather than summary-shaped content."
+                  caption="1 × 2b: the same footprint arranged for list content instead of a summary."
                 />
                 <Shot
                   src={assetUrl(widget2x2)}
