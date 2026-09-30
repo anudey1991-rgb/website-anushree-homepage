@@ -3,7 +3,6 @@ import { LockIcon } from "@/components/LockIcon";
 import { OrgMark } from "@/components/OrgMark";
 import { isProtectedProject, type Project } from "@/data/projects";
 
-
 export function ProjectCard({ project }: { project: Project }) {
   const locked = isProtectedProject(project);
 
@@ -52,12 +51,15 @@ export function ProjectCard({ project }: { project: Project }) {
           {project.organization && <OrgMark organization={project.organization} />}
         </div>
 
-
         <h3 className="mt-5 font-serif text-2xl leading-tight text-foreground">{project.title}</h3>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{project.description}</p>
         <span className="mt-auto inline-flex items-center gap-2 pt-7 text-sm font-medium text-foreground">
-          <span className="border-b border-foreground/30 pb-0.5 transition-colors group-hover:border-foreground">View case study</span>
-          <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+          <span className="border-b border-foreground/30 pb-0.5 transition-colors group-hover:border-foreground">
+            View case study
+          </span>
+          <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-1">
+            →
+          </span>
         </span>
       </div>
     </Link>
