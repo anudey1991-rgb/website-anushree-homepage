@@ -255,54 +255,54 @@ export function DataVisualizationCaseStudy({
               />
             </CaseSection>
 
-            <CaseSection id="author" eyebrow="Authoring a report" title="A wizard to start, a canvas to finish">
+            <CaseSection id="author" eyebrow="Authoring a report" title="Authoring a report">
               <p>
-                Authoring belongs to the technical user, and I split it deliberately into two moments. A short wizard
-                establishes identity and scope — what this report is called, whether it spans one business entity or
-                several, and which data source it draws from. Those are decisions that are painful to change later, so
-                they are made once, up front, in a modal.
+                Authoring belongs to the technical user, and I split it into two moments. A short wizard establishes the
+                identity and scope of the report: its name, whether it covers one business entity or several, and the data
+                source it draws from. These are decisions that are expensive to change later, so they are made once, up
+                front.
               </p>
               <Shot
                 src={assetUrl(wizardShot)}
                 alt="The two-step report creation wizard: choosing the report asset type, then naming it and setting its scope and data source"
-                caption="Initiating a report: choose the asset type, then set name, scope and data source. Two steps, and nothing else asked."
+                caption="Initiating a report: choose the asset type, then set the name, scope and data source. Two steps, nothing else asked."
               />
               <p>
-                Everything after that happens on a canvas. The outline panel on the left is where dimensions, measures
-                and filters are selected; the report table on the right fills in as they are. The toolbar starts
-                disabled and activates as the report becomes real — undo, create chart, save, preview appear when there
-                is something to undo, chart, save or preview.
+                Everything after that happens on the authoring canvas. The outline panel on the left is where dimensions,
+                measures and filters are selected, and the report table on the right fills in as they are added. The
+                toolbar starts disabled and enables each action as it becomes possible: undo, create chart, save and
+                preview.
               </p>
               <Shot
                 src={assetUrl(authoringShot)}
                 alt="The report authoring space with an outline panel for dimensions, measures and filters beside an empty report table"
-                caption="The authoring space at the start: outline on the left, canvas on the right, and a toolbar that only offers actions once they are possible."
+                caption="The authoring space at the start: outline on the left, canvas on the right, and a toolbar that only offers an action once there is something to act on."
               />
               <p>
-                The preview is capped at a sample of one hundred aggregated records, and says so. On master data
-                volumes, an honest sample that returns immediately is more useful than a complete result that takes a
-                minute — and it keeps the author iterating rather than waiting.
+                The preview runs against a sample of one hundred aggregated records, and the interface says so. At master
+                data volumes a sample that returns immediately keeps the author iterating, where a complete result would
+                have them waiting.
               </p>
               <Shot
                 src={assetUrl(outlineShot)}
                 alt="Selecting dimensions from the outline panel, and the resulting aggregated report preview"
-                caption="Dimensions and measures are picked from the entity tree; the table on the right updates against a hundred-record sample as they are added."
+                caption="Dimensions and measures are picked from the entity tree, and the table on the right updates against the sample as they are added."
               />
               <p>
-                Each selected attribute carries its own properties. A measure declares its aggregation — sum, count,
-                distinct count, average. Filters adapt to the type of the field they are placed on: a date range gets a
-                pair of pickers, a text field gets a searchable list, a numeric field gets a min and a max, an
-                enumeration gets its options. The author never has to write a condition, and the report cannot express
-                something the data model does not support.
+                Each selected attribute carries its own properties. A measure declares its aggregation: sum, count,
+                distinct count or average. Filters take their control from the type of field they are placed on. A date
+                range gets a pair of date pickers, a text field gets a searchable list, a numeric field gets a minimum and
+                a maximum, and an enumeration gets its own options. The author does not write conditions, and the report
+                cannot express something the data model does not support.
               </p>
               <Shot
                 src={assetUrl(propertiesShot)}
                 alt="Outline properties: aggregation options on a measure, and filter controls that vary by field type"
-                caption="Properties per attribute: aggregation on measures, and filters that take their control from the field's own type rather than from a generic condition builder."
+                caption="Properties per attribute: aggregation on measures, and filters that follow the field's own type instead of a generic condition builder."
               />
               <p>
-                Scheduling closes the loop. A saved report can be run on a cadence and delivered as a digest, which is
-                what turns reporting from something a user visits into something that arrives.
+                Scheduling closes the loop. A saved report can be run on a cadence and delivered as an automated digest, so
+                the report arrives instead of having to be visited.
               </p>
             </CaseSection>
 
