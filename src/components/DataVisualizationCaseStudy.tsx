@@ -211,47 +211,47 @@ export function DataVisualizationCaseStudy({
               </p>
             </CaseSection>
 
-            <CaseSection id="consume" eyebrow="Consuming a report" title="The repository, and reading without leaving it">
+            <CaseSection id="consume" eyebrow="Consuming a report" title="The repository and reading a report">
               <p>
-                The repository is the front door, and it is the surface most users only ever see. It lists every report
-                in the tenant with its type, owner, data source and freshness — including a clear state for reports that
-                have never been run, because a stale number is worse than an absent one.
+                The repository is the front door, and for most business users it is the only surface they use. It lists
+                every report in the tenant with its type, owner, data source and when it was last updated, including a
+                clear state for reports that have never been run.
               </p>
               <Shot
                 src={assetUrl(repoListShot)}
                 alt="The reports repository in list mode, with filtering, search, pagination and a report type selector"
-                caption="List mode: filter by report type, search, sort by last updated, and see at a glance which reports have never run."
+                caption="List mode: filter by report type, search, sort by last updated, and see which reports have never been run."
               />
               <p>
-                The repository has a second mode. Rather than forcing a user to open a report, lose the list, and come
-                back, a split pane lets them keep the list on the left and inspect a report on the right — its
-                aggregate, its details, its schedule.
+                The repository also has a preview mode. Instead of opening a report, losing the list and going back, the
+                user keeps the list on the left and inspects a report on the right: its aggregate, its details and its
+                schedule.
               </p>
               <Shot
                 src={assetUrl(repoPreviewShot)}
                 alt="The reports repository in split-pane preview mode with a report summary open alongside the list"
-                caption="Preview mode: the list stays put while a report is inspected beside it. Scanning ten reports stops being ten round trips."
+                caption="Preview mode: the list stays in place while a report is inspected beside it, so scanning ten reports is not ten round trips."
               />
               <p>
-                Opening a report fully gives the aggregated table alongside everything a user needs to trust and reuse
-                it: its schedule, its definition, its author, the charts derived from it, and the dashboard pages it
-                appears on. That last part matters more than it looks — it is how a report stops being an orphan file
-                and becomes part of a connected reporting layer.
+                Opening a report fully gives the aggregated table along with what a user needs in order to trust it and
+                reuse it: the schedule, the report definition, the author, the charts derived from it, and the dashboard
+                pages it appears on. The last of those is what connects a report to the rest of the reporting layer
+                instead of leaving it as a standalone file.
               </p>
               <Shot
                 src={assetUrl(viewReportShot)}
                 alt="A report open in view mode with aggregated data, schedule, report details, related charts and pages"
-                caption="Viewing a report: the aggregate on the left, and on the right the provenance — schedule, definition, related charts, and the pages it feeds."
+                caption="Viewing a report: the aggregate on the left, and the schedule, definition, related charts and pages it feeds on the right."
               />
               <p>
                 Charts are generated from a saved report rather than authored separately, using a third-party
-                visualisation plug-in. Deliberately so: the value we could add was in the data boundary and the
-                workflow, not in re-implementing a charting library.
+                visualisation plug-in. Charting is a solved problem, so we spent our effort on the data boundary and the
+                workflow around it.
               </p>
               <Shot
                 src={assetUrl(createChartShot)}
                 alt="Creating a chart from an existing report, with the chart panel open beside the report table"
-                caption="Chart creation opens as a panel beside the report it is derived from, so the underlying numbers stay in view while the visualisation is configured."
+                caption="Chart creation opens beside the report it is derived from, so the underlying numbers stay in view while the visualisation is set up."
               />
             </CaseSection>
 
