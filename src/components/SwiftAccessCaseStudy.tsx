@@ -107,41 +107,35 @@ export function SwiftAccessCaseStudy({
               <CaseStudyJumpBar sections={SECTIONS} active={active} onSelect={goTo} />
             </div>
 
-            <CaseSection id="overview" eyebrow="Overview" title="A powerful platform that knows nothing about you">
+            <CaseSection id="overview" eyebrow="Overview" title="Personalisation for the Informatica data management cloud">
               <p>
-                The data management cloud is broad and genuinely capable. It is also, for a new user, an undifferentiated
-                surface: every user of every product sees the same landing experience regardless of role, tenure or what
-                they were in the middle of yesterday. That absence of personalisation was quietly eroding both the user
-                experience and the perceived effectiveness of the products themselves.
+                The Intelligent Data Management Cloud is a broad and capable platform, but it has no personalisation for
+                the users working in it. Every user of every product lands on the same experience, whatever their role,
+                their tenure, or what they were working on the day before.
               </p>
               <p>
-                SwiftAccess is my proposal for fixing that without a re-architecture. It is a per-user page, generated
-                through a short conversation, that surfaces the specific assets, applications and activities a person
-                works with, and lets them pin more from anywhere in the suite.
+                SwiftAccess is a per-user page, generated through a short conversation, that surfaces the specific assets,
+                applications and activities a person works with, and lets them pin more from anywhere in the suite.
               </p>
-              <Quote>
-                Personalisation usually arrives as a settings page nobody opens. The interesting question was whether it
-                could arrive as a conversation instead.
-              </Quote>
             </CaseSection>
 
-            <CaseSection id="problem" eyebrow="The problem" title="Four failures, all pointing the same way">
+            <CaseSection id="problem" eyebrow="The problem" title="The problem space">
               <div className="mt-8 grid gap-px border-y border-border bg-border sm:grid-cols-2">
                 <Insight
-                  title="No way to prioritise"
-                  body="There is no mechanism in the platform for a user to mark what matters. Everything is equally available, which means nothing is prioritised."
+                  title="No mechanism to prioritise tasks"
+                  body="There is no way for a user to mark what matters to them. Everything is equally available, so nothing is prioritised."
                 />
                 <Insight
-                  title="Navigation is a struggle"
+                  title="Navigating to assets and activities is a struggle"
                   body="Reaching a specific asset or activity means remembering where it lives across a suite of products, then walking the tree to get there."
                 />
                 <Insight
-                  title="A steep learning curve"
-                  body="The products are deep. Depth without an on-ramp reads as difficulty, and the first week sets a user's opinion of the whole suite."
+                  title="Steep learning curve"
+                  body="The products are deep, and new users have a lot to learn before the platform starts working for them."
                 />
                 <Insight
-                  title="Users are left to work it out"
-                  body="There is little in-product help at the moment of need, so users are expected to figure the application out for themselves."
+                  title="Users are expected to figure it out"
+                  body="There is little help available at the moment of need, so users are left to work the application out with very little support."
                 />
               </div>
               <Shot
