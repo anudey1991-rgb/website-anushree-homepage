@@ -306,44 +306,42 @@ export function DataVisualizationCaseStudy({
               </p>
             </CaseSection>
 
-            <CaseSection id="modernisation" eyebrow="The 2024 rebuild" title="Returning to it on the modern design system">
+            <CaseSection id="modernisation" eyebrow="The 2024 rebuild" title="Rebuilding on the current design system">
               <p>
-                By 2024 the MVP was doing real work and looking its age. The rest of Customer 360 had moved onto the
-                modern design system, and reporting had not. I took the surface back through a rebuild — the same
-                capability, re-expressed.
+                By 2024 the capability was doing real work and showing its age. The rest of Customer 360 had moved onto the
+                current design system and reporting had not, so I took the surface through a rebuild. The capability stayed
+                the same. Four things changed.
               </p>
               <Shot
                 src={assetUrl(timelineShot)}
                 alt="The design timeline of the reporting capability from the first generation through the 2024 modernisation"
-                caption="The arc of the work, from the first generation of authoring and consumption through to the 2024 rebuild."
+                caption="The design timeline, from the first generation of authoring and consumption through to the 2024 rebuild."
               />
               <div className="mt-8 divide-y divide-border border-y border-border">
                 <Step
                   when="Layout"
                   title="A balanced page with a clear action hierarchy"
-                  body="The MVP put every control in one toolbar. The rebuild separates page-level actions from the actions that belong to the thing you are looking at, so a user can tell what a button will affect before pressing it."
+                  body="The first version put every control in one toolbar. The rebuild separates page-level actions from the actions that belong to the thing the user is looking at, so it is clear what a button will affect before pressing it."
                 />
                 <Step
                   when="Action bars"
                   title="Scoped to the feature they act on"
-                  body="Each region carries its own bar. Report-level actions sit with the report, list actions sit with the list, and the header stops accumulating everything."
+                  body="Each region carries its own bar. Report actions sit with the report and list actions sit with the list, so the page header stops collecting everything."
                 />
                 <Step
                   when="Components"
-                  title="On the platform's shared components"
-                  body="Tables, filters, panels and empty states came from the shared library rather than being local to reporting. The capability inherits platform improvements now instead of drifting away from them."
+                  title="Shared platform components"
+                  body="Tables, filters, panels and empty states now come from the shared library instead of being local to reporting, so the capability inherits platform improvements."
                 />
                 <Step
                   when="Density"
-                  title="Spacing and density tokens tuned for data"
-                  body="The generic component spacing did not survive enterprise row counts. Working with the design systems team on density tokens is what let a modern surface still show the number of records a steward actually needs on screen."
+                  title="Spacing and density tuned for data"
+                  body="The generic component spacing did not hold up against enterprise row counts. Working with the design systems team on density is what let a modern surface still show the number of records a user needs on screen."
                 />
               </div>
               <p>
-                That last point was not confined to this project. The density work here fed directly into the broader
-                component overhaul I led as design system SME across the Customer 360 record experience — the same
-                problem, that a system designed for marketing-scale content buckles under master data volumes, showing
-                up in two places at once.
+                The density problem was not limited to this project. The same gap showed up in the Customer 360 record
+                experience, and the work here fed into the component overhaul I led as design system subject matter expert.
               </p>
               <Shot
                 src={assetUrl(chart2024Shot)}
