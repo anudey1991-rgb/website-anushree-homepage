@@ -18,8 +18,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Anushree Dey | Lead Product & UX Designer" },
       {
         property: "og:description",
-        content:
-          "Enterprise SaaS · Data Platforms · Intelligent Workflows.",
+        content: "Enterprise SaaS · Data Platforms · Intelligent Workflows.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -120,11 +119,7 @@ function Index() {
       <SiteHeader active={active} onHome />
       <main>
         <Hero />
-        <Portfolio
-          projects={projects}
-          filter={filter}
-          setFilter={setFilter}
-        />
+        <Portfolio projects={projects} filter={filter} setFilter={setFilter} />
         <About />
         <Contact />
       </main>
@@ -152,7 +147,8 @@ function Hero() {
             Enterprise Systems · Data Platforms · Intelligent Workflows
           </p>
           <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            I design enterprise software that helps people work effectively with complex data and business-critical systems.
+            I design enterprise software that helps people work effectively with complex data and
+            business-critical systems.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-3">
             <a
@@ -176,7 +172,9 @@ function Hero() {
 
           <dl className="mt-16 grid max-w-lg grid-cols-2 gap-8 border-t border-border pt-8">
             <div>
-              <dt className="text-xs uppercase tracking-widest text-muted-foreground">Experience</dt>
+              <dt className="text-xs uppercase tracking-widest text-muted-foreground">
+                Experience
+              </dt>
               <dd className="mt-2 font-serif text-2xl text-foreground">10+ yrs</dd>
             </div>
             <div>
@@ -225,7 +223,8 @@ function Portfolio({
               Portfolio
             </h2>
             <p className="mt-4 max-w-xl text-base text-muted-foreground">
-              A range of enterprise product work across data management, healthcare, aerospace and innovation programmes.
+              A range of enterprise product work across data management, healthcare, aerospace and
+              innovation programmes.
             </p>
           </div>
         </div>
@@ -343,7 +342,11 @@ function AboutBlock({ label, body }: { label: string; body: string }) {
 function Contact() {
   const items = [
     { label: "Email", value: "anushree.d@hotmail.com", href: "mailto:anushree.d@hotmail.com" },
-    { label: "LinkedIn", value: "linkedin.com/in/anushreedey", href: "https://www.linkedin.com/in/anushreedey" },
+    {
+      label: "LinkedIn",
+      value: "linkedin.com/in/anushreedey",
+      href: "https://www.linkedin.com/in/anushreedey",
+    },
   ];
   return (
     <section id="contact" className="border-t border-border/70 bg-foreground text-background">
@@ -374,7 +377,12 @@ function Contact() {
                     </span>
                     <span className="flex items-center gap-3 font-serif text-lg tracking-tight text-background/90 group-hover:text-background sm:text-xl">
                       {i.value}
-                      <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+                      <span
+                        aria-hidden
+                        className="transition-transform duration-200 group-hover:translate-x-1"
+                      >
+                        →
+                      </span>
                     </span>
                   </a>
                 </li>
@@ -393,8 +401,21 @@ function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col gap-4 border-t border-background/10 px-6 py-8 text-xs sm:flex-row sm:items-center sm:justify-between lg:px-10">
         <p>© {new Date().getFullYear()} Anushree Dey. All rights reserved.</p>
         <ul className="flex items-center gap-6">
-          <li><a href="https://www.linkedin.com/in/anushreedey" target="_blank" rel="noopener noreferrer" className="hover:text-background">LinkedIn</a></li>
-          <li><a href="mailto:anushree.d@hotmail.com" className="hover:text-background">Email</a></li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/anushreedey"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-background"
+            >
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a href="mailto:anushree.d@hotmail.com" className="hover:text-background">
+              Email
+            </a>
+          </li>
         </ul>
       </div>
     </footer>

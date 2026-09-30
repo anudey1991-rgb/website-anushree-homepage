@@ -3,7 +3,12 @@ import { Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { BackToProjects } from "@/components/BackToProjects";
 import { ProjectCard } from "@/components/ProjectCard";
-import { CaseStudyToc, CaseStudyJumpBar, useSectionNav, type TocSection } from "@/components/CaseStudyToc";
+import {
+  CaseStudyToc,
+  CaseStudyJumpBar,
+  useSectionNav,
+  type TocSection,
+} from "@/components/CaseStudyToc";
 import type { Project } from "@/data/projects";
 
 import recordNewUi from "@/assets/master-data-management/01-record-details-new-ui.png.asset.json";
@@ -73,9 +78,10 @@ export function MasterDataManagementCaseStudy({
             Management
           </h1>
           <p className="mt-8 max-w-3xl text-lg leading-relaxed text-muted-foreground sm:text-2xl">
-            Customer 360: a SaaS enterprise product for master data management, built for business users who work with
-            large quantities of customer data. I have led its design from the on-premise application through the move to
-            cloud, a new UI theme, and the first generation of AI in the stewardship workflow.
+            Customer 360: a SaaS enterprise product for master data management, built for business
+            users who work with large quantities of customer data. I have led its design from the
+            on-premise application through the move to cloud, a new UI theme, and the first
+            generation of AI in the stewardship workflow.
           </p>
           <dl className="mt-14 grid gap-6 border-y border-border py-7 sm:grid-cols-2 lg:grid-cols-4">
             <Fact label="Role" value="Lead Designer" />
@@ -92,7 +98,10 @@ export function MasterDataManagementCaseStudy({
               "Cloud re-platform",
               "Generative AI in workflow",
             ].map((tag) => (
-              <li key={tag} className="rounded-full border border-border px-3.5 py-1.5 text-xs text-muted-foreground">
+              <li
+                key={tag}
+                className="rounded-full border border-border px-3.5 py-1.5 text-xs text-muted-foreground"
+              >
                 {tag}
               </li>
             ))}
@@ -118,28 +127,39 @@ export function MasterDataManagementCaseStudy({
               <CaseStudyJumpBar sections={SECTIONS} active={active} onSelect={goTo} />
             </div>
 
-            <CaseSection id="overview" eyebrow="Overview" title="Customer 360: master data for the business user">
+            <CaseSection
+              id="overview"
+              eyebrow="Overview"
+              title="Customer 360: master data for the business user"
+            >
               <p>
-                Master data management is how an organisation agrees with itself about its own data. The same customer
-                exists in a billing system, a CRM, a support desk and a few regional spreadsheets, each with a different
-                address, a different legal name, and a different view of whether the account is still active. Customer 360
-                is the product where a data steward resolves that into one master record the rest of the business works
-                from.
+                Master data management is how an organisation agrees with itself about its own data.
+                The same customer exists in a billing system, a CRM, a support desk and a few
+                regional spreadsheets, each with a different address, a different legal name, and a
+                different view of whether the account is still active. Customer 360 is the product
+                where a data steward resolves that into one master record the rest of the business
+                works from.
               </p>
               <p>
-                This is the product line I own. It covers the migration of the legacy on-premise application to cloud, the
-                redesign of the core stewardship workflows for much larger datasets, features the old product could not
-                express, a move to a new UI theme, and the first generation of generative AI inside the record.
+                This is the product line I own. It covers the migration of the legacy on-premise
+                application to cloud, the redesign of the core stewardship workflows for much larger
+                datasets, features the old product could not express, a move to a new UI theme, and
+                the first generation of generative AI inside the record.
               </p>
               <p>
-                Customer 360 is also the platform the rest of my master data work sits on. The data models, the permission
-                structures and the record view patterns established here are what made the later deep dives possible: the
-                tabular edit workspace, cluster detection and bulk edit, and agent-verified survivorship all extend
-                decisions made in this product.
+                Customer 360 is also the platform the rest of my master data work sits on. The data
+                models, the permission structures and the record view patterns established here are
+                what made the later deep dives possible: the tabular edit workspace, cluster
+                detection and bulk edit, and agent-verified survivorship all extend decisions made
+                in this product.
               </p>
             </CaseSection>
 
-            <CaseSection id="arc" eyebrow="The arc of the product" title="The journey of the product so far">
+            <CaseSection
+              id="arc"
+              eyebrow="The arc of the product"
+              title="The journey of the product so far"
+            >
               <div className="mt-8 divide-y divide-border border-y border-border">
                 <TimelineRow
                   when="Customer 360 on-premise"
@@ -169,113 +189,140 @@ export function MasterDataManagementCaseStudy({
               </div>
             </CaseSection>
 
-            <CaseSection id="role" eyebrow="My role" title="Lead designer for the business user application">
+            <CaseSection
+              id="role"
+              eyebrow="My role"
+              title="Lead designer for the business user application"
+            >
               <p>
-                My remit is the application the business user works in, and it extends to the products around it. The work
-                falls into two categories.
+                My remit is the application the business user works in, and it extends to the
+                products around it. The work falls into two categories.
               </p>
-              <h3 className="mt-12 font-serif text-2xl text-foreground sm:text-3xl">Redesigning the business user application for cloud</h3>
+              <h3 className="mt-12 font-serif text-2xl text-foreground sm:text-3xl">
+                Redesigning the business user application for cloud
+              </h3>
               <ul className="mt-6 space-y-0">
                 <Bullet>
-                  Led the redesign of the core stewardship workflows against the new cloud architecture, so the product
-                  could scale in dataset size and in performance.
+                  Led the redesign of the core stewardship workflows against the new cloud
+                  architecture, so the product could scale in dataset size and in performance.
                 </Bullet>
                 <Bullet>
-                  Defined and solved use cases the legacy system could not express: very large datasets, deeply nested
-                  data models, and relationships that cross business entities.
+                  Defined and solved use cases the legacy system could not express: very large
+                  datasets, deeply nested data models, and relationships that cross business
+                  entities.
                 </Bullet>
                 <Bullet>
-                  Shaped the experience of the adjacent products in the family, Product 360 and Supplier 360, so the
-                  ecosystem reads as one product.
+                  Shaped the experience of the adjacent products in the family, Product 360 and
+                  Supplier 360, so the ecosystem reads as one product.
                 </Bullet>
                 <Bullet>
-                  Drove the interface modernisation of the platform onto the new design language, including the component
-                  density work that makes data-heavy pages readable.
+                  Drove the interface modernisation of the platform onto the new design language,
+                  including the component density work that makes data-heavy pages readable.
                 </Bullet>
               </ul>
-              <h3 className="mt-12 font-serif text-2xl text-foreground sm:text-3xl">Driving collaboration from discovery to delivery</h3>
+              <h3 className="mt-12 font-serif text-2xl text-foreground sm:text-3xl">
+                Driving collaboration from discovery to delivery
+              </h3>
               <ul className="mt-6 space-y-0">
                 <Bullet>
-                  Partnered with product and engineering leadership to set scope and keep solutions tied to user goals and
-                  business goals.
+                  Partnered with product and engineering leadership to set scope and keep solutions
+                  tied to user goals and business goals.
                 </Bullet>
                 <Bullet>
-                  Led design discussion across teams, holding clarity and alignment through the product lifecycle instead
-                  of at handoff.
+                  Led design discussion across teams, holding clarity and alignment through the
+                  product lifecycle instead of at handoff.
                 </Bullet>
                 <Bullet>
-                  Worked alongside engineering through implementation so design quality and usability survived the build.
+                  Worked alongside engineering through implementation so design quality and
+                  usability survived the build.
                 </Bullet>
               </ul>
-              <h3 className="mt-12 font-serif text-2xl text-foreground sm:text-3xl">Design system subject matter expert</h3>
+              <h3 className="mt-12 font-serif text-2xl text-foreground sm:text-3xl">
+                Design system subject matter expert
+              </h3>
               <p className="mt-4">
-                When the inherited design system could not carry our data density, I took on the design system work
-                directly rather than working around it. I acted as subject matter expert to the visual design and design
-                systems teams, and drove the redesign of the component set our data-dense pages depend on.
+                When the inherited design system could not carry our data density, I took on the
+                design system work directly rather than working around it. I acted as subject matter
+                expert to the visual design and design systems teams, and drove the redesign of the
+                component set our data-dense pages depend on.
               </p>
               <ul className="mt-6 space-y-0">
                 <Bullet>
-                  Made the case to design systems and visual design leadership that enterprise data density was a
-                  requirement and not a preference, with our own screens as the evidence.
+                  Made the case to design systems and visual design leadership that enterprise data
+                  density was a requirement and not a preference, with our own screens as the
+                  evidence.
                 </Bullet>
                 <Bullet>
-                  Defined the global components the whole suite now uses: page header, shell navigation, wizard, tabs,
-                  cards and history.
+                  Defined the global components the whole suite now uses: page header, shell
+                  navigation, wizard, tabs, cards and history.
                 </Bullet>
                 <Bullet>
-                  Worked through spacing and density so a modern component could still show the number of records a
-                  steward needs on one screen.
+                  Worked through spacing and density so a modern component could still show the
+                  number of records a steward needs on one screen.
                 </Bullet>
                 <Bullet>
-                  Carried the same problem into the reports and dashboards work, where the density gap had shown up
-                  independently.
+                  Carried the same problem into the reports and dashboards work, where the density
+                  gap had shown up independently.
                 </Bullet>
               </ul>
             </CaseSection>
 
-            <CaseSection id="record" eyebrow="The master record" title="The page a steward opens all day">
+            <CaseSection
+              id="record"
+              eyebrow="The master record"
+              title="The page a steward opens all day"
+            >
               <p>
-                The record details page is the centre of the product. Everything else in the application exists to get a
-                steward to this page or to act on what they found here.
+                The record details page is the centre of the product. Everything else in the
+                application exists to get a steward to this page or to act on what they found here.
               </p>
 
               <h3 className="mt-12 font-serif text-2xl text-foreground sm:text-3xl">User goals</h3>
               <ul className="mt-6 space-y-0">
                 <Goal label="View the master record">
-                  See the trusted data for a business entity, assembled from every source system contributing to it.
+                  See the trusted data for a business entity, assembled from every source system
+                  contributing to it.
                 </Goal>
                 <Goal label="Modify the record and validate it against governance">
-                  Change values and have those changes checked against the governance rules the organisation has defined.
+                  Change values and have those changes checked against the governance rules the
+                  organisation has defined.
                 </Goal>
                 <Goal label="Review contributing sources, history and metadata">
-                  Inspect where each value came from, what it used to be, and how the record relates to others.
+                  Inspect where each value came from, what it used to be, and how the record relates
+                  to others.
                 </Goal>
                 <Goal label="Export records">
                   Take the record out of the platform for use in systems and processes downstream.
                 </Goal>
               </ul>
 
-              <h3 className="mt-14 font-serif text-2xl text-foreground sm:text-3xl">Design approach</h3>
+              <h3 className="mt-14 font-serif text-2xl text-foreground sm:text-3xl">
+                Design approach
+              </h3>
               <p className="mt-4">
-                We do not fix the layout of this page. Each customer organisation composes it from data components, so my
-                work was to design the vocabulary rather than one page: a family of data visualisation patterns matched to
-                data type and interaction, and the guidelines that help a customer assemble a layout that is usable and
-                not only possible.
+                We do not fix the layout of this page. Each customer organisation composes it from
+                data components, so my work was to design the vocabulary rather than one page: a
+                family of data visualisation patterns matched to data type and interaction, and the
+                guidelines that help a customer assemble a layout that is usable and not only
+                possible.
               </p>
 
-              <h3 className="mt-14 font-serif text-2xl text-foreground sm:text-3xl">The master record: three stages of evolution</h3>
+              <h3 className="mt-14 font-serif text-2xl text-foreground sm:text-3xl">
+                The master record: three stages of evolution
+              </h3>
               <p className="mt-4">
-                The record page reached its current form in three stages, and the middle one was a setback we had to
-                design our way out of.
+                The record page reached its current form in three stages, and the middle one was a
+                setback we had to design our way out of.
               </p>
 
               <h4 className="mt-10 text-sm font-medium uppercase tracking-[0.16em] text-foreground">
                 Phase one: the cloud baseline
               </h4>
               <p className="mt-3">
-                The first cloud version of the record page. It supported a much broader range of data types and
-                structures than the on-premise product, and it held the data density our users needed: a steward could
-                see a lot of a record at once, which is what the job requires.
+                The first cloud version of the record page. It supported a much broader range of
+                data types and structures than the on-premise product, and it held the data density
+                our users needed: a steward could see a lot of a record at once, which is what the
+                job requires.
               </p>
               <Shot
                 src={assetUrl(recordNewUi)}
@@ -287,10 +334,11 @@ export function MasterDataManagementCaseStudy({
                 Phase two: an inherited design system and a density problem
               </h4>
               <p className="mt-3">
-                In the second phase we moved onto a design system built by a third party team. That team did not have
-                visibility into the length and breadth of our product, and the components they produced were not built
-                for enterprise data. Spacing was generous, component heights were fixed, and the result was that we could
-                no longer show the amount of data we had shown in phase one. The page looked more modern and did less.
+                In the second phase we moved onto a design system built by a third party team. That
+                team did not have visibility into the length and breadth of our product, and the
+                components they produced were not built for enterprise data. Spacing was generous,
+                component heights were fixed, and the result was that we could no longer show the
+                amount of data we had shown in phase one. The page looked more modern and did less.
               </p>
               <Shot
                 src={assetUrl(recordProposal)}
@@ -302,10 +350,11 @@ export function MasterDataManagementCaseStudy({
                 Phase three: redesigning the components with the design systems team
               </h4>
               <p className="mt-3">
-                Phase three needed me to work closely with the design systems and visual design teams and redesign the
-                whole set of components rather than work around them. We went through the components our pages depend on,
-                rebuilt them so they could carry the data density our product requires, and kept the modern visual
-                language while doing it. Because these are global components, the fix applied to every product in the
+                Phase three needed me to work closely with the design systems and visual design
+                teams and redesign the whole set of components rather than work around them. We went
+                through the components our pages depend on, rebuilt them so they could carry the
+                data density our product requires, and kept the modern visual language while doing
+                it. Because these are global components, the fix applied to every product in the
                 suite, not only to Customer 360.
               </p>
               <Shot
@@ -320,12 +369,17 @@ export function MasterDataManagementCaseStudy({
               />
             </CaseSection>
 
-            <CaseSection id="merge" eyebrow="Merge and duplicates" title="Deciding that two records are one record">
+            <CaseSection
+              id="merge"
+              eyebrow="Merge and duplicates"
+              title="Deciding that two records are one record"
+            >
               <p>
-                Data arriving from external sources brings duplicates with it. Before a record can be trusted, a steward
-                has to confirm the data is accurate and that the same real-world entity is not sitting in the system
-                three times. Merge is the flow where that judgement gets made, and it is consequential: merging is easy
-                to do and expensive to undo.
+                Data arriving from external sources brings duplicates with it. Before a record can
+                be trusted, a steward has to confirm the data is accurate and that the same
+                real-world entity is not sitting in the system three times. Merge is the flow where
+                that judgement gets made, and it is consequential: merging is easy to do and
+                expensive to undo.
               </p>
               <Shot
                 src={assetUrl(mergeSearch)}
@@ -349,18 +403,25 @@ export function MasterDataManagementCaseStudy({
               />
             </CaseSection>
 
-            <CaseSection id="relationships" eyebrow="Relationships" title="A record is rarely useful on its own">
+            <CaseSection
+              id="relationships"
+              eyebrow="Relationships"
+              title="A record is rarely useful on its own"
+            >
               <p>
-                Legacy master data management treated a record as an island. In practice the value sits in the
-                relationships: a subsidiary to its parent, a product to its supplier, a practitioner to the hospitals
-                they operate in. Two capabilities cover this, and they work differently.
+                Legacy master data management treated a record as an island. In practice the value
+                sits in the relationships: a subsidiary to its parent, a product to its supplier, a
+                practitioner to the hospitals they operate in. Two capabilities cover this, and they
+                work differently.
               </p>
 
-              <h3 className="mt-14 font-serif text-2xl text-foreground sm:text-3xl">Related records within one business entity</h3>
+              <h3 className="mt-14 font-serif text-2xl text-foreground sm:text-3xl">
+                Related records within one business entity
+              </h3>
               <p className="mt-4">
-                Records inside the same business entity can be linked to each other by declaring the relationship to the
-                master record. The steward can review, add, edit and validate those links in place, without leaving the
-                record they came to work on.
+                Records inside the same business entity can be linked to each other by declaring the
+                relationship to the master record. The steward can review, add, edit and validate
+                those links in place, without leaving the record they came to work on.
               </p>
               <Shot
                 src={assetUrl(relatedRecords)}
@@ -368,12 +429,15 @@ export function MasterDataManagementCaseStudy({
                 caption="Related records inside the same business entity: filtered by relationship type, with an icon for the entity each record belongs to, paginated so a long list does not push the rest of the record off screen."
               />
 
-              <h3 className="mt-14 font-serif text-2xl text-foreground sm:text-3xl">Related business entities</h3>
+              <h3 className="mt-14 font-serif text-2xl text-foreground sm:text-3xl">
+                Related business entities
+              </h3>
               <p className="mt-4">
-                The harder case is linking records that live in different business entities, where the relationship is
-                declared upstream in the configuration system. Here the related entities are visualised as one set, so a
-                steward can exchange data across them and work from the combination instead of pivoting between screens
-                and holding the join in their head.
+                The harder case is linking records that live in different business entities, where
+                the relationship is declared upstream in the configuration system. Here the related
+                entities are visualised as one set, so a steward can exchange data across them and
+                work from the combination instead of pivoting between screens and holding the join
+                in their head.
               </p>
               <Shot
                 src={assetUrl(relatedEntities)}
@@ -387,18 +451,23 @@ export function MasterDataManagementCaseStudy({
               />
             </CaseSection>
 
-            <CaseSection id="nested" eyebrow="Nested data" title="Making depth navigable instead of merely present">
+            <CaseSection
+              id="nested"
+              eyebrow="Nested data"
+              title="Making depth navigable instead of merely present"
+            >
               <p>
-                Enterprise data models nest, sometimes several levels deep. Rendering that faithfully is easy; making it
-                workable is not. The nested field group design represents structure so a steward can move between levels
-                deliberately, and edits the whole display section at once so a single validation step applies every
-                change rather than one per field.
+                Enterprise data models nest, sometimes several levels deep. Rendering that
+                faithfully is easy; making it workable is not. The nested field group design
+                represents structure so a steward can move between levels deliberately, and edits
+                the whole display section at once so a single validation step applies every change
+                rather than one per field.
               </p>
               <p>
-                Usability testing settled a real disagreement here. Stewards wanted a separate navigation region that
-                exposes the shape of the data, so they could either jump to one focused level or see the entire nested
-                structure at once in the details panel, depending on the task in front of them. Neither mode alone was
-                sufficient.
+                Usability testing settled a real disagreement here. Stewards wanted a separate
+                navigation region that exposes the shape of the data, so they could either jump to
+                one focused level or see the entire nested structure at once in the details panel,
+                depending on the task in front of them. Neither mode alone was sufficient.
               </p>
               <Shot
                 src={assetUrl(nestedGroups)}
@@ -409,23 +478,29 @@ export function MasterDataManagementCaseStudy({
 
             <CaseSection id="ai" eyebrow="Introducing AI" title="AI applied to record enrichment">
               <p>
-                The first generation of generative AI in this product line is applied to enrichment, which is the most
-                repetitive part of stewardship. The assistant opens alongside the record, and it can be collapsed away
-                when it is not needed.
+                The first generation of generative AI in this product line is applied to enrichment,
+                which is the most repetitive part of stewardship. The assistant opens alongside the
+                record, and it can be collapsed away when it is not needed.
               </p>
 
-              <h3 className="mt-14 font-serif text-2xl text-foreground sm:text-3xl">Design without AI</h3>
+              <h3 className="mt-14 font-serif text-2xl text-foreground sm:text-3xl">
+                Design without AI
+              </h3>
               <p className="mt-4">
-                The steward works out which attributes are missing, searches for the values across source systems, links
-                the relevant categories and records by hand, and adds the values one at a time. Each of those steps is
-                manual, and each one is a place where a steward runs out of time before the record is complete.
+                The steward works out which attributes are missing, searches for the values across
+                source systems, links the relevant categories and records by hand, and adds the
+                values one at a time. Each of those steps is manual, and each one is a place where a
+                steward runs out of time before the record is complete.
               </p>
 
-              <h3 className="mt-14 font-serif text-2xl text-foreground sm:text-3xl">Record enrichment by adding hierarchy</h3>
+              <h3 className="mt-14 font-serif text-2xl text-foreground sm:text-3xl">
+                Record enrichment by adding hierarchy
+              </h3>
               <p className="mt-4">
-                The assistant suggests the appropriate enrichments along with their values. The steward accepts a
-                suggestion and it is added to the record. Values added this way carry an icon that marks them as
-                AI-suggested, so the provenance stays on the record after the decision is made.
+                The assistant suggests the appropriate enrichments along with their values. The
+                steward accepts a suggestion and it is added to the record. Values added this way
+                carry an icon that marks them as AI-suggested, so the provenance stays on the record
+                after the decision is made.
               </p>
               <Shot
                 src={assetUrl(productOverview)}
@@ -453,12 +528,15 @@ export function MasterDataManagementCaseStudy({
                 caption="The enriched relationships in context, which is where downstream teams see the benefit."
               />
 
-              <h3 className="mt-14 font-serif text-2xl text-foreground sm:text-3xl">Record enrichment from another supplier record</h3>
+              <h3 className="mt-14 font-serif text-2xl text-foreground sm:text-3xl">
+                Record enrichment from another supplier record
+              </h3>
               <p className="mt-4">
-                The second case is harder. Manually, a steward links categories and records by hand and chooses which
-                attributes and values should contribute to the master record. With the assistant, the system suggests
-                candidate supplier records, the steward selects the right one, the system registers it as a contributing
-                source, and the missing attributes are populated from it.
+                The second case is harder. Manually, a steward links categories and records by hand
+                and chooses which attributes and values should contribute to the master record. With
+                the assistant, the system suggests candidate supplier records, the steward selects
+                the right one, the system registers it as a contributing source, and the missing
+                attributes are populated from it.
               </p>
               <Shot
                 src={assetUrl(supplierOverview)}
@@ -487,12 +565,17 @@ export function MasterDataManagementCaseStudy({
               />
             </CaseSection>
 
-            <CaseSection id="config" eyebrow="The configuration side" title="Business 360: where the technical user sets the rules">
+            <CaseSection
+              id="config"
+              eyebrow="The configuration side"
+              title="Business 360: where the technical user sets the rules"
+            >
               <p>
-                Every flexible thing in Customer 360 is flexible because someone configured it. Business 360 is the
-                companion product where the IT team defines the data model, composes record layouts, wires business
-                entities into the application and assigns permissions. Designing both sides meant the freedom offered to
-                an administrator and the experience delivered to a steward had to be designed as one system.
+                Every flexible thing in Customer 360 is flexible because someone configured it.
+                Business 360 is the companion product where the IT team defines the data model,
+                composes record layouts, wires business entities into the application and assigns
+                permissions. Designing both sides meant the freedom offered to an administrator and
+                the experience delivered to a steward had to be designed as one system.
               </p>
               <Shot
                 src={assetUrl(dataModel)}
@@ -526,46 +609,77 @@ export function MasterDataManagementCaseStudy({
               />
             </CaseSection>
 
-            <CaseSection id="scale" eyebrow="Scale and impact" title="What owning this product line involves">
+            <CaseSection
+              id="scale"
+              eyebrow="Scale and impact"
+              title="What owning this product line involves"
+            >
               <p>
-                This is a platform product rather than a single feature, so the figures that matter are about reach and
-                structure.
+                This is a platform product rather than a single feature, so the figures that matter
+                are about reach and structure.
               </p>
               <dl className="mt-10 grid gap-px border-y border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
-                <Scale value="3" unit="products" label="Shaped across the family" note="Customer 360 owned end to end, with Product 360 and Supplier 360 shaped toward one ecosystem experience." />
-                <Scale value="2" unit="sides" label="Steward and administrator" note="The business user application and the Business 360 configuration product designed as a single system." />
-                <Scale value="6+" unit="components" label="Global patterns defined as SME" note="Page header, shell navigation, wizard, tabs, cards and history, now used across the suite." />
-                <Scale value="5" unit="stages" label="From on-premise to AI" note="Legacy, cloud, new capabilities, new UI theme, and generative AI with an updated design system." />
+                <Scale
+                  value="3"
+                  unit="products"
+                  label="Shaped across the family"
+                  note="Customer 360 owned end to end, with Product 360 and Supplier 360 shaped toward one ecosystem experience."
+                />
+                <Scale
+                  value="2"
+                  unit="sides"
+                  label="Steward and administrator"
+                  note="The business user application and the Business 360 configuration product designed as a single system."
+                />
+                <Scale
+                  value="6+"
+                  unit="components"
+                  label="Global patterns defined as SME"
+                  note="Page header, shell navigation, wizard, tabs, cards and history, now used across the suite."
+                />
+                <Scale
+                  value="5"
+                  unit="stages"
+                  label="From on-premise to AI"
+                  note="Legacy, cloud, new capabilities, new UI theme, and generative AI with an updated design system."
+                />
               </dl>
 
-              <h3 className="mt-14 font-serif text-2xl text-foreground sm:text-3xl">What is at stake for the steward</h3>
+              <h3 className="mt-14 font-serif text-2xl text-foreground sm:text-3xl">
+                What is at stake for the steward
+              </h3>
               <p className="mt-4">
-                Every design decision in this product is shaped by the consequences of getting it wrong. A merge is easy
-                to perform and expensive to reverse. A published value flows straight into the ERP and CRM systems the
-                business runs on, so an incorrect address or legal name becomes a downstream compliance problem rather
-                than a local mistake. Stewards are also audited, so they need to show where a value came from and who
+                Every design decision in this product is shaped by the consequences of getting it
+                wrong. A merge is easy to perform and expensive to reverse. A published value flows
+                straight into the ERP and CRM systems the business runs on, so an incorrect address
+                or legal name becomes a downstream compliance problem rather than a local mistake.
+                Stewards are also audited, so they need to show where a value came from and who
                 approved it.
               </p>
               <ul className="mt-6 space-y-0">
                 <Bullet>
-                  Destructive actions stay separate from selection, and comparison happens before anything is committed.
+                  Destructive actions stay separate from selection, and comparison happens before
+                  anything is committed.
                 </Bullet>
                 <Bullet>
-                  Provenance is always available on the record, including for values a steward accepted from an AI
-                  suggestion.
+                  Provenance is always available on the record, including for values a steward
+                  accepted from an AI suggestion.
                 </Bullet>
                 <Bullet>
-                  Permissions work at record level and at attribute level, which is what makes the product usable in
-                  regulated industries.
+                  Permissions work at record level and at attribute level, which is what makes the
+                  product usable in regulated industries.
                 </Bullet>
               </ul>
 
-              <h3 className="mt-14 font-serif text-2xl text-foreground sm:text-3xl">What this work set up</h3>
+              <h3 className="mt-14 font-serif text-2xl text-foreground sm:text-3xl">
+                What this work set up
+              </h3>
               <p className="mt-4">
-                Customer 360 is the base the rest of my master data work stands on. It established the data models, the
-                permission structures and the record view patterns that later projects extend: the tabular edit
-                workspace, cluster detection and bulk edit, and agent-verified survivorship. Each of those is a deep dive
-                into one problem this platform made visible.
+                Customer 360 is the base the rest of my master data work stands on. It established
+                the data models, the permission structures and the record view patterns that later
+                projects extend: the tabular edit workspace, cluster detection and bulk edit, and
+                agent-verified survivorship. Each of those is a deep dive into one problem this
+                platform made visible.
               </p>
             </CaseSection>
           </div>
@@ -580,7 +694,11 @@ export function MasterDataManagementCaseStudy({
                 </p>
                 <h2 className="mt-4 font-serif text-4xl sm:text-5xl">Continue exploring</h2>
               </div>
-              <Link to="/" hash="portfolio" className="hidden text-sm text-muted-foreground hover:text-foreground sm:block">
+              <Link
+                to="/"
+                hash="portfolio"
+                className="hidden text-sm text-muted-foreground hover:text-foreground sm:block"
+              >
                 View all projects →
               </Link>
             </div>
@@ -636,7 +754,10 @@ function CaseSection({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="scroll-mt-28 border-t border-border py-16 first:border-t-0 first:pt-8 lg:py-24">
+    <section
+      id={id}
+      className="scroll-mt-28 border-t border-border py-16 first:border-t-0 first:pt-8 lg:py-24"
+    >
       <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">{eyebrow}</p>
       <h2 className="mt-4 max-w-3xl font-serif text-4xl leading-[1.08] sm:text-5xl">{title}</h2>
       <div className="mt-8 max-w-3xl space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -672,11 +793,23 @@ function TimelineRow({ when, title, body }: { when: string; title: string; body:
 }
 
 /** Architectural scale figure: reach and structure rather than a growth number. */
-function Scale({ value, unit, label, note }: { value: string; unit: string; label: string; note: string }) {
+function Scale({
+  value,
+  unit,
+  label,
+  note,
+}: {
+  value: string;
+  unit: string;
+  label: string;
+  note: string;
+}) {
   return (
     <div className="bg-card p-6">
       <dt className="flex items-baseline gap-2">
-        <span className="font-serif text-[clamp(2.1rem,4vw,2.9rem)] leading-none text-foreground">{value}</span>
+        <span className="font-serif text-[clamp(2.1rem,4vw,2.9rem)] leading-none text-foreground">
+          {value}
+        </span>
         <span className="text-xs uppercase tracking-[0.16em] text-muted-foreground">{unit}</span>
       </dt>
       <dd className="mt-4">
@@ -705,9 +838,16 @@ function Shot({
   return (
     <figure className="my-10">
       <div className="overflow-hidden rounded-sm border border-border bg-secondary">
-        <img src={src} alt={alt} loading={priority ? "eager" : "lazy"} className="block h-auto w-full" />
+        <img
+          src={src}
+          alt={alt}
+          loading={priority ? "eager" : "lazy"}
+          className="block h-auto w-full"
+        />
       </div>
-      <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">{caption}</figcaption>
+      <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">
+        {caption}
+      </figcaption>
     </figure>
   );
 }

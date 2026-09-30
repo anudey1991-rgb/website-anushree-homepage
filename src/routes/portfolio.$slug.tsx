@@ -52,7 +52,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
       return {
         meta: [
           { title: `${project.title} | Protected case study | Anushree Dey` },
-          { name: "description", content: "This case study is protected by a non-disclosure agreement." },
+          {
+            name: "description",
+            content: "This case study is protected by a non-disclosure agreement.",
+          },
           { name: "robots", content: "noindex" },
         ],
         links: [{ rel: "canonical", href: url }],
@@ -74,19 +77,21 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { name: "twitter:image", content: project.image },
       ],
       links: [{ rel: "canonical", href: url }],
-      scripts: [{
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "CreativeWork",
-          name: project.title,
-          description: project.description,
-          image: project.image,
-          url,
-          creator: { "@type": "Person", name: "Anushree Dey" },
-          keywords: [project.category, project.industry, ...project.responsibilities].join(", "),
-        }),
-      }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            name: project.title,
+            description: project.description,
+            image: project.image,
+            url,
+            creator: { "@type": "Person", name: "Anushree Dey" },
+            keywords: [project.category, project.industry, ...project.responsibilities].join(", "),
+          }),
+        },
+      ],
     };
   },
   notFoundComponent: ProjectNotFound,
@@ -146,7 +151,9 @@ function ProjectPage() {
           <BackToProjects />
           <div className="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-8">
-              <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">{project.category}</p>
+              <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
+                {project.category}
+              </p>
               <h1 className="mt-5 max-w-4xl font-serif text-[clamp(2.75rem,6vw,5rem)] leading-[1.03] text-foreground">
                 {project.title}
               </h1>
@@ -162,7 +169,6 @@ function ProjectPage() {
                 <ProjectFact label="Organization" value={project.organization} />
               )}
             </dl>
-
           </div>
         </section>
 
@@ -174,12 +180,17 @@ function ProjectPage() {
 
         <section className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-12 lg:gap-16 lg:px-10 lg:py-28">
           <div className="lg:col-span-4">
-            <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Responsibilities</p>
+            <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
+              Responsibilities
+            </p>
           </div>
           <div className="lg:col-span-8">
             <ul className="grid gap-x-8 gap-y-5 sm:grid-cols-2">
               {project.responsibilities.map((responsibility) => (
-                <li key={responsibility} className="border-t border-border pt-5 text-base text-foreground">
+                <li
+                  key={responsibility}
+                  className="border-t border-border pt-5 text-base text-foreground"
+                >
                   {responsibility}
                 </li>
               ))}
@@ -187,10 +198,16 @@ function ProjectPage() {
             <div className="mt-16 border-t border-border pt-8">
               <h2 className="font-serif text-3xl text-foreground sm:text-4xl">Project overview</h2>
               <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-                This project reflects a systems-led design approach, bringing user needs, operational context and technical constraints into one coherent product experience.
+                This project reflects a systems-led design approach, bringing user needs,
+                operational context and technical constraints into one coherent product experience.
               </p>
               {project.originalUrl && (
-                <a href={project.originalUrl} target="_blank" rel="noreferrer" className="mt-8 inline-flex items-center gap-2 border-b border-foreground/30 pb-1 text-sm font-medium text-foreground hover:border-foreground">
+                <a
+                  href={project.originalUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-8 inline-flex items-center gap-2 border-b border-foreground/30 pb-1 text-sm font-medium text-foreground hover:border-foreground"
+                >
                   View original case study <span aria-hidden>↗</span>
                 </a>
               )}
@@ -201,10 +218,23 @@ function ProjectPage() {
         {nextProject && (
           <section className="border-t border-border bg-secondary/40">
             <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-20">
-              <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Next project</p>
-              <Link to="/portfolio/$slug" params={{ slug: nextProject.slug }} className="group mt-4 flex items-end justify-between gap-8">
-                <span className="max-w-4xl font-serif text-3xl leading-tight text-foreground sm:text-5xl">{nextProject.title}</span>
-                <span aria-hidden className="text-2xl transition-transform group-hover:translate-x-1">→</span>
+              <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
+                Next project
+              </p>
+              <Link
+                to="/portfolio/$slug"
+                params={{ slug: nextProject.slug }}
+                className="group mt-4 flex items-end justify-between gap-8"
+              >
+                <span className="max-w-4xl font-serif text-3xl leading-tight text-foreground sm:text-5xl">
+                  {nextProject.title}
+                </span>
+                <span
+                  aria-hidden
+                  className="text-2xl transition-transform group-hover:translate-x-1"
+                >
+                  →
+                </span>
               </Link>
             </div>
           </section>
@@ -215,8 +245,17 @@ function ProjectPage() {
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 text-xs sm:flex-row sm:items-center sm:justify-between lg:px-10">
           <p>© {new Date().getFullYear()} Anushree Dey. All rights reserved.</p>
           <div className="flex gap-6">
-            <a href="mailto:anushree.d@hotmail.com" className="hover:text-background">Email</a>
-            <a href="https://www.linkedin.com/in/anushreedey" target="_blank" rel="noreferrer" className="hover:text-background">LinkedIn</a>
+            <a href="mailto:anushree.d@hotmail.com" className="hover:text-background">
+              Email
+            </a>
+            <a
+              href="https://www.linkedin.com/in/anushreedey"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-background"
+            >
+              LinkedIn
+            </a>
           </div>
         </div>
       </footer>
@@ -237,9 +276,19 @@ function ProjectNotFound() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-background px-6 text-center">
       <div>
-        <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Project not found</p>
-        <h1 className="mt-4 font-serif text-4xl text-foreground">This case study is unavailable.</h1>
-        <Link to="/" hash="portfolio" className="mt-8 inline-block border-b border-foreground/30 pb-1 text-sm text-foreground">Return to portfolio</Link>
+        <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
+          Project not found
+        </p>
+        <h1 className="mt-4 font-serif text-4xl text-foreground">
+          This case study is unavailable.
+        </h1>
+        <Link
+          to="/"
+          hash="portfolio"
+          className="mt-8 inline-block border-b border-foreground/30 pb-1 text-sm text-foreground"
+        >
+          Return to portfolio
+        </Link>
       </div>
     </main>
   );
