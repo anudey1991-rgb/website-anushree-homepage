@@ -209,7 +209,7 @@ export function SwiftAccessCaseStudy({
                 <Shot
                   src={assetUrl(widget1x2a)}
                   alt="The first one-by-two widget variant"
-                  caption="1 × 2a — a wider unit for an asset that needs a line of context alongside its name."
+                  caption="1 × 2a: a wider unit for an asset that needs a line of context alongside its name."
                 />
                 <Shot
                   src={assetUrl(widget1x2b)}
