@@ -473,13 +473,6 @@ function CaseSection({
   );
 }
 
-function Quote({ children }: { children: React.ReactNode }) {
-  return (
-    <blockquote className="my-10 border-l-2 border-foreground pl-7 font-serif text-2xl leading-snug text-foreground sm:text-3xl">
-      “{children}”
-    </blockquote>
-  );
-}
 
 function Insight({ title, body }: { title: string; body: string }) {
   return (
