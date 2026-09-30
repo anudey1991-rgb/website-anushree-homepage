@@ -62,9 +62,9 @@ export function SwiftAccessCaseStudy({
             SwiftAccess
           </h1>
           <p className="mt-8 max-w-3xl text-lg leading-relaxed text-muted-foreground sm:text-2xl">
-            A personalised landing page, assembled by asking three questions instead of shipping a settings screen. It
-            gives enterprise users direct access to the assets and activities they actually work on, without touching the
-            navigation of a single product.
+            A personalised access page for the Informatica Intelligent Data Management Cloud. It gives enterprise users
+            direct access to the assets and activities they work on, and lets them prioritise what they need to monitor,
+            without changing the navigation of any product.
           </p>
           <dl className="mt-14 grid gap-6 border-y border-border py-7 sm:grid-cols-2 lg:grid-cols-4">
             <Fact label="Role" value="Product Designer" />
