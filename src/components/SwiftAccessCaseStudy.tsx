@@ -175,31 +175,28 @@ export function SwiftAccessCaseStudy({
               />
             </CaseSection>
 
-            <CaseSection id="ai" eyebrow="Role of generative AI" title="Three questions instead of a configuration screen">
+            <CaseSection id="ai" eyebrow="How SwiftAccess works" title="Role of generative AI">
               <p>
-                This is the part of the design I am most attached to. Rather than shipping a preferences panel and hoping
-                for adoption, the page is generated from a short conversation the first time a user arrives.
+                Instead of a preferences panel, the page is generated from a short conversation the first time a user
+                arrives.
               </p>
               <div className="mt-8 divide-y divide-border border-y border-border">
                 <Step
-                  when="Question one to three"
-                  title="Ask about assets, applications and activities"
-                  body="Three questions establish what this person works with and what they need to keep an eye on. Each answer immediately pins the corresponding widgets to the page, so the user watches their own page being built."
+                  when="Three questions"
+                  title="Assets, applications and activities"
+                  body="Three conversational questions establish which assets this person works with, which applications they use, and which activities they need to keep monitoring. Each answer pins the corresponding widgets to the page as it is given."
                 />
                 <Step
-                  when="One more"
-                  title="Offer resources, honestly framed"
-                  body="A final question asks whether they want learning material and information about other products in the suite. Framing it as an opt-in question keeps promotional content from feeling like an ambush."
+                  when="Opt-in"
+                  title="Resources and promotional content"
+                  body="A further question asks whether the user wants learning material and information about other products in the suite. It is an opt-in, so promotional content is never placed on the page without being asked for."
                 />
                 <Step
-                  when="Result"
-                  title="A page that logically fills itself"
-                  body="The pinned widgets arrange themselves across the grid without leaving empty pockets, so the outcome of a three-question conversation still looks composed rather than assembled."
+                  when="Placement"
+                  title="Dynamic layout on the grid"
+                  body="The pinned widgets are placed dynamically across the four by four grid so there are no empty pockets, whatever combination of answers the user gives."
                 />
               </div>
-              <Quote>
-                Every answer pins a widget. The user is not configuring a page, they are watching one appear.
-              </Quote>
             </CaseSection>
 
             <CaseSection id="widgets" eyebrow="The widget system" title="Role of product development">
