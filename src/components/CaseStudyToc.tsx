@@ -61,7 +61,7 @@ export function CaseStudyToc({
     <nav aria-label="Case study contents" className="sticky top-28 border-l border-border pl-5">
       <p className="mb-5 text-xs uppercase tracking-[0.2em] text-muted-foreground">{label}</p>
       <ol className="space-y-1">
-        {sections.map(([id, title], index) => {
+        {sections.map(([id, title]) => {
           const isActive = active === id;
           return (
             <li key={id} className="relative">
@@ -79,7 +79,6 @@ export function CaseStudyToc({
                   isActive ? "text-foreground" : "text-muted-foreground"
                 }`}
               >
-                <span className="mr-3 tabular-nums">{String(index + 1).padStart(2, "0")}</span>
                 {title}
               </button>
             </li>
