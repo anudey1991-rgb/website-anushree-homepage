@@ -55,12 +55,12 @@ export function DataVisualizationCaseStudy({
             Reports and dashboards
           </h1>
           <p className="mt-8 max-w-3xl text-lg leading-relaxed text-muted-foreground sm:text-2xl">
-            The first generation of reporting inside Customer 360: an authoring tool for the people who understand the
-            data model, and a consumption workspace for the business users who only need the answer. Built as an MVP,
-            then rebuilt four years later on the modern design system.
+            A first generation tool in the Informatica portfolio: report tables, chart visualisations and KPI metrics built
+            on mastered data, with an authoring space for the technical users who know the data model and a consumption
+            workspace for the business users who need the answer.
           </p>
           <dl className="mt-14 grid gap-6 border-y border-border py-7 sm:grid-cols-2 lg:grid-cols-4">
-            <Fact label="Role" value="Product Designer" />
+            <Fact label="Role" value="Design Owner" />
             <Fact label="Platform" value="Informatica Customer 360" />
             <Fact label="Timeline" value="2020 – 2024" />
             <Fact label="Organization" value="Salesforce" />
