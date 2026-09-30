@@ -202,12 +202,12 @@ export function SwiftAccessCaseStudy({
               </Quote>
             </CaseSection>
 
-            <CaseSection id="widgets" eyebrow="The widget system" title="Tokenised widgets, so the cost stays on the platform">
+            <CaseSection id="widgets" eyebrow="The widget system" title="Role of product development">
               <p>
-                For this to be adoptable, product teams could not be asked to design bespoke surfaces. Instead each asset,
-                application or activity is tokenised into one of a small set of widget variants. Generative AI handles the
-                composition, so a product team's entire obligation is to tokenise its widgets. That is what makes the
-                development effort tractable across a suite this size.
+                For this to be adoptable, product teams could not be asked to design and build custom front ends. Each
+                asset, application or activity is tokenised into one of a small set of widget variations, and the
+                composition is handled by the platform. A product team's job is to tokenise its assets, which is what
+                keeps the development effort realistic across a suite this size.
               </p>
               <div className="mt-10 grid gap-8 sm:grid-cols-2">
                 <Shot
