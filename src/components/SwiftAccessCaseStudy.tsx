@@ -204,7 +204,7 @@ export function SwiftAccessCaseStudy({
                 <Shot
                   src={assetUrl(widget1x1)}
                   alt="The one-by-one widget variant"
-                  caption="1 × 1 — a single compact unit, for direct access with minimal supporting detail."
+                  caption="1 × 1: a single compact unit, for direct access with minimal supporting detail."
                 />
                 <Shot
                   src={assetUrl(widget1x2a)}
