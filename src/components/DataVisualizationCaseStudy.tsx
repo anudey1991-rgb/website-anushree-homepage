@@ -192,22 +192,22 @@ export function DataVisualizationCaseStudy({
               </ul>
             </CaseSection>
 
-            <CaseSection id="framework" eyebrow="Interaction framework" title="Mapping who can do what, before drawing anything">
+            <CaseSection id="framework" eyebrow="Interaction framework" title="The user journey and interaction framework">
               <p>
-                Before any screens, I mapped the journey as a matrix: the four stages a report passes through —
-                repository, authoring, scheduling, dashboard — against the two permission states a user arrives with,
-                view only and view and edit. It is a dull artefact and it saved the project a great deal of argument,
-                because it made visible which surfaces needed two versions and which needed one.
+                Before drawing any screens, I mapped the journey as a matrix. Along one axis, the four stages a report
+                passes through: repository, authoring space, scheduling, dashboards. Along the other, the two permission
+                states a user arrives with: view only, and view and edit. It saved the project a lot of argument, because
+                it showed which surfaces needed two versions and which needed one.
               </p>
               <Shot
                 src={assetUrl(journeyShot)}
                 alt="The user journey and interaction matrix across repository, authoring, scheduling and dashboard stages"
-                caption="The journey and permission matrix. Every stage was specified for both a view-only user and a user who can edit, so the same screen degrades predictably rather than hiding itself."
+                caption="The journey and permission matrix. Every stage was specified for a view-only user as well as a user who can edit, so a restricted screen behaves predictably instead of disappearing."
               />
               <p>
-                This is also where the dual-persona split became concrete. Technical users appear at one end, defining
-                datasets and declaring dimensions and measures. Business users occupy the rest of the journey, and never
-                need to know that the first end exists.
+                This is also where the split between the two users became concrete. The technical user sits at the start of
+                the journey, defining datasets and declaring dimensions and measures. The business user occupies the rest
+                of it, and does not need to know that the first stage exists.
               </p>
             </CaseSection>
 
