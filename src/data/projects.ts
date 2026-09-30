@@ -2,6 +2,7 @@ import { assetUrl } from "@/lib/asset-url";
 import clusterCardCover from "@/assets/cluster-agent/card-illustration.png.asset.json";
 import mdmCardCover from "@/assets/master-data-management/00-card-cover.webp.asset.json";
 import swiftCardCover from "@/assets/swiftaccess/00-card-cover.png.asset.json";
+import dataVizCardCover from "@/assets/data-visualization/00-card-cover.jpg.asset.json";
 
 export const CATEGORIES = [
 
@@ -102,7 +103,7 @@ export const PROJECTS: Project[] = [
     category: "Data Management",
     role: "Product Designer",
     industry: "Enterprise SaaS",
-    duration: "2021",
+    duration: "2024",
     organization: "Salesforce",
     responsibilities: ["Discovery and research", "Information architecture", "Interaction design", "Usability testing"],
   },
@@ -110,11 +111,11 @@ export const PROJECTS: Project[] = [
     slug: "data-visualization-creation-tool",
     title: "Data Visualization Creation Tool & Dashboard",
     description: "A first-generation MVP that authors data reports and graphical visualisation components, paired with a dashboard for consuming and acting on insights.",
-    image: "https://static.wixstatic.com/media/55b247_66fffa72b8414a52aeda924b23afe3be~mv2.jpg/v1/fit/w_960,h_720,q_85,enc_avif,quality_auto/55b247_66fffa72b8414a52aeda924b23afe3be~mv2.jpg",
+    image: assetUrl(dataVizCardCover),
     category: "Data Management",
     role: "Product Designer",
     industry: "Enterprise Analytics",
-    duration: "2020",
+    duration: "2020 – 2024",
     organization: "Salesforce",
     responsibilities: ["MVP definition", "Data visualization design", "Dashboard interaction design", "Prototyping"],
   },
