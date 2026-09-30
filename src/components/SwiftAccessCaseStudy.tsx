@@ -151,22 +151,22 @@ export function SwiftAccessCaseStudy({
               />
             </CaseSection>
 
-            <CaseSection id="solution" eyebrow="The proposition" title="Targeted access without touching navigation">
+            <CaseSection id="solution" eyebrow="The solution" title="A personalised access page">
               <p>
-                The proposal is a personalised access page through which users reach their own assets and artefacts and
-                prioritise the actions in front of them. The constraint I set myself was that it must not require changes
-                to the navigation of any existing application, because a proposal that demands every product team
-                re-architect will never ship.
+                SwiftAccess is a personalised access page through which users reach their own assets and artefacts and
+                prioritise the actions in front of them. The constraint I set was that it must not require changes to the
+                navigation of any existing application, because a proposal that asks every product team to re-architect
+                will not get adopted.
               </p>
-              <p>Adopted across the suite, it does three things:</p>
+              <p>Adopted across the suite, SwiftAccess would:</p>
               <ul className="mt-6 space-y-0">
                 <Bullet>
-                  Offers one consistent experience across products, which is what actually flattens the learning curve.
+                  Offer a consistent user experience across the products, minimising the learning curve.
                 </Bullet>
                 <Bullet>
-                  Gives targeted access to assets without altering the navigation of the applications themselves.
+                  Give targeted access to assets without changing the navigation of the applications.
                 </Bullet>
-                <Bullet>Lets users keep the tasks they monitor frequently in permanent view.</Bullet>
+                <Bullet>Let users prioritise the tasks they need to monitor frequently.</Bullet>
               </ul>
               <Shot
                 src={assetUrl(gridShot)}
