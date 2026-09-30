@@ -55,12 +55,12 @@ export function DataVisualizationCaseStudy({
             Reports and dashboards
           </h1>
           <p className="mt-8 max-w-3xl text-lg leading-relaxed text-muted-foreground sm:text-2xl">
-            The first generation of reporting inside Customer 360: an authoring tool for the people who understand the
-            data model, and a consumption workspace for the business users who only need the answer. Built as an MVP,
-            then rebuilt four years later on the modern design system.
+            A first generation tool in the Informatica portfolio: report tables, chart visualisations and KPI metrics built
+            on mastered data, with an authoring space for the technical users who know the data model and a consumption
+            workspace for the business users who need the answer.
           </p>
           <dl className="mt-14 grid gap-6 border-y border-border py-7 sm:grid-cols-2 lg:grid-cols-4">
-            <Fact label="Role" value="Product Designer" />
+            <Fact label="Role" value="Design Owner" />
             <Fact label="Platform" value="Informatica Customer 360" />
             <Fact label="Timeline" value="2020 – 2024" />
             <Fact label="Organization" value="Salesforce" />
@@ -100,250 +100,265 @@ export function DataVisualizationCaseStudy({
               <CaseStudyJumpBar sections={SECTIONS} active={active} onSelect={goTo} />
             </div>
 
-            <CaseSection id="overview" eyebrow="Overview" title="Master data that nobody could look at">
+            <CaseSection id="overview" eyebrow="Overview" title="A first generation tool in the Informatica portfolio">
               <p>
-                Customer 360 held the enterprise's cleanest, most reconciled data. What it did not hold was any way of
-                seeing it. If a business user wanted to know how sales split across regions, or how many supplier
-                records were still incomplete, the answer came from somebody else — an analyst, an export, a
-                spreadsheet, a separate BI licence. The data was in the platform and the insight was outside it.
+                Customer 360 held the cleanest and most reconciled data in the enterprise, and no way of looking at it. If a
+                business user wanted to know how sales split across regions, or how many supplier records were still
+                incomplete, the answer came from an analyst, an export, a spreadsheet, or a separate BI licence. The data
+                was in the platform and the insight was outside it.
               </p>
               <p>
-                This project closed that gap. I designed a reporting capability that lives inside the product: a
-                repository of reports, an authoring space for building them out of the data model, charts generated
-                through a plug-in visualisation engine, KPI metrics, scheduling, and a dashboard where all of it comes
-                together. It shipped first as an MVP, and I came back to it in 2024 to rebuild the surface on the design
+                I was the design owner for the reporting capability that closed that gap. It covers three forms of
+                visualisation:
+              </p>
+              <ul className="mt-6 space-y-0">
+                <Bullet>
+                  <strong className="font-medium text-foreground">Report tables.</strong> Aggregated data from the master
+                  records, composed from the data model.
+                </Bullet>
+                <Bullet>
+                  <strong className="font-medium text-foreground">Chart visualisations.</strong> Charts generated from a
+                  saved report through a plug-in visualisation engine.
+                </Bullet>
+                <Bullet>
+                  <strong className="font-medium text-foreground">KPI metrics.</strong> Single values a business tracks,
+                  placed on dashboards alongside tables and charts.
+                </Bullet>
+              </ul>
+              <p>
+                Around those sit a report repository, an authoring space, scheduling with automated digests, and dashboards.
+                It shipped as a first generation tool, and I returned to it in 2024 to rebuild the surface on the design
                 system the rest of the platform had moved to.
               </p>
-              <Quote>
-                The platform already knew the answer. The work was making it possible to ask the question without
-                leaving.
-              </Quote>
               <Shot
                 src={assetUrl(formsShot)}
                 alt="Forms of visualisation explored for the reporting capability: charts, KPI metrics and dashboards"
-                caption="The forms the capability had to cover — aggregated tables, chart visualisations, single-number KPIs, and dashboards that combine them."
+                caption="The forms of visualisation the capability had to cover: aggregated report tables, chart visualisations, KPI metrics, and dashboards that combine them."
               />
             </CaseSection>
 
-            <CaseSection id="problem" eyebrow="The problem" title="Two people, one tool, completely different needs">
+            <CaseSection id="problem" eyebrow="The problem" title="Two users with very different needs">
               <p>
-                The hard part was never the charts. It was that the person who can define a report and the person who
-                needs to read one are rarely the same person, and building for either alone breaks the other.
+                The charts were never the hard part. The difficulty is that the person who can define a report and the
+                person who needs to read one are usually not the same person.
               </p>
               <div className="mt-8 grid gap-px border-y border-border bg-border sm:grid-cols-2">
                 <Insight
-                  title="Business users can't model data"
-                  body="They know the question — sales by geography, incomplete records by source — but not which entity holds it, which field is the measure, or how a dimension differs from an attribute. Hand them a modelling tool and they stop."
+                  title="Primary user: the business user"
+                  body="They know the question they want answered, such as sales by geography or incomplete records by source. They do not know which entity holds it, which field is a measure, or how a dimension differs from an attribute. Give them a modelling tool and they stop."
                 />
                 <Insight
-                  title="Technical users aren't the audience"
-                  body="Data stewards and technical users understand the model, but they are not the ones consuming the report every morning. Designing only for them turns reporting into a ticket queue."
+                  title="Secondary user: the technical user"
+                  body="Data stewards and technical users understand the data model, but they are not the ones reading the report every morning. Designing only for them turns reporting into a ticket queue."
                 />
                 <Insight
-                  title="Insight lived outside the platform"
-                  body="Exports into external BI tools meant the numbers drifted from the mastered record, and the governance work done inside Customer 360 stopped at the boundary."
+                  title="Insight sat outside the platform"
+                  body="Exporting into external BI tools meant the numbers drifted away from the mastered record, and the governance work done inside Customer 360 stopped at the export."
                 />
                 <Insight
-                  title="No shared surface to act on"
-                  body="Even when a report existed, there was nowhere to keep it in view, share it, or have it arrive on a schedule. Insight that has to be re-fetched is insight nobody uses."
+                  title="Nowhere to keep a report"
+                  body="Even when a report existed, there was no surface to keep it in view, share it, or have it arrive on a schedule."
                 />
               </div>
               <p>
-                So the architecture had to be split rather than simplified: technical users define the dataset
-                boundaries and assign what counts as a dimension and what counts as a measure; business users then
-                compose, view and schedule reports inside that boundary without ever touching the model.
+                So the architecture is split rather than simplified. The technical user defines the dataset boundary and
+                assigns which fields are dimensions and which are measures. The business user composes, views and schedules
+                reports inside that boundary, without touching the model.
               </p>
             </CaseSection>
 
-            <CaseSection id="benchmark" eyebrow="Benchmark and principles" title="Borrowing from Tableau, but not its scope">
+            <CaseSection id="benchmark" eyebrow="Benchmark and principles" title="Benchmarking Tableau and Salesforce Lightning">
               <p>
-                I benchmarked against the two tools our users were already living in — Tableau, as the pure
-                visualisation reference, and the Salesforce Lightning Report Builder, as the reference for reporting
-                embedded inside a business application. They pull in opposite directions, and that contrast set the
-                principles.
+                I benchmarked against the two tools our users already worked in: Tableau, for pure visualisation, and the
+                Salesforce Lightning report builder, for reporting embedded inside a business application.
               </p>
               <div className="mt-8 grid gap-px border-y border-border bg-border sm:grid-cols-2">
                 <Insight
-                  title="Tableau — expressive, expensive to learn"
-                  body="Drag-and-drop composition over a prepared dataset, with a deep vocabulary of marks and shelves. Powerful, but it assumes the user has been trained and that data preparation happened elsewhere."
+                  title="Tableau"
+                  body="Drag and drop composition over a dataset that has been prepared elsewhere, with a deep vocabulary of marks and shelves. Expressive, but it assumes the user has been trained on it."
                 />
                 <Insight
-                  title="Lightning Report Builder — contextual, constrained"
-                  body="Reporting attached to the objects the user already works with, built on a wizard and a preview. Less expressive, but a business user can finish a report on their own."
+                  title="Salesforce Lightning report builder"
+                  body="Reporting attached to the objects the user already works with, built around a wizard and a preview. Less expressive, and a business user can finish a report without help."
                 />
               </div>
-              <p>The principles I took out of that comparison and held to throughout:</p>
+              <p>
+                The examples that made the difference concrete were simple ones. A business user asking for a population
+                count across states is asking for a dimension, the state, and a measure, the count. They do not think of it
+                in those terms, and they should not have to. Tableau expects them to; Lightning does not.
+              </p>
+              <p>The principles I held to for the rest of the project:</p>
               <ul className="mt-6 space-y-0">
                 <Bullet>
-                  Composition happens inside a boundary someone else set. Freedom within a governed dataset, not freedom
-                  over the model.
+                  The business user composes inside a dataset boundary that a technical user has already defined.
                 </Bullet>
                 <Bullet>
-                  Preview constantly, at a sample. A report you cannot see forming is a report you build twice.
+                  Dimensions and measures are assigned by the technical user, so the business user picks from a correct set
+                  rather than working out which field means what.
                 </Bullet>
                 <Bullet>
-                  Visualisation is a plug-in concern, not a product concern. Charting is a solved problem; the
-                  integration and the surrounding workflow are not.
+                  Preview against a sample throughout authoring, so the report is visible while it is being built.
                 </Bullet>
                 <Bullet>
-                  Reading is the common case. The consumption experience gets the same design attention as authoring,
-                  not the leftovers.
+                  Visualisation comes from a plug-in engine. Charting is a solved problem, and the integration and the
+                  workflow around it are not.
+                </Bullet>
+                <Bullet>
+                  Reading a report is the common case, so consumption gets the same design attention as authoring.
                 </Bullet>
               </ul>
             </CaseSection>
 
-            <CaseSection id="framework" eyebrow="Interaction framework" title="Mapping who can do what, before drawing anything">
+            <CaseSection id="framework" eyebrow="Interaction framework" title="The user journey and interaction framework">
               <p>
-                Before any screens, I mapped the journey as a matrix: the four stages a report passes through —
-                repository, authoring, scheduling, dashboard — against the two permission states a user arrives with,
-                view only and view and edit. It is a dull artefact and it saved the project a great deal of argument,
-                because it made visible which surfaces needed two versions and which needed one.
+                Before drawing any screens, I mapped the journey as a matrix. Along one axis, the four stages a report
+                passes through: repository, authoring space, scheduling, dashboards. Along the other, the two permission
+                states a user arrives with: view only, and view and edit. It saved the project a lot of argument, because
+                it showed which surfaces needed two versions and which needed one.
               </p>
               <Shot
                 src={assetUrl(journeyShot)}
                 alt="The user journey and interaction matrix across repository, authoring, scheduling and dashboard stages"
-                caption="The journey and permission matrix. Every stage was specified for both a view-only user and a user who can edit, so the same screen degrades predictably rather than hiding itself."
+                caption="The journey and permission matrix. Every stage was specified for a view-only user as well as a user who can edit, so a restricted screen behaves predictably instead of disappearing."
               />
               <p>
-                This is also where the dual-persona split became concrete. Technical users appear at one end, defining
-                datasets and declaring dimensions and measures. Business users occupy the rest of the journey, and never
-                need to know that the first end exists.
+                This is also where the split between the two users became concrete. The technical user sits at the start of
+                the journey, defining datasets and declaring dimensions and measures. The business user occupies the rest
+                of it, and does not need to know that the first stage exists.
               </p>
             </CaseSection>
 
-            <CaseSection id="consume" eyebrow="Consuming a report" title="The repository, and reading without leaving it">
+            <CaseSection id="consume" eyebrow="Consuming a report" title="The repository and reading a report">
               <p>
-                The repository is the front door, and it is the surface most users only ever see. It lists every report
-                in the tenant with its type, owner, data source and freshness — including a clear state for reports that
-                have never been run, because a stale number is worse than an absent one.
+                The repository is the front door, and for most business users it is the only surface they use. It lists
+                every report in the tenant with its type, owner, data source and when it was last updated, including a
+                clear state for reports that have never been run.
               </p>
               <Shot
                 src={assetUrl(repoListShot)}
                 alt="The reports repository in list mode, with filtering, search, pagination and a report type selector"
-                caption="List mode: filter by report type, search, sort by last updated, and see at a glance which reports have never run."
+                caption="List mode: filter by report type, search, sort by last updated, and see which reports have never been run."
               />
               <p>
-                The repository has a second mode. Rather than forcing a user to open a report, lose the list, and come
-                back, a split pane lets them keep the list on the left and inspect a report on the right — its
-                aggregate, its details, its schedule.
+                The repository also has a preview mode. Instead of opening a report, losing the list and going back, the
+                user keeps the list on the left and inspects a report on the right: its aggregate, its details and its
+                schedule.
               </p>
               <Shot
                 src={assetUrl(repoPreviewShot)}
                 alt="The reports repository in split-pane preview mode with a report summary open alongside the list"
-                caption="Preview mode: the list stays put while a report is inspected beside it. Scanning ten reports stops being ten round trips."
+                caption="Preview mode: the list stays in place while a report is inspected beside it, so scanning ten reports is not ten round trips."
               />
               <p>
-                Opening a report fully gives the aggregated table alongside everything a user needs to trust and reuse
-                it: its schedule, its definition, its author, the charts derived from it, and the dashboard pages it
-                appears on. That last part matters more than it looks — it is how a report stops being an orphan file
-                and becomes part of a connected reporting layer.
+                Opening a report fully gives the aggregated table along with what a user needs in order to trust it and
+                reuse it: the schedule, the report definition, the author, the charts derived from it, and the dashboard
+                pages it appears on. The last of those is what connects a report to the rest of the reporting layer
+                instead of leaving it as a standalone file.
               </p>
               <Shot
                 src={assetUrl(viewReportShot)}
                 alt="A report open in view mode with aggregated data, schedule, report details, related charts and pages"
-                caption="Viewing a report: the aggregate on the left, and on the right the provenance — schedule, definition, related charts, and the pages it feeds."
+                caption="Viewing a report: the aggregate on the left, and the schedule, definition, related charts and pages it feeds on the right."
               />
               <p>
                 Charts are generated from a saved report rather than authored separately, using a third-party
-                visualisation plug-in. Deliberately so: the value we could add was in the data boundary and the
-                workflow, not in re-implementing a charting library.
+                visualisation plug-in. Charting is a solved problem, so we spent our effort on the data boundary and the
+                workflow around it.
               </p>
               <Shot
                 src={assetUrl(createChartShot)}
                 alt="Creating a chart from an existing report, with the chart panel open beside the report table"
-                caption="Chart creation opens as a panel beside the report it is derived from, so the underlying numbers stay in view while the visualisation is configured."
+                caption="Chart creation opens beside the report it is derived from, so the underlying numbers stay in view while the visualisation is set up."
               />
             </CaseSection>
 
-            <CaseSection id="author" eyebrow="Authoring a report" title="A wizard to start, a canvas to finish">
+            <CaseSection id="author" eyebrow="Authoring a report" title="Authoring a report">
               <p>
-                Authoring belongs to the technical user, and I split it deliberately into two moments. A short wizard
-                establishes identity and scope — what this report is called, whether it spans one business entity or
-                several, and which data source it draws from. Those are decisions that are painful to change later, so
-                they are made once, up front, in a modal.
+                Authoring belongs to the technical user, and I split it into two moments. A short wizard establishes the
+                identity and scope of the report: its name, whether it covers one business entity or several, and the data
+                source it draws from. These are decisions that are expensive to change later, so they are made once, up
+                front.
               </p>
               <Shot
                 src={assetUrl(wizardShot)}
                 alt="The two-step report creation wizard: choosing the report asset type, then naming it and setting its scope and data source"
-                caption="Initiating a report: choose the asset type, then set name, scope and data source. Two steps, and nothing else asked."
+                caption="Initiating a report: choose the asset type, then set the name, scope and data source. Two steps, nothing else asked."
               />
               <p>
-                Everything after that happens on a canvas. The outline panel on the left is where dimensions, measures
-                and filters are selected; the report table on the right fills in as they are. The toolbar starts
-                disabled and activates as the report becomes real — undo, create chart, save, preview appear when there
-                is something to undo, chart, save or preview.
+                Everything after that happens on the authoring canvas. The outline panel on the left is where dimensions,
+                measures and filters are selected, and the report table on the right fills in as they are added. The
+                toolbar starts disabled and enables each action as it becomes possible: undo, create chart, save and
+                preview.
               </p>
               <Shot
                 src={assetUrl(authoringShot)}
                 alt="The report authoring space with an outline panel for dimensions, measures and filters beside an empty report table"
-                caption="The authoring space at the start: outline on the left, canvas on the right, and a toolbar that only offers actions once they are possible."
+                caption="The authoring space at the start: outline on the left, canvas on the right, and a toolbar that only offers an action once there is something to act on."
               />
               <p>
-                The preview is capped at a sample of one hundred aggregated records, and says so. On master data
-                volumes, an honest sample that returns immediately is more useful than a complete result that takes a
-                minute — and it keeps the author iterating rather than waiting.
+                The preview runs against a sample of one hundred aggregated records, and the interface says so. At master
+                data volumes a sample that returns immediately keeps the author iterating, where a complete result would
+                have them waiting.
               </p>
               <Shot
                 src={assetUrl(outlineShot)}
                 alt="Selecting dimensions from the outline panel, and the resulting aggregated report preview"
-                caption="Dimensions and measures are picked from the entity tree; the table on the right updates against a hundred-record sample as they are added."
+                caption="Dimensions and measures are picked from the entity tree, and the table on the right updates against the sample as they are added."
               />
               <p>
-                Each selected attribute carries its own properties. A measure declares its aggregation — sum, count,
-                distinct count, average. Filters adapt to the type of the field they are placed on: a date range gets a
-                pair of pickers, a text field gets a searchable list, a numeric field gets a min and a max, an
-                enumeration gets its options. The author never has to write a condition, and the report cannot express
-                something the data model does not support.
+                Each selected attribute carries its own properties. A measure declares its aggregation: sum, count,
+                distinct count or average. Filters take their control from the type of field they are placed on. A date
+                range gets a pair of date pickers, a text field gets a searchable list, a numeric field gets a minimum and
+                a maximum, and an enumeration gets its own options. The author does not write conditions, and the report
+                cannot express something the data model does not support.
               </p>
               <Shot
                 src={assetUrl(propertiesShot)}
                 alt="Outline properties: aggregation options on a measure, and filter controls that vary by field type"
-                caption="Properties per attribute: aggregation on measures, and filters that take their control from the field's own type rather than from a generic condition builder."
+                caption="Properties per attribute: aggregation on measures, and filters that follow the field's own type instead of a generic condition builder."
               />
               <p>
-                Scheduling closes the loop. A saved report can be run on a cadence and delivered as a digest, which is
-                what turns reporting from something a user visits into something that arrives.
+                Scheduling closes the loop. A saved report can be run on a cadence and delivered as an automated digest, so
+                the report arrives instead of having to be visited.
               </p>
             </CaseSection>
 
-            <CaseSection id="modernisation" eyebrow="The 2024 rebuild" title="Returning to it on the modern design system">
+            <CaseSection id="modernisation" eyebrow="The 2024 rebuild" title="Rebuilding on the current design system">
               <p>
-                By 2024 the MVP was doing real work and looking its age. The rest of Customer 360 had moved onto the
-                modern design system, and reporting had not. I took the surface back through a rebuild — the same
-                capability, re-expressed.
+                By 2024 the capability was doing real work and showing its age. The rest of Customer 360 had moved onto the
+                current design system and reporting had not, so I took the surface through a rebuild. The capability stayed
+                the same. Four things changed.
               </p>
               <Shot
                 src={assetUrl(timelineShot)}
                 alt="The design timeline of the reporting capability from the first generation through the 2024 modernisation"
-                caption="The arc of the work, from the first generation of authoring and consumption through to the 2024 rebuild."
+                caption="The design timeline, from the first generation of authoring and consumption through to the 2024 rebuild."
               />
               <div className="mt-8 divide-y divide-border border-y border-border">
                 <Step
                   when="Layout"
                   title="A balanced page with a clear action hierarchy"
-                  body="The MVP put every control in one toolbar. The rebuild separates page-level actions from the actions that belong to the thing you are looking at, so a user can tell what a button will affect before pressing it."
+                  body="The first version put every control in one toolbar. The rebuild separates page-level actions from the actions that belong to the thing the user is looking at, so it is clear what a button will affect before pressing it."
                 />
                 <Step
                   when="Action bars"
                   title="Scoped to the feature they act on"
-                  body="Each region carries its own bar. Report-level actions sit with the report, list actions sit with the list, and the header stops accumulating everything."
+                  body="Each region carries its own bar. Report actions sit with the report and list actions sit with the list, so the page header stops collecting everything."
                 />
                 <Step
                   when="Components"
-                  title="On the platform's shared components"
-                  body="Tables, filters, panels and empty states came from the shared library rather than being local to reporting. The capability inherits platform improvements now instead of drifting away from them."
+                  title="Shared platform components"
+                  body="Tables, filters, panels and empty states now come from the shared library instead of being local to reporting, so the capability inherits platform improvements."
                 />
                 <Step
                   when="Density"
-                  title="Spacing and density tokens tuned for data"
-                  body="The generic component spacing did not survive enterprise row counts. Working with the design systems team on density tokens is what let a modern surface still show the number of records a steward actually needs on screen."
+                  title="Spacing and density tuned for data"
+                  body="The generic component spacing did not hold up against enterprise row counts. Working with the design systems team on density is what let a modern surface still show the number of records a user needs on screen."
                 />
               </div>
               <p>
-                That last point was not confined to this project. The density work here fed directly into the broader
-                component overhaul I led as design system SME across the Customer 360 record experience — the same
-                problem, that a system designed for marketing-scale content buckles under master data volumes, showing
-                up in two places at once.
+                The density problem was not limited to this project. The same gap showed up in the Customer 360 record
+                experience, and the work here fed into the component overhaul I led as design system subject matter expert.
               </p>
               <Shot
                 src={assetUrl(chart2024Shot)}
@@ -357,22 +372,28 @@ export function DataVisualizationCaseStudy({
               />
             </CaseSection>
 
-            <CaseSection id="reflection" eyebrow="What it set up" title="The first argument for working inside the platform">
+            <CaseSection id="reflection" eyebrow="Reflection" title="What I took from this project">
               <p>
-                This was the earliest piece of the Customer 360 work where the question was not how to steward a record
-                but what to do with the data once it was clean. It established a few things the later projects leaned
-                on: that a governed dataset boundary is a better foundation than open-ended freedom, that preview at a
-                sample beats completeness while a user is still composing, and that dual-persona products should split
-                by permission rather than by product.
+                This was the first piece of Customer 360 work where the question was not how to steward a record, but what
+                to do with the data once it was clean. A few things from it carried into later projects:
               </p>
-              <p>
-                It also gave me the first real evidence that the platform's component system could not carry enterprise
-                data density, which is a thread I picked up properly a few years later with the design systems team.
-              </p>
-              <Quote>
-                Reporting was where the product stopped being a place data goes and started being a place decisions get
-                made.
-              </Quote>
+              <ul className="mt-6 space-y-0">
+                <Bullet>
+                  A governed dataset boundary works better than open-ended freedom. The technical user defines the
+                  boundary, and the business user composes inside it.
+                </Bullet>
+                <Bullet>
+                  Previewing against a sample keeps an author moving. A complete result they have to wait for does not.
+                </Bullet>
+                <Bullet>
+                  In a product with two very different users, the split is best handled through permissions rather than
+                  through two separate products.
+                </Bullet>
+                <Bullet>
+                  This is also where I first saw that our component system could not carry enterprise data density, which
+                  I picked up properly a few years later with the design systems team.
+                </Bullet>
+              </ul>
             </CaseSection>
           </div>
         </div>
@@ -452,13 +473,6 @@ function CaseSection({
   );
 }
 
-function Quote({ children }: { children: React.ReactNode }) {
-  return (
-    <blockquote className="my-10 border-l-2 border-foreground pl-7 font-serif text-2xl leading-snug text-foreground sm:text-3xl">
-      “{children}”
-    </blockquote>
-  );
-}
 
 function Insight({ title, body }: { title: string; body: string }) {
   return (

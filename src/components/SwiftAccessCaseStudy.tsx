@@ -62,9 +62,9 @@ export function SwiftAccessCaseStudy({
             SwiftAccess
           </h1>
           <p className="mt-8 max-w-3xl text-lg leading-relaxed text-muted-foreground sm:text-2xl">
-            A personalised landing page, assembled by asking three questions instead of shipping a settings screen. It
-            gives enterprise users direct access to the assets and activities they actually work on, without touching the
-            navigation of a single product.
+            A personalised access page for the Informatica Intelligent Data Management Cloud. It gives enterprise users
+            direct access to the assets and activities they work on, and lets them prioritise what they need to monitor,
+            without changing the navigation of any product.
           </p>
           <dl className="mt-14 grid gap-6 border-y border-border py-7 sm:grid-cols-2 lg:grid-cols-4">
             <Fact label="Role" value="Product Designer" />
@@ -107,41 +107,35 @@ export function SwiftAccessCaseStudy({
               <CaseStudyJumpBar sections={SECTIONS} active={active} onSelect={goTo} />
             </div>
 
-            <CaseSection id="overview" eyebrow="Overview" title="A powerful platform that knows nothing about you">
+            <CaseSection id="overview" eyebrow="Overview" title="Personalisation for the Informatica data management cloud">
               <p>
-                The data management cloud is broad and genuinely capable. It is also, for a new user, an undifferentiated
-                surface: every user of every product sees the same landing experience regardless of role, tenure or what
-                they were in the middle of yesterday. That absence of personalisation was quietly eroding both the user
-                experience and the perceived effectiveness of the products themselves.
+                The Intelligent Data Management Cloud is a broad and capable platform, but it has no personalisation for
+                the users working in it. Every user of every product lands on the same experience, whatever their role,
+                their tenure, or what they were working on the day before.
               </p>
               <p>
-                SwiftAccess is my proposal for fixing that without a re-architecture. It is a per-user page, generated
-                through a short conversation, that surfaces the specific assets, applications and activities a person
-                works with, and lets them pin more from anywhere in the suite.
+                SwiftAccess is a per-user page, generated through a short conversation, that surfaces the specific assets,
+                applications and activities a person works with, and lets them pin more from anywhere in the suite.
               </p>
-              <Quote>
-                Personalisation usually arrives as a settings page nobody opens. The interesting question was whether it
-                could arrive as a conversation instead.
-              </Quote>
             </CaseSection>
 
-            <CaseSection id="problem" eyebrow="The problem" title="Four failures, all pointing the same way">
+            <CaseSection id="problem" eyebrow="The problem" title="The problem space">
               <div className="mt-8 grid gap-px border-y border-border bg-border sm:grid-cols-2">
                 <Insight
-                  title="No way to prioritise"
-                  body="There is no mechanism in the platform for a user to mark what matters. Everything is equally available, which means nothing is prioritised."
+                  title="No mechanism to prioritise tasks"
+                  body="There is no way for a user to mark what matters to them. Everything is equally available, so nothing is prioritised."
                 />
                 <Insight
-                  title="Navigation is a struggle"
+                  title="Navigating to assets and activities is a struggle"
                   body="Reaching a specific asset or activity means remembering where it lives across a suite of products, then walking the tree to get there."
                 />
                 <Insight
-                  title="A steep learning curve"
-                  body="The products are deep. Depth without an on-ramp reads as difficulty, and the first week sets a user's opinion of the whole suite."
+                  title="Steep learning curve"
+                  body="The products are deep, and new users have a lot to learn before the platform starts working for them."
                 />
                 <Insight
-                  title="Users are left to work it out"
-                  body="There is little in-product help at the moment of need, so users are expected to figure the application out for themselves."
+                  title="Users are expected to figure it out"
+                  body="There is little help available at the moment of need, so users are left to work the application out with very little support."
                 />
               </div>
               <Shot
@@ -151,22 +145,22 @@ export function SwiftAccessCaseStudy({
               />
             </CaseSection>
 
-            <CaseSection id="solution" eyebrow="The proposition" title="Targeted access without touching navigation">
+            <CaseSection id="solution" eyebrow="The solution" title="A personalised access page">
               <p>
-                The proposal is a personalised access page through which users reach their own assets and artefacts and
-                prioritise the actions in front of them. The constraint I set myself was that it must not require changes
-                to the navigation of any existing application, because a proposal that demands every product team
-                re-architect will never ship.
+                SwiftAccess is a personalised access page through which users reach their own assets and artefacts and
+                prioritise the actions in front of them. The constraint I set was that it must not require changes to the
+                navigation of any existing application, because a proposal that asks every product team to re-architect
+                will not get adopted.
               </p>
-              <p>Adopted across the suite, it does three things:</p>
+              <p>Adopted across the suite, SwiftAccess would:</p>
               <ul className="mt-6 space-y-0">
                 <Bullet>
-                  Offers one consistent experience across products, which is what actually flattens the learning curve.
+                  Offer a consistent user experience across the products, minimising the learning curve.
                 </Bullet>
                 <Bullet>
-                  Gives targeted access to assets without altering the navigation of the applications themselves.
+                  Give targeted access to assets without changing the navigation of the applications.
                 </Bullet>
-                <Bullet>Lets users keep the tasks they monitor frequently in permanent view.</Bullet>
+                <Bullet>Let users prioritise the tasks they need to monitor frequently.</Bullet>
               </ul>
               <Shot
                 src={assetUrl(gridShot)}
@@ -175,123 +169,113 @@ export function SwiftAccessCaseStudy({
               />
             </CaseSection>
 
-            <CaseSection id="ai" eyebrow="Role of generative AI" title="Three questions instead of a configuration screen">
+            <CaseSection id="ai" eyebrow="How SwiftAccess works" title="Role of generative AI">
               <p>
-                This is the part of the design I am most attached to. Rather than shipping a preferences panel and hoping
-                for adoption, the page is generated from a short conversation the first time a user arrives.
+                Instead of a preferences panel, the page is generated from a short conversation the first time a user
+                arrives.
               </p>
               <div className="mt-8 divide-y divide-border border-y border-border">
                 <Step
-                  when="Question one to three"
-                  title="Ask about assets, applications and activities"
-                  body="Three questions establish what this person works with and what they need to keep an eye on. Each answer immediately pins the corresponding widgets to the page, so the user watches their own page being built."
+                  when="Three questions"
+                  title="Assets, applications and activities"
+                  body="Three conversational questions establish which assets this person works with, which applications they use, and which activities they need to keep monitoring. Each answer pins the corresponding widgets to the page as it is given."
                 />
                 <Step
-                  when="One more"
-                  title="Offer resources, honestly framed"
-                  body="A final question asks whether they want learning material and information about other products in the suite. Framing it as an opt-in question keeps promotional content from feeling like an ambush."
+                  when="Opt-in"
+                  title="Resources and promotional content"
+                  body="A further question asks whether the user wants learning material and information about other products in the suite. It is an opt-in, so promotional content is never placed on the page without being asked for."
                 />
                 <Step
-                  when="Result"
-                  title="A page that logically fills itself"
-                  body="The pinned widgets arrange themselves across the grid without leaving empty pockets, so the outcome of a three-question conversation still looks composed rather than assembled."
+                  when="Placement"
+                  title="Dynamic layout on the grid"
+                  body="The pinned widgets are placed dynamically across the four by four grid so there are no empty pockets, whatever combination of answers the user gives."
                 />
               </div>
-              <Quote>
-                Every answer pins a widget. The user is not configuring a page, they are watching one appear.
-              </Quote>
             </CaseSection>
 
-            <CaseSection id="widgets" eyebrow="The widget system" title="Tokenised widgets, so the cost stays on the platform">
+            <CaseSection id="widgets" eyebrow="The widget system" title="Role of product development">
               <p>
-                For this to be adoptable, product teams could not be asked to design bespoke surfaces. Instead each asset,
-                application or activity is tokenised into one of a small set of widget variants. Generative AI handles the
-                composition, so a product team's entire obligation is to tokenise its widgets. That is what makes the
-                development effort tractable across a suite this size.
+                For this to be adoptable, product teams could not be asked to design and build custom front ends. Each
+                asset, application or activity is tokenised into one of a small set of widget variations, and the
+                composition is handled by the platform. A product team's job is to tokenise its assets, which is what
+                keeps the development effort realistic across a suite this size.
               </p>
               <div className="mt-10 grid gap-8 sm:grid-cols-2">
                 <Shot
                   src={assetUrl(widget1x1)}
                   alt="The one-by-one widget variant"
-                  caption="1 × 1 — a single compact unit, for direct access with minimal supporting detail."
+                  caption="1 × 1: a single compact unit, for direct access with minimal supporting detail."
                 />
                 <Shot
                   src={assetUrl(widget1x2a)}
                   alt="The first one-by-two widget variant"
-                  caption="1 × 2a — a wider unit for an asset that needs a line of context alongside its name."
+                  caption="1 × 2a: a wider unit for an asset that needs a line of context alongside its name."
                 />
                 <Shot
                   src={assetUrl(widget1x2b)}
                   alt="The second one-by-two widget variant"
-                  caption="1 × 2b — the same footprint arranged differently, for list-shaped rather than summary-shaped content."
+                  caption="1 × 2b: the same footprint arranged for list content instead of a summary."
                 />
                 <Shot
                   src={assetUrl(widget2x2)}
                   alt="The two-by-two widget variant"
-                  caption="2 × 2 — the full block, for monitored activities where a user needs status at a glance rather than a link."
+                  caption="2 × 2: the full block, for monitored activities where a user needs status and not just a link."
                 />
               </div>
             </CaseSection>
 
-            <CaseSection id="craft" eyebrow="Crafting a page" title="The onboarding conversation, end to end">
+            <CaseSection id="craft" eyebrow="Crafting a page" title="Craft a SwiftAccess page using GenAI">
               <p>
-                The full flow of a first-time user crafting their SwiftAccess page. The page is visible throughout and
-                fills in as the conversation proceeds, which is what makes the value obvious before the user has finished
-                answering.
+                The full flow for a first-time user. The page stays visible throughout and fills in as the conversation
+                proceeds, so the user can see what their answers are producing.
               </p>
-              <Shot src={assetUrl(craft01)} alt="Step one of crafting a SwiftAccess page" caption="The conversation opens with the empty page already on screen, so the user can see where their answers are going." />
+              <Shot src={assetUrl(craft01)} alt="Step one of crafting a SwiftAccess page" caption="The conversation opens with the empty page on screen." />
               <Shot src={assetUrl(craft02)} alt="Step two of crafting a SwiftAccess page" caption="The first question establishes which assets this user works with." />
-              <Shot src={assetUrl(craft03)} alt="Step three of crafting a SwiftAccess page" caption="Each answer pins immediately rather than waiting for the end of the flow." />
-              <Shot src={assetUrl(craft04)} alt="Step four of crafting a SwiftAccess page" caption="Applications follow assets, keeping one decision per question." />
-              <Shot src={assetUrl(craft05)} alt="Step five of crafting a SwiftAccess page" caption="The grid reflows as widgets arrive, filling logically instead of leaving gaps." />
-              <Shot src={assetUrl(craft06)} alt="Step six of crafting a SwiftAccess page" caption="Activities are the third question: the things this user needs to keep monitoring." />
+              <Shot src={assetUrl(craft03)} alt="Step three of crafting a SwiftAccess page" caption="Each answer pins its widgets immediately, without waiting for the end of the flow." />
+              <Shot src={assetUrl(craft04)} alt="Step four of crafting a SwiftAccess page" caption="The second question covers applications, keeping one decision per question." />
+              <Shot src={assetUrl(craft05)} alt="Step five of crafting a SwiftAccess page" caption="The grid reflows as widgets arrive, filling logically instead of leaving empty pockets." />
+              <Shot src={assetUrl(craft06)} alt="Step six of crafting a SwiftAccess page" caption="The third question covers activities: the things this user needs to keep monitoring." />
               <Shot src={assetUrl(craft07)} alt="Step seven of crafting a SwiftAccess page" caption="Monitored activities take the larger widget footprint, because status needs more room than a link." />
-              <Shot src={assetUrl(craft08)} alt="Step eight of crafting a SwiftAccess page" caption="The optional resources question, framed as a choice rather than a default." />
+              <Shot src={assetUrl(craft08)} alt="Step eight of crafting a SwiftAccess page" caption="The resources question, asked as an opt-in rather than applied by default." />
               <Shot src={assetUrl(craft09)} alt="Step nine of crafting a SwiftAccess page" caption="The page approaching its final composition." />
-              <Shot src={assetUrl(craft10)} alt="The completed SwiftAccess page" caption="The finished page. Three questions in, the user has a landing surface that belongs to them." />
+              <Shot src={assetUrl(craft10)} alt="The completed SwiftAccess page" caption="The finished page: the user's own assets, applications and monitored activities on the first screen they land on." />
             </CaseSection>
 
-            <CaseSection id="pin" eyebrow="Pinning from anywhere" title="Personalisation has to keep working after day one">
+            <CaseSection id="pin" eyebrow="Pinning from anywhere" title="Pin My Jobs to a SwiftAccess page">
               <p>
-                A page built once and never changed decays fast. So pinning is available from within the products
-                themselves: a user working in a jobs list can pin it to SwiftAccess in place, without navigating away or
-                opening a settings screen. This is the mechanism that keeps the page relevant as someone's
-                responsibilities change.
+                A page built once and never updated stops being useful. Pinning is available from inside the products
+                themselves, so a user working in a jobs list can pin it to SwiftAccess in place, without navigating away
+                or opening a settings screen. This is how the page keeps up as someone's responsibilities change.
               </p>
-              <Shot src={assetUrl(pin01)} alt="Starting to pin a jobs view to SwiftAccess" caption="Pinning starts where the work is, inside the product the user is already using." />
+              <Shot src={assetUrl(pin01)} alt="Starting to pin a jobs view to SwiftAccess" caption="Pinning starts inside the product the user is already working in." />
               <Shot src={assetUrl(pin02)} alt="Choosing what to pin from the jobs view" caption="The user chooses what to pin without leaving their current context." />
-              <Shot src={assetUrl(pin03)} alt="Confirming the pin action" caption="An explicit confirmation, because pinning changes a surface the user will see every day." />
+              <Shot src={assetUrl(pin03)} alt="Confirming the pin action" caption="The pin is confirmed explicitly, because it changes a page the user sees every day." />
               <Shot src={assetUrl(pin04)} alt="The pinned widget appearing on the SwiftAccess page" caption="The new widget takes its place in the grid, sized by what it needs to display." />
-              <Shot src={assetUrl(pin05)} alt="The updated SwiftAccess page including the newly pinned jobs widget" caption="The updated page. Personalisation is now something the user maintains by working, not by configuring." />
+              <Shot src={assetUrl(pin05)} alt="The updated SwiftAccess page including the newly pinned jobs widget" caption="The updated page, maintained through normal work rather than through a configuration screen." />
             </CaseSection>
 
-            <CaseSection id="impact" eyebrow="Business impact" title="Why this was worth building as a platform capability">
+            <CaseSection id="impact" eyebrow="Business impact" title="Business impact">
               <p>
-                The argument for SwiftAccess was never only about experience quality. It was about the commercial
-                consequences of an unpersonalised platform.
+                The case for SwiftAccess was made on four points, and only the first one is about experience quality.
               </p>
               <div className="mt-10 grid gap-px border-y border-border bg-border sm:grid-cols-2">
                 <Insight
                   title="Competitive advantage"
-                  body="Operations that are faster to reach and easier to prioritise translate directly into the performance and experience customers compare vendors on."
+                  body="Faster access to assets and activities, and the ability to prioritise them, improves the performance and the experience that customers compare vendors on."
                 />
                 <Insight
                   title="Reduced development effort"
-                  body="Because widgets are tokenised and composition is generated, adopting the capability costs a product team tokenisation rather than a new surface. Maintenance cost falls with it."
+                  body="Because assets are tokenised into widget variations and the composition is generated, a product team does not build a custom front end to adopt the capability. Development and maintenance effort both drop."
                 />
                 <Insight
                   title="Customer retention"
-                  body="A platform that adapts as the enterprise evolves stays relevant, and monitored activities make anomalies visible early enough to resolve proactively."
+                  body="A platform that adapts as the enterprise changes stays relevant to the people using it, and monitored activities surface problems early enough to act on."
                 />
                 <Insight
-                  title="Cross-sell surface"
-                  body="The opt-in resources widget surfaces other products in the suite in context, creating cross-sell and upsell opportunities and driving consumption."
+                  title="IPU consumption"
+                  body="Informatica Processing Units are how consumption is measured and billed. Surfacing the right assets and the opt-in resources for other products in the suite drives usage across the platform, which drives IPU consumption."
                 />
               </div>
-              <Quote>
-                The flexibility is the point. A configuration that has to be redesigned every time the business changes is
-                not a platform capability.
-              </Quote>
             </CaseSection>
           </div>
         </div>
@@ -371,13 +355,6 @@ function CaseSection({
   );
 }
 
-function Quote({ children }: { children: React.ReactNode }) {
-  return (
-    <blockquote className="my-10 border-l-2 border-foreground pl-7 font-serif text-2xl leading-snug text-foreground sm:text-3xl">
-      “{children}”
-    </blockquote>
-  );
-}
 
 function Insight({ title, body }: { title: string; body: string }) {
   return (
