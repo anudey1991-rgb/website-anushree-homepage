@@ -155,39 +155,44 @@ export function DataVisualizationCaseStudy({
               </p>
             </CaseSection>
 
-            <CaseSection id="benchmark" eyebrow="Benchmark and principles" title="Borrowing from Tableau, but not its scope">
+            <CaseSection id="benchmark" eyebrow="Benchmark and principles" title="Benchmarking Tableau and Salesforce Lightning">
               <p>
-                I benchmarked against the two tools our users were already living in — Tableau, as the pure
-                visualisation reference, and the Salesforce Lightning Report Builder, as the reference for reporting
-                embedded inside a business application. They pull in opposite directions, and that contrast set the
-                principles.
+                I benchmarked against the two tools our users already worked in: Tableau, for pure visualisation, and the
+                Salesforce Lightning report builder, for reporting embedded inside a business application.
               </p>
               <div className="mt-8 grid gap-px border-y border-border bg-border sm:grid-cols-2">
                 <Insight
-                  title="Tableau — expressive, expensive to learn"
-                  body="Drag-and-drop composition over a prepared dataset, with a deep vocabulary of marks and shelves. Powerful, but it assumes the user has been trained and that data preparation happened elsewhere."
+                  title="Tableau"
+                  body="Drag and drop composition over a dataset that has been prepared elsewhere, with a deep vocabulary of marks and shelves. Expressive, but it assumes the user has been trained on it."
                 />
                 <Insight
-                  title="Lightning Report Builder — contextual, constrained"
-                  body="Reporting attached to the objects the user already works with, built on a wizard and a preview. Less expressive, but a business user can finish a report on their own."
+                  title="Salesforce Lightning report builder"
+                  body="Reporting attached to the objects the user already works with, built around a wizard and a preview. Less expressive, and a business user can finish a report without help."
                 />
               </div>
-              <p>The principles I took out of that comparison and held to throughout:</p>
+              <p>
+                The examples that made the difference concrete were simple ones. A business user asking for a population
+                count across states is asking for a dimension, the state, and a measure, the count. They do not think of it
+                in those terms, and they should not have to. Tableau expects them to; Lightning does not.
+              </p>
+              <p>The principles I held to for the rest of the project:</p>
               <ul className="mt-6 space-y-0">
                 <Bullet>
-                  Composition happens inside a boundary someone else set. Freedom within a governed dataset, not freedom
-                  over the model.
+                  The business user composes inside a dataset boundary that a technical user has already defined.
                 </Bullet>
                 <Bullet>
-                  Preview constantly, at a sample. A report you cannot see forming is a report you build twice.
+                  Dimensions and measures are assigned by the technical user, so the business user picks from a correct set
+                  rather than working out which field means what.
                 </Bullet>
                 <Bullet>
-                  Visualisation is a plug-in concern, not a product concern. Charting is a solved problem; the
-                  integration and the surrounding workflow are not.
+                  Preview against a sample throughout authoring, so the report is visible while it is being built.
                 </Bullet>
                 <Bullet>
-                  Reading is the common case. The consumption experience gets the same design attention as authoring,
-                  not the leftovers.
+                  Visualisation comes from a plug-in engine. Charting is a solved problem, and the integration and the
+                  workflow around it are not.
+                </Bullet>
+                <Bullet>
+                  Reading a report is the common case, so consumption gets the same design attention as authoring.
                 </Bullet>
               </ul>
             </CaseSection>
