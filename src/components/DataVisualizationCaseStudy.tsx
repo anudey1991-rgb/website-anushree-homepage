@@ -100,58 +100,70 @@ export function DataVisualizationCaseStudy({
               <CaseStudyJumpBar sections={SECTIONS} active={active} onSelect={goTo} />
             </div>
 
-            <CaseSection id="overview" eyebrow="Overview" title="Master data that nobody could look at">
+            <CaseSection id="overview" eyebrow="Overview" title="A first generation tool in the Informatica portfolio">
               <p>
-                Customer 360 held the enterprise's cleanest, most reconciled data. What it did not hold was any way of
-                seeing it. If a business user wanted to know how sales split across regions, or how many supplier
-                records were still incomplete, the answer came from somebody else — an analyst, an export, a
-                spreadsheet, a separate BI licence. The data was in the platform and the insight was outside it.
+                Customer 360 held the cleanest and most reconciled data in the enterprise, and no way of looking at it. If a
+                business user wanted to know how sales split across regions, or how many supplier records were still
+                incomplete, the answer came from an analyst, an export, a spreadsheet, or a separate BI licence. The data
+                was in the platform and the insight was outside it.
               </p>
               <p>
-                This project closed that gap. I designed a reporting capability that lives inside the product: a
-                repository of reports, an authoring space for building them out of the data model, charts generated
-                through a plug-in visualisation engine, KPI metrics, scheduling, and a dashboard where all of it comes
-                together. It shipped first as an MVP, and I came back to it in 2024 to rebuild the surface on the design
+                I was the design owner for the reporting capability that closed that gap. It covers three forms of
+                visualisation:
+              </p>
+              <ul className="mt-6 space-y-0">
+                <Bullet>
+                  <strong className="font-medium text-foreground">Report tables.</strong> Aggregated data from the master
+                  records, composed from the data model.
+                </Bullet>
+                <Bullet>
+                  <strong className="font-medium text-foreground">Chart visualisations.</strong> Charts generated from a
+                  saved report through a plug-in visualisation engine.
+                </Bullet>
+                <Bullet>
+                  <strong className="font-medium text-foreground">KPI metrics.</strong> Single values a business tracks,
+                  placed on dashboards alongside tables and charts.
+                </Bullet>
+              </ul>
+              <p>
+                Around those sit a report repository, an authoring space, scheduling with automated digests, and dashboards.
+                It shipped as a first generation tool, and I returned to it in 2024 to rebuild the surface on the design
                 system the rest of the platform had moved to.
               </p>
-              <Quote>
-                The platform already knew the answer. The work was making it possible to ask the question without
-                leaving.
-              </Quote>
               <Shot
                 src={assetUrl(formsShot)}
                 alt="Forms of visualisation explored for the reporting capability: charts, KPI metrics and dashboards"
-                caption="The forms the capability had to cover — aggregated tables, chart visualisations, single-number KPIs, and dashboards that combine them."
+                caption="The forms of visualisation the capability had to cover: aggregated report tables, chart visualisations, KPI metrics, and dashboards that combine them."
               />
             </CaseSection>
 
-            <CaseSection id="problem" eyebrow="The problem" title="Two people, one tool, completely different needs">
+            <CaseSection id="problem" eyebrow="The problem" title="Two users with very different needs">
               <p>
-                The hard part was never the charts. It was that the person who can define a report and the person who
-                needs to read one are rarely the same person, and building for either alone breaks the other.
+                The charts were never the hard part. The difficulty is that the person who can define a report and the
+                person who needs to read one are usually not the same person.
               </p>
               <div className="mt-8 grid gap-px border-y border-border bg-border sm:grid-cols-2">
                 <Insight
-                  title="Business users can't model data"
-                  body="They know the question — sales by geography, incomplete records by source — but not which entity holds it, which field is the measure, or how a dimension differs from an attribute. Hand them a modelling tool and they stop."
+                  title="Primary user: the business user"
+                  body="They know the question they want answered, such as sales by geography or incomplete records by source. They do not know which entity holds it, which field is a measure, or how a dimension differs from an attribute. Give them a modelling tool and they stop."
                 />
                 <Insight
-                  title="Technical users aren't the audience"
-                  body="Data stewards and technical users understand the model, but they are not the ones consuming the report every morning. Designing only for them turns reporting into a ticket queue."
+                  title="Secondary user: the technical user"
+                  body="Data stewards and technical users understand the data model, but they are not the ones reading the report every morning. Designing only for them turns reporting into a ticket queue."
                 />
                 <Insight
-                  title="Insight lived outside the platform"
-                  body="Exports into external BI tools meant the numbers drifted from the mastered record, and the governance work done inside Customer 360 stopped at the boundary."
+                  title="Insight sat outside the platform"
+                  body="Exporting into external BI tools meant the numbers drifted away from the mastered record, and the governance work done inside Customer 360 stopped at the export."
                 />
                 <Insight
-                  title="No shared surface to act on"
-                  body="Even when a report existed, there was nowhere to keep it in view, share it, or have it arrive on a schedule. Insight that has to be re-fetched is insight nobody uses."
+                  title="Nowhere to keep a report"
+                  body="Even when a report existed, there was no surface to keep it in view, share it, or have it arrive on a schedule."
                 />
               </div>
               <p>
-                So the architecture had to be split rather than simplified: technical users define the dataset
-                boundaries and assign what counts as a dimension and what counts as a measure; business users then
-                compose, view and schedule reports inside that boundary without ever touching the model.
+                So the architecture is split rather than simplified. The technical user defines the dataset boundary and
+                assigns which fields are dimensions and which are measures. The business user composes, views and schedules
+                reports inside that boundary, without touching the model.
               </p>
             </CaseSection>
 
