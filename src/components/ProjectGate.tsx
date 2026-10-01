@@ -9,7 +9,13 @@ import { unlockProjects } from "@/lib/portfolio-gate.functions";
 import { setLocalUnlock } from "@/lib/gate-local";
 import type { Project } from "@/data/projects";
 
-export function ProjectGate({ project, onUnlocked }: { project: Project; onUnlocked?: () => void }) {
+export function ProjectGate({
+  project,
+  onUnlocked,
+}: {
+  project: Project;
+  onUnlocked?: () => void;
+}) {
   const router = useRouter();
   const unlock = useServerFn(unlockProjects);
   const [error, setError] = useState<string | null>(null);
@@ -52,7 +58,9 @@ export function ProjectGate({ project, onUnlocked }: { project: Project; onUnloc
             <p className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/60 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
               <LockIcon /> Protected by NDA
             </p>
-            <p className="mt-8 text-xs uppercase tracking-[0.22em] text-muted-foreground">{project.category}</p>
+            <p className="mt-8 text-xs uppercase tracking-[0.22em] text-muted-foreground">
+              {project.category}
+            </p>
             <h1 className="mt-5 font-serif text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.03] text-foreground">
               {project.title}
             </h1>
@@ -87,7 +95,10 @@ export function ProjectGate({ project, onUnlocked }: { project: Project; onUnloc
                 One password unlocks every protected case study for 7 days on this device.
               </p>
 
-              <label htmlFor="gate-password" className="mt-8 block text-xs uppercase tracking-[0.18em] text-muted-foreground">
+              <label
+                htmlFor="gate-password"
+                className="mt-8 block text-xs uppercase tracking-[0.18em] text-muted-foreground"
+              >
                 Password
               </label>
               <input

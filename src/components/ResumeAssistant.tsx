@@ -88,99 +88,99 @@ export function ResumeAssistant() {
         />
       )}
       <div className="pointer-events-none fixed inset-x-0 bottom-0 z-50 flex flex-col items-end gap-3 px-4 pb-4 sm:px-6 sm:pb-6">
-      {open && (
-        <div
-          ref={panelRef}
-          role="dialog"
-          aria-label="Resume assistant"
-          className="pointer-events-auto w-full max-w-sm overflow-hidden rounded-2xl border border-border bg-card shadow-[0_30px_80px_-30px_oklch(0.22_0.02_260/0.45)]"
-        >
-          <div className="flex items-start justify-between gap-4 border-b border-border px-5 py-4">
-            <div>
-              <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-                Resume assistant
-              </p>
-              <p className="mt-1 font-serif text-lg text-foreground">Ask about my work</p>
-            </div>
-            <button
-              type="button"
-              onClick={() => setOpen(false)}
-              aria-label="Close resume assistant"
-              className="rounded-full border border-border px-2 py-1 text-xs text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Close
-            </button>
-          </div>
-
-          <div className="max-h-[60vh] overflow-y-auto px-5 py-5">
-            {active ? (
+        {open && (
+          <div
+            ref={panelRef}
+            role="dialog"
+            aria-label="Resume assistant"
+            className="pointer-events-auto w-full max-w-sm overflow-hidden rounded-2xl border border-border bg-card shadow-[0_30px_80px_-30px_oklch(0.22_0.02_260/0.45)]"
+          >
+            <div className="flex items-start justify-between gap-4 border-b border-border px-5 py-4">
               <div>
-                <button
-                  type="button"
-                  onClick={() => setActiveId(null)}
-                  className="text-xs text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  ← All questions
-                </button>
-                <p className="mt-4 text-sm font-medium text-foreground">{active.question}</p>
-                <div className="mt-4 space-y-3">
-                  {active.answer.map((paragraph) => (
-                    <p key={paragraph} className="text-sm leading-relaxed text-muted-foreground">
-                      {paragraph}
-                    </p>
-                  ))}
-                </div>
+                <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+                  Resume assistant
+                </p>
+                <p className="mt-1 font-serif text-lg text-foreground">Ask about my work</p>
               </div>
-            ) : (
-              <ul className="space-y-2">
-                {ENTRIES.map((entry) => (
-                  <li key={entry.id}>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setActiveId(entry.id);
-                        track("assistant_question_viewed", { question_id: entry.id });
-                      }}
-                      className="w-full rounded-lg border border-border px-4 py-3 text-left text-sm leading-snug text-foreground transition-colors hover:bg-secondary"
-                    >
-                      {entry.question}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-
-          <div className="border-t border-border bg-secondary/50 px-5 py-4">
-            <p className="text-xs leading-relaxed text-muted-foreground">
-              Have a different question? Email me at{" "}
-              <a
-                href={`mailto:${EMAIL}?subject=${encodeURIComponent("Question about your work")}`}
-                onClick={() => track("assistant_email_clicked")}
-                className="border-b border-foreground/30 pb-0.5 font-medium text-foreground hover:border-foreground"
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                aria-label="Close resume assistant"
+                className="rounded-full border border-border px-2 py-1 text-xs text-muted-foreground transition-colors hover:text-foreground"
               >
-                {EMAIL}
-              </a>
-              .
-            </p>
-          </div>
-        </div>
-      )}
+                Close
+              </button>
+            </div>
 
-      <button
-        type="button"
-        onClick={() => {
-          setOpen((value) => {
-            if (!value) track("assistant_opened");
-            return !value;
-          });
-        }}
-        aria-expanded={open}
-        className="pointer-events-auto inline-flex h-11 items-center gap-2 rounded-full bg-foreground px-5 text-sm font-medium text-background shadow-lg transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-      >
-        <span aria-hidden>✦</span>
-        {open ? "Hide assistant" : "Ask about my resume"}
-      </button>
+            <div className="max-h-[60vh] overflow-y-auto px-5 py-5">
+              {active ? (
+                <div>
+                  <button
+                    type="button"
+                    onClick={() => setActiveId(null)}
+                    className="text-xs text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    ← All questions
+                  </button>
+                  <p className="mt-4 text-sm font-medium text-foreground">{active.question}</p>
+                  <div className="mt-4 space-y-3">
+                    {active.answer.map((paragraph) => (
+                      <p key={paragraph} className="text-sm leading-relaxed text-muted-foreground">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <ul className="space-y-2">
+                  {ENTRIES.map((entry) => (
+                    <li key={entry.id}>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setActiveId(entry.id);
+                          track("assistant_question_viewed", { question_id: entry.id });
+                        }}
+                        className="w-full rounded-lg border border-border px-4 py-3 text-left text-sm leading-snug text-foreground transition-colors hover:bg-secondary"
+                      >
+                        {entry.question}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+
+            <div className="border-t border-border bg-secondary/50 px-5 py-4">
+              <p className="text-xs leading-relaxed text-muted-foreground">
+                Have a different question? Email me at{" "}
+                <a
+                  href={`mailto:${EMAIL}?subject=${encodeURIComponent("Question about your work")}`}
+                  onClick={() => track("assistant_email_clicked")}
+                  className="border-b border-foreground/30 pb-0.5 font-medium text-foreground hover:border-foreground"
+                >
+                  {EMAIL}
+                </a>
+                .
+              </p>
+            </div>
+          </div>
+        )}
+
+        <button
+          type="button"
+          onClick={() => {
+            setOpen((value) => {
+              if (!value) track("assistant_opened");
+              return !value;
+            });
+          }}
+          aria-expanded={open}
+          className="pointer-events-auto inline-flex h-11 items-center gap-2 rounded-full bg-foreground px-5 text-sm font-medium text-background shadow-lg transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        >
+          <span aria-hidden>✦</span>
+          {open ? "Hide assistant" : "Ask about my resume"}
+        </button>
       </div>
     </>
   );

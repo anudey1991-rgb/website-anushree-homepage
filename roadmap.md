@@ -14,6 +14,7 @@
 - [x] SwiftAccess case study with its own image folder
 
 ## Batch 5 (done)
+
 - [x] Native HD boards for Blockchain, Flight Connectivity, Diagnostic Imaging (MRI), Clove, Connecting the Dots, Autism Friendly Environment (sliced, uploaded, BoardCaseStudy + PROJECT_BOARDS)
 - [x] External Wix links removed for those six
 - [x] Vercel Analytics + track('cv_download'), track('nda_unlock')
@@ -22,6 +23,7 @@
 - [x] Bullet styling pass across all case studies and overview responsibilities
 
 ## Batch 6 (done)
+
 - [x] Microsoft Clarity tag (yqsmu4v4nz) in the root head
 - [x] @vercel/speed-insights installed and <SpeedInsights /> mounted in the root shell
 - [x] Custom 1200x627 LinkedIn/social share card at public/og-image.png (portrait in rounded card, monogram, name, title, focus areas, experience marks, domain)

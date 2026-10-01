@@ -66,7 +66,10 @@ export function ProjectCard({ project }: { project: Project }) {
             <span className="inline-flex min-h-[40px] items-center gap-2 rounded-full border border-foreground/25 bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors duration-200 group-hover:border-foreground group-hover:bg-foreground group-hover:text-background">
               {locked && <LockIcon className="h-3.5 w-3.5" />}
               {locked ? "Unlock case study" : "View case study"}
-              <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-0.5">
+              <span
+                aria-hidden
+                className="transition-transform duration-200 group-hover:translate-x-0.5"
+              >
                 →
               </span>
             </span>
