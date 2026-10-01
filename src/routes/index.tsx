@@ -1,6 +1,7 @@
 import { assetUrl } from "@/lib/asset-url";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { track } from "@vercel/analytics";
 import { CATEGORIES, PROJECTS, type Category, type Project } from "@/data/projects";
 import { ProjectCard } from "@/components/ProjectCard";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -166,6 +167,7 @@ function Hero() {
               download
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => track("cv_download")}
               aria-label="Download the resume of Anushree Dey as a PDF"
               className="inline-flex h-11 items-center gap-2 rounded-full border border-foreground/20 px-6 text-sm font-medium text-foreground transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
@@ -211,8 +213,27 @@ function Portfolio({
   filter: Category;
   setFilter: (c: Category) => void;
 }) {
-  const [showAll, setShowAll] = useState(false);
-  useEffect(() => setShowAll(false), [filter]);
+  // Remember the expanded grid and the scroll position for this browsing
+  // session, so returning from a project page lands the visitor where they were.
+  const [showAll, setShowAll] = useState(() => readExpanded());
+  const firstRender = useRef(true);
+
+  useEffect(() => {
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
+    }
+    setShowAll(false);
+  }, [filter]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      window.sessionStorage.setItem(EXPANDED_KEY, showAll ? "1" : "0");
+    } catch {
+      /* storage unavailable */
+    }
+  }, [showAll]);
   return (
     <section id="portfolio" className="border-t border-border/70">
       <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
