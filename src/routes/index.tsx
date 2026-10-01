@@ -253,13 +253,9 @@ function Portfolio({
   }, [filter]);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    try {
-      window.sessionStorage.setItem(EXPANDED_KEY, showAll ? "1" : "0");
-    } catch {
-      /* storage unavailable */
-    }
+    writeExpanded(showAll);
   }, [showAll]);
+
   return (
     <section id="portfolio" className="border-t border-border/70">
       <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
