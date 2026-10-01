@@ -116,7 +116,8 @@ export function ClusterDetectionCaseStudy({
               <p>
                 I designed an agent that inverts that. It sweeps the dataset, groups records by the root cause they
                 share, notifies the steward once, and opens a correction workspace already scoped to exactly those
-                records. The steward's job moves from finding the problem to deciding what to do about it.
+                records. The agent pre-populates the workspace with the affected record cluster, so the steward spends
+                their time deciding what to do rather than searching attributes.
               </p>
               <p>
                 The capability is delivered over MCP, so it is not tied to one product surface. Slack paired with
@@ -127,10 +128,10 @@ export function ClusterDetectionCaseStudy({
                 <Metric value="2" label="Resolution paths, chosen by the nature of the fix" />
                 <Metric value="0" label="Search steps between detection and correction" />
               </dl>
-              <Quote>
-                No search step. The table already contains only the records that broke, and only for the reason they
-                broke.
-              </Quote>
+              <p className="mt-10">
+                There is no search step. The workspace table is pre-populated with only the records that broke, and
+                only for the reason they broke.
+              </p>
             </CaseSection>
 
             <CaseSection
@@ -139,8 +140,10 @@ export function ClusterDetectionCaseStudy({
               title="Three shifts converging at the same time"
             >
               <p>
-                This is not an assistant bolted onto an existing screen. It exists because how MDM is delivered, how
-                stewards find problems, and what stewardship work should feel like are all changing at once.
+                Rather than adding an in-console assistant, this project decouples detection from the primary UI using
+                an agent over MCP, delivering scoped workspaces directly into Slack or CLAIRE GPT. Three shifts made
+                that the right call: how MDM is delivered, how stewards find problems, and what stewardship work is
+                expected to feel like.
               </p>
               <div className="mt-10 grid gap-8 sm:grid-cols-2">
                 <Principle label="Delivery" title="Headless MDM">
@@ -259,9 +262,9 @@ export function ClusterDetectionCaseStudy({
                   line of production code was written.
                 </Principle>
               </div>
-              <Quote>
-                The access model I proposed in 2025 is, in effect, what the agentic architecture now enables.
-              </Quote>
+              <p className="mt-10">
+                The access model I proposed in 2025 is what the agentic architecture now enables.
+              </p>
               <p>
                 This agent is an extension of{" "}
                 <Link
@@ -453,11 +456,11 @@ export function ClusterDetectionCaseStudy({
                   proposes and prepares; it does not open a second write path.
                 </Principle>
               </div>
-              <Quote>
-                A warning that a medical instrument's licence is expiring means little on its own. Tracing it to the
-                inventory it covers and the customer commitments that depend on it is the inference an analyst used to
-                do by hand.
-              </Quote>
+              <p className="mt-10">
+                A licence expiry warning on a medical instrument is only useful once it is traced to the inventory it
+                covers and the customer commitments that depend on it. The agent performs that trace, which an analyst
+                previously did by hand.
+              </p>
             </CaseSection>
 
             <CaseSection
@@ -657,13 +660,6 @@ function CaseSection({
   );
 }
 
-function Quote({ children }: { children: React.ReactNode }) {
-  return (
-    <blockquote className="my-10 border-l-2 border-foreground pl-7 font-serif text-2xl leading-snug text-foreground sm:text-3xl">
-      “{children}”
-    </blockquote>
-  );
-}
 
 function Insight({ title, body }: { title: string; body: string }) {
   return (
