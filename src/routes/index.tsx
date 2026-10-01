@@ -272,10 +272,9 @@ function Portfolio({
   }, [filter]);
 
   function toggleShowAll() {
-    setShowAll((value) => {
-      writeExpanded(!value);
-      return !value;
-    });
+    const next = !showAll;
+    setShowAll(next);
+    writeExpanded(next);
   }
 
   return (
