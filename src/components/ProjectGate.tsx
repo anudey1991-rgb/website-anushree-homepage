@@ -75,6 +75,8 @@ export function ProjectGate({ project, onUnlocked }: { project: Project; onUnloc
           <div className="lg:col-span-5">
             <form
               onSubmit={onSubmit}
+              method="post"
+              action="javascript:void(0)"
               className="rounded-lg border border-border bg-card p-8 shadow-sm"
               aria-labelledby="gate-heading"
             >
