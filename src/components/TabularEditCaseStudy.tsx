@@ -3,7 +3,12 @@ import { Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { BackToProjects } from "@/components/BackToProjects";
 import { ProjectCard } from "@/components/ProjectCard";
-import { CaseStudyToc, CaseStudyJumpBar, useSectionNav, type TocSection } from "@/components/CaseStudyToc";
+import {
+  CaseStudyToc,
+  CaseStudyJumpBar,
+  useSectionNav,
+  type TocSection,
+} from "@/components/CaseStudyToc";
 import type { Project } from "@/data/projects";
 
 import searchShot from "@/assets/tabular/entry-point-search.png.asset.json";
@@ -56,11 +61,13 @@ export function TabularEditCaseStudy({
             {project.category} · Enterprise workspace
           </p>
           <h1 className="mt-6 max-w-5xl font-serif text-[clamp(2.8rem,7vw,6.5rem)] leading-[0.98] text-foreground">
-            Tabular Edit<br />Workspace
+            Tabular Edit
+            <br />
+            Workspace
           </h1>
           <p className="mt-8 max-w-3xl text-lg leading-relaxed text-muted-foreground sm:text-2xl">
-            A bulk editing workspace for data stewards: inline editing across up to 10,000 records, with drafts,
-            conflict resolution and data quality validation in one surface.
+            A bulk editing workspace for data stewards: inline editing across up to 10,000 records,
+            with drafts, conflict resolution and data quality validation in one surface.
           </p>
           <dl className="mt-14 grid gap-6 border-y border-border py-7 sm:grid-cols-2 lg:grid-cols-4">
             <Fact label="Role" value="UX Owner, Customer 360" />
@@ -106,18 +113,22 @@ export function TabularEditCaseStudy({
               <CaseStudyJumpBar sections={SECTIONS} active={active} onSelect={goTo} />
             </div>
 
-            <CaseSection id="overview" eyebrow="Overview" title="One workspace that became two product-wide features">
+            <CaseSection
+              id="overview"
+              eyebrow="Overview"
+              title="One workspace that became two product-wide features"
+            >
               <p>
-                Informatica MDM BUI had no way to edit multiple records at once with unstructured changes, without
-                leaning on the rule-based editing experience. I designed a persistent table workspace where stewards
-                edit inline across rows, hold work as drafts, resolve conflicts and publish in bulk, at up to 10,000
-                records.
+                Informatica MDM BUI had no way to edit multiple records at once with unstructured
+                changes, without leaning on the rule-based editing experience. I designed a
+                persistent table workspace where stewards edit inline across rows, hold work as
+                drafts, resolve conflicts and publish in bulk, at up to 10,000 records.
               </p>
               <p>
-                Two capabilities that began inside this workspace, Draft Records and Conflict Resolution, have since
-                grown into product-wide features with their own dedicated designers. A structural recommendation I made
-                early and which was parked for cost is now the direction of an agentic editing experience I am
-                designing today.
+                Two capabilities that began inside this workspace, Draft Records and Conflict
+                Resolution, have since grown into product-wide features with their own dedicated
+                designers. A structural recommendation I made early and which was parked for cost is
+                now the direction of an agentic editing experience I am designing today.
               </p>
               <dl className="mt-10 grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-3">
                 <Metric value="10,000" label="Records editable in a single workspace" />
@@ -125,15 +136,20 @@ export function TabularEditCaseStudy({
                 <Metric value="Oct 2026" label="General availability for all customers" />
               </dl>
               <p className="mt-10">
-                Stewards work a dataset rather than a record at a time: reviewing, correcting and submitting in one
-                continuous pass.
+                Stewards work a dataset rather than a record at a time: reviewing, correcting and
+                submitting in one continuous pass.
               </p>
             </CaseSection>
 
-            <CaseSection id="problem" eyebrow="The problem" title="No efficient path to bulk inline editing">
+            <CaseSection
+              id="problem"
+              eyebrow="The problem"
+              title="No efficient path to bulk inline editing"
+            >
               <p>
-                Managing tens of thousands of records without bulk editing created a severe operational bottleneck.
-                Stewards had no way to make unstructured, multi-record adjustments.
+                Managing tens of thousands of records without bulk editing created a severe
+                operational bottleneck. Stewards had no way to make unstructured, multi-record
+                adjustments.
               </p>
               <div className="mt-10 grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
                 <Insight
@@ -165,37 +181,43 @@ export function TabularEditCaseStudy({
 
             <CaseSection id="role" eyebrow="My role" title="End-to-end ownership as sole designer">
               <p>
-                I am the UX Owner of Customer 360 within Informatica MDM BUI. Over six years I have designed the
-                majority of core BUI features: record details, history, related records, bulk edit, my jobs and the
-                surrounding steward workflows.
+                I am the UX Owner of Customer 360 within Informatica MDM BUI. Over six years I have
+                designed the majority of core BUI features: record details, history, related
+                records, bulk edit, my jobs and the surrounding steward workflows.
               </p>
               <p>
-                Tabular Edit is one of the most significant additions to the Customer 360 product line, substantially
-                improving efficiency and ease of use in master data management. I led it end to end, from discovery
-                through delivery, as the sole designer on it. After designing the initial scope of Draft Records and
-                Conflict Resolution inside this workspace, I handed each to a dedicated designer to carry forward as an
+                Tabular Edit is one of the most significant additions to the Customer 360 product
+                line, substantially improving efficiency and ease of use in master data management.
+                I led it end to end, from discovery through delivery, as the sole designer on it.
+                After designing the initial scope of Draft Records and Conflict Resolution inside
+                this workspace, I handed each to a dedicated designer to carry forward as an
                 independent product feature.
               </p>
               <div className="mt-10 grid gap-8 sm:grid-cols-2">
                 <Principle label="Product management" title="Scoping & strategy">
-                  Feature scoping, customer research and roadmap alignment: shared territory on what to build and why.
+                  Feature scoping, customer research and roadmap alignment: shared territory on what
+                  to build and why.
                 </Principle>
                 <Principle label="Engineering" title="Hands-on feedback">
-                  Behaviour design and feasibility, attending every engineering demo and feeding UX feedback directly
-                  into implementation.
+                  Behaviour design and feasibility, attending every engineering demo and feeding UX
+                  feedback directly into implementation.
                 </Principle>
                 <Principle label="UX research" title="Study planning">
-                  Planned the research study, defined its goals and ran sessions alongside the research team with key
-                  customers.
+                  Planned the research study, defined its goals and ran sessions alongside the
+                  research team with key customers.
                 </Principle>
                 <Principle label="Other designers" title="Continuity of intent">
-                  Handed off spun-out features with their design intent intact, while holding ownership of the
-                  workspace itself.
+                  Handed off spun-out features with their design intent intact, while holding
+                  ownership of the workspace itself.
                 </Principle>
               </div>
             </CaseSection>
 
-            <CaseSection id="challenge" eyebrow="The design call" title="A structural call, made early">
+            <CaseSection
+              id="challenge"
+              eyebrow="The design call"
+              title="A structural call, made early"
+            >
               <JourneyStep
                 title="The original proposal: Search as the single route in"
                 body="Stewards would find records by attribute in Search and open them in the table. Bounded, clear and straightforward to scope. Search is already how stewards navigate BUI, so routing tabular access through it felt like continuity rather than constraint."
@@ -214,13 +236,16 @@ export function TabularEditCaseStudy({
               />
               <div className="mt-14 grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-3">
                 <Metric value="2024" label="Proposed, then parked for the investment it required" />
-                <Metric value="2025" label="Customers surfaced the identical gap without prompting" />
+                <Metric
+                  value="2025"
+                  label="Customers surfaced the identical gap without prompting"
+                />
                 <Metric value="2026" label="Agentic direction built on the original access model" />
               </div>
               <p className="mt-10">
-                The initial proposal for a standalone records space was parked in 2024 because of the engineering
-                investment it required. Customer feedback in 2025 and the 2026 agentic roadmap validated that entry
-                model.
+                The initial proposal for a standalone records space was parked in 2024 because of
+                the engineering investment it required. Customer feedback in 2025 and the 2026
+                agentic roadmap validated that entry model.
               </p>
               <p className="mt-6">
                 That agentic direction is now its own project, which I am designing:{" "}
@@ -233,10 +258,13 @@ export function TabularEditCaseStudy({
                 </Link>
                 .
               </p>
-
             </CaseSection>
 
-            <CaseSection id="timeline" eyebrow="Timeline" title="From discovery to general availability">
+            <CaseSection
+              id="timeline"
+              eyebrow="Timeline"
+              title="From discovery to general availability"
+            >
               <div className="mt-8 divide-y divide-border border-y border-border">
                 <TimelineRow
                   when="Early 2024"
@@ -276,10 +304,15 @@ export function TabularEditCaseStudy({
               </div>
             </CaseSection>
 
-            <CaseSection id="walkthrough" eyebrow="Walkthrough" title="Ten capabilities, one workspace">
+            <CaseSection
+              id="walkthrough"
+              eyebrow="Walkthrough"
+              title="Ten capabilities, one workspace"
+            >
               <p>
-                Each capability below answers a specific part of the steward's day. Together they form a single coherent
-                loop: scope the set, edit inline, hold as draft, resolve what conflicts, publish what is valid.
+                Each capability below answers a specific part of the steward's day. Together they
+                form a single coherent loop: scope the set, edit inline, hold as draft, resolve what
+                conflicts, publish what is valid.
               </p>
 
               <Feature
@@ -448,88 +481,145 @@ export function TabularEditCaseStudy({
             <CaseSection id="research" eyebrow="Research" title="Validated with key customers">
               <h3 className="font-serif text-2xl text-foreground">What customers confirmed</h3>
               <ul className="mt-5 space-y-4">
-                <Bullet>The record-by-record workflow was untenable at scale; the need for inline bulk editing was unambiguous.</Bullet>
-                <Bullet>Copy and paste across records was described as a baseline expectation, not a differentiator.</Bullet>
-                <Bullet>Drafts and staged publishing were well received: stewards valued not being forced to publish immediately.</Bullet>
-                <Bullet>Working across 10,000 records in one interface was named as a material efficiency gain.</Bullet>
+                <Bullet>
+                  The record-by-record workflow was untenable at scale; the need for inline bulk
+                  editing was unambiguous.
+                </Bullet>
+                <Bullet>
+                  Copy and paste across records was described as a baseline expectation, not a
+                  differentiator.
+                </Bullet>
+                <Bullet>
+                  Drafts and staged publishing were well received: stewards valued not being forced
+                  to publish immediately.
+                </Bullet>
+                <Bullet>
+                  Working across 10,000 records in one interface was named as a material efficiency
+                  gain.
+                </Bullet>
               </ul>
-              <h3 className="mt-12 font-serif text-2xl text-foreground">What they raised that we had anticipated</h3>
+              <h3 className="mt-12 font-serif text-2xl text-foreground">
+                What they raised that we had anticipated
+              </h3>
               <ul className="mt-5 space-y-4">
-                <Bullet>Entry points from BE Records lists and Hierarchy tables, unprompted, echoing the original structural gap.</Bullet>
-                <Bullet>Record creation inside the workspace, naming the same mismatch of routing creation through Search.</Bullet>
+                <Bullet>
+                  Entry points from BE Records lists and Hierarchy tables, unprompted, echoing the
+                  original structural gap.
+                </Bullet>
+                <Bullet>
+                  Record creation inside the workspace, naming the same mismatch of routing creation
+                  through Search.
+                </Bullet>
               </ul>
-              <h3 className="mt-12 font-serif text-2xl text-foreground">What is still being studied</h3>
+              <h3 className="mt-12 font-serif text-2xl text-foreground">
+                What is still being studied
+              </h3>
               <ul className="mt-5 space-y-4">
-                <Bullet>Flat views of nested field groups: requirements and edge cases remain in active research.</Bullet>
-                <Bullet>Agentic bulk editing: how stewards would work with dynamically assembled record clusters.</Bullet>
+                <Bullet>
+                  Flat views of nested field groups: requirements and edge cases remain in active
+                  research.
+                </Bullet>
+                <Bullet>
+                  Agentic bulk editing: how stewards would work with dynamically assembled record
+                  clusters.
+                </Bullet>
               </ul>
             </CaseSection>
 
-            <CaseSection id="metrics" eyebrow="Scale and measures" title="What the workspace had to hold, and how it is judged">
+            <CaseSection
+              id="metrics"
+              eyebrow="Scale and measures"
+              title="What the workspace had to hold, and how it is judged"
+            >
               <p>
-                The architectural parameters below are the real constraints the interaction model was designed against.
-                The qualitative measures that follow are what the workspace is being assessed on, not yet reported
-                production outcomes.
+                The architectural parameters below are the real constraints the interaction model
+                was designed against. The qualitative measures that follow are what the workspace is
+                being assessed on, not yet reported production outcomes.
               </p>
 
               <dl className="mt-10 grid gap-px border-y border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
-                <Scale value="10,000" unit="records" label="Continuous dataset capacity" note="One workspace holds the full set without pagination breaks or lost dirty state between edits." />
-                <Scale value="10" unit="steps" label="Bounded undo and redo" note="A deterministic safety net sized for high-consequence database work rather than infinite history." />
-                <Scale value="7" unit="months" label="Discovery to general availability" note="January to July 2026, sole designer across the entire interaction model." />
-                <Scale value="2" unit="spin-offs" label="Features graduated to their own track" note="Draft Records and Conflict Resolution were incubated here, then handed to dedicated designers." />
+                <Scale
+                  value="10,000"
+                  unit="records"
+                  label="Continuous dataset capacity"
+                  note="One workspace holds the full set without pagination breaks or lost dirty state between edits."
+                />
+                <Scale
+                  value="10"
+                  unit="steps"
+                  label="Bounded undo and redo"
+                  note="A deterministic safety net sized for high-consequence database work rather than infinite history."
+                />
+                <Scale
+                  value="7"
+                  unit="months"
+                  label="Discovery to general availability"
+                  note="January to July 2026, sole designer across the entire interaction model."
+                />
+                <Scale
+                  value="2"
+                  unit="spin-offs"
+                  label="Features graduated to their own track"
+                  note="Draft Records and Conflict Resolution were incubated here, then handed to dedicated designers."
+                />
               </dl>
 
               <h3 className="mt-14 font-serif text-3xl text-foreground">How success is assessed</h3>
               <div className="mt-8 grid gap-8 sm:grid-cols-2">
                 <Principle label="Efficiency" title="Time and volume">
-                  Average time to complete a bulk edit and publish, records edited per session, and the share of bulk
-                  operations against single-record actions.
+                  Average time to complete a bulk edit and publish, records edited per session, and
+                  the share of bulk operations against single-record actions.
                 </Principle>
                 <Principle label="Data quality" title="Errors and conflicts">
-                  Publish error rate over time, conflict frequency at submit, and draft discard rate as a signal of
-                  editing confidence.
+                  Publish error rate over time, conflict frequency at submit, and draft discard rate
+                  as a signal of editing confidence.
                 </Principle>
                 <Principle label="Adoption" title="Reach and return">
-                  Share of eligible stewards using the workspace, session return frequency, and the distribution of
-                  workspace size per session.
+                  Share of eligible stewards using the workspace, session return frequency, and the
+                  distribution of workspace size per session.
                 </Principle>
                 <Principle label="Satisfaction" title="Completion and support">
-                  Share of sessions ending in a successful publish, CSAT and SUS from research, and support ticket
-                  volume related to bulk editing.
+                  Share of sessions ending in a successful publish, CSAT and SUS from research, and
+                  support ticket volume related to bulk editing.
                 </Principle>
               </div>
             </CaseSection>
 
-            <CaseSection id="principles" eyebrow="Design principles" title="The thinking behind every decision">
+            <CaseSection
+              id="principles"
+              eyebrow="Design principles"
+              title="The thinking behind every decision"
+            >
               <div className="mt-10 grid gap-8 sm:grid-cols-2">
                 <Principle label="Systems thinking" title="Systems design, not screen design">
-                  Save model, validation model, conflict model and field type model each run on separate backend
-                  mechanisms, and all of them must feel coherent to the steward.
+                  Save model, validation model, conflict model and field type model each run on
+                  separate backend mechanisms, and all of them must feel coherent to the steward.
                 </Principle>
                 <Principle label="Unit of work" title="The unit of work is the dataset">
-                  This reframe drove dirty state, bulk scoping and the draft lifecycle. A surface designed around one
-                  record fails the steward managing thousands.
+                  This reframe drove dirty state, bulk scoping and the draft lifecycle. A surface
+                  designed around one record fails the steward managing thousands.
                 </Principle>
                 <Principle label="Constraints" title="Map what cannot be built first">
-                  Grid limits, conflict detection gaps and lifecycle edge cases shape direction early. Ignored
-                  constraints become surprises at build time.
+                  Grid limits, conflict detection gaps and lifecycle edge cases shape direction
+                  early. Ignored constraints become surprises at build time.
                 </Principle>
                 <Principle label="Translation" title="Translate in both directions">
-                  Edits translate back into MDM, and backend outcomes translate forward into visible, actionable states.
-                  The work is closing that loop, not just surfacing it.
+                  Edits translate back into MDM, and backend outcomes translate forward into
+                  visible, actionable states. The work is closing that loop, not just surfacing it.
                 </Principle>
                 <Principle label="Transparency" title="Never block the full picture">
-                  Surface conflicts at the right granularity with a clear action path. Even where the backend cannot
-                  guarantee completeness, the steward sees what is known and what is not.
+                  Surface conflicts at the right granularity with a clear action path. Even where
+                  the backend cannot guarantee completeness, the steward sees what is known and what
+                  is not.
                 </Principle>
                 <Principle label="Flow" title="Reduce decisions, not just clicks">
-                  Auto-persist on click-out instead of an explicit save. One mental model, submit when ready, keeps
-                  stewards in flow through long bulk sessions.
+                  Auto-persist on click-out instead of an explicit save. One mental model, submit
+                  when ready, keeps stewards in flow through long bulk sessions.
                 </Principle>
               </div>
               <p className="mt-10">
-                Working the backend constraints into the design early meant fewer surprises at build time and decisions
-                that held through delivery.
+                Working the backend constraints into the design early meant fewer surprises at build
+                time and decisions that held through delivery.
               </p>
             </CaseSection>
           </div>
@@ -544,7 +634,11 @@ export function TabularEditCaseStudy({
                 </p>
                 <h2 className="mt-4 font-serif text-4xl sm:text-5xl">Continue exploring</h2>
               </div>
-              <Link to="/" hash="portfolio" className="hidden text-sm text-muted-foreground hover:text-foreground sm:block">
+              <Link
+                to="/"
+                hash="portfolio"
+                className="hidden text-sm text-muted-foreground hover:text-foreground sm:block"
+              >
                 View all projects →
               </Link>
             </div>
@@ -561,7 +655,9 @@ export function TabularEditCaseStudy({
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 text-xs sm:flex-row sm:items-center sm:justify-between lg:px-10">
           <p>© {new Date().getFullYear()} Anushree Dey. All rights reserved.</p>
           <div className="flex gap-6">
-            <a href="mailto:anushree.d@hotmail.com" className="hover:text-background">Email</a>
+            <a href="mailto:anushree.d@hotmail.com" className="hover:text-background">
+              Email
+            </a>
             <a
               href="https://www.linkedin.com/in/anushreedey"
               target="_blank"
@@ -598,7 +694,10 @@ function CaseSection({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="scroll-mt-28 border-t border-border py-16 first:border-t-0 first:pt-8 lg:py-24">
+    <section
+      id={id}
+      className="scroll-mt-28 border-t border-border py-16 first:border-t-0 first:pt-8 lg:py-24"
+    >
       <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">{eyebrow}</p>
       <h2 className="mt-4 max-w-3xl font-serif text-4xl leading-[1.08] sm:text-5xl">{title}</h2>
       <div className="mt-8 max-w-3xl space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -607,7 +706,6 @@ function CaseSection({
     </section>
   );
 }
-
 
 function Insight({ title, body }: { title: string; body: string }) {
   return (
@@ -627,7 +725,15 @@ function Metric({ value, label }: { value: string; label: string }) {
   );
 }
 
-function Principle({ label, title, children }: { label: string; title: string; children: React.ReactNode }) {
+function Principle({
+  label,
+  title,
+  children,
+}: {
+  label: string;
+  title: string;
+  children: React.ReactNode;
+}) {
   return (
     <div className="border-t border-border pt-5">
       <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground">{label}</p>
@@ -720,7 +826,9 @@ function Shot({
           className="block h-auto w-full"
         />
       </div>
-      <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">{caption}</figcaption>
+      <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">
+        {caption}
+      </figcaption>
     </figure>
   );
 }
@@ -740,7 +848,9 @@ function Scale({
   return (
     <div className="bg-card p-6">
       <dt className="flex items-baseline gap-2">
-        <span className="font-serif text-[clamp(2.1rem,4vw,2.9rem)] leading-none text-foreground">{value}</span>
+        <span className="font-serif text-[clamp(2.1rem,4vw,2.9rem)] leading-none text-foreground">
+          {value}
+        </span>
         <span className="text-xs uppercase tracking-[0.16em] text-muted-foreground">{unit}</span>
       </dt>
       <dd className="mt-4">

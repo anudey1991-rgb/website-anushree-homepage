@@ -68,7 +68,11 @@ export function SiteHeader({ active, onHome = false }: { active?: string; onHome
               return (
                 <li key={item.id}>
                   {onHome ? (
-                    <a href={`#${item.id}`} className={className} aria-current={isActive ? "true" : undefined}>
+                    <a
+                      href={`#${item.id}`}
+                      className={className}
+                      aria-current={isActive ? "true" : undefined}
+                    >
                       {item.label}
                       {underline}
                     </a>
@@ -102,7 +106,9 @@ export function SiteHeader({ active, onHome = false }: { active?: string; onHome
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           className="inline-flex h-10 min-w-[40px] items-center justify-center gap-1.5 rounded-full border border-border px-3 text-foreground transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 md:hidden"
         >
-          <span aria-hidden className="text-base leading-none">{menuOpen ? "✕" : "☰"}</span>
+          <span aria-hidden className="text-base leading-none">
+            {menuOpen ? "✕" : "☰"}
+          </span>
           <span className="text-xs uppercase tracking-[0.18em]">Menu</span>
         </button>
       </div>

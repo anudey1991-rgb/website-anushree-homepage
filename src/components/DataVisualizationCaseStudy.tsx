@@ -3,7 +3,12 @@ import { Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { BackToProjects } from "@/components/BackToProjects";
 import { ProjectCard } from "@/components/ProjectCard";
-import { CaseStudyToc, CaseStudyJumpBar, useSectionNav, type TocSection } from "@/components/CaseStudyToc";
+import {
+  CaseStudyToc,
+  CaseStudyJumpBar,
+  useSectionNav,
+  type TocSection,
+} from "@/components/CaseStudyToc";
 import type { Project } from "@/data/projects";
 
 import formsShot from "@/assets/data-visualization/01-visualisation-forms.png.asset.json";
@@ -55,9 +60,10 @@ export function DataVisualizationCaseStudy({
             Reports and dashboards
           </h1>
           <p className="mt-8 max-w-3xl text-lg leading-relaxed text-muted-foreground sm:text-2xl">
-            A first generation tool in the Informatica portfolio: report tables, chart visualisations and KPI metrics built
-            on mastered data, with an authoring space for the technical users who know the data model and a consumption
-            workspace for the business users who need the answer.
+            A first generation tool in the Informatica portfolio: report tables, chart
+            visualisations and KPI metrics built on mastered data, with an authoring space for the
+            technical users who know the data model and a consumption workspace for the business
+            users who need the answer.
           </p>
           <dl className="mt-14 grid gap-6 border-y border-border py-7 sm:grid-cols-2 lg:grid-cols-4">
             <Fact label="Role" value="Design Owner" />
@@ -74,7 +80,10 @@ export function DataVisualizationCaseStudy({
               "Dashboard interaction design",
               "Design system evolution",
             ].map((tag) => (
-              <li key={tag} className="rounded-full border border-border px-3.5 py-1.5 text-xs text-muted-foreground">
+              <li
+                key={tag}
+                className="rounded-full border border-border px-3.5 py-1.5 text-xs text-muted-foreground"
+              >
                 {tag}
               </li>
             ))}
@@ -100,35 +109,41 @@ export function DataVisualizationCaseStudy({
               <CaseStudyJumpBar sections={SECTIONS} active={active} onSelect={goTo} />
             </div>
 
-            <CaseSection id="overview" eyebrow="Overview" title="A first generation tool in the Informatica portfolio">
+            <CaseSection
+              id="overview"
+              eyebrow="Overview"
+              title="A first generation tool in the Informatica portfolio"
+            >
               <p>
-                Customer 360 held the cleanest and most reconciled data in the enterprise, and no way of looking at it. If a
-                business user wanted to know how sales split across regions, or how many supplier records were still
-                incomplete, the answer came from an analyst, an export, a spreadsheet, or a separate BI licence. The data
-                was in the platform and the insight was outside it.
+                Customer 360 held the cleanest and most reconciled data in the enterprise, and no
+                way of looking at it. If a business user wanted to know how sales split across
+                regions, or how many supplier records were still incomplete, the answer came from an
+                analyst, an export, a spreadsheet, or a separate BI licence. The data was in the
+                platform and the insight was outside it.
               </p>
               <p>
-                I was the design owner for the reporting capability that closed that gap. It covers three forms of
-                visualisation:
+                I was the design owner for the reporting capability that closed that gap. It covers
+                three forms of visualisation:
               </p>
               <ul className="mt-6 space-y-0">
                 <Bullet>
-                  <strong className="font-medium text-foreground">Report tables.</strong> Aggregated data from the master
-                  records, composed from the data model.
+                  <strong className="font-medium text-foreground">Report tables.</strong> Aggregated
+                  data from the master records, composed from the data model.
                 </Bullet>
                 <Bullet>
-                  <strong className="font-medium text-foreground">Chart visualisations.</strong> Charts generated from a
-                  saved report through a plug-in visualisation engine.
+                  <strong className="font-medium text-foreground">Chart visualisations.</strong>{" "}
+                  Charts generated from a saved report through a plug-in visualisation engine.
                 </Bullet>
                 <Bullet>
-                  <strong className="font-medium text-foreground">KPI metrics.</strong> Single values a business tracks,
-                  placed on dashboards alongside tables and charts.
+                  <strong className="font-medium text-foreground">KPI metrics.</strong> Single
+                  values a business tracks, placed on dashboards alongside tables and charts.
                 </Bullet>
               </ul>
               <p>
-                Around those sit a report repository, an authoring space, scheduling with automated digests, and dashboards.
-                It shipped as a first generation tool, and I returned to it in 2024 to rebuild the surface on the design
-                system the rest of the platform had moved to.
+                Around those sit a report repository, an authoring space, scheduling with automated
+                digests, and dashboards. It shipped as a first generation tool, and I returned to it
+                in 2024 to rebuild the surface on the design system the rest of the platform had
+                moved to.
               </p>
               <Shot
                 src={assetUrl(formsShot)}
@@ -137,10 +152,15 @@ export function DataVisualizationCaseStudy({
               />
             </CaseSection>
 
-            <CaseSection id="problem" eyebrow="The problem" title="Two users with very different needs">
+            <CaseSection
+              id="problem"
+              eyebrow="The problem"
+              title="Two users with very different needs"
+            >
               <p>
-                The charts were never the hard part. The difficulty is that the person who can define a report and the
-                person who needs to read one are usually not the same person.
+                The charts were never the hard part. The difficulty is that the person who can
+                define a report and the person who needs to read one are usually not the same
+                person.
               </p>
               <div className="mt-8 grid gap-px border-y border-border bg-border sm:grid-cols-2">
                 <Insight
@@ -161,16 +181,22 @@ export function DataVisualizationCaseStudy({
                 />
               </div>
               <p>
-                So the architecture is split rather than simplified. The technical user defines the dataset boundary and
-                assigns which fields are dimensions and which are measures. The business user composes, views and schedules
-                reports inside that boundary, without touching the model.
+                So the architecture is split rather than simplified. The technical user defines the
+                dataset boundary and assigns which fields are dimensions and which are measures. The
+                business user composes, views and schedules reports inside that boundary, without
+                touching the model.
               </p>
             </CaseSection>
 
-            <CaseSection id="benchmark" eyebrow="Benchmark and principles" title="Benchmarking Tableau and Salesforce Lightning">
+            <CaseSection
+              id="benchmark"
+              eyebrow="Benchmark and principles"
+              title="Benchmarking Tableau and Salesforce Lightning"
+            >
               <p>
-                I benchmarked against the two tools our users already worked in: Tableau, for pure visualisation, and the
-                Salesforce Lightning report builder, for reporting embedded inside a business application.
+                I benchmarked against the two tools our users already worked in: Tableau, for pure
+                visualisation, and the Salesforce Lightning report builder, for reporting embedded
+                inside a business application.
               </p>
               <div className="mt-8 grid gap-px border-y border-border bg-border sm:grid-cols-2">
                 <Insight
@@ -183,38 +209,47 @@ export function DataVisualizationCaseStudy({
                 />
               </div>
               <p>
-                The examples that made the difference concrete were simple ones. A business user asking for a population
-                count across states is asking for a dimension, the state, and a measure, the count. They do not think of it
-                in those terms, and they should not have to. Tableau expects them to; Lightning does not.
+                The examples that made the difference concrete were simple ones. A business user
+                asking for a population count across states is asking for a dimension, the state,
+                and a measure, the count. They do not think of it in those terms, and they should
+                not have to. Tableau expects them to; Lightning does not.
               </p>
               <p>The principles I held to for the rest of the project:</p>
               <ul className="mt-6 space-y-0">
                 <Bullet>
-                  The business user composes inside a dataset boundary that a technical user has already defined.
+                  The business user composes inside a dataset boundary that a technical user has
+                  already defined.
                 </Bullet>
                 <Bullet>
-                  Dimensions and measures are assigned by the technical user, so the business user picks from a correct set
-                  rather than working out which field means what.
+                  Dimensions and measures are assigned by the technical user, so the business user
+                  picks from a correct set rather than working out which field means what.
                 </Bullet>
                 <Bullet>
-                  Preview against a sample throughout authoring, so the report is visible while it is being built.
+                  Preview against a sample throughout authoring, so the report is visible while it
+                  is being built.
                 </Bullet>
                 <Bullet>
-                  Visualisation comes from a plug-in engine. Charting is a solved problem, and the integration and the
-                  workflow around it are not.
+                  Visualisation comes from a plug-in engine. Charting is a solved problem, and the
+                  integration and the workflow around it are not.
                 </Bullet>
                 <Bullet>
-                  Reading a report is the common case, so consumption gets the same design attention as authoring.
+                  Reading a report is the common case, so consumption gets the same design attention
+                  as authoring.
                 </Bullet>
               </ul>
             </CaseSection>
 
-            <CaseSection id="framework" eyebrow="Interaction framework" title="The user journey and interaction framework">
+            <CaseSection
+              id="framework"
+              eyebrow="Interaction framework"
+              title="The user journey and interaction framework"
+            >
               <p>
-                Before drawing any screens, I mapped the journey as a matrix. Along one axis, the four stages a report
-                passes through: repository, authoring space, scheduling, dashboards. Along the other, the two permission
-                states a user arrives with: view only, and view and edit. It saved the project a lot of argument, because
-                it showed which surfaces needed two versions and which needed one.
+                Before drawing any screens, I mapped the journey as a matrix. Along one axis, the
+                four stages a report passes through: repository, authoring space, scheduling,
+                dashboards. Along the other, the two permission states a user arrives with: view
+                only, and view and edit. It saved the project a lot of argument, because it showed
+                which surfaces needed two versions and which needed one.
               </p>
               <Shot
                 src={assetUrl(journeyShot)}
@@ -222,17 +257,23 @@ export function DataVisualizationCaseStudy({
                 caption="The journey and permission matrix. Every stage was specified for a view-only user as well as a user who can edit, so a restricted screen behaves predictably instead of disappearing."
               />
               <p>
-                This is also where the split between the two users became concrete. The technical user sits at the start of
-                the journey, defining datasets and declaring dimensions and measures. The business user occupies the rest
-                of it, and does not need to know that the first stage exists.
+                This is also where the split between the two users became concrete. The technical
+                user sits at the start of the journey, defining datasets and declaring dimensions
+                and measures. The business user occupies the rest of it, and does not need to know
+                that the first stage exists.
               </p>
             </CaseSection>
 
-            <CaseSection id="consume" eyebrow="Consuming a report" title="The repository and reading a report">
+            <CaseSection
+              id="consume"
+              eyebrow="Consuming a report"
+              title="The repository and reading a report"
+            >
               <p>
-                The repository is the front door, and for most business users it is the only surface they use. It lists
-                every report in the tenant with its type, owner, data source and when it was last updated, including a
-                clear state for reports that have never been run.
+                The repository is the front door, and for most business users it is the only surface
+                they use. It lists every report in the tenant with its type, owner, data source and
+                when it was last updated, including a clear state for reports that have never been
+                run.
               </p>
               <Shot
                 src={assetUrl(repoListShot)}
@@ -240,9 +281,9 @@ export function DataVisualizationCaseStudy({
                 caption="List mode: filter by report type, search, sort by last updated, and see which reports have never been run."
               />
               <p>
-                The repository also has a preview mode. Instead of opening a report, losing the list and going back, the
-                user keeps the list on the left and inspects a report on the right: its aggregate, its details and its
-                schedule.
+                The repository also has a preview mode. Instead of opening a report, losing the list
+                and going back, the user keeps the list on the left and inspects a report on the
+                right: its aggregate, its details and its schedule.
               </p>
               <Shot
                 src={assetUrl(repoPreviewShot)}
@@ -250,10 +291,11 @@ export function DataVisualizationCaseStudy({
                 caption="Preview mode: the list stays in place while a report is inspected beside it, so scanning ten reports is not ten round trips."
               />
               <p>
-                Opening a report fully gives the aggregated table along with what a user needs in order to trust it and
-                reuse it: the schedule, the report definition, the author, the charts derived from it, and the dashboard
-                pages it appears on. The last of those is what connects a report to the rest of the reporting layer
-                instead of leaving it as a standalone file.
+                Opening a report fully gives the aggregated table along with what a user needs in
+                order to trust it and reuse it: the schedule, the report definition, the author, the
+                charts derived from it, and the dashboard pages it appears on. The last of those is
+                what connects a report to the rest of the reporting layer instead of leaving it as a
+                standalone file.
               </p>
               <Shot
                 src={assetUrl(viewReportShot)}
@@ -261,9 +303,9 @@ export function DataVisualizationCaseStudy({
                 caption="Viewing a report: the aggregate on the left, and the schedule, definition, related charts and pages it feeds on the right."
               />
               <p>
-                Charts are generated from a saved report rather than authored separately, using a third-party
-                visualisation plug-in. Charting is a solved problem, so we spent our effort on the data boundary and the
-                workflow around it.
+                Charts are generated from a saved report rather than authored separately, using a
+                third-party visualisation plug-in. Charting is a solved problem, so we spent our
+                effort on the data boundary and the workflow around it.
               </p>
               <Shot
                 src={assetUrl(createChartShot)}
@@ -274,10 +316,10 @@ export function DataVisualizationCaseStudy({
 
             <CaseSection id="author" eyebrow="Authoring a report" title="Authoring a report">
               <p>
-                Authoring belongs to the technical user, and I split it into two moments. A short wizard establishes the
-                identity and scope of the report: its name, whether it covers one business entity or several, and the data
-                source it draws from. These are decisions that are expensive to change later, so they are made once, up
-                front.
+                Authoring belongs to the technical user, and I split it into two moments. A short
+                wizard establishes the identity and scope of the report: its name, whether it covers
+                one business entity or several, and the data source it draws from. These are
+                decisions that are expensive to change later, so they are made once, up front.
               </p>
               <Shot
                 src={assetUrl(wizardShot)}
@@ -285,10 +327,10 @@ export function DataVisualizationCaseStudy({
                 caption="Initiating a report: choose the asset type, then set the name, scope and data source. Two steps, nothing else asked."
               />
               <p>
-                Everything after that happens on the authoring canvas. The outline panel on the left is where dimensions,
-                measures and filters are selected, and the report table on the right fills in as they are added. The
-                toolbar starts disabled and enables each action as it becomes possible: undo, create chart, save and
-                preview.
+                Everything after that happens on the authoring canvas. The outline panel on the left
+                is where dimensions, measures and filters are selected, and the report table on the
+                right fills in as they are added. The toolbar starts disabled and enables each
+                action as it becomes possible: undo, create chart, save and preview.
               </p>
               <Shot
                 src={assetUrl(authoringShot)}
@@ -296,9 +338,9 @@ export function DataVisualizationCaseStudy({
                 caption="The authoring space at the start: outline on the left, canvas on the right, and a toolbar that only offers an action once there is something to act on."
               />
               <p>
-                The preview runs against a sample of one hundred aggregated records, and the interface says so. At master
-                data volumes a sample that returns immediately keeps the author iterating, where a complete result would
-                have them waiting.
+                The preview runs against a sample of one hundred aggregated records, and the
+                interface says so. At master data volumes a sample that returns immediately keeps
+                the author iterating, where a complete result would have them waiting.
               </p>
               <Shot
                 src={assetUrl(outlineShot)}
@@ -306,11 +348,12 @@ export function DataVisualizationCaseStudy({
                 caption="Dimensions and measures are picked from the entity tree, and the table on the right updates against the sample as they are added."
               />
               <p>
-                Each selected attribute carries its own properties. A measure declares its aggregation: sum, count,
-                distinct count or average. Filters take their control from the type of field they are placed on. A date
-                range gets a pair of date pickers, a text field gets a searchable list, a numeric field gets a minimum and
-                a maximum, and an enumeration gets its own options. The author does not write conditions, and the report
-                cannot express something the data model does not support.
+                Each selected attribute carries its own properties. A measure declares its
+                aggregation: sum, count, distinct count or average. Filters take their control from
+                the type of field they are placed on. A date range gets a pair of date pickers, a
+                text field gets a searchable list, a numeric field gets a minimum and a maximum, and
+                an enumeration gets its own options. The author does not write conditions, and the
+                report cannot express something the data model does not support.
               </p>
               <Shot
                 src={assetUrl(propertiesShot)}
@@ -318,16 +361,20 @@ export function DataVisualizationCaseStudy({
                 caption="Properties per attribute: aggregation on measures, and filters that follow the field's own type instead of a generic condition builder."
               />
               <p>
-                Scheduling closes the loop. A saved report can be run on a cadence and delivered as an automated digest, so
-                the report arrives instead of having to be visited.
+                Scheduling closes the loop. A saved report can be run on a cadence and delivered as
+                an automated digest, so the report arrives instead of having to be visited.
               </p>
             </CaseSection>
 
-            <CaseSection id="modernisation" eyebrow="The 2024 rebuild" title="Rebuilding on the current design system">
+            <CaseSection
+              id="modernisation"
+              eyebrow="The 2024 rebuild"
+              title="Rebuilding on the current design system"
+            >
               <p>
-                By 2024 the capability was doing real work and showing its age. The rest of Customer 360 had moved onto the
-                current design system and reporting had not, so I took the surface through a rebuild. The capability stayed
-                the same. Four things changed.
+                By 2024 the capability was doing real work and showing its age. The rest of Customer
+                360 had moved onto the current design system and reporting had not, so I took the
+                surface through a rebuild. The capability stayed the same. Four things changed.
               </p>
               <Shot
                 src={assetUrl(timelineShot)}
@@ -357,8 +404,9 @@ export function DataVisualizationCaseStudy({
                 />
               </div>
               <p>
-                The density problem was not limited to this project. The same gap showed up in the Customer 360 record
-                experience, and the work here fed into the component overhaul I led as design system subject matter expert.
+                The density problem was not limited to this project. The same gap showed up in the
+                Customer 360 record experience, and the work here fed into the component overhaul I
+                led as design system subject matter expert.
               </p>
               <Shot
                 src={assetUrl(chart2024Shot)}
@@ -374,24 +422,27 @@ export function DataVisualizationCaseStudy({
 
             <CaseSection id="reflection" eyebrow="Reflection" title="What I took from this project">
               <p>
-                This was the first piece of Customer 360 work where the question was not how to steward a record, but what
-                to do with the data once it was clean. A few things from it carried into later projects:
+                This was the first piece of Customer 360 work where the question was not how to
+                steward a record, but what to do with the data once it was clean. A few things from
+                it carried into later projects:
               </p>
               <ul className="mt-6 space-y-0">
                 <Bullet>
-                  A governed dataset boundary works better than open-ended freedom. The technical user defines the
-                  boundary, and the business user composes inside it.
+                  A governed dataset boundary works better than open-ended freedom. The technical
+                  user defines the boundary, and the business user composes inside it.
                 </Bullet>
                 <Bullet>
-                  Previewing against a sample keeps an author moving. A complete result they have to wait for does not.
+                  Previewing against a sample keeps an author moving. A complete result they have to
+                  wait for does not.
                 </Bullet>
                 <Bullet>
-                  In a product with two very different users, the split is best handled through permissions rather than
-                  through two separate products.
+                  In a product with two very different users, the split is best handled through
+                  permissions rather than through two separate products.
                 </Bullet>
                 <Bullet>
-                  This is also where I first saw that our component system could not carry enterprise data density, which
-                  I picked up properly a few years later with the design systems team.
+                  This is also where I first saw that our component system could not carry
+                  enterprise data density, which I picked up properly a few years later with the
+                  design systems team.
                 </Bullet>
               </ul>
             </CaseSection>
@@ -407,7 +458,11 @@ export function DataVisualizationCaseStudy({
                 </p>
                 <h2 className="mt-4 font-serif text-4xl sm:text-5xl">Continue exploring</h2>
               </div>
-              <Link to="/" hash="portfolio" className="hidden text-sm text-muted-foreground hover:text-foreground sm:block">
+              <Link
+                to="/"
+                hash="portfolio"
+                className="hidden text-sm text-muted-foreground hover:text-foreground sm:block"
+              >
                 View all projects →
               </Link>
             </div>
@@ -463,7 +518,10 @@ function CaseSection({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="scroll-mt-28 border-t border-border py-16 first:border-t-0 first:pt-8 lg:py-24">
+    <section
+      id={id}
+      className="scroll-mt-28 border-t border-border py-16 first:border-t-0 first:pt-8 lg:py-24"
+    >
       <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">{eyebrow}</p>
       <h2 className="mt-4 max-w-3xl font-serif text-4xl leading-[1.08] sm:text-5xl">{title}</h2>
       <div className="mt-8 max-w-3xl space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -472,7 +530,6 @@ function CaseSection({
     </section>
   );
 }
-
 
 function Insight({ title, body }: { title: string; body: string }) {
   return (
@@ -521,9 +578,16 @@ function Shot({
   return (
     <figure className="my-10">
       <div className="overflow-hidden rounded-sm border border-border bg-secondary">
-        <img src={src} alt={alt} loading={priority ? "eager" : "lazy"} className="block h-auto w-full" />
+        <img
+          src={src}
+          alt={alt}
+          loading={priority ? "eager" : "lazy"}
+          className="block h-auto w-full"
+        />
       </div>
-      <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">{caption}</figcaption>
+      <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">
+        {caption}
+      </figcaption>
     </figure>
   );
 }
