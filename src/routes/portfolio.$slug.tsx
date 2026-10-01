@@ -6,6 +6,8 @@ import { ClusterDetectionCaseStudy } from "@/components/ClusterDetectionCaseStud
 import { MasterDataManagementCaseStudy } from "@/components/MasterDataManagementCaseStudy";
 import { SwiftAccessCaseStudy } from "@/components/SwiftAccessCaseStudy";
 import { DataVisualizationCaseStudy } from "@/components/DataVisualizationCaseStudy";
+import { BoardCaseStudy } from "@/components/BoardCaseStudy";
+import { PROJECT_BOARDS } from "@/data/boards";
 
 import { SiteHeader } from "@/components/SiteHeader";
 import { BackToProjects } from "@/components/BackToProjects";
@@ -137,6 +139,12 @@ function ProjectPage() {
     return <DataVisualizationCaseStudy project={project} recommendations={recommendations} />;
   }
 
+  const boards = PROJECT_BOARDS[project.slug];
+  if (boards && boards.length > 0) {
+    const recommendations = getRecommendations(project);
+    return <BoardCaseStudy project={project} recommendations={recommendations} boards={boards} />;
+  }
+
   return (
     <div className="min-h-screen overflow-x-clip bg-background text-foreground font-sans antialiased">
       <SiteHeader />
@@ -179,7 +187,7 @@ function ProjectPage() {
           <div className="lg:col-span-8">
             <ul className="grid gap-x-8 gap-y-5 sm:grid-cols-2">
               {project.responsibilities.map((responsibility) => (
-                <li key={responsibility} className="border-t border-border pt-5 text-base text-foreground">
+                <li key={responsibility} className="relative pl-5 text-base text-foreground before:absolute before:left-0 before:top-[0.6em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-foreground/40">
                   {responsibility}
                 </li>
               ))}
