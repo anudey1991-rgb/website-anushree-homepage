@@ -74,7 +74,7 @@ export function SurvivorshipCaseStudy({ project, recommendations }: { project: P
 
               <p>Master data decisions happen across CRM, ERP, collaboration tools and partner surfaces, not only inside an MDM console. I designed a Slack-first, agent-assisted stewardship experience on top of Informatica MDM survivorship.</p>
               <p>The brief was explicit: assume the MDM console still exists, but make the solution work for someone who never opens it. The copilot adds an evidence-backed verification gate without replacing deterministic rules or taking accountability away from the data steward.</p>
-              <Quote>The agent presents evidence. The steward makes the call.</Quote>
+              <p>The agent presents the evidence it gathered, and the steward makes the decision and keeps accountability for it.</p>
             </CaseSection>
 
             <CaseSection id="problem" eyebrow="Brief and problem" title="The golden record stays wrong: confidently, silently, indefinitely">
@@ -133,8 +133,8 @@ export function SurvivorshipCaseStudy({ project, recommendations }: { project: P
                   <Throughput value="3.3%" unit="escalated" label="Held for steward review" note="6 high-severity contradictions surfaced: 5 decided in Slack, 1 escalated to the console." />
                 </dl>
                 <p className="border-t border-border bg-card px-6 py-4 text-xs leading-relaxed text-muted-foreground">
-                  Progressive disclosure in one line: 180 records in, 6 decisions out, 1 console visit. The interruption
-                  budget is spent only where a human judgement call carries commercial or regulatory consequence.
+                  Out of 180 evaluated records, 174 resolved deterministically against external registries, leaving 6
+                  high-severity contradictions for steward review in Slack or the Customer 360 console.
                 </p>
               </div>
               <Figure src={assetUrl(experienceAsset)} alt="Event-based experience flow from record batch to resolution" caption="The scenario moves from a 180-record batch to six focused decisions, with five resolved in Slack and one escalated." />
@@ -202,7 +202,7 @@ export function SurvivorshipCaseStudy({ project, recommendations }: { project: P
                 </div>
                 <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">CLAIRE survivorship agent · Orion MedTech scenario · 36 steps · 2:21 · Slack and MDM Console</figcaption>
               </figure>
-              <Quote>Done well, this experience is nearly invisible. The 174 records handled correctly and silently are the product.</Quote>
+              <p className="mt-10">Most of the value sits in what the steward never sees: the 174 records the agent verified and published without an interruption.</p>
             </CaseSection>
           </div>
         </div>
@@ -236,7 +236,6 @@ function CaseSection({ id, eyebrow, title, children }: { id: string; eyebrow: st
   return <section id={id} className="scroll-mt-24 border-t border-border py-16 first:border-t-0 first:pt-0 lg:py-24"><p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">{eyebrow}</p><h2 className="mt-4 max-w-3xl font-serif text-4xl leading-[1.08] sm:text-5xl">{title}</h2><div className="mt-8 max-w-3xl space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">{children}</div></section>;
 }
 
-function Quote({ children }: { children: React.ReactNode }) { return <blockquote className="my-10 border-l-2 border-foreground pl-7 font-serif text-2xl leading-snug text-foreground sm:text-3xl">“{children}”</blockquote>; }
 
 function Insight({ kicker, title, body }: { kicker?: string; title: string; body: string }) { return <div className="bg-card p-6">{kicker && <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground">{kicker}</p>}<h3 className={`${kicker ? "mt-4" : ""} font-serif text-xl text-foreground`}>{title}</h3><p className="mt-3 text-sm leading-relaxed">{body}</p></div>; }
 
