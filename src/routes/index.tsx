@@ -244,6 +244,7 @@ function Portfolio({
   // the server has no access to session storage.
   const [showAll, setShowAll] = useState(false);
   const hydrated = useRef(false);
+  const firstFilterRun = useRef(true);
 
   useEffect(() => {
     hydrated.current = true;
@@ -251,7 +252,10 @@ function Portfolio({
   }, []);
 
   useEffect(() => {
-    if (!hydrated.current) return;
+    if (firstFilterRun.current) {
+      firstFilterRun.current = false;
+      return;
+    }
     setShowAll(false);
   }, [filter]);
 
