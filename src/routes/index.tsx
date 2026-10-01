@@ -42,7 +42,11 @@ export const Route = createFileRoute("/")({
         content:
           "Lead Product Designer specialising in enterprise SaaS, data platforms and agentic workflows.",
       },
-      { name: "twitter:image", content: PORTRAIT },
+      { name: "twitter:image", content: "https://www.anushreedey.com/og-image.png" },
+      {
+        name: "twitter:image:alt",
+        content: "Anushree Dey, Lead Product & UX Designer",
+      },
       {
         name: "keywords",
         content:
