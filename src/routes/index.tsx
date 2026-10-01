@@ -90,19 +90,6 @@ const EXPERTISE_TOPICS = [
 
 const RESUME_URL = assetUrl(resumeAsset);
 
-/** Session keys that keep the homepage where the visitor left it. */
-const EXPANDED_KEY = "portfolio_expanded";
-const SCROLL_KEY = "portfolio_scroll";
-
-function readExpanded() {
-  if (typeof window === "undefined") return false;
-  try {
-    return window.sessionStorage.getItem(EXPANDED_KEY) === "1";
-  } catch {
-    return false;
-  }
-}
-
 function Index() {
   const [filter, setFilter] = useState<Category>("All");
   const [active, setActive] = useState<string>("home");
