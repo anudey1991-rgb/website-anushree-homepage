@@ -13,7 +13,10 @@ export function BackToProjects({ className = "" }: { className?: string }) {
       aria-label="Back to all projects on the homepage"
       className={`group inline-flex h-10 items-center gap-2 rounded-full border border-border bg-card px-4 text-sm font-medium text-foreground shadow-sm transition-all duration-200 hover:-translate-x-0.5 hover:border-foreground/40 hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${className}`}
     >
-      <span aria-hidden className="text-base leading-none transition-transform duration-200 group-hover:-translate-x-0.5">
+      <span
+        aria-hidden
+        className="text-base leading-none transition-transform duration-200 group-hover:-translate-x-0.5"
+      >
         &larr;
       </span>
       Back to all projects

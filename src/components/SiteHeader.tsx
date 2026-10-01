@@ -18,14 +18,26 @@ export function SiteHeader({ active, onHome = false }: { active?: string; onHome
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-10">
         {onHome ? (
-          <a href="#home" className="group flex items-center gap-3 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" aria-label="Anushree Dey home">
+          <a
+            href="#home"
+            className="group flex items-center gap-3 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            aria-label="Anushree Dey home"
+          >
             <img src={logoMark} alt="" aria-hidden className="h-9 w-9 object-contain" />
-            <span className="text-sm font-medium tracking-[-0.01em] text-foreground">Anushree Dey</span>
+            <span className="text-sm font-medium tracking-[-0.01em] text-foreground">
+              Anushree Dey
+            </span>
           </a>
         ) : (
-          <Link to="/" className="group flex items-center gap-3 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" aria-label="Anushree Dey home">
+          <Link
+            to="/"
+            className="group flex items-center gap-3 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            aria-label="Anushree Dey home"
+          >
             <img src={logoMark} alt="" aria-hidden className="h-9 w-9 object-contain" />
-            <span className="text-sm font-medium tracking-[-0.01em] text-foreground">Anushree Dey</span>
+            <span className="text-sm font-medium tracking-[-0.01em] text-foreground">
+              Anushree Dey
+            </span>
           </Link>
         )}
 
@@ -46,7 +58,11 @@ export function SiteHeader({ active, onHome = false }: { active?: string; onHome
               return (
                 <li key={item.id}>
                   {onHome ? (
-                    <a href={`#${item.id}`} className={className} aria-current={isActive ? "true" : undefined}>
+                    <a
+                      href={`#${item.id}`}
+                      className={className}
+                      aria-current={isActive ? "true" : undefined}
+                    >
                       {item.label}
                       {underline}
                     </a>
@@ -73,7 +89,6 @@ export function SiteHeader({ active, onHome = false }: { active?: string; onHome
         </nav>
 
         <span className="w-9 md:hidden" aria-hidden />
-
       </div>
     </header>
   );
