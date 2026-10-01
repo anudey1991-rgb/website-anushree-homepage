@@ -308,7 +308,7 @@ function Portfolio({
                 role="tab"
                 aria-selected={isActive}
                 onClick={() => setFilter(cat)}
-                className={`shrink-0 rounded-full border px-4 py-2 text-sm transition-all duration-200 ${
+                className={`inline-flex min-h-[40px] shrink-0 items-center rounded-full border px-4 py-2 text-sm transition-all duration-200 ${
                   isActive
                     ? "border-foreground bg-foreground text-background"
                     : "border-border bg-background text-muted-foreground hover:border-foreground/40 hover:text-foreground"
@@ -333,7 +333,7 @@ function Portfolio({
         {projects.length > 3 && (
           <div className="mt-12 flex justify-center">
             <button
-              onClick={() => setShowAll((v) => !v)}
+              onClick={toggleShowAll}
               className="inline-flex h-11 items-center rounded-full border border-foreground/20 px-6 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
             >
               {showAll ? "Show less" : `Show more (${projects.length - 3})`}
