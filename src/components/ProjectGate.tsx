@@ -98,7 +98,12 @@ export function ProjectGate({ project, onUnlocked }: { project: Project; onUnloc
                 autoFocus
                 aria-invalid={error ? "true" : undefined}
                 aria-describedby={error ? "gate-error" : undefined}
-                className="mt-3 h-11 w-full rounded-md border border-border bg-background px-4 text-base text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus-visible:border-foreground focus-visible:ring-2 focus-visible:ring-ring"
+                onChange={() => error && setError(null)}
+                className={`mt-3 h-11 w-full rounded-md border bg-background px-4 text-base text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus-visible:ring-2 focus-visible:ring-ring ${
+                  error
+                    ? "border-destructive focus-visible:border-destructive"
+                    : "border-border focus-visible:border-foreground"
+                }`}
                 placeholder="Access password"
               />
 
