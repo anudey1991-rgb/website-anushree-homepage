@@ -2,6 +2,7 @@ import { assetUrl } from "@/lib/asset-url";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { track } from "@vercel/analytics";
+import { readExpanded, readScroll, writeExpanded, writeScroll } from "@/lib/portfolio-session";
 import { CATEGORIES, PROJECTS, type Category, type Project } from "@/data/projects";
 import { ProjectCard } from "@/components/ProjectCard";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -109,11 +110,7 @@ function Index() {
       if (frame) return;
       frame = requestAnimationFrame(() => {
         frame = 0;
-        try {
-          window.sessionStorage.setItem(SCROLL_KEY, String(window.scrollY));
-        } catch {
-          /* storage unavailable */
-        }
+        writeScroll(window.scrollY);
       });
     };
     window.addEventListener("scroll", onScroll, { passive: true });
