@@ -254,26 +254,29 @@ function Portfolio({
   // project page lands the visitor where they were. Read after hydration, since
   // the server has no access to session storage.
   const [showAll, setShowAll] = useState(false);
-  const hydrated = useRef(false);
   const firstFilterRun = useRef(true);
 
   useEffect(() => {
-    hydrated.current = true;
     if (readExpanded()) setShowAll(true);
   }, []);
 
+  // Only a deliberate change writes to session memory, so the restored state
+  // is never overwritten on mount.
   useEffect(() => {
     if (firstFilterRun.current) {
       firstFilterRun.current = false;
       return;
     }
     setShowAll(false);
+    writeExpanded(false);
   }, [filter]);
 
-  useEffect(() => {
-    if (!hydrated.current) return;
-    writeExpanded(showAll);
-  }, [showAll]);
+  function toggleShowAll() {
+    setShowAll((value) => {
+      writeExpanded(!value);
+      return !value;
+    });
+  }
 
   return (
     <section id="portfolio" className="border-t border-border/70">
