@@ -36,7 +36,16 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const project = getProject(params.slug);
     if (!project) throw notFound();
     const locked = isProtectedProject(project);
-    const { unlocked } = locked ? await getGateStatus() : { unlocked: true };
+    let unlocked = true;
+    if (locked) {
+      try {
+        ({ unlocked } = await getGateStatus());
+      } catch {
+        // Server unreachable (e.g. preview restarting): fall back to the gate,
+        // which still honours the local unlock flag.
+        unlocked = false;
+      }
+    }
     return { project, locked: locked && !unlocked };
   },
 
