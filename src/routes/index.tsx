@@ -2,7 +2,7 @@ import { assetUrl } from "@/lib/asset-url";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { track } from "@vercel/analytics";
-import { readExpanded, readScroll, writeExpanded, writeScroll } from "@/lib/portfolio-session";
+import { readAnchor, readExpanded, readScroll, writeExpanded, writeScroll } from "@/lib/portfolio-session";
 import { CATEGORIES, PROJECTS, type Category, type Project } from "@/data/projects";
 import { ProjectCard } from "@/components/ProjectCard";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -100,9 +100,20 @@ function Index() {
   useEffect(() => {
     const saved = readScroll();
     if (saved > 0 && !window.location.hash) {
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => window.scrollTo({ top: saved, behavior: "instant" as ScrollBehavior }));
-      });
+      const restore = () => {
+        window.scrollTo({ top: saved, behavior: "instant" as ScrollBehavior });
+        // If the card that was opened is not in view (the grid may have grown
+        // or shrunk), bring it back into view instead.
+        const slug = readAnchor();
+        if (!slug) return;
+        const card = document.querySelector<HTMLElement>(`[data-project-slug="${slug}"]`);
+        if (!card) return;
+        const rect = card.getBoundingClientRect();
+        if (rect.top < 0 || rect.bottom > window.innerHeight) {
+          card.scrollIntoView({ behavior: "instant" as ScrollBehavior, block: "center" });
+        }
+      };
+      requestAnimationFrame(() => requestAnimationFrame(restore));
     }
 
     let frame = 0;
