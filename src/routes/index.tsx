@@ -254,19 +254,17 @@ function Portfolio({
   // project page lands the visitor where they were. Read after hydration, since
   // the server has no access to session storage.
   const [showAll, setShowAll] = useState(false);
-  const firstFilterRun = useRef(true);
+  const previousFilter = useRef(filter);
 
   useEffect(() => {
     if (readExpanded()) setShowAll(true);
   }, []);
 
-  // Only a deliberate change writes to session memory, so the restored state
-  // is never overwritten on mount.
+  // Only a real filter change collapses the grid and writes to session memory,
+  // so the restored state is never overwritten on mount.
   useEffect(() => {
-    if (firstFilterRun.current) {
-      firstFilterRun.current = false;
-      return;
-    }
+    if (previousFilter.current === filter) return;
+    previousFilter.current = filter;
     setShowAll(false);
     writeExpanded(false);
   }, [filter]);
