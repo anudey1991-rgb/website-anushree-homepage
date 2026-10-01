@@ -90,9 +90,56 @@ const EXPERTISE_TOPICS = [
 
 const RESUME_URL = assetUrl(resumeAsset);
 
+/** Session keys that keep the homepage where the visitor left it. */
+const EXPANDED_KEY = "portfolio_expanded";
+const SCROLL_KEY = "portfolio_scroll";
+
+function readExpanded() {
+  if (typeof window === "undefined") return false;
+  try {
+    return window.sessionStorage.getItem(EXPANDED_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
 function Index() {
   const [filter, setFilter] = useState<Category>("All");
   const [active, setActive] = useState<string>("home");
+
+  // Store the scroll position continuously and restore it after the first
+  // paint, once the (possibly expanded) grid has laid out.
+  useEffect(() => {
+    let saved = 0;
+    try {
+      saved = Number(window.sessionStorage.getItem(SCROLL_KEY) ?? 0);
+    } catch {
+      saved = 0;
+    }
+    if (saved > 0 && !window.location.hash) {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => window.scrollTo({ top: saved, behavior: "instant" as ScrollBehavior }));
+      });
+    }
+
+    let frame = 0;
+    const onScroll = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        try {
+          window.sessionStorage.setItem(SCROLL_KEY, String(window.scrollY));
+        } catch {
+          /* storage unavailable */
+        }
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, []);
 
   const projects = useMemo(
     () => (filter === "All" ? PROJECTS : PROJECTS.filter((p) => p.category === filter)),
