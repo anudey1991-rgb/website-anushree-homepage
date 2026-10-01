@@ -97,12 +97,7 @@ function Index() {
   // Store the scroll position continuously and restore it after the first
   // paint, once the (possibly expanded) grid has laid out.
   useEffect(() => {
-    let saved = 0;
-    try {
-      saved = Number(window.sessionStorage.getItem(SCROLL_KEY) ?? 0);
-    } catch {
-      saved = 0;
-    }
+    const saved = readScroll();
     if (saved > 0 && !window.location.hash) {
       requestAnimationFrame(() => {
         requestAnimationFrame(() => window.scrollTo({ top: saved, behavior: "instant" as ScrollBehavior }));
