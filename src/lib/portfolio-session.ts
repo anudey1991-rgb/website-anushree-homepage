@@ -5,6 +5,7 @@
  */
 const EXPANDED_KEY = "portfolio_expanded";
 const SCROLL_KEY = "portfolio_scroll";
+const ANCHOR_KEY = "portfolio_anchor";
 
 export function readExpanded(): boolean {
   if (typeof window === "undefined") return false;
@@ -37,6 +38,25 @@ export function writeScroll(y: number) {
   if (typeof window === "undefined") return;
   try {
     window.sessionStorage.setItem(SCROLL_KEY, String(y));
+  } catch {
+    /* storage unavailable */
+  }
+}
+
+/** Slug of the card the visitor last opened, so we can bring it back into view. */
+export function readAnchor(): string | null {
+  if (typeof window === "undefined") return null;
+  try {
+    return window.sessionStorage.getItem(ANCHOR_KEY);
+  } catch {
+    return null;
+  }
+}
+
+export function writeAnchor(slug: string) {
+  if (typeof window === "undefined") return;
+  try {
+    window.sessionStorage.setItem(ANCHOR_KEY, slug);
   } catch {
     /* storage unavailable */
   }

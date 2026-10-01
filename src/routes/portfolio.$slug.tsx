@@ -15,7 +15,7 @@ import { BackToProjects } from "@/components/BackToProjects";
 import { ProjectGate } from "@/components/ProjectGate";
 import { getGateStatus } from "@/lib/portfolio-gate.functions";
 import { useLocalUnlock } from "@/hooks/useLocalUnlock";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Project } from "@/data/projects";
 
 const SITE_URL = "https://www.anushreedey.com";
@@ -110,6 +110,14 @@ function ProjectPage() {
   const loaderData = Route.useLoaderData();
   const localUnlocked = useLocalUnlock();
   const [justUnlocked, setJustUnlocked] = useState(false);
+
+  // Open every project stationary at its header, with no animated sweep up
+  // from wherever the visitor was in the homepage grid.
+  useEffect(() => {
+    if (typeof window === "undefined" || window.location.hash) return;
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
+  }, [slug]);
+
   const project = loaderData?.project ?? getProject(slug);
   if (!project) return <ProjectNotFound />;
   const serverLocked = loaderData?.locked ?? isProtectedProject(project);

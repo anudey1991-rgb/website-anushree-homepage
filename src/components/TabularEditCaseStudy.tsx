@@ -124,16 +124,16 @@ export function TabularEditCaseStudy({
                 <Metric value="2" label="Features spun out product-wide" />
                 <Metric value="Oct 2026" label="General availability for all customers" />
               </dl>
-              <Quote>
-                Stewards are not editing records one at a time in a table. They are working a dataset: reviewing,
-                correcting, submitting.
-              </Quote>
+              <p className="mt-10">
+                Stewards work a dataset rather than a record at a time: reviewing, correcting and submitting in one
+                continuous pass.
+              </p>
             </CaseSection>
 
             <CaseSection id="problem" eyebrow="The problem" title="No efficient path to bulk inline editing">
               <p>
-                For stewards managing tens of thousands of records, the existing experience was not usability friction.
-                It was a workflow blocker.
+                Managing tens of thousands of records without bulk editing created a severe operational bottleneck.
+                Stewards had no way to make unstructured, multi-record adjustments.
               </p>
               <div className="mt-10 grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
                 <Insight
@@ -218,8 +218,9 @@ export function TabularEditCaseStudy({
                 <Metric value="2026" label="Agentic direction built on the original access model" />
               </div>
               <p className="mt-10">
-                Three years apart, the same conclusion. The proposal parked for being too large is now the architecture
-                the product is building toward; the constraint analysis held, and the only variable was time.
+                The initial proposal for a standalone records space was parked in 2024 because of the engineering
+                investment it required. Customer feedback in 2025 and the 2026 agentic roadmap validated that entry
+                model.
               </p>
               <p className="mt-6">
                 That agentic direction is now its own project, which I am designing:{" "}
@@ -526,10 +527,10 @@ export function TabularEditCaseStudy({
                   stewards in flow through long bulk sessions.
                 </Principle>
               </div>
-              <Quote>
-                Constraints that are ignored become surprises at build time. Constraints that are designed around become
-                decisions that hold.
-              </Quote>
+              <p className="mt-10">
+                Working the backend constraints into the design early meant fewer surprises at build time and decisions
+                that held through delivery.
+              </p>
             </CaseSection>
           </div>
         </div>
@@ -607,13 +608,6 @@ function CaseSection({
   );
 }
 
-function Quote({ children }: { children: React.ReactNode }) {
-  return (
-    <blockquote className="my-10 border-l-2 border-foreground pl-7 font-serif text-2xl leading-snug text-foreground sm:text-3xl">
-      “{children}”
-    </blockquote>
-  );
-}
 
 function Insight({ title, body }: { title: string; body: string }) {
   return (

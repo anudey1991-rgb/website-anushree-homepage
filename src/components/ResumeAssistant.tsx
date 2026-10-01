@@ -78,7 +78,16 @@ export function ResumeAssistant() {
   const active = ENTRIES.find((entry) => entry.id === activeId) ?? null;
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-50 flex flex-col items-end gap-3 px-4 pb-4 sm:px-6 sm:pb-6">
+    <>
+      {open && (
+        <button
+          type="button"
+          aria-label="Close resume assistant"
+          onClick={() => setOpen(false)}
+          className="fixed inset-0 z-40 cursor-default bg-foreground/20 sm:hidden"
+        />
+      )}
+      <div className="pointer-events-none fixed inset-x-0 bottom-0 z-50 flex flex-col items-end gap-3 px-4 pb-4 sm:px-6 sm:pb-6">
       {open && (
         <div
           ref={panelRef}
@@ -172,6 +181,7 @@ export function ResumeAssistant() {
         <span aria-hidden>✦</span>
         {open ? "Hide assistant" : "Ask about my resume"}
       </button>
-    </div>
+      </div>
+    </>
   );
 }
