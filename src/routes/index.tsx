@@ -63,7 +63,7 @@ export const Route = createFileRoute("/")({
           name: "Anushree Dey",
           jobTitle: "Lead Product & UX Designer",
           image: PORTRAIT,
-          url: "/",
+          url: "https://www.anushreedey.com/",
           description:
             "Lead Product Designer specialising in enterprise SaaS, data platforms and intelligent, agentic workflows.",
           knowsAbout: EXPERTISE_TOPICS,
