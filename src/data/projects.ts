@@ -158,7 +158,7 @@ export const PROJECTS: Project[] = [
   {
     slug: "clove",
     title: "Clove",
-    description: "An online medical service offering free consultation and discounted products and services, created for a seamless and inclusive healthcare experience.",
+    description: "An online medical service providing free consultations, medical checkups, and discounted medicines and devices to make healthcare accessible.",
     image: "https://static.wixstatic.com/media/55b247_6b09b0bae18c41f9a108aceaaf6a0e97~mv2.jpg/v1/fit/w_960,h_720,q_85,enc_avif,quality_auto/55b247_6b09b0bae18c41f9a108aceaaf6a0e97~mv2.jpg",
     category: "Healthcare",
     role: "Product Designer",

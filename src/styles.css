@@ -164,6 +164,8 @@
   }
 }
 
-html {
+/* Smooth scrolling only on the homepage, which uses in-page section anchors.
+   Project pages must open stationary instead of animating up from the grid. */
+html:has(#home) {
   scroll-behavior: smooth;
 }

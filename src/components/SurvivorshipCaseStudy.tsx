@@ -129,7 +129,7 @@ export function SurvivorshipCaseStudy({ project, recommendations }: { project: P
               <div className="mt-10 border-y border-border">
                 <dl className="grid gap-px bg-border sm:grid-cols-3">
                   <Throughput value="180" unit="records" label="Ingested and evaluated" note="One EU MDR reclassification batch, checked field by field against external registries." />
-                  <Throughput value="96.7%" unit="autonomous" label="Resolved without a human touch" note="174 records verified and published silently. The silent records are the product." emphasis />
+                  <Throughput value="96.7%" unit="autonomous" label="Resolved without a human touch" note="174 records verified against external registries and published without an interruption." emphasis />
                   <Throughput value="3.3%" unit="escalated" label="Held for steward review" note="6 high-severity contradictions surfaced: 5 decided in Slack, 1 escalated to the console." />
                 </dl>
                 <p className="border-t border-border bg-card px-6 py-4 text-xs leading-relaxed text-muted-foreground">

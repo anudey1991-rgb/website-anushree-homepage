@@ -1,8 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { LockIcon } from "@/components/LockIcon";
 import { OrgMark } from "@/components/OrgMark";
+import { writeAnchor, writeScroll } from "@/lib/portfolio-session";
 import { isProtectedProject, type Project } from "@/data/projects";
-
 
 export function ProjectCard({ project }: { project: Project }) {
   const locked = isProtectedProject(project);
@@ -12,6 +12,12 @@ export function ProjectCard({ project }: { project: Project }) {
       to="/portfolio/$slug"
       params={{ slug: project.slug }}
       preload="intent"
+      data-project-slug={project.slug}
+      onClick={() => {
+        // Remember where the visitor was, so coming back lands on this card.
+        writeScroll(window.scrollY);
+        writeAnchor(project.slug);
+      }}
       aria-label={
         locked
           ? `View case study: ${project.title} (protected by NDA, password required)`
@@ -52,13 +58,28 @@ export function ProjectCard({ project }: { project: Project }) {
           {project.organization && <OrgMark organization={project.organization} />}
         </div>
 
-
         <h3 className="mt-5 font-serif text-2xl leading-tight text-foreground">{project.title}</h3>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{project.description}</p>
-        <span className="mt-auto inline-flex items-center gap-2 pt-7 text-sm font-medium text-foreground">
-          <span className="border-b border-foreground/30 pb-0.5 transition-colors group-hover:border-foreground">View case study</span>
-          <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-1">→</span>
-        </span>
+
+        <div className="mt-auto pt-7">
+          <span className="group/cta relative inline-flex">
+            <span className="inline-flex min-h-[40px] items-center gap-2 rounded-full border border-foreground/25 bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors duration-200 group-hover:border-foreground group-hover:bg-foreground group-hover:text-background">
+              {locked && <LockIcon className="h-3.5 w-3.5" />}
+              {locked ? "Unlock case study" : "View case study"}
+              <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-0.5">
+                →
+              </span>
+            </span>
+            {locked && (
+              <span
+                role="tooltip"
+                className="pointer-events-none absolute bottom-full left-0 mb-2 w-max max-w-[15rem] translate-y-1 rounded-md bg-foreground px-2.5 py-1.5 text-[11px] font-medium tracking-wide text-background opacity-0 shadow-lg transition-all duration-200 group-hover/cta:translate-y-0 group-hover/cta:opacity-100"
+              >
+                Protected by NDA · Password required
+              </span>
+            )}
+          </span>
+        </div>
       </div>
     </Link>
   );
