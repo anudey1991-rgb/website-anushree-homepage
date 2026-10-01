@@ -20,3 +20,9 @@
 - [x] Smart resume assistant with 5 curated questions, email fallback, assistant_* events
 - [x] Homepage session memory for Show more state and scroll position
 - [x] Bullet styling pass across all case studies and overview responsibilities
+
+## Batch 6 (done)
+- [x] Microsoft Clarity tag (yqsmu4v4nz) in the root head
+- [x] @vercel/speed-insights installed and <SpeedInsights /> mounted in the root shell
+- [x] Custom 1200x627 LinkedIn/social share card at public/og-image.png (portrait in rounded card, monogram, name, title, focus areas, experience marks, domain)
+- [x] Absolute canonical and og/twitter image metadata on the homepage

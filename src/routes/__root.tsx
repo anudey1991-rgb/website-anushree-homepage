@@ -10,6 +10,7 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { ResumeAssistant } from "@/components/ResumeAssistant";
 
 import appCss from "../styles.css?url";
@@ -94,7 +95,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Enterprise SaaS · Data Platforms · Intelligent Workflows. Portfolio of Anushree Dey.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Anushree Dey" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    scripts: [
+      {
+        children:
+          '(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "yqsmu4v4nz");',
+      },
     ],
     links: [
       {
@@ -132,6 +140,7 @@ function RootShell({ children }: { children: ReactNode }) {
       <body>
         {children}
         <Analytics />
+        <SpeedInsights />
         <Scripts />
       </body>
     </html>

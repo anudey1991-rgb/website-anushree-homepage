@@ -24,9 +24,16 @@ export const Route = createFileRoute("/")({
           "Enterprise SaaS · Data Platforms · Intelligent Workflows.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
-      { property: "og:image", content: PORTRAIT },
-      { property: "og:image:alt", content: "Portrait of Anushree Dey" },
+      { property: "og:url", content: "https://www.anushreedey.com/" },
+      { property: "og:image", content: "https://www.anushreedey.com/og-image.png" },
+      { property: "og:image:secure_url", content: "https://www.anushreedey.com/og-image.png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "627" },
+      { property: "og:image:type", content: "image/png" },
+      {
+        property: "og:image:alt",
+        content: "Anushree Dey, Lead Product & UX Designer",
+      },
       { property: "og:site_name", content: "Anushree Dey" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Anushree Dey | Lead Product & UX Designer" },
@@ -35,14 +42,18 @@ export const Route = createFileRoute("/")({
         content:
           "Lead Product Designer specialising in enterprise SaaS, data platforms and agentic workflows.",
       },
-      { name: "twitter:image", content: PORTRAIT },
+      { name: "twitter:image", content: "https://www.anushreedey.com/og-image.png" },
+      {
+        name: "twitter:image:alt",
+        content: "Anushree Dey, Lead Product & UX Designer",
+      },
       {
         name: "keywords",
         content:
           "Product Designer, UX Designer, Enterprise SaaS, Data Management, Agentic Experiences, Design Systems, Cloud Transformation, UK, Europe",
       },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://www.anushreedey.com/" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -52,7 +63,7 @@ export const Route = createFileRoute("/")({
           name: "Anushree Dey",
           jobTitle: "Lead Product & UX Designer",
           image: PORTRAIT,
-          url: "/",
+          url: "https://www.anushreedey.com/",
           description:
             "Lead Product Designer specialising in enterprise SaaS, data platforms and intelligent, agentic workflows.",
           knowsAbout: EXPERTISE_TOPICS,
