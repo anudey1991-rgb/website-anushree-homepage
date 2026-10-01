@@ -181,6 +181,7 @@ export function ResumeAssistant() {
         <span aria-hidden>✦</span>
         {open ? "Hide assistant" : "Ask about my resume"}
       </button>
-    </div>
+      </div>
+    </>
   );
 }
