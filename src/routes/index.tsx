@@ -53,7 +53,7 @@ export const Route = createFileRoute("/")({
           "Product Designer, UX Designer, Enterprise SaaS, Data Management, Agentic Experiences, Design Systems, Cloud Transformation, UK, Europe",
       },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://www.anushreedey.com/" }],
     scripts: [
       {
         type: "application/ld+json",
