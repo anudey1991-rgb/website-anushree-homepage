@@ -239,20 +239,24 @@ function Portfolio({
   filter: Category;
   setFilter: (c: Category) => void;
 }) {
-  // Remember the expanded grid and the scroll position for this browsing
-  // session, so returning from a project page lands the visitor where they were.
-  const [showAll, setShowAll] = useState(() => readExpanded());
-  const firstRender = useRef(true);
+  // Remember the expanded grid for this browsing session, so returning from a
+  // project page lands the visitor where they were. Read after hydration, since
+  // the server has no access to session storage.
+  const [showAll, setShowAll] = useState(false);
+  const hydrated = useRef(false);
 
   useEffect(() => {
-    if (firstRender.current) {
-      firstRender.current = false;
-      return;
-    }
+    hydrated.current = true;
+    if (readExpanded()) setShowAll(true);
+  }, []);
+
+  useEffect(() => {
+    if (!hydrated.current) return;
     setShowAll(false);
   }, [filter]);
 
   useEffect(() => {
+    if (!hydrated.current) return;
     writeExpanded(showAll);
   }, [showAll]);
 
