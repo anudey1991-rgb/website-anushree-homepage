@@ -1,6 +1,7 @@
 import { useRouter } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
+import { track } from "@vercel/analytics";
 import { BackToProjects } from "@/components/BackToProjects";
 import { LockIcon } from "@/components/LockIcon";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -27,6 +28,7 @@ export function ProjectGate({ project, onUnlocked }: { project: Project; onUnloc
       const result = await unlock({ data: { password } });
       if (result.ok) {
         setLocalUnlock();
+        track("nda_unlock", { slug: project.slug });
         onUnlocked?.();
         await router.invalidate();
       } else {
