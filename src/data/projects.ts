@@ -130,7 +130,6 @@ export const PROJECTS: Project[] = [
     duration: "2019",
     organization: "Honeywell",
     responsibilities: ["Domain research", "Workflow modeling", "Interaction design", "Stakeholder alignment"],
-    originalUrl: "https://www.anushreedey.com/blockchain-platform",
   },
   {
     slug: "flight-connectivity-simulation-system",
@@ -155,7 +154,6 @@ export const PROJECTS: Project[] = [
     duration: "2017, 2018",
     organization: "Philips Healthcare",
     responsibilities: ["Clinical workflow design", "Interaction design", "Extensibility framework", "Usability with clinicians"],
-    originalUrl: "https://www.anushreedey.com/mri",
   },
   {
     slug: "clove",
@@ -167,7 +165,6 @@ export const PROJECTS: Project[] = [
     industry: "Consumer Healthcare",
     duration: "2017",
     responsibilities: ["Service design", "User research", "Interaction design", "Visual design"],
-    originalUrl: "https://www.anushreedey.com/clove",
   },
   {
     slug: "connecting-the-dots",
@@ -179,7 +176,6 @@ export const PROJECTS: Project[] = [
     industry: "Future of Work",
     duration: "2016",
     responsibilities: ["Ethnographic research", "Concept design", "Service prototyping", "Speculative design"],
-    originalUrl: "https://www.anushreedey.com/connecting-the-dots",
   },
   {
     slug: "autism-friendly-environment",
@@ -191,7 +187,6 @@ export const PROJECTS: Project[] = [
     industry: "Inclusive Design",
     duration: "2015",
     responsibilities: ["Field research", "Inclusive design", "Spatial interventions", "Prototyping"],
-    originalUrl: "https://www.anushreedey.com/autism-friendly-environment",
   },
 ];
 

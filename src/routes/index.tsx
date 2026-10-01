@@ -1,6 +1,8 @@
 import { assetUrl } from "@/lib/asset-url";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { track } from "@vercel/analytics";
+import { readExpanded, readScroll, writeExpanded, writeScroll } from "@/lib/portfolio-session";
 import { CATEGORIES, PROJECTS, type Category, type Project } from "@/data/projects";
 import { ProjectCard } from "@/components/ProjectCard";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -93,6 +95,31 @@ function Index() {
   const [filter, setFilter] = useState<Category>("All");
   const [active, setActive] = useState<string>("home");
 
+  // Store the scroll position continuously and restore it after the first
+  // paint, once the (possibly expanded) grid has laid out.
+  useEffect(() => {
+    const saved = readScroll();
+    if (saved > 0 && !window.location.hash) {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => window.scrollTo({ top: saved, behavior: "instant" as ScrollBehavior }));
+      });
+    }
+
+    let frame = 0;
+    const onScroll = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        writeScroll(window.scrollY);
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, []);
+
   const projects = useMemo(
     () => (filter === "All" ? PROJECTS : PROJECTS.filter((p) => p.category === filter)),
     [filter],
@@ -166,6 +193,7 @@ function Hero() {
               download
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => track("cv_download")}
               aria-label="Download the resume of Anushree Dey as a PDF"
               className="inline-flex h-11 items-center gap-2 rounded-full border border-foreground/20 px-6 text-sm font-medium text-foreground transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
@@ -211,8 +239,31 @@ function Portfolio({
   filter: Category;
   setFilter: (c: Category) => void;
 }) {
+  // Remember the expanded grid for this browsing session, so returning from a
+  // project page lands the visitor where they were. Read after hydration, since
+  // the server has no access to session storage.
   const [showAll, setShowAll] = useState(false);
-  useEffect(() => setShowAll(false), [filter]);
+  const hydrated = useRef(false);
+  const firstFilterRun = useRef(true);
+
+  useEffect(() => {
+    hydrated.current = true;
+    if (readExpanded()) setShowAll(true);
+  }, []);
+
+  useEffect(() => {
+    if (firstFilterRun.current) {
+      firstFilterRun.current = false;
+      return;
+    }
+    setShowAll(false);
+  }, [filter]);
+
+  useEffect(() => {
+    if (!hydrated.current) return;
+    writeExpanded(showAll);
+  }, [showAll]);
+
   return (
     <section id="portfolio" className="border-t border-border/70">
       <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">

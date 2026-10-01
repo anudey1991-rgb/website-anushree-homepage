@@ -657,7 +657,7 @@ function TimelineRow({ when, title, body }: { when: string; title: string; body:
 
 function Bullet({ children }: { children: React.ReactNode }) {
   return (
-    <li className="border-t border-border pt-4 text-base leading-relaxed">
+    <li className="relative pl-5 text-base leading-relaxed before:absolute before:left-0 before:top-[0.6em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-foreground/40">
       {children}
     </li>
   );

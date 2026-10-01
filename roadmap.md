@@ -12,3 +12,11 @@
 - [x] Batch 3: elevated metric panels in Survivorship, Tabular Edit and Cluster Detection
 - [x] Master Data Management case study with its own image folder
 - [x] SwiftAccess case study with its own image folder
+
+## Batch 5 (done)
+- [x] Native HD boards for Blockchain, Flight Connectivity, Diagnostic Imaging (MRI), Clove, Connecting the Dots, Autism Friendly Environment (sliced, uploaded, BoardCaseStudy + PROJECT_BOARDS)
+- [x] External Wix links removed for those six
+- [x] Vercel Analytics + track('cv_download'), track('nda_unlock')
+- [x] Smart resume assistant with 5 curated questions, email fallback, assistant_* events
+- [x] Homepage session memory for Show more state and scroll position
+- [x] Bullet styling pass across all case studies and overview responsibilities
