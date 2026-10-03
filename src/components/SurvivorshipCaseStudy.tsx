@@ -138,26 +138,26 @@ export function SurvivorshipCaseStudy({ project, recommendations }: { project: P
                 </p>
               </div>
               <Figure src={assetUrl(experienceAsset)} alt="Event-based experience flow from record batch to resolution" caption="The scenario moves from a 180-record batch to six focused decisions, with five resolved in Slack and one escalated." />
-              <JourneyStep title="Start with the shape of the work" body="A morning digest summarises the processed batch, what was resolved automatically and what needs a human decision. Estimated review time makes the queue predictable.">
+              <JourneyStep index={1} title="Start with the shape of the work" body="A morning digest summarises the processed batch, what was resolved automatically and what needs a human decision. Estimated review time makes the queue predictable.">
                 <Figure src={assetUrl(digestAsset)} alt="Slack morning digest summarising the survivorship review queue" caption="One message, three numbers and one action keep the first touch deliberately restrained." />
               </JourneyStep>
-              <JourneyStep title="Turn a warning into an informed choice" body="Each finding compares the survivorship result and agent evidence side by side. Provenance, confidence and downstream impact appear before the decision controls.">
+              <JourneyStep index={2} title="Turn a warning into an informed choice" body="Each finding compares the survivorship result and agent evidence side by side. Provenance, confidence and downstream impact appear before the decision controls.">
                 <div className="grid gap-6 sm:grid-cols-2">
                   <Figure src={assetUrl(criticalAsset)} alt="Critical Slack finding with survivorship and external evidence" caption="The critical finding state." contain />
                   <Figure src={assetUrl(selectionAsset)} alt="Slack finding after the steward selects an action" caption="An explicit receipt confirms the selected value and audit state." contain />
                 </div>
               </JourneyStep>
-              <JourneyStep title="Make system handoffs legible" body="When deeper investigation is needed, a transition state explains the move from Slack to Customer 360 and shows which external sources are being checked.">
+              <JourneyStep index={3} title="Make system handoffs legible" body="When deeper investigation is needed, a transition state explains the move from Slack to Customer 360 and shows which external sources are being checked.">
                 <Figure src={assetUrl(transitionAsset)} alt="Transition screen between Slack and Customer 360" caption="The wait is grounded in actual verification work rather than a generic loading indicator." />
               </JourneyStep>
-              <JourneyStep title="Preserve context during investigation" body="The record remains visible while the copilot presents findings in a right-hand panel. A field-level popover reuses the same evidence model for direct editing.">
+              <JourneyStep index={4} title="Preserve context during investigation" body="The record remains visible while the copilot presents findings in a right-hand panel. A field-level popover reuses the same evidence model for direct editing.">
                 <Figure src={assetUrl(consoleAsset)} alt="Customer 360 record with the copilot panel open" caption="The copilot is additive: the core record view remains undisturbed." />
                 <div className="grid gap-6 sm:grid-cols-2">
                   <Figure src={assetUrl(findingsAsset)} alt="Stacked finding cards in the copilot panel" caption="Related contradictions can be reviewed together." contain />
                   <Figure src={assetUrl(popoverAsset)} alt="Field-level copilot recommendation popover" caption="The same decision model adapts to field-level editing." contain />
                 </div>
               </JourneyStep>
-              <JourneyStep title="Close the accountability loop" body="The evidence trail is expandable on demand. After the decision, the interface confirms the update and leaves a persistent provenance signal on the record.">
+              <JourneyStep index={5} title="Close the accountability loop" body="The evidence trail is expandable on demand. After the decision, the interface confirms the update and leaves a persistent provenance signal on the record.">
                 <div className="grid gap-6 sm:grid-cols-2">
                   <Figure src={assetUrl(evidenceAsset)} alt="Expanded external evidence trail" caption="Full provenance is available without permanent density." contain />
                   <Figure src={assetUrl(confirmationAsset)} alt="Confirmation after a steward decision" caption="The receipt separates the decision from asynchronous system updates." contain />
@@ -241,7 +241,7 @@ function Insight({ kicker, title, body }: { kicker?: string; title: string; body
 
 function Principle({ label, title, children }: { label: string; title: string; children: React.ReactNode }) { return <div className="border-t border-border pt-5"><p className="text-xs text-muted-foreground">{label}</p><h3 className="mt-4 font-serif text-2xl text-foreground">{title}</h3><p className="mt-3 text-sm leading-relaxed">{children}</p></div>; }
 
-function JourneyStep({ title, body, children }: { title: string; body: string; children: React.ReactNode }) { return <article className="mt-16 border-t border-border pt-8 first:mt-12"><h3 className="font-serif text-3xl text-foreground">{title}</h3><p className="mt-4">{body}</p><div className="mt-8 space-y-6">{children}</div></article>; }
+function JourneyStep({ index, title, body, children }: { index: number; title: string; body: string; children: React.ReactNode }) { return <article className="mt-16 border-t border-border pt-8 first:mt-12"><p className="mb-3 text-xs uppercase tracking-[0.16em] text-muted-foreground">Stage {index} of 5</p><h3 className="font-serif text-3xl text-foreground">{title}</h3><p className="mt-4">{body}</p><div className="mt-8 space-y-6">{children}</div></article>; }
 
 function Figure({ src, alt, caption, contain = false, priority = false }: { src: string; alt: string; caption: string; contain?: boolean; priority?: boolean }) { return <figure className="my-10"><div className="overflow-hidden rounded-sm border border-border bg-secondary"><img src={src} alt={alt} loading={priority ? "eager" : "lazy"} className={`h-auto w-full ${contain ? "object-contain" : "object-cover"}`} /></div><figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">{caption}</figcaption></figure>; }
 
