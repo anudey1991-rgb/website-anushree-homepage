@@ -1,4 +1,5 @@
 import { assetUrl } from "@/lib/asset-url";
+import { EmptyCategoryState } from "@/components/EmptyCategoryState";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { track } from "@vercel/analytics";
