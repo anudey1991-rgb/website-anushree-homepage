@@ -329,16 +329,14 @@ function Portfolio({
         </div>
 
         <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {(showAll ? projects : projects.slice(0, 3)).map((p) => (
+          {(showAll || filter !== "All" ? projects : projects.slice(0, 3)).map((p) => (
             <ProjectCard key={p.title} project={p} />
           ))}
           {projects.length === 0 && (
-            <div className="col-span-full rounded-xl border border-dashed border-border py-20 text-center text-sm text-muted-foreground">
-              More {filter} case studies coming soon.
-            </div>
+            <EmptyCategoryState category={filter} onReset={() => setFilter("All")} />
           )}
         </div>
-        {projects.length > 3 && (
+        {filter === "All" && projects.length > 3 && (
           <div className="mt-12 flex justify-center">
             <button
               onClick={toggleShowAll}
