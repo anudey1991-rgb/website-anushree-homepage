@@ -81,7 +81,7 @@ export function MasterDataManagementCaseStudy({
             <Fact label="Role" value="Lead Designer" />
             <Fact label="Platform" value="Informatica IDMC" />
             <Fact label="Timeline" value="2020 – present" />
-            <Fact label="Organization" value="Salesforce" />
+            <Fact label="Organisation" value="Salesforce" />
           </dl>
           <ul className="mt-8 flex flex-wrap gap-2">
             {[

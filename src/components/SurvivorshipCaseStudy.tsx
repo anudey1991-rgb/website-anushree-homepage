@@ -52,7 +52,7 @@ export function SurvivorshipCaseStudy({ project, recommendations }: { project: P
             <Fact label="Role" value="UX Designer" />
             <Fact label="Platform" value="Informatica MDM Customer 360" />
             <Fact label="Surfaces" value="Slack · MDM Console" />
-            <Fact label="Organization" value="Salesforce" />
+            <Fact label="Organisation" value="Salesforce" />
           </dl>
         </section>
 

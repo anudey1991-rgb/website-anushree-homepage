@@ -70,7 +70,7 @@ export function SwiftAccessCaseStudy({
             <Fact label="Role" value="Product Designer" />
             <Fact label="Platform" value="Informatica IDMC" />
             <Fact label="Timeline" value="2024" />
-            <Fact label="Organization" value="Salesforce" />
+            <Fact label="Organisation" value="Salesforce" />
           </dl>
           <ul className="mt-8 flex flex-wrap gap-2">
             {[

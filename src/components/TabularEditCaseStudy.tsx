@@ -66,7 +66,7 @@ export function TabularEditCaseStudy({
             <Fact label="Role" value="UX Owner, Customer 360" />
             <Fact label="Platform" value="Informatica MDM BUI" />
             <Fact label="Timeline" value="2024 – present" />
-            <Fact label="Organization" value="Salesforce" />
+            <Fact label="Organisation" value="Salesforce" />
           </dl>
           <ul className="mt-8 flex flex-wrap gap-2">
             {[

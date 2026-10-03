@@ -48,7 +48,7 @@ export function BoardCaseStudy({
             {project.organization ? (
               <div>
                 <dt className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                  Organization
+                  Organisation
                 </dt>
                 <dd className="mt-3">
                   <OrgMark organization={project.organization} size="md" />
