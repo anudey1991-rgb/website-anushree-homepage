@@ -63,7 +63,7 @@ export function DataVisualizationCaseStudy({
             <Fact label="Role" value="Design Owner" />
             <Fact label="Platform" value="Informatica Customer 360" />
             <Fact label="Timeline" value="2020 – 2024" />
-            <Fact label="Organization" value="Salesforce" />
+            <Fact label="Organisation" value="Salesforce" />
           </dl>
           <ul className="mt-8 flex flex-wrap gap-2">
             {[

@@ -109,7 +109,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "data-visualization-creation-tool",
-    title: "Data Visualization Creation Tool & Dashboard",
+    title: "Data Visualisation Creation Tool & Dashboard",
     description: "A first-generation MVP that authors data reports and graphical visualisation components, paired with a dashboard for consuming and acting on insights.",
     image: assetUrl(dataVizCardCover),
     category: "Data Management",
@@ -117,7 +117,7 @@ export const PROJECTS: Project[] = [
     industry: "Enterprise Analytics",
     duration: "2020 – 2024",
     organization: "Salesforce",
-    responsibilities: ["MVP definition", "Data visualization design", "Dashboard interaction design", "Prototyping"],
+    responsibilities: ["MVP definition", "Data visualisation design", "Dashboard interaction design", "Prototyping"],
   },
   {
     slug: "blockchain-based-platform",
@@ -129,7 +129,7 @@ export const PROJECTS: Project[] = [
     industry: "Aviation",
     duration: "2019",
     organization: "Honeywell",
-    responsibilities: ["Domain research", "Workflow modeling", "Interaction design", "Stakeholder alignment"],
+    responsibilities: ["Domain research", "Workflow modelling", "Interaction design", "Stakeholder alignment"],
   },
   {
     slug: "flight-connectivity-simulation-system",

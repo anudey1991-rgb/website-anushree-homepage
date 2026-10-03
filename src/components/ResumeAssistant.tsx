@@ -38,7 +38,7 @@ const ENTRIES: Entry[] = [
     answer: [
       "Master Data Management (Customer 360), as lead designer across the product line since 2020.",
       "Cluster Detection and Bulk Edit Agent, as design lead on a 0 to 1 agent experience.",
-      "Agent-Verified Data Survivorship, Tabular Edit of Records, SwiftAccess, and the data visualization creation tool and dashboard.",
+      "Agent-Verified Data Survivorship, Tabular Edit of Records, SwiftAccess, and the data visualisation creation tool and dashboard.",
     ],
   },
   {

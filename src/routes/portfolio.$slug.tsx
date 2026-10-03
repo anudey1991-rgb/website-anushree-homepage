@@ -185,7 +185,7 @@ function ProjectPage() {
               <ProjectFact label="Industry" value={project.industry} />
               <ProjectFact label="Duration" value={project.duration} />
               {project.organization && (
-                <ProjectFact label="Organization" value={project.organization} />
+                <ProjectFact label="Organisation" value={project.organization} />
               )}
             </dl>
 

@@ -62,7 +62,7 @@ export function ClusterDetectionCaseStudy({
             <Fact label="Role" value="Design Lead, 0→1" />
             <Fact label="Platform" value="Informatica MDM · MCP" />
             <Fact label="Timeline" value="2026 – present" />
-            <Fact label="Organization" value="Salesforce" />
+            <Fact label="Organisation" value="Salesforce" />
           </dl>
           <ul className="mt-8 flex flex-wrap gap-2">
             {[
