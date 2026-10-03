@@ -229,16 +229,16 @@ export function SwiftAccessCaseStudy({
                 The full flow for a first-time user. The page stays visible throughout and fills in as the conversation
                 proceeds, so the user can see what their answers are producing.
               </p>
-              <Shot src={assetUrl(craft01)} alt="Step one of crafting a SwiftAccess page" caption="The conversation opens with the empty page on screen." />
-              <Shot src={assetUrl(craft02)} alt="Step two of crafting a SwiftAccess page" caption="The first question establishes which assets this user works with." />
-              <Shot src={assetUrl(craft03)} alt="Step three of crafting a SwiftAccess page" caption="Each answer pins its widgets immediately, without waiting for the end of the flow." />
-              <Shot src={assetUrl(craft04)} alt="Step four of crafting a SwiftAccess page" caption="The second question covers applications, keeping one decision per question." />
-              <Shot src={assetUrl(craft05)} alt="Step five of crafting a SwiftAccess page" caption="The grid reflows as widgets arrive, filling logically instead of leaving empty pockets." />
-              <Shot src={assetUrl(craft06)} alt="Step six of crafting a SwiftAccess page" caption="The third question covers activities: the things this user needs to keep monitoring." />
-              <Shot src={assetUrl(craft07)} alt="Step seven of crafting a SwiftAccess page" caption="Monitored activities take the larger widget footprint, because status needs more room than a link." />
-              <Shot src={assetUrl(craft08)} alt="Step eight of crafting a SwiftAccess page" caption="The resources question, asked as an opt-in rather than applied by default." />
-              <Shot src={assetUrl(craft09)} alt="Step nine of crafting a SwiftAccess page" caption="The page approaching its final composition." />
-              <Shot src={assetUrl(craft10)} alt="The completed SwiftAccess page" caption="The finished page: the user's own assets, applications and monitored activities on the first screen they land on." />
+              <Shot src={assetUrl(craft01)} alt="Step one of crafting a SwiftAccess page" caption="Step 1 of 10. The conversation opens with the empty page on screen." />
+              <Shot src={assetUrl(craft02)} alt="Step two of crafting a SwiftAccess page" caption="Step 2 of 10. The first question establishes which assets this user works with." />
+              <Shot src={assetUrl(craft03)} alt="Step three of crafting a SwiftAccess page" caption="Step 3 of 10. Each answer pins its widgets immediately, without waiting for the end of the flow." />
+              <Shot src={assetUrl(craft04)} alt="Step four of crafting a SwiftAccess page" caption="Step 4 of 10. The second question covers applications, keeping one decision per question." />
+              <Shot src={assetUrl(craft05)} alt="Step five of crafting a SwiftAccess page" caption="Step 5 of 10. The grid reflows as widgets arrive, filling logically instead of leaving empty pockets." />
+              <Shot src={assetUrl(craft06)} alt="Step six of crafting a SwiftAccess page" caption="Step 6 of 10. The third question covers activities: the things this user needs to keep monitoring." />
+              <Shot src={assetUrl(craft07)} alt="Step seven of crafting a SwiftAccess page" caption="Step 7 of 10. Monitored activities take the larger widget footprint, because status needs more room than a link." />
+              <Shot src={assetUrl(craft08)} alt="Step eight of crafting a SwiftAccess page" caption="Step 8 of 10. The resources question, asked as an opt-in rather than applied by default." />
+              <Shot src={assetUrl(craft09)} alt="Step nine of crafting a SwiftAccess page" caption="Step 9 of 10. The page approaching its final composition." />
+              <Shot src={assetUrl(craft10)} alt="The completed SwiftAccess page" caption="Step 10 of 10. The finished page: the user's own assets, applications and monitored activities on the first screen they land on." />
             </CaseSection>
 
             <CaseSection id="pin" eyebrow="Pinning from anywhere" title="Pin My Jobs to a SwiftAccess page">
@@ -247,11 +247,11 @@ export function SwiftAccessCaseStudy({
                 themselves, so a user working in a jobs list can pin it to SwiftAccess in place, without navigating away
                 or opening a settings screen. This is how the page keeps up as someone's responsibilities change.
               </p>
-              <Shot src={assetUrl(pin01)} alt="Starting to pin a jobs view to SwiftAccess" caption="Pinning starts inside the product the user is already working in." />
-              <Shot src={assetUrl(pin02)} alt="Choosing what to pin from the jobs view" caption="The user chooses what to pin without leaving their current context." />
-              <Shot src={assetUrl(pin03)} alt="Confirming the pin action" caption="The pin is confirmed explicitly, because it changes a page the user sees every day." />
-              <Shot src={assetUrl(pin04)} alt="The pinned widget appearing on the SwiftAccess page" caption="The new widget takes its place in the grid, sized by what it needs to display." />
-              <Shot src={assetUrl(pin05)} alt="The updated SwiftAccess page including the newly pinned jobs widget" caption="The updated page, maintained through normal work rather than through a configuration screen." />
+              <Shot src={assetUrl(pin01)} alt="Starting to pin a jobs view to SwiftAccess" caption="Step 1 of 5. Pinning starts inside the product the user is already working in." />
+              <Shot src={assetUrl(pin02)} alt="Choosing what to pin from the jobs view" caption="Step 2 of 5. The user chooses what to pin without leaving their current context." />
+              <Shot src={assetUrl(pin03)} alt="Confirming the pin action" caption="Step 3 of 5. The pin is confirmed explicitly, because it changes a page the user sees every day." />
+              <Shot src={assetUrl(pin04)} alt="The pinned widget appearing on the SwiftAccess page" caption="Step 4 of 5. The new widget takes its place in the grid, sized by what it needs to display." />
+              <Shot src={assetUrl(pin05)} alt="The updated SwiftAccess page including the newly pinned jobs widget" caption="Step 5 of 5. The updated page, maintained through normal work rather than through a configuration screen." />
             </CaseSection>
 
             <CaseSection id="impact" eyebrow="Business impact" title="Business impact">

@@ -287,12 +287,12 @@ export function ClusterDetectionCaseStudy({
                 distinction decides whether the steward needs an editing surface at all.
               </p>
               <ol className="mt-10 grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-                <Step step="Detect" body="A scheduled sweep, plus event triggers from the pipeline itself." />
-                <Step step="Cluster" body="Group by error class, affected field and root cause, all three matching." />
-                <Step step="Notify" body="One card per cluster. Metadata only, never record-level data." />
-                <Step step="Investigate" body="The workspace opens already scoped to the cluster. No search." />
-                <Step step="Resolve" body="Correct or accept, in batches, with overrides and exclusions per row." />
-                <Step step="Publish & audit" body="Through MDM's existing governed pipeline, with a full audit trail." />
+                <Step index={1} step="Detect" body="A scheduled sweep, plus event triggers from the pipeline itself." />
+                <Step index={2} step="Cluster" body="Group by error class, affected field and root cause, all three matching." />
+                <Step index={3} step="Notify" body="One card per cluster. Metadata only, never record-level data." />
+                <Step index={4} step="Investigate" body="The workspace opens already scoped to the cluster. No search." />
+                <Step index={5} step="Resolve" body="Correct or accept, in batches, with overrides and exclusions per row." />
+                <Step index={6} step="Publish & audit" body="Through MDM's existing governed pipeline, with a full audit trail." />
               </ol>
 
               <Shot
@@ -679,10 +679,11 @@ function Metric({ value, label }: { value: string; label: string }) {
   );
 }
 
-function Step({ step, body }: { step: string; body: string }) {
+function Step({ index, step, body }: { index: number; step: string; body: string }) {
   return (
     <li className="bg-card p-6">
-      <h3 className="font-serif text-xl text-foreground">{step}</h3>
+      <p className="font-mono text-xs tracking-[0.16em] text-muted-foreground">{String(index).padStart(2, "0")}</p>
+      <h3 className="mt-3 font-serif text-xl text-foreground">{step}</h3>
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{body}</p>
     </li>
   );

@@ -241,16 +241,16 @@ export function MasterDataManagementCaseStudy({
 
               <h3 className="mt-12 font-serif text-2xl text-foreground sm:text-3xl">User goals</h3>
               <ul className="mt-6 space-y-0">
-                <Goal label="View the master record">
+                <Goal index={1} label="View the master record">
                   See the trusted data for a business entity, assembled from every source system contributing to it.
                 </Goal>
-                <Goal label="Modify the record and validate it against governance">
+                <Goal index={2} label="Modify the record and validate it against governance">
                   Change values and have those changes checked against the governance rules the organisation has defined.
                 </Goal>
-                <Goal label="Review contributing sources, history and metadata">
+                <Goal index={3} label="Review contributing sources, history and metadata">
                   Inspect where each value came from, what it used to be, and how the record relates to others.
                 </Goal>
-                <Goal label="Export records">
+                <Goal index={4} label="Export records">
                   Take the record out of the platform for use in systems and processes downstream.
                 </Goal>
               </ul>
@@ -330,22 +330,22 @@ export function MasterDataManagementCaseStudy({
               <Shot
                 src={assetUrl(mergeSearch)}
                 alt="Search results listing candidate records for review"
-                caption="The steward starts from search results, scanning candidates for entities that look like the same organisation under different names."
+                caption="Step 1 of 4. The steward starts from search results, scanning candidates for entities that look like the same organisation under different names."
               />
               <Shot
                 src={assetUrl(mergeSelect)}
                 alt="Selecting duplicate records from the result set"
-                caption="Selecting the candidate duplicates. Selection is explicit and reversible before anything is committed."
+                caption="Step 2 of 4. Selecting the candidate duplicates. Selection is explicit and reversible before anything is committed."
               />
               <Shot
                 src={assetUrl(mergeTrigger)}
                 alt="The control that triggers a merge for the selected records"
-                caption="The merge action stays deliberately separate from selection, so a destructive operation is never one stray click away."
+                caption="Step 3 of 4. The merge action stays deliberately separate from selection, so a destructive operation is never one stray click away."
               />
               <Shot
                 src={assetUrl(mergeRecords)}
                 alt="The merge comparison view where surviving values are chosen"
-                caption="The merge itself: competing values compared side by side so the steward composes the surviving master record consciously, field by field."
+                caption="Step 4 of 4. The merge itself: competing values compared side by side so the steward composes the surviving master record consciously, field by field."
               />
             </CaseSection>
 
@@ -646,10 +646,10 @@ function CaseSection({
   );
 }
 
-function Goal({ label, children }: { label: string; children: React.ReactNode }) {
+function Goal({ index, label, children }: { index: number; label: string; children: React.ReactNode }) {
   return (
     <li className="border-t border-border pt-4">
-      <span className="block text-sm font-medium text-foreground">{label}</span>
+      <span className="flex items-baseline gap-3 text-sm font-medium text-foreground"><span className="font-mono text-xs text-muted-foreground">{String(index).padStart(2, "0")}</span>{label}</span>
       <span className="mt-2 block text-base leading-relaxed">{children}</span>
     </li>
   );
