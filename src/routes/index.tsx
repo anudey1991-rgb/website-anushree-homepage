@@ -353,24 +353,66 @@ function Portfolio({
   );
 }
 
+const ABOUT_FACTS = [
+  { label: "Organisations", value: "Salesforce (Informatica) · Honeywell Aerospace · Philips Healthcare" },
+  { label: "Core Domains", value: "Enterprise Data Management · Enterprise Workflows · Aerospace Systems · Diagnostic Imaging" },
+  { label: "Status", value: "Available for Senior & Lead Product Design roles (UK & Europe)" },
+];
+
+const FOCUS = [
+  {
+    title: "Enterprise data management",
+    body: "Designing high-density interfaces and workflows for business users, from cloud migration to data governance, configuration and business processes.",
+  },
+  {
+    title: "Agentic & AI-assisted workflows",
+    body: "Introducing practical AI that reduces friction and automates tedious tasks while keeping decisions transparent, inspectable and reversible.",
+  },
+  {
+    title: "Cross-functional design leadership",
+    body: "Leading design from discovery through delivery, partnering closely with product management, engineering and design systems teams.",
+  },
+];
+
 function About() {
   return (
     <section id="about" className="border-t border-border/70 bg-secondary/40">
       <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
-            <div>
-              <div className="relative aspect-[4/5] max-w-sm overflow-hidden rounded-sm bg-background">
-                <img
-                  src={PORTRAIT}
-                  alt="Portrait of Anushree Dey"
-                  loading="lazy"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <p className="mt-6 max-w-sm text-xs uppercase tracking-[0.22em] text-muted-foreground">
-                Anushree Dey | Lead Product Designer
-              </p>
+            <div className="relative aspect-[4/5] max-w-sm overflow-hidden rounded-sm bg-background">
+              <img
+                src={PORTRAIT}
+                alt="Portrait of Anushree Dey"
+                loading="lazy"
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <dl className="mt-8 max-w-sm divide-y divide-border/70 border-y border-border/70">
+              {ABOUT_FACTS.map((f) => (
+                <div key={f.label} className="py-4">
+                  <dt className="text-xs uppercase tracking-[0.22em] text-muted-foreground">{f.label}</dt>
+                  <dd className="mt-2 text-sm leading-relaxed text-foreground/85">{f.value}</dd>
+                </div>
+              ))}
+            </dl>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a
+                href={RESUME_URL}
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => track("cv_download")}
+                className="inline-flex h-11 items-center gap-2 rounded-full bg-foreground px-5 text-sm font-medium text-background transition-transform duration-200 hover:-translate-y-0.5"
+              >
+                Download Resume <span aria-hidden>&#8595;</span>
+              </a>
+              <a
+                href="#contact"
+                className="inline-flex h-11 items-center gap-2 rounded-full border border-foreground/20 px-5 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
+              >
+                Get in touch <span aria-hidden>→</span>
+              </a>
             </div>
           </div>
           <div className="lg:col-span-7">
@@ -378,38 +420,28 @@ function About() {
             <h2 className="mt-4 font-serif text-4xl leading-[1.1] tracking-[-0.02em] text-foreground sm:text-5xl">
               A decade of enterprise product design, grounded in systems thinking.
             </h2>
-
-            <div className="mt-12 grid gap-12">
-              <AboutBlock
-                label="Introduction"
-                body="I design enterprise software that helps people work effectively with complex data and business-critical systems."
-              />
-              <AboutBlock
-                label="Professional Summary"
-                body="Currently part of the Salesforce ecosystem, I design enterprise data management products, with a recent focus on agentic and AI-assisted workflows that simplify complex tasks while maintaining transparency, governance and user control."
-              />
-              <AboutBlock
-                label="Core Expertise"
-                body="Over the past decade, I've designed products across enterprise data management, healthcare, aerospace and education. My work spans cloud transformation, enterprise workflows, design systems and data-intensive experiences, including data onboarding, governance, configuration, security and business process management."
-              />
-              <AboutBlock
-                label="Approach"
-                body="With a background in architecture, I bring a systems-thinking approach to design, considering how products, people and technology work together to create scalable, cohesive experiences. I collaborate closely with product managers, architects and engineering teams to translate technical complexity into intuitive product experiences."
-              />
+            <div className="mt-10 max-w-2xl space-y-5 text-base leading-relaxed text-foreground/85 sm:text-lg">
+              <p>
+                With a background in architecture, I bring a systems-thinking approach to design, considering how products, people and technology work together to create scalable experiences. Over the past decade, my work has spanned enterprise data management, healthcare and aerospace.
+              </p>
+              <p>
+                Currently at Salesforce, I design the data management platform for business users. The product has been through a continuous evolution during my time here, where I have led design across key stages: migrating the legacy on-premise platform to cloud, expanding and enhancing the product scope, cross-product integration, Copilot integration, and now agentic workflows.
+              </p>
+            </div>
+            <div className="mt-12 border-t border-border/70 pt-8">
+              <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Focus</p>
+              <ul className="mt-6 max-w-2xl list-disc space-y-4 pl-5 marker:text-foreground/50">
+                {FOCUS.map((f) => (
+                  <li key={f.title} className="pl-1 text-base leading-relaxed text-foreground/85">
+                    <span className="font-medium text-foreground">{f.title}:</span> {f.body}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function AboutBlock({ label, body }: { label: string; body: string }) {
-  return (
-    <div className="grid gap-3 border-t border-border/70 pt-6 sm:grid-cols-[160px_1fr] sm:gap-8">
-      <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">{label}</p>
-      <p className="max-w-2xl text-base leading-relaxed text-foreground/85">{body}</p>
-    </div>
   );
 }
 
