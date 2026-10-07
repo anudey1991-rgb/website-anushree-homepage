@@ -18,18 +18,18 @@ const ENTRIES: Entry[] = [
     id: "enterprise_software",
     question: "What is Anushree's experience designing enterprise software?",
     answer: [
-      "Over ten years of product design, almost all of it on enterprise systems where the work is complex data, governance and business critical workflows.",
-      "At Salesforce she leads design for the Customer 360 master data management product line, taking it from legacy on-premise to cloud, through a new visual language, and into the first generation of AI inside the stewardship workflow.",
-      "Before that, aerospace systems at Honeywell (a blockchain supply chain platform and a flight connectivity simulation system) and diagnostic imaging software for MRI at Philips Healthcare.",
+      "She is a Lead Product & User Experience Designer with experience across enterprise technology, healthcare and aerospace.",
+      "At Salesforce (formerly Informatica) since October 2020, she leads design for Master Data Management, including the transition of legacy on-premises products to cloud-native platforms and new features that expanded the core product scope.",
+      "Before that, she was a User Experience Designer II in Aerospace at Honeywell, working on cockpit and aircraft management systems, and a contract designer for healthcare digital services at Philips Healthcare.",
     ],
   },
   {
     id: "enterprise_ai_ux",
     question: "What are her core skills in enterprise and AI experience design?",
     answer: [
-      "Designing agentic workflows that stay inspectable: scoped to tedious work, with provenance a steward can check and decisions a person can reverse.",
-      "Information architecture and interaction design for dense data surfaces, including tabular editing of up to 10,000 records, merge and survivorship flows, and cluster level bulk correction.",
-      "Discovery and research, usability testing, prototyping, and design system contributions at platform scale.",
+      "As Design Lead, she took an agentic AI capability from 0 to 1. It detects data quality issues, clusters related records by root cause and proposes bulk resolutions, delivered headlessly through MCP (Model Context Protocol) across AI copilot surfaces.",
+      "She led GenAI copilot integration in data management workflows and designed a trust-tiered, cross-surface experience model that matches information depth to each surface's authentication context.",
+      "Her other skills include design strategy, user research and usability testing, design systems and visual design, accessibility, and prototyping and interaction design in Figma.",
     ],
   },
   {
@@ -46,16 +46,16 @@ const ENTRIES: Entry[] = [
     question: "How does she work across functions and teams?",
     answer: [
       "She works with product management, engineering and research from discovery through delivery, and has carried projects end to end as the sole designer.",
-      "On the master data management design system she partnered closely with the visual design and design systems teams to redesign components so enterprise data density was achievable in a modern UI.",
-      "She hands off well scoped areas to other designers when a programme grows, as she did with draft records and conflict resolution.",
+      "She partners with product architecture and backend engineering through POCs to define key end-to-end workflows.",
+      "At Honeywell she defined cross-product strategy and ran co-creation workshops with global stakeholders and domain experts.",
     ],
   },
   {
     id: "leadership",
     question: "What are her design leadership qualities?",
     answer: [
-      "She sets direction on ambiguous, platform level problems and holds a point of view on where AI belongs in a workflow and where it does not.",
-      "She acts as a subject matter expert for the design system, intervening when inherited components did not serve the product, and driving the redesign rather than working around it.",
+      "She leads design through every phase of product development, from research and ideation to delivery, and helped the MDM products keep their Gartner market leader status.",
+      "She mentors junior designers and advocates UX best practices and design thinking within cross-functional agile teams.",
       "She is available for senior and lead roles in enterprise systems, data platforms and intelligent workflows.",
     ],
   },
