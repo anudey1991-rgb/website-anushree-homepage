@@ -220,7 +220,7 @@ function Hero() {
               className="inline-flex h-11 items-center gap-2 rounded-full border border-foreground/20 px-6 text-sm font-medium text-foreground transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
               View Resume
-              <span aria-hidden>&#8595;</span>
+              <span aria-hidden>&#8599;</span>
             </a>
           </div>
 
