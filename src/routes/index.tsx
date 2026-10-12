@@ -213,14 +213,13 @@ function Hero() {
             </a>
             <a
               href={RESUME_URL}
-              download
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => track("cv_download")}
-              aria-label="Download the resume of Anushree Dey as a PDF"
+              aria-label="View the resume of Anushree Dey as a PDF in a new tab"
               className="inline-flex h-11 items-center gap-2 rounded-full border border-foreground/20 px-6 text-sm font-medium text-foreground transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
-              Download Resume
+              View Resume
               <span aria-hidden>&#8595;</span>
             </a>
           </div>
@@ -398,13 +397,12 @@ function About() {
             <div className="mt-6 flex flex-wrap gap-3">
               <a
                 href={RESUME_URL}
-                download
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => track("cv_download")}
                 className="inline-flex h-11 items-center gap-2 rounded-full bg-foreground px-5 text-sm font-medium text-background transition-transform duration-200 hover:-translate-y-0.5"
               >
-                Download Resume <span aria-hidden>&#8595;</span>
+                View Resume <span aria-hidden>&#8599;</span>
               </a>
               <a
                 href="#contact"
