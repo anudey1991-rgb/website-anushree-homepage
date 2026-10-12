@@ -169,3 +169,29 @@
 html:has(#home) {
   scroll-behavior: smooth;
 }
+
+:root {
+  --ai-violet: oklch(0.52 0.24 295);
+  --ai-blue: oklch(0.55 0.2 260);
+  --ai-cyan: oklch(0.72 0.13 215);
+  --ai-magenta: oklch(0.6 0.24 345);
+}
+
+.assistant-ring {
+  background: linear-gradient(120deg, var(--ai-violet), var(--ai-blue), var(--ai-cyan), var(--ai-magenta));
+  box-shadow: 0 10px 28px -8px color-mix(in oklab, var(--ai-violet) 35%, transparent);
+}
+
+.assistant-glyph {
+  animation: assistant-breathe 2.8s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes assistant-breathe {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  50% { transform: scale(1.15) rotate(12deg); opacity: 0.85; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .assistant-glyph { animation: none; }
+}
