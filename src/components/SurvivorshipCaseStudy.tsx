@@ -1,3 +1,4 @@
+import { ZoomableImage } from "@/components/ZoomableImage";
 import { assetUrl } from "@/lib/asset-url";
 import { Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -243,7 +244,7 @@ function Principle({ label, title, children }: { label: string; title: string; c
 
 function JourneyStep({ index, title, body, children }: { index: number; title: string; body: string; children: React.ReactNode }) { return <article className="mt-16 border-t border-border pt-8 first:mt-12"><p className="mb-3 text-xs uppercase tracking-[0.16em] text-muted-foreground">Stage {index} of 5</p><h3 className="font-serif text-3xl text-foreground">{title}</h3><p className="mt-4">{body}</p><div className="mt-8 space-y-6">{children}</div></article>; }
 
-function Figure({ src, alt, caption, contain = false, priority = false }: { src: string; alt: string; caption: string; contain?: boolean; priority?: boolean }) { return <figure className="my-10"><div className="overflow-hidden rounded-sm border border-border bg-secondary"><img src={src} alt={alt} loading={priority ? "eager" : "lazy"} className={`h-auto w-full ${contain ? "object-contain" : "object-cover"}`} /></div><figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">{caption}</figcaption></figure>; }
+function Figure({ src, alt, caption, contain = false, priority = false }: { src: string; alt: string; caption: string; contain?: boolean; priority?: boolean }) { return <figure className="my-10"><div className="overflow-hidden rounded-sm border border-border bg-secondary"><ZoomableImage src={src} alt={alt} priority={priority} className={`block h-auto w-full ${contain ? "object-contain" : "object-cover"}`} /></div><figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">{caption}</figcaption></figure>; }
 
 function SystemRow({ title, value, body }: { title: string; value: string; body: string }) { return <div className="grid gap-3 py-6 sm:grid-cols-[140px_110px_1fr] sm:gap-6"><h3 className="font-medium text-foreground">{title}</h3><p className="text-sm text-foreground">{value}</p><p className="text-sm leading-relaxed">{body}</p></div>; }
 

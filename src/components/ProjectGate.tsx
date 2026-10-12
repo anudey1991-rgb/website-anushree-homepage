@@ -17,7 +17,7 @@ export function ProjectGate({ project, onUnlocked }: { project: Project; onUnloc
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const password = String(new FormData(event.currentTarget).get("password") ?? "");
+    const password = String(new FormData(event.currentTarget).get("password") ?? "").trim();
     if (!password.trim()) {
       setError("Please enter the access password.");
       return;
@@ -76,7 +76,6 @@ export function ProjectGate({ project, onUnlocked }: { project: Project; onUnloc
             <form
               onSubmit={onSubmit}
               method="post"
-              action="javascript:void(0)"
               className="rounded-lg border border-border bg-card p-8 shadow-sm"
               aria-labelledby="gate-heading"
             >

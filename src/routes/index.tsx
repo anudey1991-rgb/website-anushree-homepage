@@ -288,7 +288,7 @@ function Portfolio({
   }
 
   return (
-    <section id="portfolio" className="border-t border-border/70">
+    <section id="portfolio" className="scroll-mt-16 border-t border-border/70">
       <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
@@ -375,7 +375,7 @@ const FOCUS = [
 
 function About() {
   return (
-    <section id="about" className="border-t border-border/70 bg-secondary/40">
+    <section id="about" className="scroll-mt-16 border-t border-border/70 bg-secondary/40">
       <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
@@ -450,7 +450,7 @@ function Contact() {
     { label: "LinkedIn", value: "linkedin.com/in/anushreedey", href: "https://www.linkedin.com/in/anushreedey" },
   ];
   return (
-    <section id="contact" className="border-t border-border/70 bg-foreground text-background">
+    <section id="contact" className="scroll-mt-16 border-t border-border/70 bg-foreground text-background">
       <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
         <div className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-6">

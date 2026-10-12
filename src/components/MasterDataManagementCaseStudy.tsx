@@ -1,3 +1,4 @@
+import { ZoomableImage } from "@/components/ZoomableImage";
 import { assetUrl } from "@/lib/asset-url";
 import { Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -709,7 +710,7 @@ function Shot({
   return (
     <figure className="my-10">
       <div className="overflow-hidden rounded-sm border border-border bg-secondary">
-        <img src={src} alt={alt} loading={priority ? "eager" : "lazy"} className="block h-auto w-full" />
+        <ZoomableImage src={src} alt={alt} priority={priority} />
       </div>
       <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">{caption}</figcaption>
     </figure>
