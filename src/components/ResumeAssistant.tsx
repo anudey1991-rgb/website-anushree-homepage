@@ -187,9 +187,9 @@ export function ResumeAssistant() {
           });
         }}
         aria-expanded={open}
-        className="pointer-events-auto inline-flex h-11 items-center gap-2 rounded-full bg-foreground px-5 text-sm font-medium text-background shadow-lg transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        className="pointer-events-auto inline-flex h-11 items-center gap-2 rounded-full bg-cloud-blue px-5 text-sm font-medium text-primary-foreground shadow-lg shadow-cloud-blue/30 ring-1 ring-primary-foreground/15 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-cloud-blue/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
       >
-        <span aria-hidden>✦</span>
+        <span aria-hidden className="text-cloud-gold">✦</span>
         {open ? "Hide assistant" : "Ask about my resume"}
       </button>
       </div>
