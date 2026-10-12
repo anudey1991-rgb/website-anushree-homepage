@@ -178,6 +178,7 @@ export function ResumeAssistant() {
       )}
 
       <button
+        ref={toggleRef}
         type="button"
         onClick={() => {
           setOpen((value) => {
