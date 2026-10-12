@@ -187,10 +187,22 @@ export function ResumeAssistant() {
           });
         }}
         aria-expanded={open}
-        className="pointer-events-auto inline-flex h-11 items-center gap-2 rounded-full bg-cloud-blue px-5 text-sm font-medium text-primary-foreground shadow-lg shadow-cloud-blue/30 ring-1 ring-primary-foreground/15 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-cloud-blue/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        className="assistant-ring pointer-events-auto rounded-full p-[1.5px] transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
       >
-        <span aria-hidden className="text-cloud-gold">✦</span>
-        {open ? "Hide assistant" : "Ask about my resume"}
+        <span className="inline-flex h-11 items-center gap-2 rounded-full bg-card/95 px-5 text-sm font-medium text-foreground backdrop-blur-md">
+          <svg aria-hidden viewBox="0 0 24 24" className="assistant-glyph h-4 w-4">
+            <defs>
+              <linearGradient id="assistant-grad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stopColor="var(--ai-violet)" />
+                <stop offset="55%" stopColor="var(--ai-blue)" />
+                <stop offset="100%" stopColor="var(--ai-magenta)" />
+              </linearGradient>
+            </defs>
+            <path fill="url(#assistant-grad)" d="M10 2l1.9 5.6L17.5 9.5l-5.6 1.9L10 17l-1.9-5.6L2.5 9.5l5.6-1.9L10 2z" />
+            <path fill="url(#assistant-grad)" d="M18.5 13l.9 2.6 2.6.9-2.6.9-.9 2.6-.9-2.6-2.6-.9 2.6-.9.9-2.6z" />
+          </svg>
+          {open ? "Hide assistant" : "Ask about my resume"}
+        </span>
       </button>
       </div>
     </>
