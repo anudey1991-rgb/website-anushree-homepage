@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export type TocSection = readonly [string, string];
 
@@ -11,35 +11,48 @@ export type TocSection = readonly [string, string];
  */
 export function useSectionNav(sections: readonly TocSection[]) {
   const [active, setActive] = useState<string>(sections[0]?.[0] ?? "");
+  // While a click-driven scroll is running, ignore scroll tracking so the
+  // chosen item stays highlighted instead of flickering through sections.
+  const lockRef = useRef<number | null>(null);
 
   useEffect(() => {
-    const elements = sections
-      .map(([id]) => document.getElementById(id))
-      .filter((element): element is HTMLElement => Boolean(element));
-    if (elements.length === 0) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
-        if (visible) setActive(visible.target.id);
-      },
-      { rootMargin: "-88px 0px -55% 0px", threshold: [0, 0.2, 0.6] },
-    );
-
-    elements.forEach((element) => observer.observe(element));
-    return () => observer.disconnect();
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      if (lockRef.current !== null) return;
+      const offset = 140;
+      let current = sections[0]?.[0] ?? "";
+      for (const [id] of sections) {
+        const element = document.getElementById(id);
+        if (element && element.getBoundingClientRect().top - offset <= 0) current = id;
+      }
+      setActive(current);
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, [sections]);
 
   const goTo = (id: string) => {
     const element = document.getElementById(id);
     if (!element) return;
-    element.scrollIntoView({ behavior: "smooth", block: "start" });
     setActive(id);
-    if (typeof window !== "undefined") {
-      window.history.pushState(null, "", `#${id}`);
-    }
+    if (lockRef.current !== null) window.clearTimeout(lockRef.current);
+    const release = () => {
+      if (lockRef.current !== null) window.clearTimeout(lockRef.current);
+      lockRef.current = null;
+      window.removeEventListener("scrollend", release);
+    };
+    window.addEventListener("scrollend", release, { once: true });
+    lockRef.current = window.setTimeout(release, 1200);
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.history.pushState(null, "", `#${id}`);
   };
 
   return { active, goTo };

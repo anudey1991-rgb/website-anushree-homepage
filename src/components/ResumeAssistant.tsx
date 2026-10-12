@@ -15,30 +15,30 @@ type Entry = {
  */
 const ENTRIES: Entry[] = [
   {
-    id: "enterprise_software",
-    question: "What is Anushree's experience designing enterprise software?",
+    id: "agentic_ai",
+    question: "What is Anushree's experience with agentic AI and copilots?",
     answer: [
-      "She is a Lead Product & User Experience Designer with experience across enterprise technology, healthcare and aerospace.",
-      "At Salesforce (formerly Informatica) since October 2020, she leads design for Master Data Management, including the transition of legacy on-premises products to cloud-native platforms and new features that expanded the core product scope.",
-      "Before that, she was a User Experience Designer II in Aerospace at Honeywell, working on cockpit and aircraft management systems, and a contract designer for healthcare digital services at Philips Healthcare.",
+      "As Design Lead, she took an agentic AI capability from 0 to 1. It detects data quality issues, clusters related records by root cause and proposes bulk resolutions, delivered headlessly through MCP (Model Context Protocol) across AI copilot surfaces.",
+      "She pioneered GenAI copilot integration and its user experience in data management workflows, leading the strategic integration of AI into core data management services.",
+      "She designed a trust-tiered, cross-surface experience model that matches information depth, metadata only or full record detail, to each surface's authentication context within one governed platform.",
     ],
   },
   {
-    id: "enterprise_ai_ux",
-    question: "What are her core skills in enterprise and AI experience design?",
+    id: "enterprise_software",
+    question: "What is her broader enterprise software experience?",
     answer: [
-      "As Design Lead, she took an agentic AI capability from 0 to 1. It detects data quality issues, clusters related records by root cause and proposes bulk resolutions, delivered headlessly through MCP (Model Context Protocol) across AI copilot surfaces.",
-      "She led GenAI copilot integration in data management workflows and designed a trust-tiered, cross-surface experience model that matches information depth to each surface's authentication context.",
-      "Her other skills include design strategy, user research and usability testing, design systems and visual design, accessibility, and prototyping and interaction design in Figma.",
+      "She is a Lead Product & User Experience Designer with experience across enterprise technology, healthcare and aerospace.",
+      "At Salesforce (formerly Informatica) since October 2020, she has led design for Master Data Management through its evolution: the move from legacy on-premises to cloud-native, new features that expanded the product scope, cross-product integration, GenAI copilots and now agentic workflows. This work helped the MDM products maintain Gartner market leader status.",
+      "Before that, she was a User Experience Designer II in Aerospace at Honeywell, working on cockpit and aircraft management systems, and a contract designer for healthcare digital services at Philips Healthcare.",
     ],
   },
   {
     id: "salesforce_projects",
     question: "Which projects has she led at Salesforce?",
     answer: [
-      "Master Data Management (Customer 360), as lead designer across the product line since 2020.",
-      "Cluster Detection and Bulk Edit Agent, as design lead on a 0 to 1 agent experience.",
-      "Agent-Verified Data Survivorship, Tabular Edit of Records, SwiftAccess, and the data visualisation creation tool and dashboard.",
+      "Cluster Detection and Bulk Edit Agent, as design lead on a 0 to 1 agentic experience.",
+      "Agent-Verified Data Survivorship, an agentic copilot that cross-checks survivorship decisions inside Slack.",
+      "Master Data Management (Customer 360), as lead designer across the product line since 2020, along with Tabular Edit of Records, SwiftAccess, and the data visualisation creation tool and dashboard.",
     ],
   },
   {
@@ -47,16 +47,16 @@ const ENTRIES: Entry[] = [
     answer: [
       "She works with product management, engineering and research from discovery through delivery, and has carried projects end to end as the sole designer.",
       "She partners with product architecture and backend engineering through POCs to define key end-to-end workflows.",
-      "At Honeywell she defined cross-product strategy and ran co-creation workshops with global stakeholders and domain experts.",
+      "She develops and evolves design systems for consistent, accessible cross-product experiences. At Honeywell she defined cross-product strategy and ran co-creation workshops with global stakeholders and domain experts.",
     ],
   },
   {
     id: "leadership",
     question: "What are her design leadership qualities?",
     answer: [
-      "She leads design through every phase of product development, from research and ideation to delivery, and helped the MDM products keep their Gartner market leader status.",
+      "She leads design through every phase of product development, from research and ideation to delivery.",
       "She mentors junior designers and advocates UX best practices and design thinking within cross-functional agile teams.",
-      "She is available for senior and lead roles in enterprise systems, data platforms and intelligent workflows.",
+      "She is available for senior and lead roles in enterprise systems, data platforms and AI-driven workflows.",
     ],
   },
 ];
@@ -65,14 +65,24 @@ export function ResumeAssistant() {
   const [open, setOpen] = useState(false);
   const [activeId, setActiveId] = useState<string | null>(null);
   const panelRef = useRef<HTMLDivElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!open) return;
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") setOpen(false);
     };
+    const onPointer = (event: PointerEvent) => {
+      const target = event.target as Node;
+      if (panelRef.current?.contains(target) || toggleRef.current?.contains(target)) return;
+      setOpen(false);
+    };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onPointer);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", onPointer);
+    };
   }, [open]);
 
   const active = ENTRIES.find((entry) => entry.id === activeId) ?? null;
